@@ -48,7 +48,8 @@ export function findMatches(user: { person_id: number | null }, act: ActivityRow
   const suggested = new Map(act.suggested_peaks.map((p) => [p.id, p.name]))
   const out: HikeMatch[] = []
   for (const c of cands) {
-    const peaks = all<{ id: number; name: string }>("SELECT p.id, p.name FROM hike_peaks hp JOIN peaks p ON p.id = hp.peak_id WHERE hp.hike_id = ? ORDER BY hp.ordinal", c.id)
+    // node:sqlite rows have a null prototype; copy to plain objects so they can cross into Client Components
+    const peaks = all<{ id: number; name: string }>("SELECT p.id, p.name FROM hike_peaks hp JOIN peaks p ON p.id = hp.peak_id WHERE hp.hike_id = ? ORDER BY hp.ordinal", c.id).map((p) => ({ id: p.id, name: p.name }))
     const sameDay = c.date <= act.start_date && (c.end_date ?? c.date) >= act.start_date
     const shared = peaks.filter((p) => suggested.has(p.id))
     const inArea =
