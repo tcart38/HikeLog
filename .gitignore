@@ -40,3 +40,20 @@ next-env.d.ts
 
 !.env.example
 /data/db
+
+# never commit private material (this repo is public)
+.env
+.env.*
+!.env.example
+*.db
+*.db-*
+*.sqlite*
+*.key
+/media/
+/exports/
+*.gpx
+*.fit
+*.xlsx
+*.csv
+/local/
+.impeccable/

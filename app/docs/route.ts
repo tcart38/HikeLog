@@ -1,3 +1,5 @@
+import { APP_VERSION } from "@/lib/version"
+
 export const dynamic = "force-static"
 
 const HTML = `<!doctype html>
@@ -5,7 +7,7 @@ const HTML = `<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HikeLog API</title>
+  <title>HikeLog API v${APP_VERSION}</title>
   <style>
     body { margin: 0; font-family: ui-sans-serif, system-ui, sans-serif; }
     .qs { padding: 12px 20px; background: #f4f5ef; border-bottom: 1px solid #d9dccf; color: #222; font-size: 14px; }
@@ -16,7 +18,7 @@ const HTML = `<!doctype html>
 </head>
 <body>
   <details class="qs" open>
-    <summary>Quick start for agents</summary>
+    <summary>Quick start for agents (HikeLog v${APP_VERSION}, pre-1.0)</summary>
     <p>Create an API token in Settings, then log a hike with peak and partner <em>names</em>. Add <code>externalId</code> to make it idempotent.</p>
     <pre><code>curl -X POST "$BASE_URL/api/v1/hikes" \\
   -H "Authorization: Bearer hk_YOUR_TOKEN" \\

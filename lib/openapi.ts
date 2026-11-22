@@ -1,5 +1,7 @@
 /* Hand-written OpenAPI 3.1 document for the HikeLog REST API. Keep in sync with app/api/**. */
 
+import { APP_VERSION } from "@/lib/version"
+
 type Json = Record<string, unknown>
 const ref = (n: string) => ({ $ref: `#/components/schemas/${n}` })
 const obj = (properties: Json, required?: string[]): Json => ({ type: "object", properties, ...(required ? { required } : {}) })
@@ -602,7 +604,7 @@ export function buildOpenApi(serverUrl: string): Json {
   const errorResponse = (description: string) => ({ description, content: { "application/json": { schema: ref("Error") } } })
   return {
     openapi: "3.1.0",
-    info: { title: "HikeLog API", version: "1.0.0", description: DESCRIPTION },
+    info: { title: "HikeLog API", version: APP_VERSION, description: DESCRIPTION },
     servers: [{ url: serverUrl }],
     security: [{ bearerAuth: [] }, { cookieAuth: [] }],
     tags: ["System", "Auth", "Hikes", "Peaks", "Lists", "Progress", "People", "Tokens", "Users", "Import", "Garmin", "Map", "Media", "Weather", "Export"].map((name) => ({ name })),

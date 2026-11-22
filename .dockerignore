@@ -7,3 +7,10 @@ design-system
 !README.md
 .env*
 scripts/*.sh
+local
+exports
+media
+*.db
+*.gpx
+*.fit
+*.xlsx

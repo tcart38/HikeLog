@@ -2,8 +2,6 @@
 
 Self-hosted hike log for a household. Log a hike once and every peak list, season and person updates: who still needs what, and what you both still need.
 
-![Dashboard](docs/screenshots/dashboard.png)
-
 ## Features
 
 - **Lists and modes.** NH 48, NE 67, NEHH, NE 115, ADK 46, Catskill 3500, Maine/Vermont 4000s, NH 52 With a View, Southern Sixers, 14ers, state high points and more. Each list shows progress as All, Winter, Four-season, 12-month Grid, or Snow / No snow / Mix.
@@ -20,14 +18,10 @@ Self-hosted hike log for a household. Log a hike once and every peak list, seaso
 - **REST API and OpenAPI.** Everything the UI does is available to scripts and agents (`/docs`, also under Settings > API & tokens).
 - **PWA.** Installable on iOS and Android, offline fallback page, phone tab bar with a "Log" button.
 
-| Compare | Lists on a phone |
-| --- | --- |
-| ![Compare](docs/screenshots/compare.png) | ![List on mobile](docs/screenshots/list-mobile.png) |
-
 ## Quick start
 
 ```bash
-git clone <this repo> hikelog && cd hikelog
+git clone https://github.com/tcart38/HikeLog.git hikelog && cd hikelog
 cp .env.example .env        # set APP_URL to the URL you will use
 docker compose up -d --build
 ```
@@ -161,3 +155,21 @@ Trail networks (definitions in `data/networks`, geometry downloaded on demand) a
 - Offline support is a fallback page plus cached static assets and recently visited pages; logging a hike needs a connection.
 
 See `DECISIONS.md` for the reasoning behind these choices.
+
+## Versioning and releases
+
+HikeLog follows [Semantic Versioning](https://semver.org). It is **pre-1.0** (currently `0.x`): the app is under active development, and minor versions may include breaking changes. 1.0.0 will mark the first stable release.
+
+The version lives in one place, the `version` field of `package.json`. The app shows it in Settings (footer), at `GET /api/health`, and on `/docs` and `/api/openapi.json`. Changes are recorded in [CHANGELOG.md](CHANGELOG.md) ([Keep a Changelog](https://keepachangelog.com) format).
+
+To cut a release:
+
+1. Move the entries under `## [Unreleased]` in `CHANGELOG.md` into a new `## [X.Y.Z] - YYYY-MM-DD` section and update the compare links at the bottom.
+2. Bump `version` in `package.json` (`0.x.0` for features or breaking changes, `0.x.y` for fixes).
+3. Commit: `git commit -am "Release vX.Y.Z"`.
+4. Tag and push: `git tag -a vX.Y.Z -m "vX.Y.Z" && git push origin main --tags`.
+5. Rebuild the deployment (`docker compose up -d --build`) and check `/api/health` reports the new version.
+
+## Keeping this repository public-safe
+
+This repo is public. Never commit secrets (`.env`, Garmin/Strava keys, tokens), databases, uploaded media, GPS tracks or exports, real names or addresses, or hostnames and IPs of your own network. Use placeholders such as `hike.example.com` and fictional people. Before pushing, run `scripts/check-public-safe.sh` (it also runs as a git pre-push hook if you install it with `ln -sf ../../scripts/check-public-safe.sh .git/hooks/pre-push`). Environment-specific notes belong in gitignored files under `local/`.
