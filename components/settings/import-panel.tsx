@@ -115,15 +115,8 @@ export function ImportPanel({ people, defaultPersonId }: { people: { id: number;
             }}
           />
           <div
-            role="button"
-            tabIndex={0}
-            aria-label={file ? `Selected file ${file.name}. Choose a different spreadsheet` : "Choose a spreadsheet or drop one here"}
-            onClick={() => inputRef.current?.click()}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault()
-                inputRef.current?.click()
-              }
+            onClick={(e) => {
+              if (e.target === e.currentTarget || !(e.target as HTMLElement).closest("button")) inputRef.current?.click()
             }}
             onDragEnter={(e) => {
               e.preventDefault()
@@ -143,8 +136,8 @@ export function ImportPanel({ people, defaultPersonId }: { people: { id: number;
               pick(e.dataTransfer.files?.[0] ?? null)
             }}
             className={cn(
-              "flex min-h-36 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-input bg-card px-4 py-6 text-center text-sm transition-colors outline-none",
-              "hover:border-primary/50 hover:bg-muted/50 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
+              "flex min-h-36 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-input bg-card px-4 py-6 text-center text-sm transition-colors",
+              "hover:border-primary/50 hover:bg-muted/50 active:bg-muted",
               dragging && "border-primary bg-primary/5"
             )}
           >
@@ -152,13 +145,19 @@ export function ImportPanel({ people, defaultPersonId }: { people: { id: number;
               <>
                 <FileSpreadsheetIcon className="size-6 text-primary" />
                 <span className="font-medium break-all">{file.name}</span>
-                <span className="text-xs text-muted-foreground">{fmtSize(file.size)} · click or drop to replace</span>
+                <span className="text-xs text-muted-foreground">{fmtSize(file.size)} · drop another file to replace</span>
+                <Button type="button" variant="outline" size="sm" className="mt-1 h-9 active:scale-[0.98]" onClick={() => inputRef.current?.click()}>
+                  Choose a different file
+                </Button>
               </>
             ) : (
               <>
                 <UploadIcon className={cn("size-6 text-muted-foreground", dragging && "text-primary")} />
                 <span className="font-medium">{dragging ? "Drop to select" : "Drag a spreadsheet here"}</span>
-                <span className="text-xs text-muted-foreground">or click to browse</span>
+                <span className="text-xs text-muted-foreground">or</span>
+                <Button type="button" variant="outline" size="sm" className="h-9 active:scale-[0.98]" onClick={() => inputRef.current?.click()}>
+                  Browse files
+                </Button>
               </>
             )}
           </div>
