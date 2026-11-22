@@ -51,6 +51,12 @@ function jwtExp(token: string): number | null {
 /** Exchange a personal API key for an OAuth2 access token. */
 export async function exchangeKey(apiKey: string): Promise<{ accessToken: string; expiresAt: Date }> {
   const res = await http(TOKEN_URL, { method: "POST", headers: { Authorization: `ApiKey ${apiKey}`, Accept: "application/json", "User-Agent": "HikeLog/1.0" } })
+  if (!res.ok) {
+    // Diagnostics for failed exchanges: status, a few headers and the body. Never the key.
+    const body = (await res.clone().text().catch(() => "")).slice(0, 300)
+    const h = ["retry-after", "server", "cf-ray", "content-type", "www-authenticate"].map((k) => `${k}=${res.headers.get(k) ?? "-"}`).join(" ")
+    console.error(`[garmin] token exchange failed: HTTP ${res.status} ${h} body=${JSON.stringify(body)}`)
+  }
   if (res.status === 401 || res.status === 403) throw new GarminError("Garmin rejected this API key. It may be wrong, deleted, or expired.", 400)
   if (res.status === 429) {
     const ra = Number(res.headers.get("retry-after"))
