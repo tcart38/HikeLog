@@ -10,6 +10,7 @@
   "officialUrl": "https://www.14ers.com/",
   "notes": "Elevations, ranks and coordinates for the 53 ranked peaks are from Wikipedia (NAVD88). Unranked peak elevations vary by source (14ers.com vs Wikipedia vs Peakbagger); see each peak's notes. Unranked peaks have no sourced coordinates except El Diente. Rank field is elevation order across all 58 using listed values.",
   "sources": [
+    { "title": "OpenStreetMap contributors via Overpass API - natural=peak node coordinates (ODbL), matched by name and elevation", "url": "https://www.openstreetmap.org/copyright", "accessed": "2026-11-22" },
     {
       "title": "List of Colorado fourteeners (Wikipedia)",
       "url": "https://en.wikipedia.org/wiki/List_of_Colorado_fourteeners",
@@ -278,6 +279,8 @@
       "elevationFt": 14238,
       "state": "CO",
       "range": "Mosquito Range",
+      "lat": 39.3464,
+      "lon": -106.11872,
       "rank": 17,
       "notes": "unranked (prominence ~152 ft); Wikipedia 14,238 ft; parent Mount Lincoln"
     },
@@ -736,6 +739,8 @@
       "elevationFt": 14037,
       "state": "CO",
       "range": "Elk Mountains",
+      "lat": 39.01575,
+      "lon": -106.86278,
       "rank": 50,
       "notes": "unranked; subsummit of Castle Peak; 14ers.com 14,037 (Peakbagger 14,035; other sources 14,060)"
     },
@@ -789,6 +794,8 @@
       "elevationFt": 14022,
       "state": "CO",
       "range": "Elk Mountains",
+      "lat": 39.07601,
+      "lon": -106.98714,
       "rank": 54,
       "notes": "unranked; 14ers.com 14,022 (Wikipedia 14,014/14,019 in different places)"
     },

@@ -9,6 +9,7 @@
   "officialUrl": "https://amc4000footer.org/newenglandhundredhighest.html",
   "notes": "Peaks 68-100 use AMC elevations; several (Sandwich, The Bulge, Goose Eye, Equinox, Mendon, East Sleepers, Wilson, Baldpate, Dorset) are estimated by the AMC. Many are trailless. Ranked by elevation; ties keep list order.",
   "sources": [
+    { "title": "OpenStreetMap contributors via Overpass API - natural=peak node coordinates (ODbL), matched by name and elevation", "url": "https://www.openstreetmap.org/copyright", "accessed": "2026-11-22" },
     {
       "title": "AMC Four Thousand Footer Committee - New England Hundred Highest (ranks 68-100)",
       "url": "https://amc4000footer.org/newenglandhundredhighest.html",
@@ -58,6 +59,8 @@
       "elevationFt": 6288,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.27049,
+      "lon": -71.3033,
       "rank": 1
     },
     {
@@ -71,6 +74,8 @@
       "elevationFt": 5774,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.32058,
+      "lon": -71.29164,
       "rank": 2,
       "notes": "Mount Adams, NH (not Mount Adams, WA)"
     },
@@ -85,6 +90,8 @@
       "elevationFt": 5712,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.30423,
+      "lon": -71.31675,
       "rank": 3
     },
     {
@@ -111,6 +118,8 @@
       "elevationFt": 5367,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.32879,
+      "lon": -71.27667,
       "rank": 5
     },
     {
@@ -128,6 +137,8 @@
       "elevationFt": 5268,
       "state": "ME",
       "range": "Baxter State Park",
+      "lat": 45.90436,
+      "lon": -68.92128,
       "rank": 6,
       "notes": "Highest point in Maine; northern terminus of the Appalachian Trail."
     },
@@ -143,6 +154,8 @@
       "elevationFt": 5260,
       "state": "NH",
       "range": "Franconia Range",
+      "lat": 44.16071,
+      "lon": -71.64438,
       "rank": 7,
       "notes": "4000footers.com gives 5,260 ft; Wikipedia NEHH table shows 5,249 ft."
     },
@@ -157,6 +170,8 @@
       "elevationFt": 5089,
       "state": "NH",
       "range": "Franconia Range",
+      "lat": 44.14883,
+      "lon": -71.64457,
       "rank": 8
     },
     {
@@ -170,6 +185,8 @@
       "elevationFt": 4902,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.18756,
+      "lon": -71.5548,
       "rank": 9
     },
     {
@@ -181,6 +198,8 @@
       "elevationFt": 4832,
       "state": "NH",
       "range": "Carter-Moriah Range",
+      "lat": 44.2674,
+      "lon": -71.17912,
       "rank": 10
     },
     {
@@ -194,6 +213,8 @@
       "elevationFt": 4802,
       "state": "NH",
       "range": "Western White Mountains",
+      "lat": 44.02341,
+      "lon": -71.83143,
       "rank": 11
     },
     {
@@ -209,6 +230,8 @@
       "elevationFt": 4780,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.24069,
+      "lon": -71.3504,
       "rank": 12,
       "notes": "Formerly named Mount Pleasant."
     },
@@ -223,6 +246,8 @@
       "elevationFt": 4761,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.20255,
+      "lon": -71.55799,
       "rank": 13
     },
     {
@@ -238,6 +263,8 @@
       "elevationFt": 4756,
       "state": "ME",
       "range": "Baxter State Park",
+      "lat": 45.92419,
+      "lon": -68.92758,
       "rank": 14,
       "notes": "Second summit of the Katahdin massif."
     },
@@ -252,6 +279,8 @@
       "elevationFt": 4700,
       "state": "NH",
       "range": "Pemigewasset Wilderness",
+      "lat": 44.09362,
+      "lon": -71.44681,
       "rank": 15
     },
     {
@@ -265,6 +294,8 @@
       "elevationFt": 4698,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.15292,
+      "lon": -71.53121,
       "rank": 16
     },
     {
@@ -316,6 +347,8 @@
       "elevationFt": 4459,
       "state": "NH",
       "range": "Franconia Range",
+      "lat": 44.11582,
+      "lon": -71.64221,
       "rank": 20
     },
     {
@@ -329,6 +362,8 @@
       "elevationFt": 4430,
       "state": "NH",
       "range": "Carter-Moriah Range",
+      "lat": 44.28987,
+      "lon": -71.17642,
       "rank": 21
     },
     {
@@ -348,6 +383,8 @@
       "elevationFt": 4422,
       "state": "NH",
       "range": "Carter-Moriah Range",
+      "lat": 44.2592,
+      "lon": -71.20161,
       "rank": 22
     },
     {
@@ -364,6 +401,8 @@
       "elevationFt": 4420,
       "state": "NH",
       "range": "Pemigewasset Wilderness",
+      "lat": 44.08345,
+      "lon": -71.4932,
       "rank": 23
     },
     {
@@ -377,6 +416,8 @@
       "elevationFt": 4393,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.54395,
+      "lon": -72.81431,
       "rank": 24,
       "notes": "Highest point in Vermont."
     },
@@ -394,6 +435,8 @@
       "elevationFt": 4358,
       "state": "NH",
       "range": "Western White Mountains",
+      "lat": 44.12296,
+      "lon": -71.73663,
       "rank": 25
     },
     {
@@ -421,6 +464,8 @@
       "elevationFt": 4340,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 44.00159,
+      "lon": -71.53597,
       "rank": 27
     },
     {
@@ -434,6 +479,8 @@
       "elevationFt": 4328,
       "state": "NH",
       "range": "Franconia Range",
+      "lat": 44.10882,
+      "lon": -71.6279,
       "rank": 28
     },
     {
@@ -449,6 +496,8 @@
       "elevationFt": 4319,
       "state": "NH",
       "range": "Pemigewasset Wilderness",
+      "lat": 44.07327,
+      "lon": -71.48694,
       "rank": 29
     },
     {
@@ -466,6 +515,8 @@
       "elevationFt": 4310,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.22685,
+      "lon": -71.36571,
       "rank": 30,
       "notes": "Also known as Mount Clinton."
     },
@@ -483,6 +534,8 @@
       "elevationFt": 4293,
       "state": "NH",
       "range": "Western White Mountains",
+      "lat": 44.13335,
+      "lon": -71.73681,
       "rank": 31
     },
     {
@@ -496,6 +549,8 @@
       "elevationFt": 4285,
       "state": "NH",
       "range": "Crawford Notch area",
+      "lat": 44.18344,
+      "lon": -71.42097,
       "rank": 32
     },
     {
@@ -510,6 +565,8 @@
       "elevationFt": 4265,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.14058,
+      "lon": -71.54092,
       "rank": 33
     },
     {
@@ -523,6 +580,8 @@
       "elevationFt": 4260,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.18002,
+      "lon": -71.52158,
       "rank": 34
     },
     {
@@ -552,6 +611,8 @@
       "elevationFt": 4235,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 43.60455,
+      "lon": -72.82015,
       "rank": 36
     },
     {
@@ -569,6 +630,8 @@
       "elevationFt": 4228,
       "state": "ME",
       "range": "High Peaks (Maine)",
+      "lat": 45.04715,
+      "lon": -70.38281,
       "rank": 37
     },
     {
@@ -586,6 +649,8 @@
       "elevationFt": 4180,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.97316,
+      "lon": -71.44278,
       "rank": 38
     },
     {
@@ -599,6 +664,8 @@
       "elevationFt": 4170,
       "state": "NH",
       "range": "Pilot Range",
+      "lat": 44.50607,
+      "lon": -71.41454,
       "rank": 39
     },
     {
@@ -611,6 +678,8 @@
       "elevationFt": 4170,
       "state": "ME",
       "range": "Eastern White Mountains",
+      "lat": 44.57088,
+      "lon": -70.95362,
       "rank": 40
     },
     {
@@ -673,6 +742,8 @@
       "elevationFt": 4140,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.96457,
+      "lon": -71.44007,
       "rank": 44
     },
     {
@@ -698,6 +769,8 @@
       "elevationFt": 4100,
       "state": "NH",
       "range": "Western White Mountains",
+      "lat": 44.15669,
+      "lon": -71.69862,
       "rank": 46
     },
     {
@@ -718,6 +791,8 @@
       "elevationFt": 4090,
       "state": "ME",
       "range": "Bigelow Range",
+      "lat": 45.14677,
+      "lon": -70.2761,
       "rank": 47,
       "notes": "Bigelow Mountain's main (east) summit."
     },
@@ -734,6 +809,8 @@
       "elevationFt": 4083,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.31956,
+      "lon": -72.88632,
       "rank": 48
     },
     {
@@ -748,6 +825,8 @@
       "elevationFt": 4083,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.16013,
+      "lon": -72.92887,
       "rank": 49
     },
     {
@@ -761,6 +840,8 @@
       "elevationFt": 4054,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.22173,
+      "lon": -71.51202,
       "rank": 50
     },
     {
@@ -774,6 +855,8 @@
       "elevationFt": 4052,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.20318,
+      "lon": -71.37546,
       "rank": 51
     },
     {
@@ -787,6 +870,8 @@
       "elevationFt": 4051,
       "state": "NH",
       "range": "Crawford Notch area",
+      "lat": 44.21054,
+      "lon": -71.44623,
       "rank": 52
     },
     {
@@ -804,6 +889,8 @@
       "elevationFt": 4050,
       "state": "NH",
       "range": "Carter-Moriah Range",
+      "lat": 44.24941,
+      "lon": -71.22359,
       "rank": 53,
       "notes": "4000footers.com and Wikipedia NEHH give 4,050 ft; the Wikipedia 4000-footer article shows 4,070 ft."
     },
@@ -825,6 +912,8 @@
       "elevationFt": 4050,
       "state": "ME",
       "range": "High Peaks (Maine)",
+      "lat": 44.97283,
+      "lon": -70.32636,
       "rank": 54,
       "notes": "Not to be confused with Mount Abraham, Vermont (mount-abraham-vt)."
     },
@@ -840,6 +929,8 @@
       "elevationFt": 4050,
       "state": "ME",
       "range": "High Peaks (Maine)",
+      "lat": 45.03617,
+      "lon": -70.37646,
       "rank": 55
     },
     {
@@ -853,6 +944,8 @@
       "elevationFt": 4049,
       "state": "NH",
       "range": "Carter-Moriah Range",
+      "lat": 44.34053,
+      "lon": -71.13172,
       "rank": 56
     },
     {
@@ -866,6 +959,8 @@
       "elevationFt": 4043,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.95477,
+      "lon": -71.3807,
       "rank": 57
     },
     {
@@ -881,6 +976,8 @@
       "elevationFt": 4025,
       "state": "NH",
       "range": "Pemigewasset Wilderness",
+      "lat": 44.14412,
+      "lon": -71.60497,
       "rank": 58,
       "notes": "Trailless; in the Pemigewasset Wilderness. Distinct from Owl's Head in Carroll (52 With a View)."
     },
@@ -894,6 +991,8 @@
       "elevationFt": 4024,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.18502,
+      "lon": -71.57343,
       "rank": 59
     },
     {
@@ -925,6 +1024,8 @@
       "elevationFt": 4020,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.93653,
+      "lon": -71.40763,
       "rank": 61
     },
     {
@@ -939,6 +1040,8 @@
       "elevationFt": 4010,
       "state": "ME",
       "range": "High Peaks (Maine)",
+      "lat": 45.02506,
+      "lon": -70.3884,
       "rank": 62
     },
     {
@@ -952,6 +1055,8 @@
       "elevationFt": 4010,
       "state": "ME",
       "range": "High Peaks (Maine)",
+      "lat": 45.00292,
+      "lon": -70.33378,
       "rank": 63
     },
     {
@@ -965,6 +1070,8 @@
       "elevationFt": 4006,
       "state": "NH",
       "range": "Pliny Range",
+      "lat": 44.43263,
+      "lon": -71.41751,
       "rank": 64
     },
     {
@@ -987,6 +1094,8 @@
       "elevationFt": 4006,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.1204,
+      "lon": -72.93619,
       "rank": 65,
       "notes": "Not to be confused with Mount Abraham, Maine (mount-abraham-me). Locally called Mount Abe."
     },
@@ -1001,6 +1110,8 @@
       "elevationFt": 4004,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.21483,
+      "lon": -71.30926,
       "rank": 66
     },
     {
@@ -1014,6 +1125,8 @@
       "elevationFt": 4003,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.96655,
+      "lon": -71.55659,
       "rank": 67,
       "notes": "AMC/4000footers.com list 4,003 ft; a 2019 resurvey measured about 3,997 ft (Wikipedia NEHH shows 3,997)."
     },
@@ -1029,6 +1142,8 @@
       "elevationFt": 3980,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.90025,
+      "lon": -71.4981,
       "rank": 68,
       "notes": "Elevation marked estimated by the AMC; other sources give about 3,993 ft."
     },
@@ -1043,6 +1158,8 @@
       "elevationFt": 3970,
       "state": "ME",
       "range": "Baxter State Park",
+      "lat": 45.94421,
+      "lon": -69.00171,
       "rank": 69
     },
     {
@@ -1057,6 +1174,8 @@
       ],
       "elevationFt": 3960,
       "state": "ME",
+      "lat": 45.29149,
+      "lon": -70.70926,
       "rank": 70,
       "notes": "Slug disambiguated by county; two Maine NEHH peaks are named Snow."
     },
@@ -1071,6 +1190,8 @@
       "elevationFt": 3957,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 43.63942,
+      "lon": -72.83642,
       "rank": 71
     },
     {
@@ -1082,6 +1203,8 @@
       ],
       "elevationFt": 3950,
       "state": "NH",
+      "lat": 44.51451,
+      "lon": -71.40831,
       "rank": 72,
       "notes": "AMC elevation is an estimate."
     },
@@ -1095,6 +1218,8 @@
       "elevationFt": 3940,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 43.08626,
+      "lon": -72.92489,
       "rank": 73
     },
     {
@@ -1108,6 +1233,8 @@
       "elevationFt": 3926,
       "state": "NH",
       "range": "Pemigewasset Wilderness",
+      "lat": 44.12236,
+      "lon": -71.40439,
       "rank": 74
     },
     {
@@ -1134,6 +1261,8 @@
       ],
       "elevationFt": 3901,
       "state": "NH",
+      "lat": 44.46149,
+      "lon": -71.38178,
       "rank": 76
     },
     {
@@ -1145,6 +1274,8 @@
       ],
       "elevationFt": 3885,
       "state": "NH",
+      "lat": 44.44234,
+      "lon": -71.38826,
       "rank": 77
     },
     {
@@ -1170,6 +1301,8 @@
       "elevationFt": 3862,
       "state": "NH",
       "range": "Pemigewasset Wilderness",
+      "lat": 44.10291,
+      "lon": -71.4345,
       "rank": 79,
       "notes": "Trailless subpeak of Mount Carrigain."
     },
@@ -1182,6 +1315,8 @@
       ],
       "elevationFt": 3861,
       "state": "ME",
+      "lat": 45.96205,
+      "lon": -68.97479,
       "rank": 80
     },
     {
@@ -1194,6 +1329,8 @@
       "elevationFt": 3858,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.92423,
+      "lon": -72.52569,
       "rank": 81
     },
     {
@@ -1206,6 +1343,8 @@
       ],
       "elevationFt": 3856,
       "state": "ME",
+      "lat": 45.23588,
+      "lon": -70.8184,
       "rank": 82
     },
     {
@@ -1229,6 +1368,8 @@
       ],
       "elevationFt": 3850,
       "state": "VT",
+      "lat": 43.16607,
+      "lon": -73.11841,
       "rank": 84,
       "notes": "AMC elevation is an estimate."
     },
@@ -1242,6 +1383,8 @@
       "elevationFt": 3850,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 43.59522,
+      "lon": -72.84653,
       "rank": 85,
       "notes": "AMC elevation is an estimate."
     },
@@ -1273,6 +1416,8 @@
       "elevationFt": 3835,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.00228,
+      "lon": -72.9415,
       "rank": 87
     },
     {
@@ -1312,6 +1457,8 @@
       "elevationFt": 3795,
       "state": "ME",
       "range": "Baxter State Park",
+      "lat": 45.93366,
+      "lon": -69.00921,
       "rank": 90
     },
     {
@@ -1323,6 +1470,8 @@
       ],
       "elevationFt": 3791,
       "state": "ME",
+      "lat": 45.12144,
+      "lon": -70.60035,
       "rank": 91
     },
     {
@@ -1338,6 +1487,8 @@
       "elevationFt": 3790,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.00478,
+      "lon": -72.92595,
       "rank": 92,
       "notes": "AMC elevation is an estimate."
     },
@@ -1365,6 +1516,8 @@
       ],
       "elevationFt": 3784,
       "state": "ME",
+      "lat": 45.16977,
+      "lon": -70.82729,
       "rank": 94,
       "notes": "AMC names this Snow (Cupsuptic); slug disambiguated by county."
     },
@@ -1392,6 +1545,8 @@
       ],
       "elevationFt": 3775,
       "state": "ME",
+      "lat": 45.22268,
+      "lon": -70.81518,
       "rank": 96
     },
     {
@@ -1403,6 +1558,8 @@
       ],
       "elevationFt": 3774,
       "state": "NH",
+      "lat": 44.02905,
+      "lon": -71.59441,
       "rank": 97
     },
     {
@@ -1414,6 +1571,8 @@
       ],
       "elevationFt": 3772,
       "state": "ME",
+      "lat": 44.76806,
+      "lon": -70.78212,
       "rank": 98
     },
     {
@@ -1426,6 +1585,8 @@
       ],
       "elevationFt": 3770,
       "state": "VT",
+      "lat": 43.30933,
+      "lon": -73.02818,
       "rank": 99,
       "notes": "AMC elevation is an estimate."
     },

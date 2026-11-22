@@ -10,6 +10,7 @@
   "officialUrl": "https://www.carolinamountainclub.org/",
   "notes": "Slug clingmans-dome-tn matches the Tennessee high point in us-state-highpoints.json (formerly Clingmans Dome). Roan High Knob, Mount Guyot etc. sit on the NC/TN line; state is the listed first/main state. Elevations and ranges are from Wikipedia's Southern Sixers table; no coordinates sourced, so omitted. Verify peak states and ranges against CMC's official list before relying on them.",
   "sources": [
+    { "title": "OpenStreetMap contributors via Overpass API - natural=peak node coordinates (ODbL), matched by name and elevation", "url": "https://www.openstreetmap.org/copyright", "accessed": "2026-11-22" },
     {
       "title": "Wikipedia: Southern Sixers",
       "url": "https://en.wikipedia.org/wiki/Southern_Sixers",
@@ -33,6 +34,8 @@
       "elevationFt": 6684,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.76496,
+      "lon": -82.26512,
       "rank": 1
     },
     {
@@ -46,6 +49,8 @@
       "elevationFt": 6647,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.77762,
+      "lon": -82.26179,
       "rank": 2
     },
     {
@@ -58,6 +63,8 @@
       "elevationFt": 6643,
       "state": "TN",
       "range": "Great Smoky Mountains",
+      "lat": 35.56286,
+      "lon": -83.49838,
       "rank": 3,
       "notes": "On the NC/TN state line"
     },
@@ -72,6 +79,8 @@
       "elevationFt": 6621,
       "state": "TN",
       "range": "Great Smoky Mountains",
+      "lat": 35.70531,
+      "lon": -83.25748,
       "rank": 4,
       "notes": "On the NC/TN state line"
     },
@@ -82,6 +91,8 @@
       "elevationFt": 6611,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.78956,
+      "lon": -82.25596,
       "rank": 5
     },
     {
@@ -106,6 +117,8 @@
       "elevationFt": 6593,
       "state": "TN",
       "range": "Great Smoky Mountains",
+      "lat": 35.65426,
+      "lon": -83.43683,
       "rank": 7
     },
     {
@@ -119,6 +132,8 @@
       "elevationFt": 6580,
       "state": "TN",
       "range": "Great Smoky Mountains",
+      "lat": 35.56215,
+      "lon": -83.50616,
       "rank": 8,
       "notes": "On the NC/TN state line"
     },
@@ -142,6 +157,8 @@
       "elevationFt": 6560,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.77984,
+      "lon": -82.25984,
       "rank": 10
     },
     {
@@ -153,6 +170,8 @@
       "elevationFt": 6557,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.73512,
+      "lon": -82.28623,
       "rank": 11
     },
     {
@@ -175,6 +194,8 @@
       "elevationFt": 6446,
       "state": "TN",
       "range": "Great Smoky Mountains",
+      "lat": 35.56684,
+      "lon": -83.49327,
       "rank": 13,
       "notes": "On the NC/TN state line"
     },
@@ -189,6 +210,8 @@
       "elevationFt": 6417,
       "state": "TN",
       "range": "Great Smoky Mountains",
+      "lat": 35.68672,
+      "lon": -83.27101,
       "rank": 14,
       "notes": "On the NC/TN state line"
     },
@@ -199,6 +222,8 @@
       "elevationFt": 6410,
       "state": "NC",
       "range": "Great Balsam Mountains",
+      "lat": 35.36732,
+      "lon": -82.99041,
       "rank": 15
     },
     {
@@ -208,6 +233,8 @@
       "elevationFt": 6400,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.72984,
+      "lon": -82.29151,
       "rank": 16
     },
     {
@@ -217,6 +244,8 @@
       "elevationFt": 6370,
       "state": "TN",
       "range": "Great Smoky Mountains",
+      "lat": 35.715,
+      "lon": -83.25524,
       "rank": 17,
       "notes": "On the NC/TN state line"
     },
@@ -236,6 +265,8 @@
       "elevationFt": 6327,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.85234,
+      "lon": -82.24874,
       "rank": 19
     },
     {
@@ -249,6 +280,8 @@
       "elevationFt": 6320,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.74873,
+      "lon": -82.27623,
       "rank": 20
     },
     {
@@ -258,6 +291,8 @@
       "elevationFt": 6292,
       "state": "NC",
       "range": "Plott Balsams",
+      "lat": 35.46412,
+      "lon": -83.13766,
       "rank": 21
     },
     {
@@ -267,6 +302,8 @@
       "elevationFt": 6285,
       "state": "TN",
       "range": "Unaka Mountains",
+      "lat": 36.10456,
+      "lon": -82.12235,
       "rank": 22,
       "notes": "On the NC/TN state line"
     },
@@ -286,6 +323,8 @@
       "elevationFt": 6240,
       "state": "NC",
       "range": "Plott Balsams",
+      "lat": 35.46313,
+      "lon": -83.13206,
       "rank": 24
     },
     {
@@ -295,6 +334,8 @@
       "elevationFt": 6234,
       "state": "NC",
       "range": "Great Smoky Mountains",
+      "lat": 35.69255,
+      "lon": -83.21505,
       "rank": 25
     },
     {
@@ -304,6 +345,8 @@
       "elevationFt": 6224,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.84067,
+      "lon": -82.24818,
       "rank": 26
     },
     {
@@ -330,6 +373,8 @@
       "elevationFt": 6217,
       "state": "TN",
       "range": "Great Smoky Mountains",
+      "lat": 35.63091,
+      "lon": -83.38964,
       "rank": 28,
       "notes": "On the NC/TN state line"
     },
@@ -340,6 +385,8 @@
       "elevationFt": 6214,
       "state": "NC",
       "range": "Great Balsam Mountains",
+      "lat": 35.32785,
+      "lon": -82.87448,
       "rank": 29
     },
     {
@@ -349,6 +396,8 @@
       "elevationFt": 6212,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.81762,
+      "lon": -82.24929,
       "rank": 30
     },
     {
@@ -361,6 +410,8 @@
       "elevationFt": 6200,
       "state": "NC",
       "range": "Black Mountains",
+      "lat": 35.84789,
+      "lon": -82.24762,
       "rank": 31
     },
     {
@@ -370,6 +421,8 @@
       "elevationFt": 6189,
       "state": "NC",
       "range": "Unaka Mountains",
+      "lat": 36.09984,
+      "lon": -82.0804,
       "rank": 32
     },
     {
@@ -383,6 +436,8 @@
       "elevationFt": 6188,
       "state": "TN",
       "range": "Great Smoky Mountains",
+      "lat": 35.58655,
+      "lon": -83.47245,
       "rank": 33,
       "notes": "On the NC/TN state line"
     },
@@ -393,6 +448,8 @@
       "elevationFt": 6169,
       "state": "NC",
       "range": "Great Smoky Mountains",
+      "lat": 35.68006,
+      "lon": -83.24851,
       "rank": 34
     },
     {
@@ -402,6 +459,8 @@
       "elevationFt": 6155,
       "state": "NC",
       "range": "Great Smoky Mountains",
+      "lat": 35.6719,
+      "lon": -83.17587,
       "rank": 35
     },
     {
@@ -415,6 +474,8 @@
       "elevationFt": 6134,
       "state": "NC",
       "range": "Great Smoky Mountains",
+      "lat": 35.68843,
+      "lon": -83.24921,
       "rank": 36
     },
     {
@@ -424,6 +485,8 @@
       "elevationFt": 6120,
       "state": "NC",
       "range": "Great Smoky Mountains",
+      "lat": 35.69557,
+      "lon": -83.25416,
       "rank": 37
     },
     {
@@ -437,6 +500,8 @@
       "elevationFt": 6120,
       "state": "NC",
       "range": "Great Smoky Mountains",
+      "lat": 35.69416,
+      "lon": -83.2483,
       "rank": 38
     },
     {
@@ -450,6 +515,8 @@
       "elevationFt": 6120,
       "state": "TN",
       "range": "Great Smoky Mountains",
+      "lat": 35.62478,
+      "lon": -83.39302,
       "rank": 39,
       "notes": "On the NC/TN state line"
     },
@@ -464,6 +531,8 @@
       "elevationFt": 6110,
       "state": "NC",
       "range": "Great Balsam Mountains",
+      "lat": 35.30316,
+      "lon": -82.92763,
       "rank": 40
     }
   ]

@@ -9,6 +9,7 @@
   "officialUrl": "https://amc4000footer.org/",
   "notes": "AMC winter rules: a winter ascent counts only if the entire hike starts after the winter solstice and ends before the spring equinox (astronomical/calendar winter); the hike must start and end within that window. Owl's Head and Isolation are remote, and Owl's Head is trailless. Tecumseh was resurveyed in 2019 at about 3,997 ft but remains on the AMC list. Elevations follow 4000footers.com.",
   "sources": [
+    { "title": "OpenStreetMap contributors via Overpass API - natural=peak node coordinates (ODbL), matched by name and elevation", "url": "https://www.openstreetmap.org/copyright", "accessed": "2026-11-22" },
     {
       "title": "4000footers.com - 48 New Hampshire 4,000 Footers",
       "url": "https://4000footers.com/nh.shtml",
@@ -38,6 +39,8 @@
       "elevationFt": 6288,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.27049,
+      "lon": -71.3033,
       "rank": 1
     },
     {
@@ -51,6 +54,8 @@
       "elevationFt": 5774,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.32058,
+      "lon": -71.29164,
       "rank": 2,
       "notes": "Mount Adams, NH (not Mount Adams, WA)"
     },
@@ -65,6 +70,8 @@
       "elevationFt": 5712,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.30423,
+      "lon": -71.31675,
       "rank": 3
     },
     {
@@ -91,6 +98,8 @@
       "elevationFt": 5367,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.32879,
+      "lon": -71.27667,
       "rank": 5
     },
     {
@@ -105,6 +114,8 @@
       "elevationFt": 5260,
       "state": "NH",
       "range": "Franconia Range",
+      "lat": 44.16071,
+      "lon": -71.64438,
       "rank": 6,
       "notes": "4000footers.com gives 5,260 ft; Wikipedia NEHH table shows 5,249 ft."
     },
@@ -119,6 +130,8 @@
       "elevationFt": 5089,
       "state": "NH",
       "range": "Franconia Range",
+      "lat": 44.14883,
+      "lon": -71.64457,
       "rank": 7
     },
     {
@@ -132,6 +145,8 @@
       "elevationFt": 4902,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.18756,
+      "lon": -71.5548,
       "rank": 8
     },
     {
@@ -143,6 +158,8 @@
       "elevationFt": 4832,
       "state": "NH",
       "range": "Carter-Moriah Range",
+      "lat": 44.2674,
+      "lon": -71.17912,
       "rank": 9
     },
     {
@@ -156,6 +173,8 @@
       "elevationFt": 4802,
       "state": "NH",
       "range": "Western White Mountains",
+      "lat": 44.02341,
+      "lon": -71.83143,
       "rank": 10
     },
     {
@@ -171,6 +190,8 @@
       "elevationFt": 4780,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.24069,
+      "lon": -71.3504,
       "rank": 11,
       "notes": "Formerly named Mount Pleasant."
     },
@@ -185,6 +206,8 @@
       "elevationFt": 4761,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.20255,
+      "lon": -71.55799,
       "rank": 12
     },
     {
@@ -198,6 +221,8 @@
       "elevationFt": 4700,
       "state": "NH",
       "range": "Pemigewasset Wilderness",
+      "lat": 44.09362,
+      "lon": -71.44681,
       "rank": 13
     },
     {
@@ -211,6 +236,8 @@
       "elevationFt": 4698,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.15292,
+      "lon": -71.53121,
       "rank": 14
     },
     {
@@ -262,6 +289,8 @@
       "elevationFt": 4459,
       "state": "NH",
       "range": "Franconia Range",
+      "lat": 44.11582,
+      "lon": -71.64221,
       "rank": 18
     },
     {
@@ -275,6 +304,8 @@
       "elevationFt": 4430,
       "state": "NH",
       "range": "Carter-Moriah Range",
+      "lat": 44.28987,
+      "lon": -71.17642,
       "rank": 19
     },
     {
@@ -294,6 +325,8 @@
       "elevationFt": 4422,
       "state": "NH",
       "range": "Carter-Moriah Range",
+      "lat": 44.2592,
+      "lon": -71.20161,
       "rank": 20
     },
     {
@@ -310,6 +343,8 @@
       "elevationFt": 4420,
       "state": "NH",
       "range": "Pemigewasset Wilderness",
+      "lat": 44.08345,
+      "lon": -71.4932,
       "rank": 21
     },
     {
@@ -326,6 +361,8 @@
       "elevationFt": 4358,
       "state": "NH",
       "range": "Western White Mountains",
+      "lat": 44.12296,
+      "lon": -71.73663,
       "rank": 22
     },
     {
@@ -353,6 +390,8 @@
       "elevationFt": 4340,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 44.00159,
+      "lon": -71.53597,
       "rank": 24
     },
     {
@@ -366,6 +405,8 @@
       "elevationFt": 4328,
       "state": "NH",
       "range": "Franconia Range",
+      "lat": 44.10882,
+      "lon": -71.6279,
       "rank": 25
     },
     {
@@ -381,6 +422,8 @@
       "elevationFt": 4319,
       "state": "NH",
       "range": "Pemigewasset Wilderness",
+      "lat": 44.07327,
+      "lon": -71.48694,
       "rank": 26
     },
     {
@@ -398,6 +441,8 @@
       "elevationFt": 4310,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.22685,
+      "lon": -71.36571,
       "rank": 27,
       "notes": "Also known as Mount Clinton."
     },
@@ -415,6 +460,8 @@
       "elevationFt": 4293,
       "state": "NH",
       "range": "Western White Mountains",
+      "lat": 44.13335,
+      "lon": -71.73681,
       "rank": 28
     },
     {
@@ -428,6 +475,8 @@
       "elevationFt": 4285,
       "state": "NH",
       "range": "Crawford Notch area",
+      "lat": 44.18344,
+      "lon": -71.42097,
       "rank": 29
     },
     {
@@ -442,6 +491,8 @@
       "elevationFt": 4265,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.14058,
+      "lon": -71.54092,
       "rank": 30
     },
     {
@@ -455,6 +506,8 @@
       "elevationFt": 4260,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.18002,
+      "lon": -71.52158,
       "rank": 31
     },
     {
@@ -472,6 +525,8 @@
       "elevationFt": 4180,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.97316,
+      "lon": -71.44278,
       "rank": 32
     },
     {
@@ -485,6 +540,8 @@
       "elevationFt": 4170,
       "state": "NH",
       "range": "Pilot Range",
+      "lat": 44.50607,
+      "lon": -71.41454,
       "rank": 33
     },
     {
@@ -515,6 +572,8 @@
       "elevationFt": 4140,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.96457,
+      "lon": -71.44007,
       "rank": 35
     },
     {
@@ -527,6 +586,8 @@
       "elevationFt": 4100,
       "state": "NH",
       "range": "Western White Mountains",
+      "lat": 44.15669,
+      "lon": -71.69862,
       "rank": 36
     },
     {
@@ -540,6 +601,8 @@
       "elevationFt": 4054,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.22173,
+      "lon": -71.51202,
       "rank": 37
     },
     {
@@ -553,6 +616,8 @@
       "elevationFt": 4052,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.20318,
+      "lon": -71.37546,
       "rank": 38
     },
     {
@@ -566,6 +631,8 @@
       "elevationFt": 4051,
       "state": "NH",
       "range": "Crawford Notch area",
+      "lat": 44.21054,
+      "lon": -71.44623,
       "rank": 39
     },
     {
@@ -583,6 +650,8 @@
       "elevationFt": 4050,
       "state": "NH",
       "range": "Carter-Moriah Range",
+      "lat": 44.24941,
+      "lon": -71.22359,
       "rank": 40,
       "notes": "4000footers.com and Wikipedia NEHH give 4,050 ft; the Wikipedia 4000-footer article shows 4,070 ft."
     },
@@ -597,6 +666,8 @@
       "elevationFt": 4049,
       "state": "NH",
       "range": "Carter-Moriah Range",
+      "lat": 44.34053,
+      "lon": -71.13172,
       "rank": 41
     },
     {
@@ -610,6 +681,8 @@
       "elevationFt": 4043,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.95477,
+      "lon": -71.3807,
       "rank": 42
     },
     {
@@ -625,6 +698,8 @@
       "elevationFt": 4025,
       "state": "NH",
       "range": "Pemigewasset Wilderness",
+      "lat": 44.14412,
+      "lon": -71.60497,
       "rank": 43,
       "notes": "Trailless; in the Pemigewasset Wilderness. Distinct from Owl's Head in Carroll (52 With a View)."
     },
@@ -638,6 +713,8 @@
       "elevationFt": 4024,
       "state": "NH",
       "range": "Twin Range",
+      "lat": 44.18502,
+      "lon": -71.57343,
       "rank": 44
     },
     {
@@ -652,6 +729,8 @@
       "elevationFt": 4020,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.93653,
+      "lon": -71.40763,
       "rank": 45
     },
     {
@@ -665,6 +744,8 @@
       "elevationFt": 4006,
       "state": "NH",
       "range": "Pliny Range",
+      "lat": 44.43263,
+      "lon": -71.41751,
       "rank": 46
     },
     {
@@ -678,6 +759,8 @@
       "elevationFt": 4004,
       "state": "NH",
       "range": "Presidential Range",
+      "lat": 44.21483,
+      "lon": -71.30926,
       "rank": 47
     },
     {
@@ -691,6 +774,8 @@
       "elevationFt": 4003,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.96655,
+      "lon": -71.55659,
       "rank": 48,
       "notes": "AMC/4000footers.com list 4,003 ft; a 2019 resurvey measured about 3,997 ft (Wikipedia NEHH shows 3,997)."
     }

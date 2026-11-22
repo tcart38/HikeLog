@@ -9,6 +9,7 @@
   "officialUrl": "https://amc4000footer.org/",
   "notes": "Camel's Hump and Mount Ellen are both 4,083 ft (tied). Mount Abraham (VT) is distinct from Abraham (ME). Elevations follow 4000footers.com.",
   "sources": [
+    { "title": "OpenStreetMap contributors via Overpass API - natural=peak node coordinates (ODbL), matched by name and elevation", "url": "https://www.openstreetmap.org/copyright", "accessed": "2026-11-22" },
     {
       "title": "4000footers.com - 5 Vermont 4,000 Footers",
       "url": "https://4000footers.com/vt.shtml",
@@ -38,6 +39,8 @@
       "elevationFt": 4393,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.54395,
+      "lon": -72.81431,
       "rank": 1,
       "notes": "Highest point in Vermont."
     },
@@ -54,6 +57,8 @@
       "elevationFt": 4235,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 43.60455,
+      "lon": -72.82015,
       "rank": 2
     },
     {
@@ -69,6 +74,8 @@
       "elevationFt": 4083,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.31956,
+      "lon": -72.88632,
       "rank": 3
     },
     {
@@ -83,6 +90,8 @@
       "elevationFt": 4083,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.16013,
+      "lon": -72.92887,
       "rank": 4
     },
     {
@@ -105,6 +114,8 @@
       "elevationFt": 4006,
       "state": "VT",
       "range": "Green Mountains",
+      "lat": 44.1204,
+      "lon": -72.93619,
       "rank": 5,
       "notes": "Not to be confused with Mount Abraham, Maine (mount-abraham-me). Locally called Mount Abe."
     }

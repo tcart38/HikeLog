@@ -10,6 +10,7 @@
   "officialUrl": "https://en.wikipedia.org/wiki/List_of_California_14,000-foot_summits",
   "notes": "Ranked-peak elevations and coordinates from Wikipedia (NAVD88). Unranked peaks lack sourced coordinates; their elevations vary by source. Mount Keith is about 13,976 ft and is not a fourteener. Note: Mount Muir and Middle Palisade both 14,018 ft. Rank field is elevation order across all 15.",
   "sources": [
+    { "title": "OpenStreetMap contributors via Overpass API - natural=peak node coordinates (ODbL), matched by name and elevation", "url": "https://www.openstreetmap.org/copyright", "accessed": "2026-11-22" },
     {
       "title": "List of California 14,000-foot summits (Wikipedia)",
       "url": "https://en.wikipedia.org/wiki/List_of_California_14,000-foot_summits",
@@ -102,6 +103,8 @@
       "elevationFt": 14200,
       "state": "CA",
       "range": "Sierra Nevada",
+      "lat": 37.0952,
+      "lon": -118.51529,
       "rank": 5,
       "notes": "unranked subsidiary of North Palisade (prominence under 300 ft); Wikipedia 14,200 ft (Peakbagger lidar 14,198)"
     },
@@ -162,6 +165,8 @@
       "elevationFt": 14080,
       "state": "CA",
       "range": "Sierra Nevada",
+      "lat": 37.09331,
+      "lon": -118.51219,
       "rank": 9,
       "notes": "unranked subsidiary of North Palisade; elevation uncertain, sources give ~14,080 to 14,100"
     },
@@ -251,6 +256,8 @@
       "elevationFt": 14009,
       "state": "CA",
       "range": "Sierra Nevada",
+      "lat": 37.09755,
+      "lon": -118.51757,
       "rank": 15,
       "notes": "unranked subsidiary of North Palisade (prominence under 300 ft); Wikipedia 14,009 ft"
     }

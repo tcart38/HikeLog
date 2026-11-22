@@ -10,6 +10,7 @@
   "officialUrl": "https://www.catskill3500club.org/",
   "notes": "The traditional list is 35 peaks, but per the club's current website the required list is 33: Graham and Doubletop were closed to public access effective Jan 13, 2021 (South Doubletop and Millbrook Ridge were briefly required and dropped Mar 22, 2021). They are kept here as the traditional 35 and flagged in their notes; the app may treat them as optional. Winter requirement: members must ALSO climb Slide, Blackhead, Balsam and Panther in winter (peaks marked 'winter-required'), giving 33 + 4 = 37 climbs under the current list (39 under the old 35). The club by-laws define winter as December 21 through March 21 inclusive, regardless of actual solstice/equinox dates; you need only be on the summit in that window. Winter patch list: a separate award, earned after basic membership, for climbing all of the required peaks (33 under the current list) in winter (Dec 21 to Mar 21). The app should track a per-ascent winter flag so both the 4 required winter peaks and the full winter-patch list can be computed. Ranges are common groupings, not from the club. No coordinates included (not in sources). Slide (4185) and Hunter (4030) use the club's figures; Wikipedia shows 4180 and 4040.",
   "sources": [
+    { "title": "OpenStreetMap contributors via Overpass API - natural=peak node coordinates (ODbL), matched by name and elevation", "url": "https://www.openstreetmap.org/copyright", "accessed": "2026-11-22" },
     {
       "title": "Catskill 3500 Club: Peaks (33 official peaks, elevations)",
       "url": "https://www.catskill3500club.org/peaks",
@@ -37,6 +38,8 @@
       "elevationFt": 4185,
       "state": "NY",
       "range": "Burroughs Range",
+      "lat": 41.9992,
+      "lon": -74.38594,
       "rank": 1,
       "notes": "winter-required"
     },
@@ -50,6 +53,8 @@
       "elevationFt": 4030,
       "state": "NY",
       "range": "Devil's Path",
+      "lat": 42.17787,
+      "lon": -74.23042,
       "rank": 2
     },
     {
@@ -63,6 +68,8 @@
       "elevationFt": 3994,
       "state": "NY",
       "range": "Blackhead Range",
+      "lat": 42.27018,
+      "lon": -74.12255,
       "rank": 3
     },
     {
@@ -76,6 +83,8 @@
       "elevationFt": 3953,
       "state": "NY",
       "range": "Blackhead Range",
+      "lat": 42.27055,
+      "lon": -74.13557,
       "rank": 4
     },
     {
@@ -88,6 +97,8 @@
       "elevationFt": 3940,
       "state": "NY",
       "range": "Blackhead Range",
+      "lat": 42.26774,
+      "lon": -74.10464,
       "rank": 5,
       "notes": "winter-required"
     },
@@ -103,6 +114,8 @@
       "elevationFt": 3898,
       "state": "NY",
       "range": "Devil's Path",
+      "lat": 42.16787,
+      "lon": -74.28959,
       "rank": 6
     },
     {
@@ -115,6 +128,8 @@
       "elevationFt": 3868,
       "state": "NY",
       "range": "Southwest Catskills",
+      "lat": 42.03917,
+      "lon": -74.54884,
       "rank": 7,
       "notes": "closed to public access since Jan 13, 2021; no longer required by the club (33-peak list); kept as part of the traditional 35. Elevation from Wikipedia."
     },
@@ -129,6 +144,8 @@
       "elevationFt": 3860,
       "state": "NY",
       "range": "Southwest Catskills",
+      "lat": 42.02759,
+      "lon": -74.52821,
       "rank": 8,
       "notes": "closed to public access since Jan 13, 2021; no longer required by the club (33-peak list); kept as part of the traditional 35. Elevation from Wikipedia."
     },
@@ -142,6 +159,8 @@
       "elevationFt": 3857,
       "state": "NY",
       "range": "Burroughs Range",
+      "lat": 42.0013,
+      "lon": -74.35618,
       "rank": 9
     },
     {
@@ -154,6 +173,8 @@
       "elevationFt": 3835,
       "state": "NY",
       "range": "Devil's Path",
+      "lat": 42.13787,
+      "lon": -74.17431,
       "rank": 10
     },
     {
@@ -166,6 +187,8 @@
       "elevationFt": 3825,
       "state": "NY",
       "range": "Burroughs Range",
+      "lat": 41.95864,
+      "lon": -74.40487,
       "rank": 11
     },
     {
@@ -178,6 +201,8 @@
       "elevationFt": 3819,
       "state": "NY",
       "range": "Southern Catskills",
+      "lat": 41.95315,
+      "lon": -74.39821,
       "rank": 12
     },
     {
@@ -190,6 +215,8 @@
       "elevationFt": 3783,
       "state": "NY",
       "range": "Devil's Path",
+      "lat": 42.1312,
+      "lon": -74.15014,
       "rank": 13
     },
     {
@@ -202,6 +229,8 @@
       "elevationFt": 3782,
       "state": "NY",
       "range": "Burroughs Range",
+      "lat": 42.00815,
+      "lon": -74.34737,
       "rank": 14
     },
     {
@@ -214,6 +243,8 @@
       "elevationFt": 3753,
       "state": "NY",
       "range": "Devil's Path",
+      "lat": 42.16236,
+      "lon": -74.24363,
       "rank": 15,
       "notes": "officially off-trail"
     },
@@ -227,6 +258,8 @@
       "elevationFt": 3729,
       "state": "NY",
       "range": "Southwest Catskills",
+      "lat": 42.04592,
+      "lon": -74.59404,
       "rank": 16
     },
     {
@@ -252,6 +285,8 @@
       "elevationFt": 3700,
       "state": "NY",
       "range": "Southern Catskills",
+      "lat": 41.96918,
+      "lon": -74.39003,
       "rank": 18,
       "notes": "untrailed summit"
     },
@@ -265,6 +300,8 @@
       "elevationFt": 3699,
       "state": "NY",
       "range": "Southwest Catskills",
+      "lat": 42.035,
+      "lon": -74.49665,
       "rank": 19,
       "notes": "untrailed summit"
     },
@@ -278,6 +315,8 @@
       "elevationFt": 3692,
       "state": "NY",
       "range": "Southern Catskills",
+      "lat": 41.98759,
+      "lon": -74.36209,
       "rank": 20
     },
     {
@@ -290,6 +329,8 @@
       "elevationFt": 3686,
       "state": "NY",
       "range": "Central Catskills",
+      "lat": 42.20107,
+      "lon": -74.27746,
       "rank": 21
     },
     {
@@ -303,6 +344,8 @@
       "elevationFt": 3652,
       "state": "NY",
       "range": "Northeast Catskills",
+      "lat": 42.16227,
+      "lon": -74.08026,
       "rank": 22
     },
     {
@@ -315,6 +358,8 @@
       "elevationFt": 3650,
       "state": "NY",
       "range": "Devil's Path",
+      "lat": 42.12565,
+      "lon": -74.12903,
       "rank": 23
     },
     {
@@ -327,6 +372,8 @@
       "elevationFt": 3629,
       "state": "NY",
       "range": "Southwest Catskills",
+      "lat": 42.02759,
+      "lon": -74.46904,
       "rank": 24
     },
     {
@@ -339,6 +386,8 @@
       "elevationFt": 3608,
       "state": "NY",
       "range": "Southern Catskills",
+      "lat": 41.97709,
+      "lon": -74.35742,
       "rank": 25
     },
     {
@@ -351,6 +400,8 @@
       "elevationFt": 3607,
       "state": "NY",
       "range": "Southwest Catskills",
+      "lat": 42.09092,
+      "lon": -74.48821,
       "rank": 26,
       "notes": "winter-required"
     },
@@ -363,6 +414,8 @@
       "elevationFt": 3605,
       "state": "NY",
       "range": "Central Catskills",
+      "lat": 42.17373,
+      "lon": -74.34901,
       "rank": 27
     },
     {
@@ -375,6 +428,8 @@
       "elevationFt": 3587,
       "state": "NY",
       "range": "Northwest Catskills",
+      "lat": 42.26522,
+      "lon": -74.47378,
       "rank": 28,
       "notes": "considered untrailed by some; no canister"
     },
@@ -388,6 +443,8 @@
       "elevationFt": 3583,
       "state": "NY",
       "range": "Southwest Catskills",
+      "lat": 42.06204,
+      "lon": -74.50932,
       "rank": 29
     },
     {
@@ -400,6 +457,8 @@
       "elevationFt": 3573,
       "state": "NY",
       "range": "Devil's Path",
+      "lat": 42.1162,
+      "lon": -74.11458,
       "rank": 30
     },
     {
@@ -412,6 +471,8 @@
       "elevationFt": 3558,
       "state": "NY",
       "range": "Central Catskills",
+      "lat": 42.17564,
+      "lon": -74.37293,
       "rank": 31
     },
     {
@@ -424,6 +485,8 @@
       "elevationFt": 3541,
       "state": "NY",
       "range": "Northwest Catskills",
+      "lat": 42.24536,
+      "lon": -74.44598,
       "rank": 32
     },
     {
@@ -437,6 +500,8 @@
       "elevationFt": 3525,
       "state": "NY",
       "range": "Northeast Catskills",
+      "lat": 42.3148,
+      "lon": -74.14326,
       "rank": 33
     },
     {
@@ -449,6 +514,8 @@
       "elevationFt": 3509,
       "state": "NY",
       "range": "Northwest Catskills",
+      "lat": 42.18009,
+      "lon": -74.43793,
       "rank": 34
     },
     {
@@ -461,6 +528,8 @@
       "elevationFt": 3487,
       "state": "NY",
       "range": "Southern Catskills",
+      "lat": 41.97266,
+      "lon": -74.37283,
       "rank": 35
     }
   ]

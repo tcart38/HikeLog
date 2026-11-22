@@ -9,6 +9,7 @@
   "officialUrl": "https://overthehillhikers.blogspot.com/",
   "notes": "Elevations vary between sources; values here follow the June 2025 Scenic NH table except Sandwich Mountain (3,980 ft) and The Horn (3,905 ft), which use the AMC NEHH figures so they match nehh-100. Doublehead and Welch-Dickey are each one list entry. Delisted peaks (Starr King, Martha, Blueberry, West Royce, Square Ledge, Black Mountain (Jackson), Hibbard, Wolf, Carr) are not included.",
   "sources": [
+    { "title": "OpenStreetMap contributors via Overpass API - natural=peak node coordinates (ODbL), matched by name and elevation", "url": "https://www.openstreetmap.org/copyright", "accessed": "2026-11-22" },
     {
       "title": "Scenic NH - New Hampshire 52 With a View (revised June 2025)",
       "url": "https://www.scenicnh.com/new-hampshire-52-with-a-view/",
@@ -44,6 +45,8 @@
       "elevationFt": 3980,
       "state": "NH",
       "range": "Sandwich Range",
+      "lat": 43.90025,
+      "lon": -71.4981,
       "rank": 1,
       "notes": "Elevation marked estimated by the AMC; other sources give about 3,993 ft."
     },
@@ -83,6 +86,8 @@
       ],
       "elevationFt": 3743,
       "state": "NH",
+      "lat": 44.35317,
+      "lon": -71.09878,
       "rank": 4
     },
     {
@@ -97,6 +102,8 @@
       ],
       "elevationFt": 3703,
       "state": "NH",
+      "lat": 44.74425,
+      "lon": -71.46783,
       "rank": 5
     },
     {
@@ -109,6 +116,8 @@
       ],
       "elevationFt": 3597,
       "state": "NH",
+      "lat": 44.24286,
+      "lon": -71.08709,
       "rank": 6
     },
     {
@@ -121,6 +130,8 @@
       ],
       "elevationFt": 3592,
       "state": "NH",
+      "lat": 44.47145,
+      "lon": -71.03897,
       "rank": 7
     },
     {
@@ -133,6 +144,8 @@
       ],
       "elevationFt": 3576,
       "state": "NH",
+      "lat": 44.23074,
+      "lon": -71.07808,
       "rank": 8
     },
     {
@@ -155,6 +168,8 @@
       ],
       "elevationFt": 3490,
       "state": "NH",
+      "lat": 43.95428,
+      "lon": -71.2733,
       "rank": 10
     },
     {
@@ -165,6 +180,8 @@
       ],
       "elevationFt": 3469,
       "state": "NH",
+      "lat": 44.15507,
+      "lon": -71.31841,
       "rank": 11
     },
     {
@@ -189,6 +206,8 @@
       ],
       "elevationFt": 3426,
       "state": "NH",
+      "lat": 44.14755,
+      "lon": -71.31402,
       "rank": 13
     },
     {
@@ -202,6 +221,8 @@
       ],
       "elevationFt": 3415,
       "state": "NH",
+      "lat": 44.66314,
+      "lon": -71.43512,
       "rank": 14
     },
     {
@@ -212,6 +233,8 @@
       ],
       "elevationFt": 3385,
       "state": "NH",
+      "lat": 45.06353,
+      "lon": -71.16236,
       "rank": 15
     },
     {
@@ -224,6 +247,8 @@
       ],
       "elevationFt": 3384,
       "state": "NH",
+      "lat": 44.0534,
+      "lon": -71.35697,
       "rank": 16
     },
     {
@@ -235,6 +260,8 @@
       ],
       "elevationFt": 3340,
       "state": "NH",
+      "lat": 43.96482,
+      "lon": -71.27019,
       "rank": 17
     },
     {
@@ -248,6 +275,8 @@
       ],
       "elevationFt": 3269,
       "state": "NH",
+      "lat": 44.10574,
+      "lon": -71.09394,
       "rank": 18
     },
     {
@@ -261,6 +290,8 @@
       ],
       "elevationFt": 3258,
       "state": "NH",
+      "lat": 44.33869,
+      "lon": -71.4922,
       "rank": 19,
       "notes": "Added June 2025. Distinct from Owl's Head in the Pemigewasset Wilderness (owls-head-nh)."
     },
@@ -272,6 +303,8 @@
       ],
       "elevationFt": 3238,
       "state": "NH",
+      "lat": 43.82563,
+      "lon": -72.03231,
       "rank": 20
     },
     {
@@ -297,6 +330,8 @@
       ],
       "elevationFt": 3170,
       "state": "NH",
+      "lat": 42.86151,
+      "lon": -72.10801,
       "rank": 22
     },
     {
@@ -319,6 +354,8 @@
       ],
       "elevationFt": 3149,
       "state": "NH",
+      "lat": 43.64957,
+      "lon": -71.91428,
       "rank": 24
     },
     {
@@ -331,6 +368,8 @@
       ],
       "elevationFt": 3128,
       "state": "NH",
+      "lat": 44.13667,
+      "lon": -71.33241,
       "rank": 25
     },
     {
@@ -343,6 +382,8 @@
       ],
       "elevationFt": 3100,
       "state": "NH",
+      "lat": 43.95112,
+      "lon": -71.32907,
       "rank": 26
     },
     {
@@ -357,6 +398,8 @@
       ],
       "elevationFt": 3051,
       "state": "NH",
+      "lat": 44.16773,
+      "lon": -71.13017,
       "rank": 27,
       "notes": "List entry is North Doublehead (3,051 ft) and South Doublehead (2,939 ft) together; elevation shown is North Doublehead."
     },
@@ -369,6 +412,8 @@
       ],
       "elevationFt": 3020,
       "state": "NH",
+      "lat": 44.25362,
+      "lon": -71.07163,
       "rank": 28
     },
     {
@@ -383,6 +428,8 @@
       ],
       "elevationFt": 3013,
       "state": "NH",
+      "lat": 44.1234,
+      "lon": -71.29841,
       "rank": 29
     },
     {
@@ -395,6 +442,8 @@
       ],
       "elevationFt": 2990,
       "state": "NH",
+      "lat": 43.74386,
+      "lon": -71.274,
       "rank": 30
     },
     {
@@ -405,6 +454,8 @@
       ],
       "elevationFt": 2965,
       "state": "NH",
+      "lat": 44.55008,
+      "lon": -71.36188,
       "rank": 31
     },
     {
@@ -416,6 +467,8 @@
       ],
       "elevationFt": 2938,
       "state": "NH",
+      "lat": 44.21562,
+      "lon": -71.06202,
       "rank": 32
     },
     {
@@ -430,6 +483,8 @@
       ],
       "elevationFt": 2935,
       "state": "NH",
+      "lat": 43.38345,
+      "lon": -71.85709,
       "rank": 33
     },
     {
@@ -445,6 +500,8 @@
       ],
       "elevationFt": 2916,
       "state": "NH",
+      "lat": 43.88574,
+      "lon": -72.02347,
       "rank": 34,
       "notes": "South Peak elevation shown."
     },
@@ -456,6 +513,8 @@
       ],
       "elevationFt": 2890,
       "state": "NH",
+      "lat": 43.83468,
+      "lon": -71.77911,
       "rank": 35
     },
     {
@@ -468,6 +527,8 @@
       ],
       "elevationFt": 2850,
       "state": "NH",
+      "lat": 44.20396,
+      "lon": -71.41309,
       "rank": 36
     },
     {
@@ -492,6 +553,8 @@
       ],
       "elevationFt": 2772,
       "state": "NH",
+      "lat": 44.0175,
+      "lon": -71.19349,
       "rank": 38
     },
     {
@@ -502,6 +565,8 @@
       ],
       "elevationFt": 2723,
       "state": "NH",
+      "lat": 44.13416,
+      "lon": -71.23904,
       "rank": 39,
       "notes": "Added to the list June 2025."
     },
@@ -519,6 +584,8 @@
       ],
       "elevationFt": 2722,
       "state": "NH",
+      "lat": 43.92302,
+      "lon": -71.57865,
       "rank": 40,
       "notes": "List entry is Welch (2,598 ft) and Dickey (2,722 ft) together; elevation shown is Dickey."
     },
@@ -530,6 +597,8 @@
       ],
       "elevationFt": 2691,
       "state": "NH",
+      "lat": 43.98204,
+      "lon": -71.39064,
       "rank": 41
     },
     {
@@ -540,6 +609,8 @@
       ],
       "elevationFt": 2669,
       "state": "NH",
+      "lat": 44.03184,
+      "lon": -71.26247,
       "rank": 42
     },
     {
@@ -552,6 +623,8 @@
       ],
       "elevationFt": 2636,
       "state": "NH",
+      "lat": 43.84563,
+      "lon": -71.47182,
       "rank": 43
     },
     {
@@ -564,6 +637,8 @@
       ],
       "elevationFt": 2584,
       "state": "NH",
+      "lat": 43.75634,
+      "lon": -71.32597,
       "rank": 44
     },
     {
@@ -576,6 +651,8 @@
       ],
       "elevationFt": 2573,
       "state": "NH",
+      "lat": 44.41566,
+      "lon": -71.15986,
       "rank": 45
     },
     {
@@ -589,6 +666,8 @@
       ],
       "elevationFt": 2552,
       "state": "NH",
+      "lat": 44.09784,
+      "lon": -71.69897,
       "rank": 46
     },
     {
@@ -599,6 +678,8 @@
       ],
       "elevationFt": 2543,
       "state": "NH",
+      "lat": 43.97422,
+      "lon": -71.36717,
       "rank": 47
     },
     {
@@ -613,6 +694,8 @@
       ],
       "elevationFt": 2538,
       "state": "NH",
+      "lat": 44.25147,
+      "lon": -71.51756,
       "rank": 48
     },
     {
@@ -624,6 +707,8 @@
       ],
       "elevationFt": 2465,
       "state": "NH",
+      "lat": 44.14799,
+      "lon": -71.75176,
       "rank": 49,
       "notes": "Added June 2025."
     },
@@ -635,6 +720,8 @@
       ],
       "elevationFt": 2404,
       "state": "NH",
+      "lat": 44.36588,
+      "lon": -71.21519,
       "rank": 50
     },
     {
@@ -647,6 +734,8 @@
       ],
       "elevationFt": 2213,
       "state": "NH",
+      "lat": 43.8039,
+      "lon": -71.56617,
       "rank": 51
     },
     {
@@ -659,6 +748,8 @@
       ],
       "elevationFt": 2200,
       "state": "NH",
+      "lat": 43.80963,
+      "lon": -71.5571,
       "rank": 52
     }
   ]

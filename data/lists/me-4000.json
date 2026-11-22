@@ -9,6 +9,7 @@
   "officialUrl": "https://amc4000footer.org/",
   "notes": "Baxter Peak and Hamlin Peak are separate peaks on the Katahdin massif; Bigelow Avery and West peaks are separate. Abraham (ME) is distinct from Abraham (VT). Elevations follow 4000footers.com.",
   "sources": [
+    { "title": "OpenStreetMap contributors via Overpass API - natural=peak node coordinates (ODbL), matched by name and elevation", "url": "https://www.openstreetmap.org/copyright", "accessed": "2026-11-22" },
     {
       "title": "4000footers.com - 14 Maine 4,000 Footers",
       "url": "https://4000footers.com/me.shtml",
@@ -42,6 +43,8 @@
       "elevationFt": 5268,
       "state": "ME",
       "range": "Baxter State Park",
+      "lat": 45.90436,
+      "lon": -68.92128,
       "rank": 1,
       "notes": "Highest point in Maine; northern terminus of the Appalachian Trail."
     },
@@ -58,6 +61,8 @@
       "elevationFt": 4756,
       "state": "ME",
       "range": "Baxter State Park",
+      "lat": 45.92419,
+      "lon": -68.92758,
       "rank": 2,
       "notes": "Second summit of the Katahdin massif."
     },
@@ -90,6 +95,8 @@
       "elevationFt": 4228,
       "state": "ME",
       "range": "High Peaks (Maine)",
+      "lat": 45.04715,
+      "lon": -70.38281,
       "rank": 4
     },
     {
@@ -102,6 +109,8 @@
       "elevationFt": 4170,
       "state": "ME",
       "range": "Eastern White Mountains",
+      "lat": 44.57088,
+      "lon": -70.95362,
       "rank": 5
     },
     {
@@ -167,6 +176,8 @@
       "elevationFt": 4090,
       "state": "ME",
       "range": "Bigelow Range",
+      "lat": 45.14677,
+      "lon": -70.2761,
       "rank": 9,
       "notes": "Bigelow Mountain's main (east) summit."
     },
@@ -188,6 +199,8 @@
       "elevationFt": 4050,
       "state": "ME",
       "range": "High Peaks (Maine)",
+      "lat": 44.97283,
+      "lon": -70.32636,
       "rank": 10,
       "notes": "Not to be confused with Mount Abraham, Vermont (mount-abraham-vt)."
     },
@@ -203,6 +216,8 @@
       "elevationFt": 4050,
       "state": "ME",
       "range": "High Peaks (Maine)",
+      "lat": 45.03617,
+      "lon": -70.37646,
       "rank": 11
     },
     {
@@ -234,6 +249,8 @@
       "elevationFt": 4010,
       "state": "ME",
       "range": "High Peaks (Maine)",
+      "lat": 45.02506,
+      "lon": -70.3884,
       "rank": 13
     },
     {
@@ -247,6 +264,8 @@
       "elevationFt": 4010,
       "state": "ME",
       "range": "High Peaks (Maine)",
+      "lat": 45.00292,
+      "lon": -70.33378,
       "rank": 14
     }
   ]
