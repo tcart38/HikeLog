@@ -68,6 +68,22 @@ export function buildOpenApi(serverUrl: string): Json {
         obj({ input: str(), status: { const: "unmatched" }, suggestions: arr(ref("Peak")) }, ["input", "status", "suggestions"]),
       ],
     },
+    Network: obj({
+      id: int(), slug: str(), groupSlug: nullable(str()), groupName: nullable(str()), name: str(), description: nullable(str()), source: str(), osmRef: nullable(str()),
+      segmentLengthM: int(), fetchedAt: nullable(str()), totalLengthMi: { type: "number" }, trailCount: int(), segmentCount: int(),
+      minLon: nullable({ type: "number" }), minLat: nullable({ type: "number" }), maxLon: nullable({ type: "number" }), maxLat: nullable({ type: "number" }),
+      downloaded: { type: "boolean" }, coverage: arr(ref("NetworkCoverage")),
+    }, ["slug", "name"]),
+    NetworkCoverage: obj({ personId: int(), coveredMi: { type: "number" }, totalMi: { type: "number" }, percent: { type: "number" }, trailsDone: int("Trails at 95% or more") }, ["personId"]),
+    TrailProgress: obj({
+      id: int(), name: str(), ref: nullable(str()), lengthMi: { type: "number" }, segments: int(),
+      byPerson: { type: "object", description: "Person id -> {coveredMi, share (0..1), percent}" },
+      neededByAllMi: { type: "number", description: "Miles none of the listed people have hiked" }, bbox: nullable(arr({ type: "number" })),
+    }),
+    HikeTrack: obj({
+      hikeId: int(), geojson: { type: "object", description: "LineString or MultiLineString" }, pointCount: int(), originalPointCount: nullable(int()),
+      lengthMi: { type: "number" }, bbox: nullable(arr({ type: "number" })), source: { enum: ["gpx", "garmin", "manual"] }, createdAt: str(),
+    }),
     Person: obj(
       {
         id: int(), name: str(), color: nullable(str()), createdAt: str(),
@@ -409,6 +425,81 @@ export function buildOpenApi(serverUrl: string): Json {
       parameters: [idParam("id", "Inbox activity id")],
       post: { tags: ["Garmin"], summary: "Dismiss an activity from the inbox", operationId: "ignoreGarminActivity", responses: { ...ok("OK", obj({ activity: ref("GarminActivity") })), ...errs("401", "404") } },
     },
+    "/api/v1/networks": {
+      get: {
+        tags: ["Map"], summary: "Trail networks (AT sections, White Mountains...) with coverage", operationId: "listNetworks",
+        description: "Every network defined in data/networks/*.json, downloaded or not. `coverage` has one entry per requested person: miles hiked, total miles, percent and trails done. Network data comes from OpenStreetMap, so it approximates (not copies) guidebooks such as the AMC White Mountain Guide.",
+        parameters: [q("person", "Comma-separated person ids or names. Defaults to the caller's person.")],
+        responses: { ...ok("OK", obj({ networks: arr(ref("Network")), groups: { type: "object", description: "Group slug -> {name, description, note}" } })), ...errs("401") },
+      },
+    },
+    "/api/v1/networks/{slug}/download": {
+      parameters: [{ name: "slug", in: "path", required: true, schema: { type: "string" }, description: "A network slug (e.g. `at-new-hampshire`, `white-mountains`) or a group slug (`appalachian-trail` downloads every state)" }],
+      post: {
+        tags: ["Map"], summary: "Download a network from OpenStreetMap (admin)", operationId: "downloadNetwork",
+        description: "Fetches geometry from the Overpass API at request time (descriptive User-Agent, retries and mirror fallback) and stores trails plus ~150-250 m segments. Can take a minute or more; the public Overpass servers are sometimes at capacity (503). Re-downloading keeps hand-made marks and recomputes GPS coverage for every hike with a track.",
+        responses: { ...ok("Downloaded", obj({ results: arr(obj({ slug: str(), name: str(), trails: int(), segments: int(), totalMi: { type: "number" }, seconds: { type: "number" }, coverage: obj({ hikes: int(), segments: int() }) })), networks: arr(ref("Network")) })), ...errs("401", "403", "404", "409", "503") },
+      },
+    },
+    "/api/v1/networks/{slug}/coverage": {
+      parameters: [{ name: "slug", in: "path", required: true, schema: { type: "string" } }],
+      get: {
+        tags: ["Map"], summary: "Coverage of a network per person, with a per-trail breakdown", operationId: "networkCoverage",
+        description: "A segment counts as hiked for a person when a GPS track of a hike they were counted on has at least 70% of its sample points within ~30 m of it, or when it was marked by hand. `trails[].neededByAllMi` is the mileage none of the listed people have done (the redlining equivalent of \"both still need\").",
+        parameters: [q("person", "Comma-separated person ids or names. Defaults to the caller's person."), q("trails", "Pass 0 to leave out the per-trail list", { type: "string", enum: ["0", "1"] })],
+        responses: { ...ok("OK", obj({ network: ref("Network"), coverage: arr(ref("NetworkCoverage")), trails: arr(ref("TrailProgress")) })), ...errs("401", "404") },
+      },
+    },
+    "/api/v1/networks/{slug}/geojson": {
+      parameters: [{ name: "slug", in: "path", required: true, schema: { type: "string" } }],
+      get: {
+        tags: ["Map"], summary: "Network geometry as GeoJSON with a covered flag", operationId: "networkGeoJson",
+        description: "FeatureCollection of MultiLineString runs. Consecutive segments of a trail with the same coverage state are merged into one feature. Properties: `trailId`, `name`, `ref`, `covered` (1 when the FIRST listed person has hiked that stretch), `by` (comma-separated ids of every listed person who has), `fromIdx`/`toIdx` (segment index range).",
+        parameters: [q("person", "Comma-separated person ids or names; the first sets `covered`. Defaults to the caller's person.")],
+        responses: { ...ok("GeoJSON FeatureCollection", { type: "object" }), ...errs("401", "404") },
+      },
+    },
+    "/api/v1/trails/{id}/segments": {
+      parameters: [idParam("id", "Trail id")],
+      get: {
+        tags: ["Map"], summary: "Segments of one trail with who covered each", operationId: "trailSegments",
+        parameters: [q("person", "Comma-separated person ids or names. Defaults to the caller's person.")],
+        responses: { ...ok("OK", obj({ trail: obj({ id: int(), name: str(), networkId: int(), lengthMi: { type: "number" } }), segments: arr(obj({ idx: int(), lengthM: int(), coords: arr(arr({ type: "number" })), coveredBy: arr(obj({ person: int(), source: { enum: ["track", "manual"] } })) })), bbox: arr({ type: "number" }) })), ...errs("401", "404") },
+      },
+    },
+    "/api/v1/hikes/{id}/track": {
+      parameters: [idParam("id", "Hike id")],
+      get: { tags: ["Map"], summary: "A hike's GPS track", operationId: "getHikeTrack", responses: { ...ok("OK", obj({ track: ref("HikeTrack") })), ...errs("401", "404") } },
+      post: {
+        tags: ["Map"], summary: "Attach (or replace) a GPS track: GPX or GeoJSON", operationId: "putHikeTrack",
+        description: "Send multipart/form-data with a `file` (.gpx or GeoJSON LineString / MultiLineString / Feature / FeatureCollection), or post the raw GPX/GeoJSON as the body. The track is simplified (Douglas-Peucker, ~10 m) before it is stored, then trail coverage is recomputed for every counted participant. Imported Garmin activities get their track automatically when Garmin provides a GPX.",
+        requestBody: {
+          required: true,
+          content: {
+            "multipart/form-data": { schema: obj({ file: { type: "string", format: "binary" } }, ["file"]) },
+            "application/gpx+xml": { schema: { type: "string" } },
+            "application/geo+json": { schema: { type: "object" } },
+          },
+        },
+        responses: { ...ok("Saved", obj({ track: ref("HikeTrack") }), "201"), ...errs("400", "401", "404", "413") },
+      },
+      delete: { tags: ["Map"], summary: "Remove a hike's GPS track (and the coverage it produced)", operationId: "deleteHikeTrack", responses: { ...ok("Removed", obj({ ok: { type: "boolean" } })), ...errs("401", "404") } },
+    },
+    "/api/v1/tracks": {
+      get: {
+        tags: ["Map"], summary: "Simplified GPS tracks for the map", operationId: "listTracks",
+        parameters: [q("person", "Only hikes this person was on"), q("hike", "Only this hike", { type: "integer" })],
+        responses: { ...ok("OK", obj({ tracks: arr(obj({ hikeId: int(), date: str(), title: nullable(str()), lengthMi: { type: "number" }, bbox: arr({ type: "number" }), people: arr(obj({ id: int(), name: str() })), geojson: { type: "object" } })) })), ...errs("401", "404") },
+      },
+    },
+    "/api/v1/coverage/manual": {
+      post: {
+        tags: ["Map"], summary: "Mark a trail (or a section of it) as hiked by hand", operationId: "markCoverage",
+        description: "For old hikes without GPS. `fromIdx`/`toIdx` are inclusive segment indexes within the trail (see `/trails/{id}/segments`); leave both out for the whole trail. `covered: false` clears hand-made marks only; GPS-derived coverage stays. Marks survive a network re-download.",
+        requestBody: body(obj({ trailId: int(), person: { oneOf: [int(), str()], description: "Person id or name. Defaults to the caller's person." }, fromIdx: int(), toIdx: int(), covered: { type: "boolean", default: true }, date: str("YYYY-MM-DD"), hikeId: int("Optional hike to link") }, ["trailId"]), { trailId: 12, person: "Alex", date: "2021-07-04" }),
+        responses: { ...ok("OK", obj({ ok: { type: "boolean" }, segments: int() })), ...errs("400", "401", "404") },
+      },
+    },
     "/api/openapi.json": { get: { tags: ["System"], summary: "This document", security: [], operationId: "openapi", responses: ok("OpenAPI 3.1 JSON") } },
   }
 
@@ -418,7 +509,7 @@ export function buildOpenApi(serverUrl: string): Json {
     info: { title: "HikeLog API", version: "1.0.0", description: DESCRIPTION },
     servers: [{ url: serverUrl }],
     security: [{ bearerAuth: [] }, { cookieAuth: [] }],
-    tags: ["System", "Auth", "Hikes", "Peaks", "Lists", "Progress", "People", "Tokens", "Users", "Import", "Garmin"].map((name) => ({ name })),
+    tags: ["System", "Auth", "Hikes", "Peaks", "Lists", "Progress", "People", "Tokens", "Users", "Import", "Garmin", "Map"].map((name) => ({ name })),
     paths,
     components: {
       securitySchemes: {

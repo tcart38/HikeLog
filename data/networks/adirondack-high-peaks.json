@@ -1,0 +1,20 @@
+{
+  "slug": "adirondack-high-peaks",
+  "name": "Adirondack High Peaks",
+  "description": "Named hiking paths around the Adirondack High Peaks region, from OpenStreetMap.",
+  "note": "Approximates the ADK High Peaks trail network using OpenStreetMap data; trail names and splits may differ from the ADK guidebook.",
+  "kind": "paths",
+  "segmentLengthM": 150,
+  "sections": [
+    {
+      "slug": "adirondack-high-peaks",
+      "name": "Adirondack High Peaks (OSM trails)",
+      "bbox": [
+        44.05,
+        -74.2,
+        44.3,
+        -73.75
+      ]
+    }
+  ]
+}

@@ -7,10 +7,10 @@ import { PlusIcon } from "lucide-react"
 import { NAV_MAIN, isActive } from "@/components/nav-items"
 import { cn } from "@/lib/utils"
 
-/** Bottom tab bar for phones: five destinations and a prominent "log a hike" action in the middle. */
+/** Bottom tab bar for phones: six destinations and a prominent "log a hike" action in the middle. */
 export function MobileNav() {
   const pathname = usePathname()
-  const [home, hikes, lists, stats, compare] = NAV_MAIN
+  const [home, hikes, lists, map, stats, compare] = NAV_MAIN
   const tab = (item: (typeof NAV_MAIN)[number]) => {
     const active = isActive(pathname, item.href)
     return (
@@ -45,6 +45,7 @@ export function MobileNav() {
           <PlusIcon className="size-6" />
         </Link>
       </div>
+      {tab(map)}
       {tab(stats)}
       {tab(compare)}
     </nav>

@@ -1,0 +1,18 @@
+/* MapLibre chrome tuned to the app: readable popups in both themes, attribution always visible. */
+.maplibregl-popup-content {
+  background: #fff;
+  color: #1c1c14;
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  box-shadow: 0 6px 24px -6px rgb(0 0 0 / 0.35);
+  font-family: inherit;
+}
+.maplibregl-popup-content a { color: #15803d; font-weight: 500; text-decoration: underline; }
+.maplibregl-popup-close-button { font-size: 1.25rem; width: 2rem; height: 2rem; color: #555; }
+.maplibregl-ctrl-attrib { font-size: 11px; max-width: min(100%, 36rem); }
+.maplibregl-ctrl-bottom-right { margin-bottom: var(--map-attrib-offset, 0px); transition: margin-bottom 200ms; }
+.maplibregl-ctrl-bottom-left { margin-bottom: var(--map-attrib-offset, 0px); transition: margin-bottom 200ms; }
+.maplibregl-ctrl-group button { width: 2.5rem; height: 2.5rem; }
+@media (min-width: 768px) {
+  .maplibregl-ctrl-group button { width: 29px; height: 29px; }
+}

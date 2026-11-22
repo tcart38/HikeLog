@@ -1,0 +1,106 @@
+{
+  "slug": "appalachian-trail",
+  "name": "Appalachian Trail",
+  "description": "The Appalachian National Scenic Trail, Georgia to Maine, split into one section per OSM state relation so you can download and track a state at a time.",
+  "note": "Geometry comes from OpenStreetMap (the AT hiking-route relations). Each state is cut into about 5-mile chunks you can mark by hand, and into ~250 m segments for GPS matching. OSM's length can differ slightly from the ATC's official figure.",
+  "kind": "route",
+  "segmentLengthM": 250,
+  "sections": [
+    {
+      "slug": "at-georgia",
+      "name": "AT – Georgia",
+      "relations": [
+        2007643
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-north-carolina-tennessee",
+      "name": "AT – North Carolina & Tennessee",
+      "relations": [
+        18319351
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-virginia",
+      "name": "AT – Virginia",
+      "relations": [
+        18321044
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-west-virginia",
+      "name": "AT – West Virginia",
+      "relations": [
+        19123292
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-maryland",
+      "name": "AT – Maryland",
+      "relations": [
+        18330829
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-pennsylvania",
+      "name": "AT – Pennsylvania",
+      "relations": [
+        18326382
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-new-jersey-new-york",
+      "name": "AT – New Jersey & New York",
+      "relations": [
+        2007688
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-connecticut",
+      "name": "AT – Connecticut",
+      "relations": [
+        3352289
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-massachusetts",
+      "name": "AT – Massachusetts",
+      "relations": [
+        2991960
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-vermont",
+      "name": "AT – Vermont",
+      "relations": [
+        392991
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-new-hampshire",
+      "name": "AT – New Hampshire",
+      "relations": [
+        18319298
+      ],
+      "chunkMi": 5
+    },
+    {
+      "slug": "at-maine",
+      "name": "AT – Maine",
+      "relations": [
+        2007932
+      ],
+      "chunkMi": 5
+    }
+  ]
+}

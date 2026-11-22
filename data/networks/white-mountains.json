@@ -1,0 +1,20 @@
+{
+  "slug": "white-mountains",
+  "name": "White Mountains",
+  "description": "Named hiking paths in and around the White Mountain National Forest, from OpenStreetMap.",
+  "note": "OSM trails approximate the AMC White Mountain Guide. The guide's own trail list is copyrighted, so HikeLog does not copy it: this is every named path OpenStreetMap has in the area, which overlaps the guide closely but is not identical (names, splits and a few trails will differ, and it includes some town paths).",
+  "kind": "paths",
+  "segmentLengthM": 150,
+  "sections": [
+    {
+      "slug": "white-mountains",
+      "name": "White Mountains (OSM trails)",
+      "bbox": [
+        43.75,
+        -71.95,
+        44.55,
+        -70.95
+      ]
+    }
+  ]
+}

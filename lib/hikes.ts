@@ -1,6 +1,7 @@
 import "server-only"
 import { z } from "zod"
 import { all, get, tx } from "./db"
+import { recomputeHikeCoverage } from "./coverage"
 import { matchPeaks, type MatchResult } from "./peaks/match"
 import { appTimeZone, isWinterHike, seasonOf, type Season } from "./seasons"
 
@@ -299,6 +300,8 @@ export function saveHike(
     }
     return { id: id!, created }
   })
+  // Redlining: participants or the date may have changed, so refresh coverage from the hike's GPS track (if it has one).
+  if (get("SELECT 1 FROM hike_tracks WHERE hike_id = ?", saved.id)) recomputeHikeCoverage(saved.id)
   return { hike: getHike(saved.id)!, peakMatches: matches, created: saved.created }
 }
 

@@ -159,4 +159,76 @@ export const migrations: string[] = [
   );
   CREATE INDEX garmin_activities_user_status ON garmin_activities(user_id, status, start_date);
   `,
+  /* 3: GPS tracks, trail networks and redlining coverage */ `
+  CREATE TABLE hike_tracks (
+    hike_id INTEGER PRIMARY KEY REFERENCES hikes(id) ON DELETE CASCADE,
+    geojson TEXT NOT NULL,               -- LineString / MultiLineString, simplified (~10 m Douglas-Peucker)
+    simplified INTEGER NOT NULL DEFAULT 1,
+    point_count INTEGER NOT NULL DEFAULT 0,
+    original_point_count INTEGER,
+    length_mi REAL NOT NULL DEFAULT 0,
+    min_lon REAL, min_lat REAL, max_lon REAL, max_lat REAL,
+    source TEXT NOT NULL DEFAULT 'gpx' CHECK (source IN ('gpx','garmin','manual')),
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+
+  -- A Garmin activity's GPS track is fetched during sync; keep it (simplified) until the activity is imported.
+  ALTER TABLE garmin_activities ADD COLUMN track_geojson TEXT;
+
+  CREATE TABLE trail_networks (
+    id INTEGER PRIMARY KEY,
+    slug TEXT NOT NULL UNIQUE,
+    group_slug TEXT,                     -- e.g. appalachian-trail for its state sections
+    group_name TEXT,
+    name TEXT NOT NULL,
+    description TEXT,
+    source TEXT NOT NULL DEFAULT 'osm-overpass',
+    osm_query TEXT,                      -- the Overpass QL that was run
+    osm_ref TEXT,                        -- relation id(s) or bbox, human readable
+    segment_length_m INTEGER NOT NULL DEFAULT 150,
+    fetched_at TEXT,
+    total_length_mi REAL NOT NULL DEFAULT 0,
+    trail_count INTEGER NOT NULL DEFAULT 0,
+    segment_count INTEGER NOT NULL DEFAULT 0,
+    min_lon REAL, min_lat REAL, max_lon REAL, max_lat REAL,
+    sort INTEGER NOT NULL DEFAULT 0
+  );
+
+  CREATE TABLE trails (
+    id INTEGER PRIMARY KEY,
+    network_id INTEGER NOT NULL REFERENCES trail_networks(id) ON DELETE CASCADE,
+    osm_id TEXT,                         -- first way/relation id, stable key for re-downloads
+    osm_way_ids TEXT NOT NULL DEFAULT '[]',
+    name TEXT NOT NULL,
+    ref TEXT,
+    geojson TEXT NOT NULL,               -- MultiLineString, in walking order
+    length_mi REAL NOT NULL DEFAULT 0,
+    min_lon REAL, min_lat REAL, max_lon REAL, max_lat REAL
+  );
+  CREATE INDEX trails_network ON trails(network_id);
+
+  CREATE TABLE trail_segments (
+    id INTEGER PRIMARY KEY,
+    trail_id INTEGER NOT NULL REFERENCES trails(id) ON DELETE CASCADE,
+    network_id INTEGER NOT NULL REFERENCES trail_networks(id) ON DELETE CASCADE,
+    idx INTEGER NOT NULL,
+    geojson TEXT NOT NULL,               -- LineString coordinates array, one piece of ~segment_length_m
+    length_m REAL NOT NULL,
+    min_lon REAL NOT NULL, min_lat REAL NOT NULL, max_lon REAL NOT NULL, max_lat REAL NOT NULL
+  );
+  CREATE INDEX trail_segments_trail ON trail_segments(trail_id, idx);
+  CREATE INDEX trail_segments_network ON trail_segments(network_id, min_lat);
+
+  CREATE TABLE segment_coverage (
+    id INTEGER PRIMARY KEY,
+    segment_id INTEGER NOT NULL REFERENCES trail_segments(id) ON DELETE CASCADE,
+    person_id INTEGER NOT NULL REFERENCES people(id) ON DELETE CASCADE,
+    hike_id INTEGER REFERENCES hikes(id) ON DELETE CASCADE,
+    covered_at TEXT,                     -- YYYY-MM-DD when known
+    source TEXT NOT NULL CHECK (source IN ('track','manual'))
+  );
+  CREATE UNIQUE INDEX segment_coverage_uniq ON segment_coverage(segment_id, person_id, COALESCE(hike_id, 0), source);
+  CREATE INDEX segment_coverage_person ON segment_coverage(person_id, segment_id);
+  CREATE INDEX segment_coverage_hike ON segment_coverage(hike_id);
+  `,
 ]

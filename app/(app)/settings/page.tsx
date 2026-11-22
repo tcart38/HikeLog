@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { BookOpenIcon } from "lucide-react"
+import { BookOpenIcon, WatchIcon } from "lucide-react"
 
 import { PageHeader } from "@/components/page-header"
 import { ImportPanel } from "@/components/settings/import-panel"
@@ -48,6 +48,13 @@ export default async function SettingsPage() {
       <div className="flex max-w-3xl flex-col gap-8">
         <Section id="import" title="Import a spreadsheet" description="Bring in an existing hiking log. You'll see exactly what will be created before anything is saved.">
           <ImportPanel people={people.map((p) => ({ id: p.id, name: p.name }))} defaultPersonId={user.person_id} />
+        </Section>
+        <Section id="garmin" title="Garmin" description="Pull hiking activities from Garmin Connect into an inbox, check the suggested peaks, and import them as hikes. GPS tracks come along and show up on the map.">
+          <div>
+            <Button variant="outline" className="h-10 md:h-8" nativeButton={false} render={<Link href="/settings/garmin" />}>
+              <WatchIcon /> Garmin import
+            </Button>
+          </div>
         </Section>
         <Section id="people" title="People" description="Everyone who hikes with you. Merge duplicates, or add friends before they have a login.">
           <PeoplePanel people={people.map((p) => ({ id: p.id, name: p.name, username: p.username, hikes: p.hikes }))} />

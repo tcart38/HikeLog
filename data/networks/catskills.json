@@ -1,0 +1,20 @@
+{
+  "slug": "catskills",
+  "name": "Catskills",
+  "description": "Named hiking paths in the Catskill high peaks area, from OpenStreetMap.",
+  "note": "Approximates the Catskill trail network using OpenStreetMap data; names and splits may differ from the NY-NJ Trail Conference maps.",
+  "kind": "paths",
+  "segmentLengthM": 150,
+  "sections": [
+    {
+      "slug": "catskills",
+      "name": "Catskills (OSM trails)",
+      "bbox": [
+        42.0,
+        -74.6,
+        42.3,
+        -74.0
+      ]
+    }
+  ]
+}

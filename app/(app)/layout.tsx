@@ -29,7 +29,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             <UserMenu name={name} username={user.username} />
           </div>
         </header>
-        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-4 py-5 pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:px-6 md:py-6 md:pb-10">
+        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-4 py-5 pb-[calc(5.5rem+env(safe-area-inset-bottom))] has-[[data-fullbleed]]:max-w-none has-[[data-fullbleed]]:gap-0 has-[[data-fullbleed]]:p-0 has-[[data-fullbleed]]:pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:px-6 md:py-6 md:pb-10 md:has-[[data-fullbleed]]:p-0">
           {children}
         </div>
       </SidebarInset>

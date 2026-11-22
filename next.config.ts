@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
   output: "standalone",
   allowedDevOrigins: ["*.local", "*.lan", ...devOrigins],
   // Seed lists are read from disk at runtime; ship them with the server bundle.
-  outputFileTracingIncludes: { "/**": ["./data/lists/**/*"] },
+  outputFileTracingIncludes: { "/**": ["./data/lists/**/*", "./data/networks/**/*"] },
   poweredByHeader: false,
 }
 

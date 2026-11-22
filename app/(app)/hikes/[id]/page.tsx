@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeftIcon, PencilIcon, TriangleAlertIcon } from "lucide-react"
+import { ArrowLeftIcon, MapIcon, PencilIcon, TriangleAlertIcon } from "lucide-react"
 
 import { DeleteHikeButton } from "@/components/delete-hike-button"
+import { HikeTrackActions } from "@/components/hike-track-actions"
+import { HikeMapLoader } from "@/components/map/hike-map-loader"
 import { hikeTitle } from "@/components/hike-parts"
 import { PageHeader } from "@/components/page-header"
 import { SeasonBadge, WinterCountsBadge } from "@/components/season-badge"
@@ -11,7 +13,9 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { CONDITION_LABEL, fmtDuration, fmtFt, fmtRange } from "@/lib/format"
+import { hikeCoverageSummary } from "@/lib/coverage"
 import { getHike } from "@/lib/hikes"
+import { getTrack } from "@/lib/tracks"
 import { hikeLists, requireUser } from "@/lib/queries"
 
 export async function generateMetadata({ params }: PageProps<"/hikes/[id]">): Promise<Metadata> {
@@ -36,6 +40,8 @@ export default async function HikePage({ params }: PageProps<"/hikes/[id]">) {
   const hike = Number(id) ? getHike(Number(id)) : null
   if (!hike) notFound()
   const lists = hikeLists(hike.id)
+  const track = getTrack(hike.id)
+  const trackNetworks = track ? hikeCoverageSummary(hike.id) : []
   const title = hikeTitle(hike)
   const crossesEquinox = !hike.isWinter && hike.endDate && hike.endDate !== hike.date && hike.season === "winter"
 
@@ -106,6 +112,47 @@ export default async function HikePage({ params }: PageProps<"/hikes/[id]">) {
             {hike.unmatchedPeaks.length > 0 && (
               <p className="text-xs text-muted-foreground">Unmatched names aren&apos;t credited to any list. Edit the hike and pick the right peak.</p>
             )}
+          </section>
+
+          <section className="flex flex-col gap-3" aria-labelledby="track-h">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h2 id="track-h" className="text-base font-medium">
+                GPS track
+              </h2>
+              {track && (
+                <Link href={`/map?hike=${hike.id}`} className="inline-flex min-h-9 items-center gap-1 text-sm font-medium text-primary hover:underline">
+                  <MapIcon className="size-4" /> Open on the map
+                </Link>
+              )}
+            </div>
+            {track ? (
+              <>
+                <div className="h-64 overflow-hidden rounded-xl ring-1 ring-foreground/10 md:h-72">
+                  <HikeMapLoader geojson={track.geojson} styleUrl={process.env.MAP_STYLE_URL?.trim() || null} />
+                </div>
+                <p className="text-sm text-muted-foreground tnum">
+                  {track.lengthMi.toFixed(1)} mi · {track.pointCount.toLocaleString("en-US")} points · from {track.source === "garmin" ? "Garmin" : "an uploaded file"}
+                  {trackNetworks.length > 0 && (
+                    <>
+                      {" · "}covers{" "}
+                      {trackNetworks.map((n, i) => (
+                        <span key={n.slug}>
+                          {i > 0 && ", "}
+                          <Link href={`/redlining?network=${n.slug}`} className="font-medium text-foreground hover:underline">
+                            {n.miles.toFixed(1)} mi of {n.name}
+                          </Link>
+                        </span>
+                      ))}
+                    </>
+                  )}
+                </p>
+              </>
+            ) : (
+              <p className="max-w-xl text-sm text-muted-foreground">
+                Add a .gpx or GeoJSON file to see this hike on the map and tick off the trails it followed for everyone who was counted on it.
+              </p>
+            )}
+            <HikeTrackActions hikeId={hike.id} hasTrack={!!track} />
           </section>
 
           {(hike.weather || hike.trailConditions || hike.notes) && (

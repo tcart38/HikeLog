@@ -6,6 +6,7 @@ import { accessToken, exchangeKey, fetchTrack, getConnection, listActivities } f
 import { INITIAL_SYNC_DAYS } from "./config"
 import { encrypt } from "./crypto"
 import { suggestPeaks, type PeakSuggestion } from "./peaks"
+import { attachActivityTrack, stashActivityTrack } from "../tracks"
 
 export type ActivityRow = {
   id: number
@@ -116,6 +117,8 @@ export async function syncUser(userId: number): Promise<SyncResult> {
           a.startLat ?? first?.lat ?? null, a.startLon ?? first?.lon ?? null, a.endLat ?? last?.lat ?? null, a.endLon ?? last?.lon ?? null,
           JSON.stringify(a.raw), JSON.stringify(suggestions)
         )
+        // Map/redlining: keep the GPS track (simplified) so importing the activity can attach it to the hike.
+        stashActivityTrack(userId, a.activityId, track)
         added++
       }
       run("UPDATE garmin_connections SET last_sync_at = ?, last_error = NULL WHERE user_id = ?", new Date().toISOString(), userId)
@@ -166,6 +169,11 @@ export function importActivity(user: { id: number; person_id: number | null }, a
     externalId: `garmin:${act.activity_id}`,
   }
   const res = saveHike(input, { userId: user.id, userPersonId: user.person_id, source: "api" })
+  try {
+    attachActivityTrack(user.id, act.id, res.hike.id)
+  } catch (e) {
+    console.error("[garmin] could not attach the GPS track:", e instanceof Error ? e.message : e)
+  }
   run("UPDATE garmin_activities SET status = 'imported', hike_id = ? WHERE id = ? AND user_id = ?", res.hike.id, act.id, user.id)
   return { hike: res.hike, peakMatches: res.peakMatches, activity: getGarminActivity(user.id, act.id)! }
 }
