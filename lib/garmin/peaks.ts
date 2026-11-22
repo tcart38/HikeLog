@@ -57,7 +57,10 @@ const SEPARATORS = /\s*(?:,|\/|&|\+|;|\band\b|\bto\b|\bthen\b|\bvia\b|–|—| -
 
 export function peaksFromTitle(title: string | null): PeakSuggestion[] {
   if (!title) return []
-  const parts = title.split(SEPARATORS).map((s) => s.trim()).filter((s) => s.length >= 3)
+  const parts = title
+    .split(SEPARATORS)
+    .map((s) => s.replace(/\b(hiking|hike|walking|walk|trail running|mountaineering|snowshoeing|summit|loop)\b/gi, "").replace(/\s+/g, " ").trim())
+    .filter((s) => s.length >= 3)
   const out: PeakSuggestion[] = []
   for (const m of matchPeaks(parts)) {
     if (m.status === "matched") {

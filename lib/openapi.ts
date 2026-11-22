@@ -77,6 +77,16 @@ export function buildOpenApi(serverUrl: string): Json {
       ["id", "name"]
     ),
     User: obj({ id: int(), username: str(), isAdmin: int("1 or 0"), personId: nullable(int()), createdAt: str() }, ["id", "username"]),
+    GarminConnection: obj({
+      connected: { type: "boolean" }, keyExpiresAt: nullable(str()), lastSyncAt: nullable(str()), lastError: nullable(str()), connectedAt: str(), pendingCount: int(),
+    }, ["connected"]),
+    GarminActivity: obj({
+      id: int(), activityId: str("Garmin's id"), startDate: str(), name: nullable(str()), type: nullable(str()),
+      distanceMi: nullable({ type: "number" }), elevationGainFt: nullable(int()), durationMin: nullable(int()),
+      startLat: nullable({ type: "number" }), startLon: nullable({ type: "number" }), endLat: nullable({ type: "number" }), endLon: nullable({ type: "number" }),
+      status: { enum: ["pending", "imported", "ignored"] }, hikeId: nullable(int()),
+      suggestedPeaks: arr(obj({ id: int(), slug: str(), name: str(), elevationFt: nullable(int()), state: nullable(str()), reason: { enum: ["track", "title"] }, detail: str() })),
+    }, ["id", "activityId", "startDate", "status"]),
     ParticipantInput: {
       description: "A person id, a person name (unknown names are created), or an object.",
       oneOf: [
@@ -280,6 +290,14 @@ export function buildOpenApi(serverUrl: string): Json {
         responses: { ...ok("OK", obj({ person: obj({ id: int(), name: str(), color: nullable(str()) }), mode: str(), lists: arr(obj({ list: ref("List"), completed: int(), total: int(), credits: int(), creditsTotal: int() })) })), ...errs("400", "401", "404") },
       },
     },
+    "/api/v1/stats": {
+      get: {
+        tags: ["Progress"], summary: "Statistics and aggregates", operationId: "stats",
+        description: "Everything behind the /stats page: KPIs, hikes and peaks per year, month heatmap, calendar days for `year`, season and conditions mix, winter seasons, rankings, partners, streaks, per-list burn-up series with projected finish, closest-to-finishing lists, grid slots and fun facts. `with` adds a second person (same shape) for overlays. Distance and vertical are only summed where recorded.",
+        parameters: [personParam, q("with", "Second person id or name to compare against"), q("year", "Year for the calendar and year summary (defaults to the current or latest year)", { type: "integer" })],
+        responses: { ...ok("OK", obj({ today: str(), core: { type: "object", description: "Aggregates for `person` (camelCase)" }, compare: { type: ["object", "null"], description: "Same shape for `with`, or null" } })), ...errs("400", "401", "404") },
+      },
+    },
     "/api/v1/compare": {
       get: {
         tags: ["Progress"], summary: "Compare people on a list", operationId: "compare",
@@ -354,6 +372,43 @@ export function buildOpenApi(serverUrl: string): Json {
         responses: { ...ok("Preview or commit result", ref("ImportResult")), ...errs("400", "401", "413", "422") },
       },
     },
+    "/api/v1/garmin/connection": {
+      get: { tags: ["Garmin"], summary: "Your Garmin connection status", operationId: "getGarminConnection", description: "Never returns the API key.", responses: { ...ok("OK", ref("GarminConnection")), ...errs("401") } },
+      put: {
+        tags: ["Garmin"], summary: "Connect (or replace) your Garmin Personal API key", operationId: "putGarminConnection",
+        description: "The key is validated with a token exchange against Garmin, then stored encrypted (AES-256-GCM). Each user has their own connection.",
+        requestBody: body(obj({ apiKey: str("Personal API key from connect.garmin.com/app/settings/personalApiToken"), keyExpiresAt: str("Optional YYYY-MM-DD expiry you chose") }, ["apiKey"])),
+        responses: { ...ok("Connected", ref("GarminConnection")), ...errs("400", "401", "422") },
+      },
+      delete: { tags: ["Garmin"], summary: "Disconnect Garmin (keeps imported hikes and the activity inbox)", operationId: "deleteGarminConnection", responses: { ...ok("Disconnected", obj({ ok: { type: "boolean" } })), ...errs("401") } },
+    },
+    "/api/v1/garmin/sync": {
+      post: {
+        tags: ["Garmin"], summary: "Pull new hiking activities from Garmin", operationId: "syncGarmin",
+        description: "First sync looks back 365 days (GARMIN_INITIAL_SYNC_DAYS). New activities land in the inbox as `pending` with peak suggestions. Nothing is imported automatically.",
+        responses: { ...ok("OK", obj({ fetched: int(), added: int(), skipped: int(), since: str(), connection: ref("GarminConnection") })), ...errs("401", "404", "409") },
+      },
+    },
+    "/api/v1/garmin/activities": {
+      get: {
+        tags: ["Garmin"], summary: "Your Garmin activity inbox", operationId: "listGarminActivities",
+        parameters: [q("status", "Filter by status", { type: "string", enum: ["pending", "imported", "ignored"] })],
+        responses: { ...ok("OK", obj({ activities: arr(ref("GarminActivity")) })), ...errs("400", "401") },
+      },
+    },
+    "/api/v1/garmin/activities/{id}/import": {
+      parameters: [idParam("id", "Inbox activity id (not the Garmin activity id)")],
+      post: {
+        tags: ["Garmin"], summary: "Import an activity as a hike", operationId: "importGarminActivity",
+        description: "Creates a hike with externalId `garmin:<activityId>` (re-importing updates it). `peaks` defaults to the suggested peaks; participants default to your own person.",
+        requestBody: { required: false, content: { "application/json": { schema: obj({ peaks: arr({ oneOf: [int(), str()] }), participants: arr({ oneOf: [int(), str(), ref("ParticipantInput")] }), conditions: ref("Conditions"), notes: str(), weather: str() }) } } },
+        responses: { ...ok("Imported", obj({ hike: { type: "object" }, peakMatches: arr({ type: "object" }), activity: ref("GarminActivity") }), "201"), ...errs("401", "404", "422") },
+      },
+    },
+    "/api/v1/garmin/activities/{id}/ignore": {
+      parameters: [idParam("id", "Inbox activity id")],
+      post: { tags: ["Garmin"], summary: "Dismiss an activity from the inbox", operationId: "ignoreGarminActivity", responses: { ...ok("OK", obj({ activity: ref("GarminActivity") })), ...errs("401", "404") } },
+    },
     "/api/openapi.json": { get: { tags: ["System"], summary: "This document", security: [], operationId: "openapi", responses: ok("OpenAPI 3.1 JSON") } },
   }
 
@@ -363,7 +418,7 @@ export function buildOpenApi(serverUrl: string): Json {
     info: { title: "HikeLog API", version: "1.0.0", description: DESCRIPTION },
     servers: [{ url: serverUrl }],
     security: [{ bearerAuth: [] }, { cookieAuth: [] }],
-    tags: ["System", "Auth", "Hikes", "Peaks", "Lists", "Progress", "People", "Tokens", "Users", "Import"].map((name) => ({ name })),
+    tags: ["System", "Auth", "Hikes", "Peaks", "Lists", "Progress", "People", "Tokens", "Users", "Import", "Garmin"].map((name) => ({ name })),
     paths,
     components: {
       securitySchemes: {
