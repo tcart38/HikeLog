@@ -60,7 +60,7 @@ export function BurnUpCard({
       cfg.a_win = { label: `${name} winter`, color: "var(--season-winter)" }
       keys.push({ key: "a_win", s: b.winter })
       if (cb) {
-        cfg.b_win = { label: `${compareName} winter`, color: "var(--season-winter)" }
+        cfg.b_win = { label: `${compareName} winter`, color: "color-mix(in oklab, var(--season-winter) 55%, var(--muted-foreground))" }
         keys.push({ key: "b_win", s: cb.winter })
       }
     }

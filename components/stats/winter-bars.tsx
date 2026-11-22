@@ -24,9 +24,21 @@ export function WinterBarsCard({ core }: { core: Core }) {
             <XAxis dataKey="label" tickLine={false} axisLine={false} tickMargin={8} interval={0} />
             <YAxis hide domain={[0, "dataMax"]} />
             <ChartTooltip cursor={{ fill: "var(--muted)", opacity: 0.5 }} content={<ChartTooltipContent />} />
-            <Bar dataKey="fresh" stackId="w" fill="var(--color-fresh)" maxBarSize={44} isAnimationActive={false} stroke="var(--card)" strokeWidth={1} />
+            <Bar dataKey="fresh" stackId="w" fill="var(--color-fresh)" maxBarSize={44} isAnimationActive={false} stroke="var(--card)" strokeWidth={1}>
+              <LabelList
+                dataKey="total"
+                content={(p) => {
+                  const { x, y, width, value, index } = p as { x: number; y: number; width: number; value: number; index: number }
+                  return value && data[index]?.repeat === 0 ? (
+                    <text x={x + width / 2} y={y - 5} textAnchor="middle" className="fill-foreground text-[11px] tabular-nums">
+                      {value}
+                    </text>
+                  ) : null
+                }}
+              />
+            </Bar>
             <Bar dataKey="repeat" stackId="w" fill="var(--color-repeat)" radius={[4, 4, 0, 0]} maxBarSize={44} isAnimationActive={false}>
-              <LabelList dataKey="total" position="top" className="fill-foreground text-[11px] tabular-nums" formatter={(v) => (Number(v) ? String(v) : "")} />
+              <LabelList dataKey="total" position="top" className="fill-foreground text-[11px] tabular-nums" />
             </Bar>
             <ChartLegend content={<ChartLegendContent />} />
           </BarChart>

@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Bar, BarChart, Cell, LabelList, ReferenceLine, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, Cell, LabelList, XAxis, YAxis } from "recharts"
 
 import { ChartCard, Ring, Sparse } from "@/components/stats/stat-ui"
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart"
@@ -47,11 +47,10 @@ export function GridCard({ lists }: { lists: Core["gridLists"] }) {
               <span className="text-muted-foreground"> of {g.slots} slots filled on {g.shortName} ({g.total} peaks × 12 months)</span>
             </p>
           </div>
-          <ChartContainer config={config} className="aspect-auto h-44 w-full justify-start" role="img" aria-label="Peaks done per calendar month">
+          <ChartContainer config={config} className="aspect-auto h-40 w-full justify-start" role="img" aria-label="Peaks done per calendar month">
             <BarChart data={g.months.map((n, i) => ({ m: MONTH_LABEL[i], n, month: i + 1 }))} margin={{ top: 16, right: 0, left: 0, bottom: 0 }}>
               <XAxis dataKey="m" tickLine={false} axisLine={false} tickMargin={6} interval={0} tickFormatter={(v: string) => v.slice(0, 1)} />
-              <YAxis hide domain={[0, g.total]} />
-              <ReferenceLine y={g.total} stroke="var(--muted-foreground)" strokeDasharray="2 4" />
+              <YAxis hide domain={[0, Math.max(4, Math.ceil(Math.max(...g.months) * 1.25))]} />
               <ChartTooltip cursor={{ fill: "var(--muted)", opacity: 0.5 }} content={<ChartTooltipContent hideLabel nameKey="m" formatter={(v, _n, item) => <span className="tnum">{MONTH_LABEL[(item.payload.month as number) - 1]}: {String(v)} of {g.total}</span>} />} />
               <Bar dataKey="n" radius={[4, 4, 0, 0]} isAnimationActive={false} maxBarSize={28}>
                 {g.months.map((_, i) => (
@@ -61,7 +60,7 @@ export function GridCard({ lists }: { lists: Core["gridLists"] }) {
               </Bar>
             </BarChart>
           </ChartContainer>
-          <p className="text-xs text-muted-foreground">Dashed line = every peak ({g.total}). Colour is the calendar-month season.</p>
+          <p className="text-xs text-muted-foreground">Bar height = peaks done in that month, out of {g.total} on the list. Colour is the calendar-month season.</p>
         </div>
       )}
     </ChartCard>

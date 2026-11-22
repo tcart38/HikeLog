@@ -21,7 +21,7 @@ export function ClosestCard({ closest, personId }: { closest: Core["closest"]; p
   return (
     <ChartCard
       title="Closest to finishing"
-      description="Lists sorted by how little is left."
+      description="Fewest left first."
       action={
         <div className="-mx-1 max-w-full overflow-x-auto px-1 scroll-quiet">
           <ToggleGroup aria-label="Mode" value={[mode]} onValueChange={(v) => v[0] && setMode(v[0] as typeof mode)} variant="outline" spacing={0} className="h-9 w-max">

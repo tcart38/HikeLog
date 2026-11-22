@@ -44,7 +44,7 @@ export function CalendarHeatmap({ core }: { core: Core }) {
     >
       <div className="-mx-1 overflow-x-auto px-1 pb-1 scroll-quiet">
         <div className="w-max min-w-full">
-          <div className="grid gap-[3px] pb-1 text-[11px] text-muted-foreground" style={{ gridTemplateColumns: `repeat(${cols}, 12px)` }} aria-hidden>
+          <div className="grid gap-[3px] pb-1 text-[11px] text-muted-foreground" style={{ gridTemplateColumns: `repeat(${cols}, 15px)` }} aria-hidden>
             {monthStarts.map((m) => (
               <span key={m.m} style={{ gridColumn: `${m.col} / span 4`, gridRow: 1 }}>
                 {MONTH_LABEL[m.m]}
@@ -53,7 +53,7 @@ export function CalendarHeatmap({ core }: { core: Core }) {
           </div>
           <div
             className="grid grid-flow-col gap-[3px]"
-            style={{ gridTemplateColumns: `repeat(${cols}, 12px)`, gridTemplateRows: "repeat(7, 12px)" }}
+            style={{ gridTemplateColumns: `repeat(${cols}, 15px)`, gridTemplateRows: "repeat(7, 15px)" }}
             role="img"
             aria-label={`Hiking days in ${y}: ${s.days} days`}
           >
