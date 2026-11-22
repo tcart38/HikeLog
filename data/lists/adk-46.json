@@ -1,0 +1,693 @@
+{
+  "slug": "adk-46",
+  "name": "Adirondack 46 High Peaks",
+  "shortName": "ADK 46",
+  "region": "Adirondacks, New York",
+  "country": "US",
+  "description": "The 46 mountains in the Adirondack Park traditionally listed as over 4,000 feet. Completing them earns membership in the Adirondack Forty-Sixers.",
+  "criteria": "The 46 peaks on the traditional (1920s Marshall brothers and Herb Clark) list, using the traditional elevations in use by the Forty-Sixers. No prominence rule applies.",
+  "organization": "Adirondack Forty-Sixers (ADK 46ers)",
+  "officialUrl": "https://adk46er.org/",
+  "notes": "Four peaks on the list (Blake Peak, Cliff Mountain, Nye Mountain, Couchsachraga Peak) are below 4,000 ft according to modern surveys but remain on the list as originally defined; the 46ers still count them. Winter 46er: winter is astronomical winter, from the December solstice (Dec 21) to the March equinox (Mar 21); the club FAQ states Dec 21 to Mar 21 inclusive. A Winter 46er climbs all 46 peaks in that window; a winter round alone qualifies for registration (a 'W' is added to the 46er number), and winter climbs also count toward the regular round. Elevations are the traditional list values from Wikipedia's table; ties (Gray/Iroquois 4,840; Armstrong/Hough 4,400; Big Slide/Esther 4,240; Blake/Cliff 3,960) are ranked in table order. Range names other than 'Adirondack High Peaks' are common groupings, not taken from a cited table.",
+  "sources": [
+    {
+      "title": "Wikipedia: Adirondack High Peaks (46 peaks, elevations, coordinates)",
+      "url": "https://en.wikipedia.org/wiki/Adirondack_High_Peaks",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Adirondack Forty-Sixers",
+      "url": "https://adk46er.org/",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "ADK 46er: How to become a Registered / Winter ADK 46er",
+      "url": "https://adk46er.org/?p=427",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "ADK 46er: How To Join FAQs",
+      "url": "https://adk46er.org/?p=432",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "peaks": [
+    {
+      "slug": "mount-marcy-ny",
+      "name": "Mount Marcy",
+      "aliases": [
+        "Marcy",
+        "Mt Marcy",
+        "Mt. Marcy"
+      ],
+      "elevationFt": 5344,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1127,
+      "lon": -73.9237,
+      "rank": 1
+    },
+    {
+      "slug": "algonquin-peak-ny",
+      "name": "Algonquin Peak",
+      "aliases": [
+        "Algonquin",
+        "Mt Algonquin",
+        "Mount Algonquin"
+      ],
+      "elevationFt": 5114,
+      "state": "NY",
+      "range": "MacIntyre Range",
+      "lat": 44.1436,
+      "lon": -73.9867,
+      "rank": 2
+    },
+    {
+      "slug": "mount-haystack-ny",
+      "name": "Mount Haystack",
+      "aliases": [
+        "Haystack",
+        "Mt Haystack",
+        "Mt. Haystack"
+      ],
+      "elevationFt": 4960,
+      "state": "NY",
+      "range": "Great Range",
+      "lat": 44.1056,
+      "lon": -73.9006,
+      "rank": 3
+    },
+    {
+      "slug": "mount-skylight-ny",
+      "name": "Mount Skylight",
+      "aliases": [
+        "Skylight",
+        "Mt Skylight",
+        "Mt. Skylight"
+      ],
+      "elevationFt": 4924,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.0994,
+      "lon": -73.9308,
+      "rank": 4
+    },
+    {
+      "slug": "whiteface-mountain-ny",
+      "name": "Whiteface Mountain",
+      "aliases": [
+        "Whiteface",
+        "Whiteface Mtn"
+      ],
+      "elevationFt": 4867,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.3658,
+      "lon": -73.9028,
+      "rank": 5
+    },
+    {
+      "slug": "dix-mountain-ny",
+      "name": "Dix Mountain",
+      "aliases": [
+        "Dix",
+        "Dix Mtn",
+        "Mt Dix",
+        "Mount Dix"
+      ],
+      "elevationFt": 4857,
+      "state": "NY",
+      "range": "Dix Range",
+      "lat": 44.0822,
+      "lon": -73.7864,
+      "rank": 6
+    },
+    {
+      "slug": "gray-peak-ny",
+      "name": "Gray Peak",
+      "aliases": [
+        "Gray",
+        "Grey Peak",
+        "Grey"
+      ],
+      "elevationFt": 4840,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1114,
+      "lon": -73.9349,
+      "rank": 7
+    },
+    {
+      "slug": "iroquois-peak-ny",
+      "name": "Iroquois Peak",
+      "aliases": [
+        "Iroquois"
+      ],
+      "elevationFt": 4840,
+      "state": "NY",
+      "range": "MacIntyre Range",
+      "lat": 44.137,
+      "lon": -73.9982,
+      "rank": 8
+    },
+    {
+      "slug": "basin-mountain-ny",
+      "name": "Basin Mountain",
+      "aliases": [
+        "Basin",
+        "Basin Mtn"
+      ],
+      "elevationFt": 4827,
+      "state": "NY",
+      "range": "Great Range",
+      "lat": 44.1212,
+      "lon": -73.8863,
+      "rank": 9
+    },
+    {
+      "slug": "gothics-ny",
+      "name": "Gothics",
+      "aliases": [
+        "Gothic",
+        "Gothic Mountain"
+      ],
+      "elevationFt": 4736,
+      "state": "NY",
+      "range": "Great Range",
+      "lat": 44.1281,
+      "lon": -73.8571,
+      "rank": 10
+    },
+    {
+      "slug": "mount-colden-ny",
+      "name": "Mount Colden",
+      "aliases": [
+        "Colden",
+        "Mt Colden",
+        "Mt. Colden"
+      ],
+      "elevationFt": 4714,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.127,
+      "lon": -73.9599,
+      "rank": 11
+    },
+    {
+      "slug": "giant-mountain-ny",
+      "name": "Giant Mountain",
+      "aliases": [
+        "Giant",
+        "Giant Mtn"
+      ],
+      "elevationFt": 4627,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1611,
+      "lon": -73.7202,
+      "rank": 12
+    },
+    {
+      "slug": "nippletop-ny",
+      "name": "Nippletop",
+      "aliases": [
+        "Nippletop Mountain"
+      ],
+      "elevationFt": 4620,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.0892,
+      "lon": -73.8163,
+      "rank": 13
+    },
+    {
+      "slug": "santanoni-peak-ny",
+      "name": "Santanoni Peak",
+      "aliases": [
+        "Santanoni"
+      ],
+      "elevationFt": 4607,
+      "state": "NY",
+      "range": "Santanoni Range",
+      "lat": 44.0825,
+      "lon": -74.1312,
+      "rank": 14
+    },
+    {
+      "slug": "mount-redfield-ny",
+      "name": "Mount Redfield",
+      "aliases": [
+        "Redfield",
+        "Mt Redfield",
+        "Mt. Redfield"
+      ],
+      "elevationFt": 4606,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.0948,
+      "lon": -73.9499,
+      "rank": 15
+    },
+    {
+      "slug": "wright-peak-ny",
+      "name": "Wright Peak",
+      "aliases": [
+        "Wright"
+      ],
+      "elevationFt": 4580,
+      "state": "NY",
+      "range": "MacIntyre Range",
+      "lat": 44.1517,
+      "lon": -73.9803,
+      "rank": 16
+    },
+    {
+      "slug": "saddleback-mountain-ny",
+      "name": "Saddleback Mountain",
+      "aliases": [
+        "Saddleback",
+        "Saddleback Mtn"
+      ],
+      "elevationFt": 4515,
+      "state": "NY",
+      "range": "Great Range",
+      "lat": 44.1267,
+      "lon": -73.8752,
+      "rank": 17
+    },
+    {
+      "slug": "panther-peak-ny",
+      "name": "Panther Peak",
+      "aliases": [
+        "Panther"
+      ],
+      "elevationFt": 4442,
+      "state": "NY",
+      "range": "Santanoni Range",
+      "lat": 44.0984,
+      "lon": -74.1321,
+      "rank": 18
+    },
+    {
+      "slug": "table-top-mountain-ny",
+      "name": "Table Top Mountain",
+      "aliases": [
+        "Table Top",
+        "Table Top Mtn",
+        "Tabletop",
+        "Tabletop Mountain"
+      ],
+      "elevationFt": 4427,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1407,
+      "lon": -73.9163,
+      "rank": 19
+    },
+    {
+      "slug": "rocky-peak-ridge-ny",
+      "name": "Rocky Peak Ridge",
+      "aliases": [
+        "Rocky Peak",
+        "RPR"
+      ],
+      "elevationFt": 4420,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1544,
+      "lon": -73.7056,
+      "rank": 20
+    },
+    {
+      "slug": "macomb-mountain-ny",
+      "name": "Macomb Mountain",
+      "aliases": [
+        "Macomb",
+        "Macomb Mtn"
+      ],
+      "elevationFt": 4405,
+      "state": "NY",
+      "range": "Dix Range",
+      "lat": 44.0517,
+      "lon": -73.7801,
+      "rank": 21
+    },
+    {
+      "slug": "armstrong-mountain-ny",
+      "name": "Armstrong Mountain",
+      "aliases": [
+        "Armstrong",
+        "Armstrong Mtn"
+      ],
+      "elevationFt": 4400,
+      "state": "NY",
+      "range": "Great Range",
+      "lat": 44.1348,
+      "lon": -73.849,
+      "rank": 22
+    },
+    {
+      "slug": "hough-peak-ny",
+      "name": "Hough Peak",
+      "aliases": [
+        "Hough"
+      ],
+      "elevationFt": 4400,
+      "state": "NY",
+      "range": "Dix Range",
+      "lat": 44.0695,
+      "lon": -73.7776,
+      "rank": 23
+    },
+    {
+      "slug": "seward-mountain-ny",
+      "name": "Seward Mountain",
+      "aliases": [
+        "Seward",
+        "Seward Mtn"
+      ],
+      "elevationFt": 4361,
+      "state": "NY",
+      "range": "Seward Range",
+      "lat": 44.1597,
+      "lon": -74.1997,
+      "rank": 24
+    },
+    {
+      "slug": "mount-marshall-ny",
+      "name": "Mount Marshall",
+      "aliases": [
+        "Marshall",
+        "Mt Marshall",
+        "Mt. Marshall"
+      ],
+      "elevationFt": 4360,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1275,
+      "lon": -74.0118,
+      "rank": 25
+    },
+    {
+      "slug": "allen-mountain-ny",
+      "name": "Allen Mountain",
+      "aliases": [
+        "Allen",
+        "Allen Mtn"
+      ],
+      "elevationFt": 4340,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.0708,
+      "lon": -73.9397,
+      "rank": 26
+    },
+    {
+      "slug": "big-slide-mountain-ny",
+      "name": "Big Slide Mountain",
+      "aliases": [
+        "Big Slide",
+        "Big Slide Mtn"
+      ],
+      "elevationFt": 4240,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1823,
+      "lon": -73.8704,
+      "rank": 27
+    },
+    {
+      "slug": "esther-mountain-ny",
+      "name": "Esther Mountain",
+      "aliases": [
+        "Esther",
+        "Esther Mtn"
+      ],
+      "elevationFt": 4240,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.387,
+      "lon": -73.8899,
+      "rank": 28
+    },
+    {
+      "slug": "upper-wolfjaw-mountain-ny",
+      "name": "Upper Wolfjaw Mountain",
+      "aliases": [
+        "Upper Wolfjaw",
+        "Upper Wolfjaw Mtn",
+        "Upper Wolfjaws"
+      ],
+      "elevationFt": 4185,
+      "state": "NY",
+      "range": "Great Range",
+      "lat": 44.1405,
+      "lon": -73.8453,
+      "rank": 29
+    },
+    {
+      "slug": "lower-wolfjaw-mountain-ny",
+      "name": "Lower Wolfjaw Mountain",
+      "aliases": [
+        "Lower Wolfjaw",
+        "Lower Wolfjaw Mtn",
+        "Lower Wolfjaws"
+      ],
+      "elevationFt": 4175,
+      "state": "NY",
+      "range": "Great Range",
+      "lat": 44.1484,
+      "lon": -73.8326,
+      "rank": 30
+    },
+    {
+      "slug": "street-mountain-ny",
+      "name": "Street Mountain",
+      "aliases": [
+        "Street",
+        "Street Mtn"
+      ],
+      "elevationFt": 4166,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1793,
+      "lon": -74.0272,
+      "rank": 31
+    },
+    {
+      "slug": "phelps-mountain-ny",
+      "name": "Phelps Mountain",
+      "aliases": [
+        "Phelps",
+        "Phelps Mtn"
+      ],
+      "elevationFt": 4161,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.157,
+      "lon": -73.9215,
+      "rank": 32
+    },
+    {
+      "slug": "donaldson-mountain-ny",
+      "name": "Donaldson Mountain",
+      "aliases": [
+        "Donaldson",
+        "Donaldson Mtn"
+      ],
+      "elevationFt": 4140,
+      "state": "NY",
+      "range": "Seward Range",
+      "lat": 44.1539,
+      "lon": -74.211,
+      "rank": 33
+    },
+    {
+      "slug": "seymour-mountain-ny",
+      "name": "Seymour Mountain",
+      "aliases": [
+        "Seymour",
+        "Seymour Mtn"
+      ],
+      "elevationFt": 4120,
+      "state": "NY",
+      "range": "Seward Range",
+      "lat": 44.1582,
+      "lon": -74.1727,
+      "rank": 34
+    },
+    {
+      "slug": "sawteeth-ny",
+      "name": "Sawteeth",
+      "aliases": [
+        "The Sawteeth"
+      ],
+      "elevationFt": 4100,
+      "state": "NY",
+      "range": "Great Range",
+      "lat": 44.1133,
+      "lon": -73.8507,
+      "rank": 35
+    },
+    {
+      "slug": "cascade-mountain-ny",
+      "name": "Cascade Mountain",
+      "aliases": [
+        "Cascade",
+        "Cascade Mtn"
+      ],
+      "elevationFt": 4098,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.2186,
+      "lon": -73.8606,
+      "rank": 36
+    },
+    {
+      "slug": "south-dix-ny",
+      "name": "South Dix",
+      "aliases": [
+        "South Dix Mountain",
+        "S Dix"
+      ],
+      "elevationFt": 4060,
+      "state": "NY",
+      "range": "Dix Range",
+      "lat": 44.06,
+      "lon": -73.7743,
+      "rank": 37
+    },
+    {
+      "slug": "porter-mountain-ny",
+      "name": "Porter Mountain",
+      "aliases": [
+        "Porter",
+        "Porter Mtn"
+      ],
+      "elevationFt": 4059,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.2153,
+      "lon": -73.8436,
+      "rank": 38
+    },
+    {
+      "slug": "mount-colvin-ny",
+      "name": "Mount Colvin",
+      "aliases": [
+        "Colvin",
+        "Mt Colvin",
+        "Mt. Colvin"
+      ],
+      "elevationFt": 4057,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.0939,
+      "lon": -73.8344,
+      "rank": 39
+    },
+    {
+      "slug": "mount-emmons-ny",
+      "name": "Mount Emmons",
+      "aliases": [
+        "Emmons",
+        "Mt Emmons",
+        "Mt. Emmons"
+      ],
+      "elevationFt": 4040,
+      "state": "NY",
+      "range": "Seward Range",
+      "lat": 44.1437,
+      "lon": -74.214,
+      "rank": 40
+    },
+    {
+      "slug": "dial-mountain-ny",
+      "name": "Dial Mountain",
+      "aliases": [
+        "Dial",
+        "Dial Mtn"
+      ],
+      "elevationFt": 4020,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1059,
+      "lon": -73.796,
+      "rank": 41
+    },
+    {
+      "slug": "grace-peak-ny",
+      "name": "Grace Peak",
+      "aliases": [
+        "Grace",
+        "East Dix",
+        "East Dix Mountain"
+      ],
+      "elevationFt": 4012,
+      "state": "NY",
+      "range": "Dix Range",
+      "lat": 44.0653,
+      "lon": -73.7574,
+      "rank": 42
+    },
+    {
+      "slug": "blake-peak-ny",
+      "name": "Blake Peak",
+      "aliases": [
+        "Blake"
+      ],
+      "elevationFt": 3960,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.0814,
+      "lon": -73.8446,
+      "rank": 43,
+      "notes": "traditional 46er elevation; under 4,000 ft per modern surveys"
+    },
+    {
+      "slug": "cliff-mountain-ny",
+      "name": "Cliff Mountain",
+      "aliases": [
+        "Cliff",
+        "Cliff Mtn"
+      ],
+      "elevationFt": 3960,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1031,
+      "lon": -73.9751,
+      "rank": 44,
+      "notes": "traditional 46er elevation; under 4,000 ft per modern surveys"
+    },
+    {
+      "slug": "nye-mountain-ny",
+      "name": "Nye Mountain",
+      "aliases": [
+        "Nye",
+        "Nye Mtn"
+      ],
+      "elevationFt": 3895,
+      "state": "NY",
+      "range": "Adirondack High Peaks",
+      "lat": 44.1873,
+      "lon": -74.0238,
+      "rank": 45,
+      "notes": "traditional 46er elevation; under 4,000 ft per modern surveys"
+    },
+    {
+      "slug": "couchsachraga-peak-ny",
+      "name": "Couchsachraga Peak",
+      "aliases": [
+        "Couchsachraga",
+        "Couch"
+      ],
+      "elevationFt": 3820,
+      "state": "NY",
+      "range": "Santanoni Range",
+      "lat": 44.0956,
+      "lon": -74.1602,
+      "rank": 46,
+      "notes": "traditional 46er elevation; under 4,000 ft per modern surveys"
+    }
+  ]
+}

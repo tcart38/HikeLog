@@ -1,0 +1,1241 @@
+{
+  "slug": "wa-bulgers",
+  "name": "Washington Bulger List (100 Highest Peaks)",
+  "shortName": "WA Bulgers",
+  "region": "Washington",
+  "country": "US",
+  "description": "The 100 highest named peaks in Washington State, from Mount Rainier down to roughly 8,320 ft, compiled by John Lixvar and John Plimpton in 1976.",
+  "criteria": "The 100 highest summits in Washington, ranked by USGS-quad elevation. The list generally follows a 400 ft prominence guideline but includes exceptions (e.g. Seven Fingered Jack, Sahale, Dark, Rahm, Horseshoe, Little Annapurna have under 400 ft); the stricter prominence-only variant is the separate 'Washington Top 100'.",
+  "organization": "Informal (originated with John Lixvar & John Plimpton; Mountaineers branches award badges)",
+  "officialUrl": "https://www.peakbagger.com/list.aspx?lid=5003",
+  "notes": "Ranks and elevations follow rhinoclimbs.com (USGS quad elevations, post-1980 Mount St. Helens). A trailing '+' in the source means a contour-based minimum, recorded here as the integer with a note. Lists vary between sources and updated lidar/dGPS surveys (countryhighpoints.com) change the tail end of the list. Ranges are a coarse grouping added by the compiler; lat/lon included only for the five volcanoes (from Wikipedia). Mount Rainier is the source's 14,410 ft; Liberty Cap is not a separate entry.",
+  "sources": [
+    {
+      "title": "Washington's Top 100 / Bulger list table (rhinoclimbs.com)",
+      "url": "https://rhinoclimbs.com/the-bulgers/",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Bulger 100 table (yellowleaf.org)",
+      "url": "https://www.yellowleaf.org/scramble/g/li/Bulger100.html",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Washington Bulger List (Peakbagger)",
+      "url": "https://www.peakbagger.com/list.aspx?lid=5003",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Cascade Volcanoes (Wikipedia), coordinates for the volcanoes",
+      "url": "https://en.wikipedia.org/wiki/Cascade_Volcanoes",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "peaks": [
+    {
+      "slug": "mount-rainier-wa",
+      "name": "Mount Rainier",
+      "aliases": [
+        "Mt Rainier",
+        "Mt. Rainier",
+        "Rainier",
+        "Tahoma"
+      ],
+      "elevationFt": 14410,
+      "state": "WA",
+      "range": "Southern Washington Cascades",
+      "lat": 46.8528857,
+      "lon": -121.7603744,
+      "rank": 1
+    },
+    {
+      "slug": "mount-adams-wa",
+      "name": "Mount Adams",
+      "aliases": [
+        "Adams",
+        "Mt Adams",
+        "Mt. Adams",
+        "Pahto"
+      ],
+      "elevationFt": 12276,
+      "state": "WA",
+      "range": "Southern Washington Cascades",
+      "lat": 46.202411792,
+      "lon": -121.490894694,
+      "rank": 2
+    },
+    {
+      "slug": "little-tahoma-peak-wa",
+      "name": "Little Tahoma Peak",
+      "aliases": [
+        "Little Tahoma",
+        "Mount Wow"
+      ],
+      "elevationFt": 11138,
+      "state": "WA",
+      "range": "Southern Washington Cascades",
+      "rank": 3
+    },
+    {
+      "slug": "mount-baker-wa",
+      "name": "Mount Baker",
+      "aliases": [
+        "Baker",
+        "Koma Kulshan",
+        "Mt Baker",
+        "Mt. Baker"
+      ],
+      "elevationFt": 10775,
+      "state": "WA",
+      "range": "North Cascades",
+      "lat": 48.7773426,
+      "lon": -121.8132008,
+      "rank": 4
+    },
+    {
+      "slug": "glacier-peak-wa",
+      "name": "Glacier Peak",
+      "aliases": [
+        "Glacier"
+      ],
+      "elevationFt": 10541,
+      "state": "WA",
+      "range": "North Cascades",
+      "lat": 48.11251395,
+      "lon": -121.113804642,
+      "rank": 5
+    },
+    {
+      "slug": "bonanza-peak-wa",
+      "name": "Bonanza Peak",
+      "aliases": [
+        "Bonanza"
+      ],
+      "elevationFt": 9511,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 6
+    },
+    {
+      "slug": "mount-stuart-wa",
+      "name": "Mount Stuart",
+      "aliases": [
+        "Mt Stuart",
+        "Mt. Stuart",
+        "Stuart"
+      ],
+      "elevationFt": 9415,
+      "state": "WA",
+      "range": "Stuart Range",
+      "rank": 7
+    },
+    {
+      "slug": "mount-fernow-wa",
+      "name": "Mount Fernow",
+      "aliases": [
+        "Fernow",
+        "Mt Fernow",
+        "Mt. Fernow"
+      ],
+      "elevationFt": 9249,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 8
+    },
+    {
+      "slug": "goode-mountain-wa",
+      "name": "Goode Mountain",
+      "aliases": [
+        "Goode",
+        "Goode Mtn",
+        "Mount Goode"
+      ],
+      "elevationFt": 9200,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 9,
+      "notes": "Source elevation is a contour-based minimum ('9200+')."
+    },
+    {
+      "slug": "mount-shuksan-wa",
+      "name": "Mount Shuksan",
+      "aliases": [
+        "Mt Shuksan",
+        "Mt. Shuksan",
+        "Shuksan"
+      ],
+      "elevationFt": 9127,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 10
+    },
+    {
+      "slug": "buckner-mountain-wa",
+      "name": "Buckner Mountain",
+      "aliases": [
+        "Buckner",
+        "Buckner Mtn"
+      ],
+      "elevationFt": 9112,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 11
+    },
+    {
+      "slug": "mount-logan-wa",
+      "name": "Mount Logan",
+      "aliases": [
+        "Logan",
+        "Mt Logan",
+        "Mt. Logan"
+      ],
+      "elevationFt": 9087,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 12
+    },
+    {
+      "slug": "mount-maude-wa",
+      "name": "Mount Maude",
+      "aliases": [
+        "Maude",
+        "Mt Maude",
+        "Mt. Maude"
+      ],
+      "elevationFt": 9082,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 13,
+      "notes": "yellowleaf.org gives 9040+; rhinoclimbs.com gives 9082."
+    },
+    {
+      "slug": "seven-fingered-jack-wa",
+      "name": "Seven Fingered Jack",
+      "aliases": [
+        "7 Fingered Jack",
+        "Seven-Fingered Jack"
+      ],
+      "elevationFt": 9077,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 14
+    },
+    {
+      "slug": "jack-mountain-wa",
+      "name": "Jack Mountain",
+      "aliases": [
+        "Jack",
+        "Jack Mtn"
+      ],
+      "elevationFt": 9066,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 15
+    },
+    {
+      "slug": "mount-spickard-wa",
+      "name": "Mount Spickard",
+      "aliases": [
+        "Mt Spickard",
+        "Mt. Spickard",
+        "Spickard"
+      ],
+      "elevationFt": 8979,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 16
+    },
+    {
+      "slug": "black-peak-wa",
+      "name": "Black Peak",
+      "aliases": [
+        "Black"
+      ],
+      "elevationFt": 8970,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 17
+    },
+    {
+      "slug": "copper-peak-wa",
+      "name": "Copper Peak",
+      "aliases": [
+        "Copper"
+      ],
+      "elevationFt": 8966,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 18
+    },
+    {
+      "slug": "north-gardner-mountain-wa",
+      "name": "North Gardner Mountain",
+      "aliases": [
+        "North Gardner",
+        "North Gardner Mtn"
+      ],
+      "elevationFt": 8956,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 19
+    },
+    {
+      "slug": "mount-redoubt-wa",
+      "name": "Mount Redoubt",
+      "aliases": [
+        "Mt Redoubt",
+        "Mt. Redoubt",
+        "Redoubt"
+      ],
+      "elevationFt": 8956,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 20
+    },
+    {
+      "slug": "dome-peak-wa",
+      "name": "Dome Peak",
+      "aliases": [
+        "Dome"
+      ],
+      "elevationFt": 8920,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 21,
+      "notes": "Source elevation is a contour-based minimum ('8920+'). yellowleaf.org gives 8940; rhinoclimbs.com gives 8920+."
+    },
+    {
+      "slug": "gardner-mountain-wa",
+      "name": "Gardner Mountain",
+      "aliases": [
+        "Gardner",
+        "Gardner Mtn"
+      ],
+      "elevationFt": 8897,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 22
+    },
+    {
+      "slug": "boston-peak-wa",
+      "name": "Boston Peak",
+      "aliases": [
+        "Boston"
+      ],
+      "elevationFt": 8894,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 23
+    },
+    {
+      "slug": "silver-star-mountain-wa",
+      "name": "Silver Star Mountain",
+      "aliases": [
+        "Silver Star",
+        "Silver Star Mtn"
+      ],
+      "elevationFt": 8876,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 24
+    },
+    {
+      "slug": "eldorado-peak-wa",
+      "name": "Eldorado Peak",
+      "aliases": [
+        "Eldorado"
+      ],
+      "elevationFt": 8868,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 25
+    },
+    {
+      "slug": "dragontail-peak-wa",
+      "name": "Dragontail Peak",
+      "aliases": [
+        "Dragontail"
+      ],
+      "elevationFt": 8840,
+      "state": "WA",
+      "range": "Stuart Range",
+      "rank": 26,
+      "notes": "Source elevation is a contour-based minimum ('8840+')."
+    },
+    {
+      "slug": "forbidden-peak-wa",
+      "name": "Forbidden Peak",
+      "aliases": [
+        "Forbidden"
+      ],
+      "elevationFt": 8815,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 27
+    },
+    {
+      "slug": "mesahchie-peak-wa",
+      "name": "Mesahchie Peak",
+      "aliases": [
+        "Mesahchie"
+      ],
+      "elevationFt": 8795,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 28
+    },
+    {
+      "slug": "oval-peak-wa",
+      "name": "Oval Peak",
+      "aliases": [
+        "Oval"
+      ],
+      "elevationFt": 8795,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 29
+    },
+    {
+      "slug": "mount-lago-wa",
+      "name": "Mount Lago",
+      "aliases": [
+        "Lago",
+        "Mt Lago",
+        "Mt. Lago"
+      ],
+      "elevationFt": 8745,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 30
+    },
+    {
+      "slug": "robinson-mountain-wa",
+      "name": "Robinson Mountain",
+      "aliases": [
+        "Robinson",
+        "Robinson Mtn"
+      ],
+      "elevationFt": 8726,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 31
+    },
+    {
+      "slug": "colchuck-peak-wa",
+      "name": "Colchuck Peak",
+      "aliases": [
+        "Colchuck"
+      ],
+      "elevationFt": 8705,
+      "state": "WA",
+      "range": "Stuart Range",
+      "rank": 32
+    },
+    {
+      "slug": "star-peak-wa",
+      "name": "Star Peak",
+      "aliases": [
+        "Star"
+      ],
+      "elevationFt": 8690,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 33
+    },
+    {
+      "slug": "remmel-mountain-wa",
+      "name": "Remmel Mountain",
+      "aliases": [
+        "Remmel",
+        "Remmel Mtn"
+      ],
+      "elevationFt": 8685,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 34
+    },
+    {
+      "slug": "katsuk-peak-wa",
+      "name": "Katsuk Peak",
+      "aliases": [
+        "Katsuk"
+      ],
+      "elevationFt": 8680,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 35,
+      "notes": "Source elevation is a contour-based minimum ('8680+')."
+    },
+    {
+      "slug": "sahale-mountain-wa",
+      "name": "Sahale Mountain",
+      "aliases": [
+        "Sahale",
+        "Sahale Mtn",
+        "Sahale Peak"
+      ],
+      "elevationFt": 8680,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 36,
+      "notes": "Source elevation is a contour-based minimum ('8680+')."
+    },
+    {
+      "slug": "fortress-mountain-wa",
+      "name": "Fortress Mountain",
+      "aliases": [
+        "Fortress",
+        "Fortress Mtn"
+      ],
+      "elevationFt": 8674,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 37
+    },
+    {
+      "slug": "cannon-mountain-wa",
+      "name": "Cannon Mountain",
+      "aliases": [
+        "Cannon",
+        "Cannon Mtn"
+      ],
+      "elevationFt": 8638,
+      "state": "WA",
+      "range": "Chiwaukum Mountains",
+      "rank": 38
+    },
+    {
+      "slug": "mount-custer-wa",
+      "name": "Mount Custer",
+      "aliases": [
+        "Custer",
+        "Mt Custer",
+        "Mt. Custer"
+      ],
+      "elevationFt": 8630,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 39
+    },
+    {
+      "slug": "ptarmigan-peak-wa",
+      "name": "Ptarmigan Peak",
+      "aliases": [
+        "Ptarmigan"
+      ],
+      "elevationFt": 8614,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 40
+    },
+    {
+      "slug": "sherpa-peak-wa",
+      "name": "Sherpa Peak",
+      "aliases": [
+        "Sherpa"
+      ],
+      "elevationFt": 8605,
+      "state": "WA",
+      "range": "Stuart Range",
+      "rank": 41
+    },
+    {
+      "slug": "cathedral-peak-wa",
+      "name": "Cathedral Peak",
+      "aliases": [
+        "Cathedral"
+      ],
+      "elevationFt": 8601,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 42
+    },
+    {
+      "slug": "kimtah-peak-wa",
+      "name": "Kimtah Peak",
+      "aliases": [
+        "Kimtah"
+      ],
+      "elevationFt": 8600,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 43,
+      "notes": "Source elevation is a contour-based minimum ('8600+')."
+    },
+    {
+      "slug": "cardinal-peak-wa",
+      "name": "Cardinal Peak",
+      "aliases": [
+        "Cardinal"
+      ],
+      "elevationFt": 8595,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 44
+    },
+    {
+      "slug": "mount-carru-wa",
+      "name": "Mount Carru",
+      "aliases": [
+        "Carru",
+        "Mt Carru",
+        "Mt. Carru"
+      ],
+      "elevationFt": 8595,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 45
+    },
+    {
+      "slug": "monument-peak-wa",
+      "name": "Monument Peak",
+      "aliases": [
+        "Monument"
+      ],
+      "elevationFt": 8592,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 46
+    },
+    {
+      "slug": "osceola-peak-wa",
+      "name": "Osceola Peak",
+      "aliases": [
+        "Osceola"
+      ],
+      "elevationFt": 8587,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 47
+    },
+    {
+      "slug": "libby-mountain-wa",
+      "name": "Libby Mountain",
+      "aliases": [
+        "Libby",
+        "Libby Mtn"
+      ],
+      "elevationFt": 8580,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 48
+    },
+    {
+      "slug": "clark-mountain-wa",
+      "name": "Clark Mountain",
+      "aliases": [
+        "Clark",
+        "Clark Mtn"
+      ],
+      "elevationFt": 8576,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 49
+    },
+    {
+      "slug": "buck-mountain-wa",
+      "name": "Buck Mountain",
+      "aliases": [
+        "Buck",
+        "Buck Mtn"
+      ],
+      "elevationFt": 8573,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 50
+    },
+    {
+      "slug": "storm-king-wa",
+      "name": "Storm King",
+      "aliases": [],
+      "elevationFt": 8520,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 51,
+      "notes": "Source elevation is a contour-based minimum ('8520+')."
+    },
+    {
+      "slug": "enchantment-peak-wa",
+      "name": "Enchantment Peak",
+      "aliases": [
+        "Enchantment"
+      ],
+      "elevationFt": 8520,
+      "state": "WA",
+      "range": "Stuart Range",
+      "rank": 52
+    },
+    {
+      "slug": "reynolds-peak-wa",
+      "name": "Reynolds Peak",
+      "aliases": [
+        "Reynolds"
+      ],
+      "elevationFt": 8512,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 53
+    },
+    {
+      "slug": "martin-peak-holden-wa",
+      "name": "Martin Peak (Holden quad)",
+      "aliases": [
+        "Martin",
+        "Martin Peak"
+      ],
+      "elevationFt": 8511,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 54,
+      "notes": "Two distinct Martin Peaks appear on the list: this one (Holden quad, 8511) and Martin Peak on the Martin Peak quad (8375)."
+    },
+    {
+      "slug": "primus-peak-wa",
+      "name": "Primus Peak",
+      "aliases": [
+        "Primus"
+      ],
+      "elevationFt": 8508,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 55
+    },
+    {
+      "slug": "dark-peak-wa",
+      "name": "Dark Peak",
+      "aliases": [
+        "Dark"
+      ],
+      "elevationFt": 8504,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 56
+    },
+    {
+      "slug": "cashmere-mountain-wa",
+      "name": "Cashmere Mountain",
+      "aliases": [
+        "Cashmere",
+        "Cashmere Mtn"
+      ],
+      "elevationFt": 8501,
+      "state": "WA",
+      "range": "Chiwaukum Mountains",
+      "rank": 57
+    },
+    {
+      "slug": "klawatti-peak-wa",
+      "name": "Klawatti Peak",
+      "aliases": [
+        "Klawatti"
+      ],
+      "elevationFt": 8485,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 58
+    },
+    {
+      "slug": "horseshoe-peak-wa",
+      "name": "Horseshoe Peak",
+      "aliases": [
+        "Horseshoe"
+      ],
+      "elevationFt": 8480,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 59,
+      "notes": "Source elevation is a contour-based minimum ('8480+')."
+    },
+    {
+      "slug": "mox-peak-se-spire-wa",
+      "name": "Mox Peak (SE Spire)",
+      "aliases": [
+        "Mox",
+        "Mox Peak",
+        "Mox SE"
+      ],
+      "elevationFt": 8480,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 60,
+      "notes": "Source elevation is a contour-based minimum ('8480+')."
+    },
+    {
+      "slug": "mount-rahm-wa",
+      "name": "Mount Rahm",
+      "aliases": [
+        "Mt Rahm",
+        "Mt. Rahm",
+        "Rahm"
+      ],
+      "elevationFt": 8480,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 61,
+      "notes": "Source elevation is a contour-based minimum ('8480+')."
+    },
+    {
+      "slug": "big-craggy-peak-wa",
+      "name": "Big Craggy Peak",
+      "aliases": [
+        "Big Craggy"
+      ],
+      "elevationFt": 8470,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 62
+    },
+    {
+      "slug": "hoodoo-peak-wa",
+      "name": "Hoodoo Peak",
+      "aliases": [
+        "Hoodoo"
+      ],
+      "elevationFt": 8464,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 63
+    },
+    {
+      "slug": "lost-peak-wa",
+      "name": "Lost Peak",
+      "aliases": [
+        "Lost"
+      ],
+      "elevationFt": 8464,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 64
+    },
+    {
+      "slug": "chiwawa-mountain-wa",
+      "name": "Chiwawa Mountain",
+      "aliases": [
+        "Chiwawa",
+        "Chiwawa Mtn"
+      ],
+      "elevationFt": 8459,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 65
+    },
+    {
+      "slug": "argonaut-peak-wa",
+      "name": "Argonaut Peak",
+      "aliases": [
+        "Argonaut"
+      ],
+      "elevationFt": 8453,
+      "state": "WA",
+      "range": "Stuart Range",
+      "rank": 66
+    },
+    {
+      "slug": "tower-mountain-wa",
+      "name": "Tower Mountain",
+      "aliases": [
+        "Tower",
+        "Tower Mtn"
+      ],
+      "elevationFt": 8444,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 67
+    },
+    {
+      "slug": "mount-bigelow-wa",
+      "name": "Mount Bigelow",
+      "aliases": [
+        "Bigelow",
+        "Mt Bigelow",
+        "Mt. Bigelow"
+      ],
+      "elevationFt": 8440,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 68,
+      "notes": "Source elevation is a contour-based minimum ('8440+')."
+    },
+    {
+      "slug": "dorado-needle-wa",
+      "name": "Dorado Needle",
+      "aliases": [],
+      "elevationFt": 8440,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 69,
+      "notes": "Source elevation is a contour-based minimum ('8440+')."
+    },
+    {
+      "slug": "little-annapurna-wa",
+      "name": "Little Annapurna",
+      "aliases": [],
+      "elevationFt": 8440,
+      "state": "WA",
+      "range": "Stuart Range",
+      "rank": 70,
+      "notes": "Source elevation is a contour-based minimum ('8440+')."
+    },
+    {
+      "slug": "sinister-peak-wa",
+      "name": "Sinister Peak",
+      "aliases": [
+        "Sinister"
+      ],
+      "elevationFt": 8440,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 71,
+      "notes": "Source elevation is a contour-based minimum ('8440+')."
+    },
+    {
+      "slug": "emerald-peak-wa",
+      "name": "Emerald Peak",
+      "aliases": [
+        "Emerald"
+      ],
+      "elevationFt": 8422,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 72
+    },
+    {
+      "slug": "dumbell-mountain-sw-wa",
+      "name": "Dumbell Mountain (SW)",
+      "aliases": [
+        "Dumbell",
+        "Dumbell Mountain",
+        "Dumbell Mtn",
+        "Dumbell SW"
+      ],
+      "elevationFt": 8421,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 73
+    },
+    {
+      "slug": "dumbell-mountain-ne-wa",
+      "name": "Dumbell Mountain (NE)",
+      "aliases": [
+        "Dumbell",
+        "Dumbell Mountain",
+        "Dumbell Mtn",
+        "Dumbell NE"
+      ],
+      "elevationFt": 8415,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 74
+    },
+    {
+      "slug": "saska-peak-wa",
+      "name": "Saska Peak",
+      "aliases": [
+        "Saska"
+      ],
+      "elevationFt": 8404,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 75
+    },
+    {
+      "slug": "pinnacle-mountain-wa",
+      "name": "Pinnacle Mountain",
+      "aliases": [
+        "Pinnacle",
+        "Pinnacle Mtn"
+      ],
+      "elevationFt": 8402,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 76
+    },
+    {
+      "slug": "azurite-peak-wa",
+      "name": "Azurite Peak",
+      "aliases": [
+        "Azurite"
+      ],
+      "elevationFt": 8400,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 77,
+      "notes": "Source elevation is a contour-based minimum ('8400+')."
+    },
+    {
+      "slug": "luahna-peak-wa",
+      "name": "Luahna Peak",
+      "aliases": [
+        "Luahna"
+      ],
+      "elevationFt": 8400,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 78,
+      "notes": "Source elevation is a contour-based minimum ('8400+')."
+    },
+    {
+      "slug": "blackcap-mountain-wa",
+      "name": "Blackcap Mountain",
+      "aliases": [
+        "Blackcap",
+        "Blackcap Mtn"
+      ],
+      "elevationFt": 8397,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 79
+    },
+    {
+      "slug": "buttermilk-ridge-wa",
+      "name": "Buttermilk Ridge",
+      "aliases": [
+        "Courtney Peak"
+      ],
+      "elevationFt": 8392,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 80,
+      "notes": "Called Courtney Peak in some list versions (e.g. yellowleaf.org)."
+    },
+    {
+      "slug": "spectacle-butte-wa",
+      "name": "Spectacle Butte",
+      "aliases": [
+        "South Spectacle Butte"
+      ],
+      "elevationFt": 8392,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 81
+    },
+    {
+      "slug": "martin-peak-wa",
+      "name": "Martin Peak",
+      "aliases": [
+        "Martin"
+      ],
+      "elevationFt": 8375,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 82,
+      "notes": "Martin Peak on the Martin Peak quad (8375); distinct from the Holden-quad Martin Peak (8511)."
+    },
+    {
+      "slug": "lake-mountain-wa",
+      "name": "Lake Mountain",
+      "aliases": [
+        "Lake",
+        "Lake Mtn"
+      ],
+      "elevationFt": 8371,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 83
+    },
+    {
+      "slug": "golden-horn-wa",
+      "name": "Golden Horn",
+      "aliases": [],
+      "elevationFt": 8366,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 84
+    },
+    {
+      "slug": "west-craggy-wa",
+      "name": "West Craggy",
+      "aliases": [],
+      "elevationFt": 8366,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 85,
+      "notes": "yellowleaf.org lists West Craggy at 8470, rhinoclimbs.com at 8366."
+    },
+    {
+      "slug": "mount-st-helens-wa",
+      "name": "Mount St. Helens",
+      "aliases": [
+        "Helens",
+        "Mount Saint Helens",
+        "Mount St Helens",
+        "Mt St Helens",
+        "Mt St. Helens",
+        "Mt. St. Helens",
+        "St Helens",
+        "St. Helens"
+      ],
+      "elevationFt": 8365,
+      "state": "WA",
+      "range": "Southern Washington Cascades",
+      "lat": 46.1912,
+      "lon": -122.1944,
+      "rank": 86,
+      "notes": "Post-1980 eruption elevation; pre-eruption height was 9677 ft."
+    },
+    {
+      "slug": "mcclellan-peak-wa",
+      "name": "McClellan Peak",
+      "aliases": [
+        "McClellan"
+      ],
+      "elevationFt": 8364,
+      "state": "WA",
+      "range": "Stuart Range",
+      "rank": 87
+    },
+    {
+      "slug": "devore-peak-wa",
+      "name": "Devore Peak",
+      "aliases": [
+        "Devore"
+      ],
+      "elevationFt": 8360,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 88,
+      "notes": "Source elevation is a contour-based minimum ('8360+')."
+    },
+    {
+      "slug": "amphitheater-mountain-wa",
+      "name": "Amphitheater Mountain",
+      "aliases": [
+        "Amphitheater",
+        "Amphitheater Mtn"
+      ],
+      "elevationFt": 8358,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 89
+    },
+    {
+      "slug": "snowfield-peak-wa",
+      "name": "Snowfield Peak",
+      "aliases": [
+        "Snowfield"
+      ],
+      "elevationFt": 8347,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 90
+    },
+    {
+      "slug": "austera-peak-wa",
+      "name": "Austera Peak",
+      "aliases": [
+        "Austera"
+      ],
+      "elevationFt": 8334,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 91
+    },
+    {
+      "slug": "windy-peak-wa",
+      "name": "Windy Peak",
+      "aliases": [
+        "Windy"
+      ],
+      "elevationFt": 8334,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 92
+    },
+    {
+      "slug": "cosho-peak-wa",
+      "name": "Cosho Peak",
+      "aliases": [
+        "Cosho"
+      ],
+      "elevationFt": 8332,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 93
+    },
+    {
+      "slug": "big-snagtooth-wa",
+      "name": "Big Snagtooth",
+      "aliases": [],
+      "elevationFt": 8330,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 94
+    },
+    {
+      "slug": "mount-formidable-wa",
+      "name": "Mount Formidable",
+      "aliases": [
+        "Formidable",
+        "Mt Formidable",
+        "Mt. Formidable"
+      ],
+      "elevationFt": 8325,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 95
+    },
+    {
+      "slug": "abernathy-peak-wa",
+      "name": "Abernathy Peak",
+      "aliases": [
+        "Abernathy"
+      ],
+      "elevationFt": 8321,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 96
+    },
+    {
+      "slug": "cooney-mountain-wa",
+      "name": "Cooney Mountain",
+      "aliases": [
+        "Cooney",
+        "Cooney Mtn",
+        "Switchback Peak"
+      ],
+      "elevationFt": 8321,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 97,
+      "notes": "Some list versions (yellowleaf.org) call the 8321-ft Martin Peak quad entry Switchback Peak; probably the same summit, unverified."
+    },
+    {
+      "slug": "mox-peak-nw-spire-wa",
+      "name": "Mox Peak (NW Spire)",
+      "aliases": [
+        "Mox",
+        "Mox NW",
+        "Mox Peak"
+      ],
+      "elevationFt": 8320,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 98,
+      "notes": "Source elevation is a contour-based minimum ('8320+')."
+    },
+    {
+      "slug": "tupshin-peak-wa",
+      "name": "Tupshin Peak",
+      "aliases": [
+        "Tupshin"
+      ],
+      "elevationFt": 8320,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 99,
+      "notes": "Source elevation is a contour-based minimum ('8320+')."
+    },
+    {
+      "slug": "flora-mountain-wa",
+      "name": "Flora Mountain",
+      "aliases": [
+        "Flora",
+        "Flora Mtn"
+      ],
+      "elevationFt": 8320,
+      "state": "WA",
+      "range": "North Cascades",
+      "rank": 100
+    }
+  ]
+}

@@ -1,0 +1,665 @@
+{
+  "name": "New Hampshire 52 With a View",
+  "shortName": "NH 52WAV",
+  "region": "New Hampshire",
+  "country": "US",
+  "description": "The 52 scenic New Hampshire peaks below 4,000 feet (generally 2,200 to 3,980 ft), maintained by the Over the Hill Hikers to complement the 4000-footer list.",
+  "criteria": "List of 52 peaks with open views, maintained by the Over the Hill Hikers (Sandwich, NH). This file follows the June 2025 revision, which added Bald Peak (Easton), Iron Mountain and Owl's Head (Carroll) and removed Blueberry, Mount Martha (Cherry) and Starr King.",
+  "organization": "Over the Hill Hikers (Sandwich, NH)",
+  "officialUrl": "https://overthehillhikers.blogspot.com/",
+  "notes": "Elevations vary between sources; values here follow the June 2025 Scenic NH table except Sandwich Mountain (3,980 ft) and The Horn (3,905 ft), which use the AMC NEHH figures so they match nehh-100. Doublehead and Welch-Dickey are each one list entry. Delisted peaks (Starr King, Martha, Blueberry, West Royce, Square Ledge, Black Mountain (Jackson), Hibbard, Wolf, Carr) are not included.",
+  "sources": [
+    {
+      "title": "Scenic NH - New Hampshire 52 With a View (revised June 2025)",
+      "url": "https://www.scenicnh.com/new-hampshire-52-with-a-view/",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "NH Mountain Hiking - 52 With a View",
+      "url": "https://nhmountainhiking.com/hike/lists/52view.html",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "AMC Four Thousand Footer Committee - New England Hundred Highest (ranks 68-100)",
+      "url": "https://amc4000footer.org/newenglandhundredhighest.html",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Wikipedia - List of New England Hundred Highest",
+      "url": "https://en.wikipedia.org/wiki/List_of_New_England_Hundred_Highest",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "slug": "nh-52wav",
+  "peaks": [
+    {
+      "slug": "sandwich-mountain-nh",
+      "name": "Sandwich Mountain",
+      "aliases": [
+        "Sandwich Dome",
+        "Mount Sandwich",
+        "Sandwich",
+        "Sandwich Mtn"
+      ],
+      "elevationFt": 3980,
+      "state": "NH",
+      "range": "Sandwich Range",
+      "rank": 1,
+      "notes": "Elevation marked estimated by the AMC; other sources give about 3,993 ft."
+    },
+    {
+      "slug": "mount-webster-nh",
+      "name": "Mount Webster",
+      "aliases": [
+        "Webster",
+        "Mt Webster",
+        "Mt. Webster"
+      ],
+      "elevationFt": 3910,
+      "state": "NH",
+      "rank": 2
+    },
+    {
+      "slug": "the-horn-nh",
+      "name": "The Horn",
+      "aliases": [
+        "The Horn (NH)",
+        "Horn (NH)",
+        "The Horn NH",
+        "Horn NH"
+      ],
+      "elevationFt": 3905,
+      "state": "NH",
+      "rank": 3,
+      "notes": "Also on the 52 With a View list. Distinct from Saddleback Horn, ME."
+    },
+    {
+      "slug": "shelburne-moriah-mountain-nh",
+      "name": "Shelburne Moriah Mountain",
+      "aliases": [
+        "Shelburne Moriah",
+        "Moriah Shelburne",
+        "Mount Shelburne Moriah"
+      ],
+      "elevationFt": 3743,
+      "state": "NH",
+      "rank": 4
+    },
+    {
+      "slug": "sugarloaf-stratford-nh",
+      "name": "Sugarloaf (Stratford)",
+      "aliases": [
+        "Sugarloaf Stratford",
+        "Sugarloaf (Groveton)",
+        "Sugarloaf Groveton",
+        "Sugarloaf (North Country)",
+        "Sugarloaf (NH)"
+      ],
+      "elevationFt": 3703,
+      "state": "NH",
+      "rank": 5
+    },
+    {
+      "slug": "north-baldface-mountain-nh",
+      "name": "North Baldface Mountain",
+      "aliases": [
+        "North Baldface",
+        "Baldface North",
+        "N Baldface"
+      ],
+      "elevationFt": 3597,
+      "state": "NH",
+      "rank": 6
+    },
+    {
+      "slug": "mount-success-nh",
+      "name": "Mount Success",
+      "aliases": [
+        "Success",
+        "Mt Success",
+        "Mt. Success"
+      ],
+      "elevationFt": 3592,
+      "state": "NH",
+      "rank": 7
+    },
+    {
+      "slug": "south-baldface-mountain-nh",
+      "name": "South Baldface Mountain",
+      "aliases": [
+        "South Baldface",
+        "Baldface South",
+        "S Baldface"
+      ],
+      "elevationFt": 3576,
+      "state": "NH",
+      "rank": 8
+    },
+    {
+      "slug": "jennings-peak-nh",
+      "name": "Jennings Peak",
+      "aliases": [
+        "Jennings"
+      ],
+      "elevationFt": 3493,
+      "state": "NH",
+      "rank": 9
+    },
+    {
+      "slug": "mount-chocorua-nh",
+      "name": "Mount Chocorua",
+      "aliases": [
+        "Chocorua",
+        "Mt Chocorua",
+        "Mt. Chocorua"
+      ],
+      "elevationFt": 3490,
+      "state": "NH",
+      "rank": 10
+    },
+    {
+      "slug": "stairs-mountain-nh",
+      "name": "Stairs Mountain",
+      "aliases": [
+        "Stairs"
+      ],
+      "elevationFt": 3469,
+      "state": "NH",
+      "rank": 11
+    },
+    {
+      "slug": "mount-avalon-nh",
+      "name": "Mount Avalon",
+      "aliases": [
+        "Avalon",
+        "Mt Avalon",
+        "Mt. Avalon"
+      ],
+      "elevationFt": 3461,
+      "state": "NH",
+      "rank": 12
+    },
+    {
+      "slug": "mount-resolution-nh",
+      "name": "Mount Resolution",
+      "aliases": [
+        "Resolution",
+        "Mt Resolution",
+        "Mt. Resolution"
+      ],
+      "elevationFt": 3426,
+      "state": "NH",
+      "rank": 13
+    },
+    {
+      "slug": "percy-peaks-north-peak-nh",
+      "name": "Percy Peaks - North Peak",
+      "aliases": [
+        "North Percy",
+        "Percy Peaks",
+        "North Percy Peak",
+        "Percy North"
+      ],
+      "elevationFt": 3415,
+      "state": "NH",
+      "rank": 14
+    },
+    {
+      "slug": "magalloway-mountain-nh",
+      "name": "Magalloway Mountain",
+      "aliases": [
+        "Magalloway"
+      ],
+      "elevationFt": 3385,
+      "state": "NH",
+      "rank": 15
+    },
+    {
+      "slug": "mount-tremont-nh",
+      "name": "Mount Tremont",
+      "aliases": [
+        "Tremont",
+        "Mt Tremont",
+        "Mt. Tremont"
+      ],
+      "elevationFt": 3384,
+      "state": "NH",
+      "rank": 16
+    },
+    {
+      "slug": "middle-sister-mountain-nh",
+      "name": "Middle Sister Mountain",
+      "aliases": [
+        "Middle Sister",
+        "Sister Middle"
+      ],
+      "elevationFt": 3340,
+      "state": "NH",
+      "rank": 17
+    },
+    {
+      "slug": "kearsarge-north-nh",
+      "name": "Kearsarge North",
+      "aliases": [
+        "North Kearsarge",
+        "Mount Kearsarge North",
+        "Kearsarge North Mountain",
+        "Mount Pequawket"
+      ],
+      "elevationFt": 3269,
+      "state": "NH",
+      "rank": 18
+    },
+    {
+      "slug": "owls-head-carroll-nh",
+      "name": "Owl's Head (Carroll)",
+      "aliases": [
+        "Owls Head Carroll",
+        "Owls Head (Carroll)",
+        "Owl's Head Carroll",
+        "Mount Owl's Head (Carroll)"
+      ],
+      "elevationFt": 3258,
+      "state": "NH",
+      "rank": 19,
+      "notes": "Added June 2025. Distinct from Owl's Head in the Pemigewasset Wilderness (owls-head-nh)."
+    },
+    {
+      "slug": "smarts-mountain-nh",
+      "name": "Smarts Mountain",
+      "aliases": [
+        "Smarts"
+      ],
+      "elevationFt": 3238,
+      "state": "NH",
+      "rank": 20
+    },
+    {
+      "slug": "north-moat-mountain-nh",
+      "name": "North Moat Mountain",
+      "aliases": [
+        "North Moat",
+        "Moat North",
+        "N Moat"
+      ],
+      "elevationFt": 3203,
+      "state": "NH",
+      "rank": 21
+    },
+    {
+      "slug": "mount-monadnock-nh",
+      "name": "Mount Monadnock",
+      "aliases": [
+        "Monadnock",
+        "Mt Monadnock",
+        "Mt. Monadnock",
+        "Grand Monadnock"
+      ],
+      "elevationFt": 3170,
+      "state": "NH",
+      "rank": 22
+    },
+    {
+      "slug": "imp-face-nh",
+      "name": "Imp Face",
+      "aliases": [
+        "Imp"
+      ],
+      "elevationFt": 3165,
+      "state": "NH",
+      "rank": 23
+    },
+    {
+      "slug": "mount-cardigan-nh",
+      "name": "Mount Cardigan",
+      "aliases": [
+        "Cardigan",
+        "Mt Cardigan",
+        "Mt. Cardigan"
+      ],
+      "elevationFt": 3149,
+      "state": "NH",
+      "rank": 24
+    },
+    {
+      "slug": "mount-crawford-nh",
+      "name": "Mount Crawford",
+      "aliases": [
+        "Crawford",
+        "Mt Crawford",
+        "Mt. Crawford"
+      ],
+      "elevationFt": 3128,
+      "state": "NH",
+      "rank": 25
+    },
+    {
+      "slug": "mount-paugus-nh",
+      "name": "Mount Paugus",
+      "aliases": [
+        "Paugus",
+        "Mt Paugus",
+        "Mt. Paugus"
+      ],
+      "elevationFt": 3100,
+      "state": "NH",
+      "rank": 26
+    },
+    {
+      "slug": "doublehead-mountain-nh",
+      "name": "Doublehead Mountain (North Doublehead)",
+      "aliases": [
+        "Doublehead",
+        "North Doublehead",
+        "South Doublehead",
+        "Doublehead (Jackson)",
+        "Doublehead North"
+      ],
+      "elevationFt": 3051,
+      "state": "NH",
+      "rank": 27,
+      "notes": "List entry is North Doublehead (3,051 ft) and South Doublehead (2,939 ft) together; elevation shown is North Doublehead."
+    },
+    {
+      "slug": "eagle-crag-nh",
+      "name": "Eagle Crag",
+      "aliases": [
+        "Eagle Crag Mountain",
+        "Meader Ridge Eagle Crag"
+      ],
+      "elevationFt": 3020,
+      "state": "NH",
+      "rank": 28
+    },
+    {
+      "slug": "mount-parker-nh",
+      "name": "Mount Parker",
+      "aliases": [
+        "Parker",
+        "Mt Parker",
+        "Mt. Parker",
+        "Parker (Bartlett)",
+        "Mount Parker (Bartlett)"
+      ],
+      "elevationFt": 3013,
+      "state": "NH",
+      "rank": 29
+    },
+    {
+      "slug": "mount-shaw-nh",
+      "name": "Mount Shaw",
+      "aliases": [
+        "Shaw",
+        "Mt Shaw",
+        "Mt. Shaw"
+      ],
+      "elevationFt": 2990,
+      "state": "NH",
+      "rank": 30
+    },
+    {
+      "slug": "rogers-ledge-nh",
+      "name": "Rogers Ledge",
+      "aliases": [
+        "Rogers Ledge Mountain"
+      ],
+      "elevationFt": 2965,
+      "state": "NH",
+      "rank": 31
+    },
+    {
+      "slug": "eastman-mountain-nh",
+      "name": "Eastman Mountain",
+      "aliases": [
+        "Eastman",
+        "Mount Eastman"
+      ],
+      "elevationFt": 2938,
+      "state": "NH",
+      "rank": 32
+    },
+    {
+      "slug": "mount-kearsarge-nh",
+      "name": "Mount Kearsarge",
+      "aliases": [
+        "Kearsarge",
+        "Mt Kearsarge",
+        "Mt. Kearsarge",
+        "Kearsarge (Warner)",
+        "Mount Kearsarge (Warner)"
+      ],
+      "elevationFt": 2935,
+      "state": "NH",
+      "rank": 33
+    },
+    {
+      "slug": "mount-cube-nh",
+      "name": "Mount Cube (South Peak)",
+      "aliases": [
+        "Cube (South Peak)",
+        "Mt Cube (South Peak)",
+        "Mt. Cube (South Peak)",
+        "Cube",
+        "Cube South Peak",
+        "South Cube"
+      ],
+      "elevationFt": 2916,
+      "state": "NH",
+      "rank": 34,
+      "notes": "South Peak elevation shown."
+    },
+    {
+      "slug": "stinson-mountain-nh",
+      "name": "Stinson Mountain",
+      "aliases": [
+        "Stinson"
+      ],
+      "elevationFt": 2890,
+      "state": "NH",
+      "rank": 35
+    },
+    {
+      "slug": "mount-willard-nh",
+      "name": "Mount Willard",
+      "aliases": [
+        "Willard",
+        "Mt Willard",
+        "Mt. Willard"
+      ],
+      "elevationFt": 2850,
+      "state": "NH",
+      "rank": 36
+    },
+    {
+      "slug": "black-mountain-benton-nh",
+      "name": "Black Mountain (Benton)",
+      "aliases": [
+        "Black Mountain",
+        "Black (Benton)",
+        "Black Mountain Benton"
+      ],
+      "elevationFt": 2829,
+      "state": "NH",
+      "rank": 37
+    },
+    {
+      "slug": "south-moat-mountain-nh",
+      "name": "South Moat Mountain",
+      "aliases": [
+        "South Moat",
+        "Moat South",
+        "S Moat"
+      ],
+      "elevationFt": 2772,
+      "state": "NH",
+      "rank": 38
+    },
+    {
+      "slug": "iron-mountain-nh",
+      "name": "Iron Mountain",
+      "aliases": [
+        "Iron"
+      ],
+      "elevationFt": 2723,
+      "state": "NH",
+      "rank": 39,
+      "notes": "Added to the list June 2025."
+    },
+    {
+      "slug": "welch-dickey-nh",
+      "name": "Dickey Mountain (Welch-Dickey)",
+      "aliases": [
+        "Dickey",
+        "Welch",
+        "Welch Mountain",
+        "Welch-Dickey",
+        "Welch and Dickey",
+        "Dickey Mountain",
+        "Welch Dickey Loop"
+      ],
+      "elevationFt": 2722,
+      "state": "NH",
+      "rank": 40,
+      "notes": "List entry is Welch (2,598 ft) and Dickey (2,722 ft) together; elevation shown is Dickey."
+    },
+    {
+      "slug": "potash-mountain-nh",
+      "name": "Potash Mountain",
+      "aliases": [
+        "Potash"
+      ],
+      "elevationFt": 2691,
+      "state": "NH",
+      "rank": 41
+    },
+    {
+      "slug": "table-mountain-nh",
+      "name": "Table Mountain",
+      "aliases": [
+        "Table"
+      ],
+      "elevationFt": 2669,
+      "state": "NH",
+      "rank": 42
+    },
+    {
+      "slug": "mount-israel-nh",
+      "name": "Mount Israel",
+      "aliases": [
+        "Israel",
+        "Mt Israel",
+        "Mt. Israel"
+      ],
+      "elevationFt": 2636,
+      "state": "NH",
+      "rank": 43
+    },
+    {
+      "slug": "mount-roberts-nh",
+      "name": "Mount Roberts",
+      "aliases": [
+        "Roberts",
+        "Mt Roberts",
+        "Mt. Roberts"
+      ],
+      "elevationFt": 2584,
+      "state": "NH",
+      "rank": 44
+    },
+    {
+      "slug": "mount-hayes-nh",
+      "name": "Mount Hayes",
+      "aliases": [
+        "Hayes",
+        "Mt Hayes",
+        "Mt. Hayes"
+      ],
+      "elevationFt": 2573,
+      "state": "NH",
+      "rank": 45
+    },
+    {
+      "slug": "mount-pemigewasset-nh",
+      "name": "Mount Pemigewasset",
+      "aliases": [
+        "Pemigewasset",
+        "Mt Pemigewasset",
+        "Mt. Pemigewasset",
+        "Indian Head"
+      ],
+      "elevationFt": 2552,
+      "state": "NH",
+      "rank": 46
+    },
+    {
+      "slug": "hedgehog-mountain-nh",
+      "name": "Hedgehog Mountain",
+      "aliases": [
+        "Hedgehog"
+      ],
+      "elevationFt": 2543,
+      "state": "NH",
+      "rank": 47
+    },
+    {
+      "slug": "middle-sugarloaf-mountain-nh",
+      "name": "Middle Sugarloaf Mountain",
+      "aliases": [
+        "Middle Sugarloaf",
+        "Sugarloaf (Twin Mountain)",
+        "Sugarloaf Twin Mountain",
+        "Sugarloaf (Twin Mtn)",
+        "Sugarloaf Middle"
+      ],
+      "elevationFt": 2538,
+      "state": "NH",
+      "rank": 48
+    },
+    {
+      "slug": "bald-peak-easton-nh",
+      "name": "Bald Peak (Easton)",
+      "aliases": [
+        "Bald Peak",
+        "Bald Peak Easton"
+      ],
+      "elevationFt": 2465,
+      "state": "NH",
+      "rank": 49,
+      "notes": "Added June 2025."
+    },
+    {
+      "slug": "pine-mountain-nh",
+      "name": "Pine Mountain",
+      "aliases": [
+        "Pine"
+      ],
+      "elevationFt": 2404,
+      "state": "NH",
+      "rank": 50
+    },
+    {
+      "slug": "mount-morgan-nh",
+      "name": "Mount Morgan",
+      "aliases": [
+        "Morgan",
+        "Mt Morgan",
+        "Mt. Morgan"
+      ],
+      "elevationFt": 2213,
+      "state": "NH",
+      "rank": 51
+    },
+    {
+      "slug": "mount-percival-nh",
+      "name": "Mount Percival",
+      "aliases": [
+        "Percival",
+        "Mt Percival",
+        "Mt. Percival"
+      ],
+      "elevationFt": 2200,
+      "state": "NH",
+      "rank": 52
+    }
+  ]
+}

@@ -1,0 +1,852 @@
+{
+  "slug": "co-14ers",
+  "name": "Colorado Fourteeners",
+  "shortName": "CO 14ers",
+  "region": "Colorado",
+  "country": "US",
+  "description": "The 58 named peaks in Colorado at or above 14,000 feet, as commonly climbed: 53 ranked plus 5 unranked.",
+  "criteria": "Ranked: 14,000 ft+ with at least 300 ft of topographic prominence (53 peaks). Also included: 5 unranked named summits (Mount Cameron, El Diente Peak, North Eolus, Conundrum Peak, North Maroon Peak) that most peak-baggers also climb, for 58 total.",
+  "organization": "14ers.com (informal; no official governing body)",
+  "officialUrl": "https://www.14ers.com/",
+  "notes": "Elevations, ranks and coordinates for the 53 ranked peaks are from Wikipedia (NAVD88). Unranked peak elevations vary by source (14ers.com vs Wikipedia vs Peakbagger); see each peak's notes. Unranked peaks have no sourced coordinates except El Diente. Rank field is elevation order across all 58 using listed values.",
+  "sources": [
+    {
+      "title": "List of Colorado fourteeners (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/List_of_Colorado_fourteeners",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Mount Cameron (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Mount_Cameron_(Colorado)",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "El Diente Peak (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/El_Diente_Peak",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "14ers.com",
+      "url": "https://www.14ers.com/",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Conundrum Peak (Peakbagger)",
+      "url": "https://peakbagger.com/Peak.aspx?pid=16693",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "peaks": [
+    {
+      "slug": "mount-elbert-co",
+      "name": "Mount Elbert",
+      "aliases": [
+        "Elbert",
+        "Mt Elbert",
+        "Mt. Elbert"
+      ],
+      "elevationFt": 14440,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 39.1178,
+      "lon": -106.4454,
+      "rank": 1
+    },
+    {
+      "slug": "mount-massive-co",
+      "name": "Mount Massive",
+      "aliases": [
+        "Massive",
+        "Mt Massive",
+        "Mt. Massive"
+      ],
+      "elevationFt": 14428,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 39.1875,
+      "lon": -106.4757,
+      "rank": 2
+    },
+    {
+      "slug": "mount-harvard-co",
+      "name": "Mount Harvard",
+      "aliases": [
+        "Harvard",
+        "Mt Harvard",
+        "Mt. Harvard"
+      ],
+      "elevationFt": 14421,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.9244,
+      "lon": -106.3207,
+      "rank": 3
+    },
+    {
+      "slug": "blanca-peak-co",
+      "name": "Blanca Peak",
+      "aliases": [
+        "Blanca"
+      ],
+      "elevationFt": 14351,
+      "state": "CO",
+      "range": "Sangre de Cristo Range",
+      "lat": 37.5775,
+      "lon": -105.4856,
+      "rank": 4
+    },
+    {
+      "slug": "la-plata-peak-co",
+      "name": "La Plata Peak",
+      "aliases": [
+        "La Plata"
+      ],
+      "elevationFt": 14343,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 39.0294,
+      "lon": -106.4729,
+      "rank": 5
+    },
+    {
+      "slug": "uncompahgre-peak-co",
+      "name": "Uncompahgre Peak",
+      "aliases": [
+        "Uncompaghre",
+        "Uncompahgre"
+      ],
+      "elevationFt": 14321,
+      "state": "CO",
+      "range": "San Juan Mountains",
+      "lat": 38.0717,
+      "lon": -107.4621,
+      "rank": 6
+    },
+    {
+      "slug": "crestone-peak-co",
+      "name": "Crestone Peak",
+      "aliases": [
+        "Crestone"
+      ],
+      "elevationFt": 14300,
+      "state": "CO",
+      "range": "Sangre de Cristo Range",
+      "lat": 37.9669,
+      "lon": -105.5855,
+      "rank": 7
+    },
+    {
+      "slug": "mount-lincoln-co",
+      "name": "Mount Lincoln",
+      "aliases": [
+        "Lincoln",
+        "Mt Lincoln",
+        "Mt. Lincoln"
+      ],
+      "elevationFt": 14293,
+      "state": "CO",
+      "range": "Mosquito Range",
+      "lat": 39.3515,
+      "lon": -106.1116,
+      "rank": 8
+    },
+    {
+      "slug": "castle-peak-co",
+      "name": "Castle Peak",
+      "aliases": [
+        "Castle"
+      ],
+      "elevationFt": 14279,
+      "state": "CO",
+      "range": "Elk Mountains",
+      "lat": 39.0097,
+      "lon": -106.8614,
+      "rank": 9
+    },
+    {
+      "slug": "grays-peak-co",
+      "name": "Grays Peak",
+      "aliases": [
+        "Gray's Peak",
+        "Grays"
+      ],
+      "elevationFt": 14278,
+      "state": "CO",
+      "range": "Front Range",
+      "lat": 39.6339,
+      "lon": -105.8176,
+      "rank": 10
+    },
+    {
+      "slug": "mount-antero-co",
+      "name": "Mount Antero",
+      "aliases": [
+        "Antero",
+        "Mt Antero",
+        "Mt. Antero"
+      ],
+      "elevationFt": 14276,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.6741,
+      "lon": -106.2462,
+      "rank": 11
+    },
+    {
+      "slug": "torreys-peak-co",
+      "name": "Torreys Peak",
+      "aliases": [
+        "Torrey's Peak",
+        "Torreys"
+      ],
+      "elevationFt": 14275,
+      "state": "CO",
+      "range": "Front Range",
+      "lat": 39.6428,
+      "lon": -105.8212,
+      "rank": 12
+    },
+    {
+      "slug": "quandary-peak-co",
+      "name": "Quandary Peak",
+      "aliases": [
+        "Quandary"
+      ],
+      "elevationFt": 14271,
+      "state": "CO",
+      "range": "Mosquito Range",
+      "lat": 39.3973,
+      "lon": -106.1064,
+      "rank": 13
+    },
+    {
+      "slug": "mount-blue-sky-co",
+      "name": "Mount Blue Sky",
+      "aliases": [
+        "Blue Sky",
+        "Evans",
+        "Mount Evans",
+        "Mt Blue Sky",
+        "Mt Evans",
+        "Mt. Blue Sky",
+        "Mt. Evans"
+      ],
+      "elevationFt": 14271,
+      "state": "CO",
+      "range": "Front Range",
+      "lat": 39.5883,
+      "lon": -105.6438,
+      "rank": 14,
+      "notes": "formerly Mount Evans (renamed 2023)"
+    },
+    {
+      "slug": "longs-peak-co",
+      "name": "Longs Peak",
+      "aliases": [
+        "Longs"
+      ],
+      "elevationFt": 14259,
+      "state": "CO",
+      "range": "Front Range",
+      "lat": 40.255,
+      "lon": -105.6151,
+      "rank": 15
+    },
+    {
+      "slug": "mount-wilson-co",
+      "name": "Mount Wilson",
+      "aliases": [
+        "Mt Wilson",
+        "Mt. Wilson",
+        "Wilson",
+        "Wilson (San Miguel)"
+      ],
+      "elevationFt": 14252,
+      "state": "CO",
+      "range": "San Miguel Mountains",
+      "lat": 37.8391,
+      "lon": -107.9916,
+      "rank": 16,
+      "notes": "not Wilson Peak"
+    },
+    {
+      "slug": "mount-cameron-co",
+      "name": "Mount Cameron",
+      "aliases": [
+        "Cameron"
+      ],
+      "elevationFt": 14238,
+      "state": "CO",
+      "range": "Mosquito Range",
+      "rank": 17,
+      "notes": "unranked (prominence ~152 ft); Wikipedia 14,238 ft; parent Mount Lincoln"
+    },
+    {
+      "slug": "mount-shavano-co",
+      "name": "Mount Shavano",
+      "aliases": [
+        "Mt Shavano",
+        "Mt. Shavano",
+        "Shavano"
+      ],
+      "elevationFt": 14231,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.6192,
+      "lon": -106.2393,
+      "rank": 18
+    },
+    {
+      "slug": "mount-princeton-co",
+      "name": "Mount Princeton",
+      "aliases": [
+        "Mt Princeton",
+        "Mt. Princeton",
+        "Princeton"
+      ],
+      "elevationFt": 14204,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.7492,
+      "lon": -106.2424,
+      "rank": 19
+    },
+    {
+      "slug": "mount-belford-co",
+      "name": "Mount Belford",
+      "aliases": [
+        "Belford",
+        "Mt Belford",
+        "Mt. Belford"
+      ],
+      "elevationFt": 14203,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.9607,
+      "lon": -106.3607,
+      "rank": 20
+    },
+    {
+      "slug": "crestone-needle-co",
+      "name": "Crestone Needle",
+      "aliases": [],
+      "elevationFt": 14203,
+      "state": "CO",
+      "range": "Sangre de Cristo Range",
+      "lat": 37.9647,
+      "lon": -105.5766,
+      "rank": 21
+    },
+    {
+      "slug": "mount-yale-co",
+      "name": "Mount Yale",
+      "aliases": [
+        "Mt Yale",
+        "Mt. Yale",
+        "Yale"
+      ],
+      "elevationFt": 14200,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.8442,
+      "lon": -106.3138,
+      "rank": 22
+    },
+    {
+      "slug": "mount-bross-co",
+      "name": "Mount Bross",
+      "aliases": [
+        "Bross",
+        "Mt Bross",
+        "Mt. Bross"
+      ],
+      "elevationFt": 14178,
+      "state": "CO",
+      "range": "Mosquito Range",
+      "lat": 39.3354,
+      "lon": -106.1077,
+      "rank": 23
+    },
+    {
+      "slug": "kit-carson-mountain-co",
+      "name": "Kit Carson Mountain",
+      "aliases": [
+        "Kit Carson",
+        "Kit Carson Peak"
+      ],
+      "elevationFt": 14171,
+      "state": "CO",
+      "range": "Sangre de Cristo Range",
+      "lat": 37.9797,
+      "lon": -105.6026,
+      "rank": 24
+    },
+    {
+      "slug": "el-diente-peak-co",
+      "name": "El Diente Peak",
+      "aliases": [
+        "El Diente",
+        "Diente"
+      ],
+      "elevationFt": 14165,
+      "state": "CO",
+      "range": "San Juan Mountains",
+      "lat": 37.8394383,
+      "lon": -108.0053474,
+      "rank": 25,
+      "notes": "unranked (prominence under 300 ft); elevation per Wikipedia article (14ers.com lists 14,175, older Wikipedia list 14,159)"
+    },
+    {
+      "slug": "maroon-peak-co",
+      "name": "Maroon Peak",
+      "aliases": [
+        "Maroon",
+        "Maroon Bells",
+        "South Maroon",
+        "South Maroon Peak"
+      ],
+      "elevationFt": 14163,
+      "state": "CO",
+      "range": "Elk Mountains",
+      "lat": 39.0708,
+      "lon": -106.989,
+      "rank": 26
+    },
+    {
+      "slug": "tabeguache-peak-co",
+      "name": "Tabeguache Peak",
+      "aliases": [
+        "Tabegauche",
+        "Tabeguache"
+      ],
+      "elevationFt": 14162,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.6255,
+      "lon": -106.2509,
+      "rank": 27
+    },
+    {
+      "slug": "mount-oxford-co",
+      "name": "Mount Oxford",
+      "aliases": [
+        "Mt Oxford",
+        "Mt. Oxford",
+        "Oxford"
+      ],
+      "elevationFt": 14160,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.9648,
+      "lon": -106.3388,
+      "rank": 28
+    },
+    {
+      "slug": "mount-sneffels-co",
+      "name": "Mount Sneffels",
+      "aliases": [
+        "Mt Sneffels",
+        "Mt. Sneffels",
+        "Sneffels"
+      ],
+      "elevationFt": 14158,
+      "state": "CO",
+      "range": "Sneffels Range",
+      "lat": 38.0038,
+      "lon": -107.7923,
+      "rank": 29
+    },
+    {
+      "slug": "mount-democrat-co",
+      "name": "Mount Democrat",
+      "aliases": [
+        "Democrat",
+        "Mt Democrat",
+        "Mt. Democrat"
+      ],
+      "elevationFt": 14155,
+      "state": "CO",
+      "range": "Mosquito Range",
+      "lat": 39.3396,
+      "lon": -106.14,
+      "rank": 30
+    },
+    {
+      "slug": "capitol-peak-co",
+      "name": "Capitol Peak",
+      "aliases": [
+        "Capitol"
+      ],
+      "elevationFt": 14137,
+      "state": "CO",
+      "range": "Elk Mountains",
+      "lat": 39.1503,
+      "lon": -107.0829,
+      "rank": 31
+    },
+    {
+      "slug": "pikes-peak-co",
+      "name": "Pikes Peak",
+      "aliases": [
+        "Pike's Peak",
+        "Pikes"
+      ],
+      "elevationFt": 14115,
+      "state": "CO",
+      "range": "Front Range",
+      "lat": 38.8405,
+      "lon": -105.0442,
+      "rank": 32
+    },
+    {
+      "slug": "snowmass-mountain-co",
+      "name": "Snowmass Mountain",
+      "aliases": [
+        "Snowmass"
+      ],
+      "elevationFt": 14099,
+      "state": "CO",
+      "range": "Elk Mountains",
+      "lat": 39.1188,
+      "lon": -107.0665,
+      "rank": 33
+    },
+    {
+      "slug": "windom-peak-co",
+      "name": "Windom Peak",
+      "aliases": [
+        "Windom"
+      ],
+      "elevationFt": 14093,
+      "state": "CO",
+      "range": "Needle Mountains",
+      "lat": 37.6212,
+      "lon": -107.5919,
+      "rank": 34
+    },
+    {
+      "slug": "mount-eolus-co",
+      "name": "Mount Eolus",
+      "aliases": [
+        "Eolus",
+        "Mt Eolus",
+        "Mt. Eolus"
+      ],
+      "elevationFt": 14090,
+      "state": "CO",
+      "range": "San Juan Mountains",
+      "lat": 37.6218,
+      "lon": -107.6227,
+      "rank": 35
+    },
+    {
+      "slug": "challenger-point-co",
+      "name": "Challenger Point",
+      "aliases": [
+        "Challenger"
+      ],
+      "elevationFt": 14087,
+      "state": "CO",
+      "range": "Sangre de Cristo Range",
+      "lat": 37.9804,
+      "lon": -105.6066,
+      "rank": 36
+    },
+    {
+      "slug": "mount-columbia-co",
+      "name": "Mount Columbia",
+      "aliases": [
+        "Columbia",
+        "Mt Columbia",
+        "Mt. Columbia"
+      ],
+      "elevationFt": 14077,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.9039,
+      "lon": -106.2975,
+      "rank": 37
+    },
+    {
+      "slug": "missouri-mountain-co",
+      "name": "Missouri Mountain",
+      "aliases": [
+        "Missouri"
+      ],
+      "elevationFt": 14074,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.9476,
+      "lon": -106.3785,
+      "rank": 38
+    },
+    {
+      "slug": "humboldt-peak-co",
+      "name": "Humboldt Peak",
+      "aliases": [
+        "Humboldt"
+      ],
+      "elevationFt": 14070,
+      "state": "CO",
+      "range": "Sangre de Cristo Range",
+      "lat": 37.9762,
+      "lon": -105.5552,
+      "rank": 39
+    },
+    {
+      "slug": "mount-bierstadt-co",
+      "name": "Mount Bierstadt",
+      "aliases": [
+        "Bierstadt",
+        "Mt Bierstadt",
+        "Mt. Bierstadt"
+      ],
+      "elevationFt": 14065,
+      "state": "CO",
+      "range": "Front Range",
+      "lat": 39.5826,
+      "lon": -105.6688,
+      "rank": 40
+    },
+    {
+      "slug": "sunlight-peak-co",
+      "name": "Sunlight Peak",
+      "aliases": [
+        "Sunlight"
+      ],
+      "elevationFt": 14065,
+      "state": "CO",
+      "range": "San Juan Mountains",
+      "lat": 37.6274,
+      "lon": -107.5959,
+      "rank": 41
+    },
+    {
+      "slug": "handies-peak-co",
+      "name": "Handies Peak",
+      "aliases": [
+        "Handies"
+      ],
+      "elevationFt": 14058,
+      "state": "CO",
+      "range": "San Juan Mountains",
+      "lat": 37.913,
+      "lon": -107.5044,
+      "rank": 42
+    },
+    {
+      "slug": "culebra-peak-co",
+      "name": "Culebra Peak",
+      "aliases": [
+        "Culebra"
+      ],
+      "elevationFt": 14053,
+      "state": "CO",
+      "range": "Culebra Range",
+      "lat": 37.1224,
+      "lon": -105.1858,
+      "rank": 43
+    },
+    {
+      "slug": "ellingwood-point-co",
+      "name": "Ellingwood Point",
+      "aliases": [],
+      "elevationFt": 14048,
+      "state": "CO",
+      "range": "Sangre de Cristo Range",
+      "lat": 37.5826,
+      "lon": -105.4927,
+      "rank": 44
+    },
+    {
+      "slug": "mount-lindsey-co",
+      "name": "Mount Lindsey",
+      "aliases": [
+        "Lindsey",
+        "Mt Lindsey",
+        "Mt. Lindsey"
+      ],
+      "elevationFt": 14048,
+      "state": "CO",
+      "range": "Sangre de Cristo Range",
+      "lat": 37.5837,
+      "lon": -105.4449,
+      "rank": 45
+    },
+    {
+      "slug": "little-bear-peak-co",
+      "name": "Little Bear Peak",
+      "aliases": [
+        "Little Bear"
+      ],
+      "elevationFt": 14043,
+      "state": "CO",
+      "range": "Sangre de Cristo Range",
+      "lat": 37.5666,
+      "lon": -105.4972,
+      "rank": 46
+    },
+    {
+      "slug": "mount-sherman-co",
+      "name": "Mount Sherman",
+      "aliases": [
+        "Mt Sherman",
+        "Mt. Sherman",
+        "Sherman"
+      ],
+      "elevationFt": 14043,
+      "state": "CO",
+      "range": "Mosquito Range",
+      "lat": 39.225,
+      "lon": -106.1699,
+      "rank": 47
+    },
+    {
+      "slug": "redcloud-peak-co",
+      "name": "Redcloud Peak",
+      "aliases": [
+        "Redcloud"
+      ],
+      "elevationFt": 14041,
+      "state": "CO",
+      "range": "San Juan Mountains",
+      "lat": 37.941,
+      "lon": -107.4219,
+      "rank": 48
+    },
+    {
+      "slug": "north-eolus-co",
+      "name": "North Eolus",
+      "aliases": [
+        "North Eolus Peak",
+        "N Eolus"
+      ],
+      "elevationFt": 14039,
+      "state": "CO",
+      "range": "San Juan Mountains",
+      "rank": 49,
+      "notes": "unranked; elevation 14,039 per Wikipedia, 14ers.com lists ~14,042"
+    },
+    {
+      "slug": "conundrum-peak-co",
+      "name": "Conundrum Peak",
+      "aliases": [
+        "Conundrum"
+      ],
+      "elevationFt": 14037,
+      "state": "CO",
+      "range": "Elk Mountains",
+      "rank": 50,
+      "notes": "unranked; subsummit of Castle Peak; 14ers.com 14,037 (Peakbagger 14,035; other sources 14,060)"
+    },
+    {
+      "slug": "pyramid-peak-co",
+      "name": "Pyramid Peak",
+      "aliases": [
+        "Pyramid"
+      ],
+      "elevationFt": 14025,
+      "state": "CO",
+      "range": "Elk Mountains",
+      "lat": 39.0717,
+      "lon": -106.9502,
+      "rank": 51
+    },
+    {
+      "slug": "wilson-peak-co",
+      "name": "Wilson Peak",
+      "aliases": [
+        "Wilson",
+        "Wilson (Lizard Head)"
+      ],
+      "elevationFt": 14023,
+      "state": "CO",
+      "range": "San Juan Mountains",
+      "lat": 37.8603,
+      "lon": -107.9847,
+      "rank": 52
+    },
+    {
+      "slug": "san-luis-peak-co",
+      "name": "San Luis Peak",
+      "aliases": [
+        "San Luis"
+      ],
+      "elevationFt": 14022,
+      "state": "CO",
+      "range": "La Garita Mountains",
+      "lat": 37.9868,
+      "lon": -106.9313,
+      "rank": 53
+    },
+    {
+      "slug": "north-maroon-peak-co",
+      "name": "North Maroon Peak",
+      "aliases": [
+        "North Maroon",
+        "N Maroon"
+      ],
+      "elevationFt": 14022,
+      "state": "CO",
+      "range": "Elk Mountains",
+      "rank": 54,
+      "notes": "unranked; 14ers.com 14,022 (Wikipedia 14,014/14,019 in different places)"
+    },
+    {
+      "slug": "wetterhorn-peak-co",
+      "name": "Wetterhorn Peak",
+      "aliases": [
+        "Wetterhorn"
+      ],
+      "elevationFt": 14021,
+      "state": "CO",
+      "range": "San Juan Mountains",
+      "lat": 38.0607,
+      "lon": -107.5109,
+      "rank": 55
+    },
+    {
+      "slug": "mount-of-the-holy-cross-co",
+      "name": "Mount of the Holy Cross",
+      "aliases": [
+        "Holy Cross",
+        "Mount Holy Cross",
+        "Mt of the Holy Cross",
+        "Mt. of the Holy Cross",
+        "of the Holy Cross"
+      ],
+      "elevationFt": 14011,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 39.4668,
+      "lon": -106.4817,
+      "rank": 56
+    },
+    {
+      "slug": "huron-peak-co",
+      "name": "Huron Peak",
+      "aliases": [
+        "Huron"
+      ],
+      "elevationFt": 14010,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 38.9455,
+      "lon": -106.4381,
+      "rank": 57
+    },
+    {
+      "slug": "sunshine-peak-co",
+      "name": "Sunshine Peak",
+      "aliases": [
+        "Sunshine"
+      ],
+      "elevationFt": 14007,
+      "state": "CO",
+      "range": "San Juan Mountains",
+      "lat": 37.9228,
+      "lon": -107.4256,
+      "rank": 58
+    }
+  ]
+}

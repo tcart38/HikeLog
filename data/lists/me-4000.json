@@ -1,0 +1,253 @@
+{
+  "name": "Maine 4000-Footers",
+  "shortName": "ME 14",
+  "region": "Maine",
+  "country": "US",
+  "description": "The 14 Maine mountains that reach 4,000 feet, from Katahdin to the Bigelows and the western High Peaks.",
+  "criteria": "Summits at least 4,000 ft with at least 200 ft of rise on all sides, per the AMC New England 4000-footer list.",
+  "organization": "AMC Four Thousand Footer Committee",
+  "officialUrl": "https://amc4000footer.org/",
+  "notes": "Baxter Peak and Hamlin Peak are separate peaks on the Katahdin massif; Bigelow Avery and West peaks are separate. Abraham (ME) is distinct from Abraham (VT). Elevations follow 4000footers.com.",
+  "sources": [
+    {
+      "title": "4000footers.com - 14 Maine 4,000 Footers",
+      "url": "https://4000footers.com/me.shtml",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Wikipedia - Four-thousand footers (ranges, names)",
+      "url": "https://en.wikipedia.org/wiki/Four-thousand_footers",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "AMC Four Thousand Footer Committee - home (winter rules)",
+      "url": "https://amc4000footer.org/",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "slug": "me-4000",
+  "peaks": [
+    {
+      "slug": "katahdin-me",
+      "name": "Katahdin (Baxter Peak)",
+      "aliases": [
+        "Baxter Peak",
+        "Katahdin",
+        "Mount Katahdin",
+        "Mt Katahdin",
+        "Mt. Katahdin",
+        "Katahdin Baxter Peak",
+        "Katahdin, Baxter Peak"
+      ],
+      "elevationFt": 5268,
+      "state": "ME",
+      "range": "Baxter State Park",
+      "rank": 1,
+      "notes": "Highest point in Maine; northern terminus of the Appalachian Trail."
+    },
+    {
+      "slug": "hamlin-peak-me",
+      "name": "Hamlin Peak",
+      "aliases": [
+        "Hamlin",
+        "Katahdin Hamlin Peak",
+        "Katahdin, Hamlin Peak",
+        "Hamlin Peak (Katahdin)",
+        "Mt Hamlin"
+      ],
+      "elevationFt": 4756,
+      "state": "ME",
+      "range": "Baxter State Park",
+      "rank": 2,
+      "notes": "Second summit of the Katahdin massif."
+    },
+    {
+      "slug": "sugarloaf-mountain-me",
+      "name": "Sugarloaf Mountain",
+      "aliases": [
+        "Sugarloaf",
+        "Sugarloaf Mtn",
+        "Sugarloaf (Maine)",
+        "Sugarloaf (ME)"
+      ],
+      "elevationFt": 4250,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 3
+    },
+    {
+      "slug": "crocker-mountain-me",
+      "name": "Crocker Mountain",
+      "aliases": [
+        "Crocker",
+        "Mt Crocker",
+        "Mt. Crocker",
+        "Mount Crocker",
+        "North Crocker",
+        "North Crocker Mountain",
+        "Crocker Mtn"
+      ],
+      "elevationFt": 4228,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 4
+    },
+    {
+      "slug": "old-speck-mountain-me",
+      "name": "Old Speck Mountain",
+      "aliases": [
+        "Old Speck",
+        "Old Speck Mtn"
+      ],
+      "elevationFt": 4170,
+      "state": "ME",
+      "range": "Eastern White Mountains",
+      "rank": 5
+    },
+    {
+      "slug": "north-brother-me",
+      "name": "North Brother",
+      "aliases": [
+        "North Brother Mountain",
+        "N Brother",
+        "Mount North Brother",
+        "Brother North"
+      ],
+      "elevationFt": 4151,
+      "state": "ME",
+      "range": "Baxter State Park",
+      "rank": 6
+    },
+    {
+      "slug": "bigelow-west-peak-me",
+      "name": "Bigelow Mountain, West Peak",
+      "aliases": [
+        "Bigelow West Peak",
+        "Bigelow West",
+        "West Peak",
+        "West Peak Bigelow",
+        "Mount Bigelow, West Peak",
+        "Mount Bigelow West Peak",
+        "Mt Bigelow West Peak"
+      ],
+      "elevationFt": 4145,
+      "state": "ME",
+      "range": "Bigelow Range",
+      "rank": 7,
+      "notes": "Bigelow Mountain's west summit."
+    },
+    {
+      "slug": "saddleback-mountain-me",
+      "name": "Saddleback Mountain",
+      "aliases": [
+        "Saddleback",
+        "Saddleback Mtn",
+        "Saddleback (Maine)"
+      ],
+      "elevationFt": 4120,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 8
+    },
+    {
+      "slug": "bigelow-avery-peak-me",
+      "name": "Bigelow Mountain, Avery Peak",
+      "aliases": [
+        "Bigelow",
+        "Avery Peak",
+        "Bigelow Avery Peak",
+        "Bigelow Mountain",
+        "Mount Bigelow",
+        "Mount Bigelow, Avery Peak",
+        "Mount Bigelow Avery Peak",
+        "Mt Bigelow Avery Peak",
+        "Avery Peak Bigelow",
+        "Bigelow Avery"
+      ],
+      "elevationFt": 4090,
+      "state": "ME",
+      "range": "Bigelow Range",
+      "rank": 9,
+      "notes": "Bigelow Mountain's main (east) summit."
+    },
+    {
+      "slug": "mount-abraham-me",
+      "name": "Mount Abraham",
+      "aliases": [
+        "Abraham",
+        "Mt Abraham",
+        "Mt. Abraham",
+        "Abraham (ME)",
+        "Abraham (Maine)",
+        "Mount Abraham (Maine)",
+        "Mount Abraham ME",
+        "Mt Abraham ME",
+        "Mt. Abraham ME",
+        "Abraham ME"
+      ],
+      "elevationFt": 4050,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 10,
+      "notes": "Not to be confused with Mount Abraham, Vermont (mount-abraham-vt)."
+    },
+    {
+      "slug": "south-crocker-mountain-me",
+      "name": "South Crocker Mountain",
+      "aliases": [
+        "South Crocker",
+        "S Crocker",
+        "Crocker South",
+        "South Crocker Mtn"
+      ],
+      "elevationFt": 4050,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 11
+    },
+    {
+      "slug": "saddleback-horn-me",
+      "name": "Saddleback Horn",
+      "aliases": [
+        "The Horn",
+        "Horn",
+        "Saddleback Horn Mountain",
+        "Saddleback Horn (Maine)",
+        "The Horn (Saddleback)",
+        "Mt Saddleback Horn"
+      ],
+      "elevationFt": 4023,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 12,
+      "notes": "4000footers.com and Wikipedia list 4,023 ft. Do not confuse with The Horn, NH (the-horn-nh, NEHH #75)."
+    },
+    {
+      "slug": "mount-redington-me",
+      "name": "Mount Redington",
+      "aliases": [
+        "Redington",
+        "Mt Redington",
+        "Mt. Redington",
+        "Redington Mountain"
+      ],
+      "elevationFt": 4010,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 13
+    },
+    {
+      "slug": "spaulding-mountain-me",
+      "name": "Spaulding Mountain",
+      "aliases": [
+        "Spaulding",
+        "Mount Spaulding",
+        "Spaulding Mtn"
+      ],
+      "elevationFt": 4010,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 14
+    }
+  ]
+}

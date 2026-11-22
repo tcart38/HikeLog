@@ -1,0 +1,467 @@
+{
+  "slug": "catskill-3500",
+  "name": "Catskill 3500 Club",
+  "shortName": "Catskill 3500",
+  "region": "Catskill Mountains, New York",
+  "country": "US",
+  "description": "Catskill peaks over 3,500 feet. Membership in the Catskill 3500 Club requires the listed peaks plus four of them repeated in winter.",
+  "criteria": "Catskill peaks of at least 3,500 ft on the club's tally list. Traditionally 35 peaks; since 2021 the club's required list is 33 (Graham and Doubletop closed to the public). All 35 are included here. Elevations for the 33 are the club's published figures; Graham and Doubletop use Wikipedia's figures.",
+  "organization": "Catskill 3500 Club",
+  "officialUrl": "https://www.catskill3500club.org/",
+  "notes": "The traditional list is 35 peaks, but per the club's current website the required list is 33: Graham and Doubletop were closed to public access effective Jan 13, 2021 (South Doubletop and Millbrook Ridge were briefly required and dropped Mar 22, 2021). They are kept here as the traditional 35 and flagged in their notes; the app may treat them as optional. Winter requirement: members must ALSO climb Slide, Blackhead, Balsam and Panther in winter (peaks marked 'winter-required'), giving 33 + 4 = 37 climbs under the current list (39 under the old 35). The club by-laws define winter as December 21 through March 21 inclusive, regardless of actual solstice/equinox dates; you need only be on the summit in that window. Winter patch list: a separate award, earned after basic membership, for climbing all of the required peaks (33 under the current list) in winter (Dec 21 to Mar 21). The app should track a per-ascent winter flag so both the 4 required winter peaks and the full winter-patch list can be computed. Ranges are common groupings, not from the club. No coordinates included (not in sources). Slide (4185) and Hunter (4030) use the club's figures; Wikipedia shows 4180 and 4040.",
+  "sources": [
+    {
+      "title": "Catskill 3500 Club: Peaks (33 official peaks, elevations)",
+      "url": "https://www.catskill3500club.org/peaks",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Catskill 3500 Club: Membership (winter requirement, Dec 21-Mar 21, patch)",
+      "url": "https://www.catskill3500club.org/membership",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Wikipedia: Catskill High Peaks (traditional 35 peaks; Graham/Doubletop elevations)",
+      "url": "https://en.wikipedia.org/wiki/Catskill_High_Peaks",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "peaks": [
+    {
+      "slug": "slide-mountain-ny",
+      "name": "Slide Mountain",
+      "aliases": [
+        "Slide",
+        "Slide Mtn"
+      ],
+      "elevationFt": 4185,
+      "state": "NY",
+      "range": "Burroughs Range",
+      "rank": 1,
+      "notes": "winter-required"
+    },
+    {
+      "slug": "hunter-mountain-ny",
+      "name": "Hunter Mountain",
+      "aliases": [
+        "Hunter",
+        "Hunter Mtn"
+      ],
+      "elevationFt": 4030,
+      "state": "NY",
+      "range": "Devil's Path",
+      "rank": 2
+    },
+    {
+      "slug": "black-dome-mountain-ny",
+      "name": "Black Dome Mountain",
+      "aliases": [
+        "Black Dome",
+        "Black Dome Mtn",
+        "Blackdome"
+      ],
+      "elevationFt": 3994,
+      "state": "NY",
+      "range": "Blackhead Range",
+      "rank": 3
+    },
+    {
+      "slug": "thomas-cole-mountain-ny",
+      "name": "Thomas Cole Mountain",
+      "aliases": [
+        "Thomas Cole",
+        "Thomas Cole Mtn",
+        "Cole"
+      ],
+      "elevationFt": 3953,
+      "state": "NY",
+      "range": "Blackhead Range",
+      "rank": 4
+    },
+    {
+      "slug": "blackhead-mountain-ny",
+      "name": "Blackhead Mountain",
+      "aliases": [
+        "Blackhead",
+        "Blackhead Mtn"
+      ],
+      "elevationFt": 3940,
+      "state": "NY",
+      "range": "Blackhead Range",
+      "rank": 5,
+      "notes": "winter-required"
+    },
+    {
+      "slug": "west-kill-mountain-ny",
+      "name": "West Kill Mountain",
+      "aliases": [
+        "West Kill",
+        "West Kill Mtn",
+        "Westkill",
+        "Westkill Mountain"
+      ],
+      "elevationFt": 3898,
+      "state": "NY",
+      "range": "Devil's Path",
+      "rank": 6
+    },
+    {
+      "slug": "graham-mountain-ny",
+      "name": "Graham Mountain",
+      "aliases": [
+        "Graham",
+        "Graham Mtn"
+      ],
+      "elevationFt": 3868,
+      "state": "NY",
+      "range": "Southwest Catskills",
+      "rank": 7,
+      "notes": "closed to public access since Jan 13, 2021; no longer required by the club (33-peak list); kept as part of the traditional 35. Elevation from Wikipedia."
+    },
+    {
+      "slug": "doubletop-mountain-ny",
+      "name": "Doubletop Mountain",
+      "aliases": [
+        "Doubletop",
+        "Doubletop Mtn",
+        "Double Top"
+      ],
+      "elevationFt": 3860,
+      "state": "NY",
+      "range": "Southwest Catskills",
+      "rank": 8,
+      "notes": "closed to public access since Jan 13, 2021; no longer required by the club (33-peak list); kept as part of the traditional 35. Elevation from Wikipedia."
+    },
+    {
+      "slug": "cornell-mountain-ny",
+      "name": "Cornell Mountain",
+      "aliases": [
+        "Cornell",
+        "Cornell Mtn"
+      ],
+      "elevationFt": 3857,
+      "state": "NY",
+      "range": "Burroughs Range",
+      "rank": 9
+    },
+    {
+      "slug": "plateau-mountain-ny",
+      "name": "Plateau Mountain",
+      "aliases": [
+        "Plateau",
+        "Plateau Mtn"
+      ],
+      "elevationFt": 3835,
+      "state": "NY",
+      "range": "Devil's Path",
+      "rank": 10
+    },
+    {
+      "slug": "table-mountain-ny",
+      "name": "Table Mountain",
+      "aliases": [
+        "Table",
+        "Table Mtn"
+      ],
+      "elevationFt": 3825,
+      "state": "NY",
+      "range": "Burroughs Range",
+      "rank": 11
+    },
+    {
+      "slug": "peekamoose-mountain-ny",
+      "name": "Peekamoose Mountain",
+      "aliases": [
+        "Peekamoose",
+        "Peekamoose Mtn"
+      ],
+      "elevationFt": 3819,
+      "state": "NY",
+      "range": "Southern Catskills",
+      "rank": 12
+    },
+    {
+      "slug": "sugarloaf-mountain-ny",
+      "name": "Sugarloaf Mountain",
+      "aliases": [
+        "Sugarloaf",
+        "Sugarloaf Mtn"
+      ],
+      "elevationFt": 3783,
+      "state": "NY",
+      "range": "Devil's Path",
+      "rank": 13
+    },
+    {
+      "slug": "wittenberg-mountain-ny",
+      "name": "Wittenberg Mountain",
+      "aliases": [
+        "Wittenberg",
+        "Wittenberg Mtn"
+      ],
+      "elevationFt": 3782,
+      "state": "NY",
+      "range": "Burroughs Range",
+      "rank": 14
+    },
+    {
+      "slug": "southwest-hunter-ny",
+      "name": "Southwest Hunter",
+      "aliases": [
+        "SW Hunter",
+        "Southwest Hunter Mountain"
+      ],
+      "elevationFt": 3753,
+      "state": "NY",
+      "range": "Devil's Path",
+      "rank": 15,
+      "notes": "officially off-trail"
+    },
+    {
+      "slug": "balsam-lake-mountain-ny",
+      "name": "Balsam Lake Mountain",
+      "aliases": [
+        "Balsam Lake",
+        "Balsam Lake Mtn"
+      ],
+      "elevationFt": 3729,
+      "state": "NY",
+      "range": "Southwest Catskills",
+      "rank": 16
+    },
+    {
+      "slug": "panther-mountain-ny",
+      "name": "Panther Mountain",
+      "aliases": [
+        "Panther",
+        "Panther Mtn"
+      ],
+      "elevationFt": 3724,
+      "state": "NY",
+      "range": "Southern Catskills",
+      "rank": 17,
+      "notes": "winter-required"
+    },
+    {
+      "slug": "lone-mountain-ny",
+      "name": "Lone Mountain",
+      "aliases": [
+        "Lone",
+        "Lone Mtn"
+      ],
+      "elevationFt": 3700,
+      "state": "NY",
+      "range": "Southern Catskills",
+      "rank": 18,
+      "notes": "untrailed summit"
+    },
+    {
+      "slug": "big-indian-mountain-ny",
+      "name": "Big Indian Mountain",
+      "aliases": [
+        "Big Indian",
+        "Big Indian Mtn"
+      ],
+      "elevationFt": 3699,
+      "state": "NY",
+      "range": "Southwest Catskills",
+      "rank": 19,
+      "notes": "untrailed summit"
+    },
+    {
+      "slug": "friday-mountain-ny",
+      "name": "Friday Mountain",
+      "aliases": [
+        "Friday",
+        "Friday Mtn"
+      ],
+      "elevationFt": 3692,
+      "state": "NY",
+      "range": "Southern Catskills",
+      "rank": 20
+    },
+    {
+      "slug": "rusk-mountain-ny",
+      "name": "Rusk Mountain",
+      "aliases": [
+        "Rusk",
+        "Rusk Mtn"
+      ],
+      "elevationFt": 3686,
+      "state": "NY",
+      "range": "Central Catskills",
+      "rank": 21
+    },
+    {
+      "slug": "kaaterskill-high-peak-ny",
+      "name": "Kaaterskill High Peak",
+      "aliases": [
+        "Kaaterskill High",
+        "Kaaterskill",
+        "Kaaterskill HP"
+      ],
+      "elevationFt": 3652,
+      "state": "NY",
+      "range": "Northeast Catskills",
+      "rank": 22
+    },
+    {
+      "slug": "twin-mountain-ny",
+      "name": "Twin Mountain",
+      "aliases": [
+        "Twin",
+        "Twin Mtn"
+      ],
+      "elevationFt": 3650,
+      "state": "NY",
+      "range": "Devil's Path",
+      "rank": 23
+    },
+    {
+      "slug": "fir-mountain-ny",
+      "name": "Fir Mountain",
+      "aliases": [
+        "Fir",
+        "Fir Mtn"
+      ],
+      "elevationFt": 3629,
+      "state": "NY",
+      "range": "Southwest Catskills",
+      "rank": 24
+    },
+    {
+      "slug": "balsam-cap-mountain-ny",
+      "name": "Balsam Cap Mountain",
+      "aliases": [
+        "Balsam Cap",
+        "Balsam Cap Mtn"
+      ],
+      "elevationFt": 3608,
+      "state": "NY",
+      "range": "Southern Catskills",
+      "rank": 25
+    },
+    {
+      "slug": "balsam-mountain-ny",
+      "name": "Balsam Mountain",
+      "aliases": [
+        "Balsam",
+        "Balsam Mtn"
+      ],
+      "elevationFt": 3607,
+      "state": "NY",
+      "range": "Southwest Catskills",
+      "rank": 26,
+      "notes": "winter-required"
+    },
+    {
+      "slug": "north-dome-ny",
+      "name": "North Dome",
+      "aliases": [
+        "North Dome Mountain"
+      ],
+      "elevationFt": 3605,
+      "state": "NY",
+      "range": "Central Catskills",
+      "rank": 27
+    },
+    {
+      "slug": "bearpen-mountain-ny",
+      "name": "Bearpen Mountain",
+      "aliases": [
+        "Bearpen",
+        "Bearpen Mtn"
+      ],
+      "elevationFt": 3587,
+      "state": "NY",
+      "range": "Northwest Catskills",
+      "rank": 28,
+      "notes": "considered untrailed by some; no canister"
+    },
+    {
+      "slug": "eagle-mountain-ny",
+      "name": "Eagle Mountain",
+      "aliases": [
+        "Eagle",
+        "Eagle Mtn"
+      ],
+      "elevationFt": 3583,
+      "state": "NY",
+      "range": "Southwest Catskills",
+      "rank": 29
+    },
+    {
+      "slug": "indian-head-mountain-ny",
+      "name": "Indian Head Mountain",
+      "aliases": [
+        "Indian Head",
+        "Indian Head Mtn"
+      ],
+      "elevationFt": 3573,
+      "state": "NY",
+      "range": "Devil's Path",
+      "rank": 30
+    },
+    {
+      "slug": "sherrill-mountain-ny",
+      "name": "Sherrill Mountain",
+      "aliases": [
+        "Sherrill",
+        "Sherrill Mtn"
+      ],
+      "elevationFt": 3558,
+      "state": "NY",
+      "range": "Central Catskills",
+      "rank": 31
+    },
+    {
+      "slug": "vly-mountain-ny",
+      "name": "Vly Mountain",
+      "aliases": [
+        "Vly",
+        "Vly Mtn"
+      ],
+      "elevationFt": 3541,
+      "state": "NY",
+      "range": "Northwest Catskills",
+      "rank": 32
+    },
+    {
+      "slug": "windham-high-peak-ny",
+      "name": "Windham High Peak",
+      "aliases": [
+        "Windham High",
+        "Windham",
+        "Windham HP"
+      ],
+      "elevationFt": 3525,
+      "state": "NY",
+      "range": "Northeast Catskills",
+      "rank": 33
+    },
+    {
+      "slug": "halcott-mountain-ny",
+      "name": "Halcott Mountain",
+      "aliases": [
+        "Halcott",
+        "Halcott Mtn"
+      ],
+      "elevationFt": 3509,
+      "state": "NY",
+      "range": "Northwest Catskills",
+      "rank": 34
+    },
+    {
+      "slug": "rocky-mountain-ny",
+      "name": "Rocky Mountain",
+      "aliases": [
+        "Rocky",
+        "Rocky Mtn"
+      ],
+      "elevationFt": 3487,
+      "state": "NY",
+      "range": "Southern Catskills",
+      "rank": 35
+    }
+  ]
+}

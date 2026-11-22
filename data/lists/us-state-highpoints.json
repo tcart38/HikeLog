@@ -1,0 +1,732 @@
+{
+  "slug": "us-state-highpoints",
+  "name": "US State High Points",
+  "shortName": "State High Points",
+  "region": "United States",
+  "country": "US",
+  "description": "The highest natural point in each of the 50 US states, the Highpointers Club list.",
+  "criteria": "The highest natural point in each of the 50 states. Several are drive-ups or roadside markers; Denali, Rainier, Hood, Granite and others require technical mountaineering.",
+  "organization": "Highpointers Club",
+  "officialUrl": "https://www.highpointers.org/",
+  "notes": "Ordering is by elevation. Tennessee's high point is Kuwohi (formerly Clingmans Dome); slug clingmans-dome-tn is used here, with Clingmans Dome as alias; the SE 6000 list should reuse that slug. Connecticut's high point is the southern slope of Mount Frissell (summit is in MA). Mount Washington uses official 6,288 ft. Coordinates come from Wikipedia's state-elevation table, converted from DMS.",
+  "sources": [
+    {
+      "title": "Wikipedia: List of U.S. states and territories by elevation",
+      "url": "https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Highpointers Club",
+      "url": "https://www.highpointers.org/",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "peaks": [
+    {
+      "slug": "denali-ak",
+      "name": "Denali",
+      "aliases": [
+        "Mount McKinley",
+        "Mt McKinley",
+        "McKinley",
+        "Mt Denali"
+      ],
+      "elevationFt": 20310,
+      "state": "AK",
+      "range": "Alaska Range",
+      "lat": 63.0689,
+      "lon": -151.0064,
+      "rank": 1,
+      "notes": "Major expedition (multi-week glaciated mountaineering), not a day hike"
+    },
+    {
+      "slug": "mount-whitney-ca",
+      "name": "Mount Whitney",
+      "aliases": [
+        "Whitney",
+        "Mt Whitney"
+      ],
+      "elevationFt": 14505,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 36.5786,
+      "lon": -118.2925,
+      "rank": 2,
+      "notes": "Permit required for day hikes and overnight trips"
+    },
+    {
+      "slug": "mount-elbert-co",
+      "name": "Mount Elbert",
+      "aliases": [
+        "Elbert",
+        "Mt Elbert"
+      ],
+      "elevationFt": 14440,
+      "state": "CO",
+      "range": "Sawatch Range",
+      "lat": 39.1178,
+      "lon": -106.4453,
+      "rank": 3
+    },
+    {
+      "slug": "mount-rainier-wa",
+      "name": "Mount Rainier",
+      "aliases": [
+        "Rainier",
+        "Mt Rainier"
+      ],
+      "elevationFt": 14400,
+      "state": "WA",
+      "range": "Cascade Range",
+      "lat": 46.8528,
+      "lon": -121.7603,
+      "rank": 4,
+      "notes": "Glaciated; technical climb requiring glacier travel"
+    },
+    {
+      "slug": "gannett-peak-wy",
+      "name": "Gannett Peak",
+      "aliases": [
+        "Gannett"
+      ],
+      "elevationFt": 13809,
+      "state": "WY",
+      "range": "Wind River Range",
+      "lat": 43.1844,
+      "lon": -109.6542,
+      "rank": 5,
+      "notes": "Long, glaciated approach"
+    },
+    {
+      "slug": "mauna-kea-hi",
+      "name": "Mauna Kea",
+      "aliases": [
+        "Mauna Kea Summit"
+      ],
+      "elevationFt": 13803,
+      "state": "HI",
+      "lat": 19.8208,
+      "lon": -155.4681,
+      "rank": 6,
+      "notes": "Road to summit; hike options vary (Humu'ula trail)"
+    },
+    {
+      "slug": "kings-peak-ut",
+      "name": "Kings Peak",
+      "aliases": [
+        "King's Peak",
+        "Kings"
+      ],
+      "elevationFt": 13534,
+      "state": "UT",
+      "range": "Uinta Mountains",
+      "lat": 40.7764,
+      "lon": -110.3728,
+      "rank": 7
+    },
+    {
+      "slug": "wheeler-peak-nm",
+      "name": "Wheeler Peak",
+      "aliases": [
+        "Wheeler",
+        "Mt Wheeler"
+      ],
+      "elevationFt": 13167,
+      "state": "NM",
+      "range": "Sangre de Cristo Mountains",
+      "lat": 36.5567,
+      "lon": -105.4169,
+      "rank": 8
+    },
+    {
+      "slug": "boundary-peak-nv",
+      "name": "Boundary Peak",
+      "aliases": [
+        "Boundary"
+      ],
+      "elevationFt": 13147,
+      "state": "NV",
+      "range": "White Mountains",
+      "lat": 37.8461,
+      "lon": -118.3514,
+      "rank": 9
+    },
+    {
+      "slug": "granite-peak-mt",
+      "name": "Granite Peak",
+      "aliases": [
+        "Granite"
+      ],
+      "elevationFt": 12807,
+      "state": "MT",
+      "range": "Beartooth Mountains",
+      "lat": 45.1636,
+      "lon": -109.8075,
+      "rank": 10,
+      "notes": "Technical climb (Class 4-5 / glacier)"
+    },
+    {
+      "slug": "borah-peak-id",
+      "name": "Borah Peak",
+      "aliases": [
+        "Borah",
+        "Mt Borah"
+      ],
+      "elevationFt": 12668,
+      "state": "ID",
+      "range": "Lost River Range",
+      "lat": 44.1375,
+      "lon": -113.7811,
+      "rank": 11,
+      "notes": "Class 3 scramble (Chicken-out Ridge)"
+    },
+    {
+      "slug": "humphreys-peak-az",
+      "name": "Humphreys Peak",
+      "aliases": [
+        "Humphreys",
+        "Mt Humphreys"
+      ],
+      "elevationFt": 12637,
+      "state": "AZ",
+      "range": "San Francisco Peaks",
+      "lat": 35.3464,
+      "lon": -111.6781,
+      "rank": 12
+    },
+    {
+      "slug": "mount-hood-or",
+      "name": "Mount Hood",
+      "aliases": [
+        "Hood",
+        "Mt Hood"
+      ],
+      "elevationFt": 11249,
+      "state": "OR",
+      "range": "Cascade Range",
+      "lat": 45.3736,
+      "lon": -121.6961,
+      "rank": 13,
+      "notes": "Glaciated; technical climb with crevasse and rockfall hazards"
+    },
+    {
+      "slug": "guadalupe-peak-tx",
+      "name": "Guadalupe Peak",
+      "aliases": [
+        "Guadalupe"
+      ],
+      "elevationFt": 8751,
+      "state": "TX",
+      "range": "Guadalupe Mountains",
+      "lat": 31.8914,
+      "lon": -104.8608,
+      "rank": 14
+    },
+    {
+      "slug": "black-elk-peak-sd",
+      "name": "Black Elk Peak",
+      "aliases": [
+        "Harney Peak",
+        "Black Elk",
+        "Harney"
+      ],
+      "elevationFt": 7244,
+      "state": "SD",
+      "range": "Black Hills",
+      "lat": 43.8661,
+      "lon": -103.5311,
+      "rank": 15
+    },
+    {
+      "slug": "mount-mitchell-nc",
+      "name": "Mount Mitchell",
+      "aliases": [
+        "Mitchell",
+        "Mt Mitchell"
+      ],
+      "elevationFt": 6684,
+      "state": "NC",
+      "range": "Black Mountains",
+      "lat": 35.765,
+      "lon": -82.265,
+      "rank": 16,
+      "notes": "Drive-up / short walk; highest peak east of the Mississippi"
+    },
+    {
+      "slug": "clingmans-dome-tn",
+      "name": "Kuwohi (Clingmans Dome)",
+      "aliases": [
+        "Clingmans Dome",
+        "Clingman's Dome",
+        "Kuwohi"
+      ],
+      "elevationFt": 6643,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "lat": 35.5628,
+      "lon": -83.4986,
+      "rank": 17,
+      "notes": "Renamed Kuwohi in 2024; paved trail from parking lot"
+    },
+    {
+      "slug": "mount-washington-nh",
+      "name": "Mount Washington",
+      "aliases": [
+        "Washington",
+        "Mt Washington",
+        "Mt. Washington"
+      ],
+      "elevationFt": 6288,
+      "state": "NH",
+      "range": "Presidential Range",
+      "lat": 44.2706,
+      "lon": -71.3033,
+      "rank": 18,
+      "notes": "Wikipedia table lists 6,285.8 ft; 6,288 ft is the official figure used by Highpointers/AMC"
+    },
+    {
+      "slug": "mount-rogers-va",
+      "name": "Mount Rogers",
+      "aliases": [
+        "Rogers",
+        "Mt Rogers"
+      ],
+      "elevationFt": 5711,
+      "state": "VA",
+      "range": "Blue Ridge Mountains",
+      "lat": 36.66,
+      "lon": -81.545,
+      "rank": 19
+    },
+    {
+      "slug": "panorama-point-ne",
+      "name": "Panorama Point",
+      "aliases": [
+        "Panorama"
+      ],
+      "elevationFt": 5432,
+      "state": "NE",
+      "lat": 41.0078,
+      "lon": -104.0314,
+      "rank": 20,
+      "notes": "Not a hike"
+    },
+    {
+      "slug": "mount-marcy-ny",
+      "name": "Mount Marcy",
+      "aliases": [
+        "Marcy",
+        "Mt Marcy"
+      ],
+      "elevationFt": 5343,
+      "state": "NY",
+      "range": "Adirondack Mountains",
+      "lat": 44.1128,
+      "lon": -73.9239,
+      "rank": 21
+    },
+    {
+      "slug": "katahdin-me",
+      "name": "Katahdin (Baxter Peak)",
+      "aliases": [
+        "Baxter Peak",
+        "Katahdin",
+        "Mt Katahdin",
+        "Mount Katahdin"
+      ],
+      "elevationFt": 5270,
+      "state": "ME",
+      "range": "Baxter State Park",
+      "lat": 45.9044,
+      "lon": -68.9214,
+      "rank": 22,
+      "notes": "Day-use parking reservation required; Wikipedia table says 5,270 ft (often cited 5,267)"
+    },
+    {
+      "slug": "black-mesa-ok",
+      "name": "Black Mesa",
+      "aliases": [
+        "Black"
+      ],
+      "elevationFt": 4975,
+      "state": "OK",
+      "lat": 36.9317,
+      "lon": -102.9978,
+      "rank": 23,
+      "notes": "Long flat hike"
+    },
+    {
+      "slug": "spruce-knob-wv",
+      "name": "Spruce Knob",
+      "aliases": [
+        "Spruce"
+      ],
+      "elevationFt": 4862,
+      "state": "WV",
+      "range": "Allegheny Mountains",
+      "lat": 38.6997,
+      "lon": -79.5331,
+      "rank": 24,
+      "notes": "Drive-up"
+    },
+    {
+      "slug": "brasstown-bald-ga",
+      "name": "Brasstown Bald",
+      "aliases": [
+        "Brasstown"
+      ],
+      "elevationFt": 4784,
+      "state": "GA",
+      "range": "Blue Ridge Mountains",
+      "lat": 34.8744,
+      "lon": -83.8111,
+      "rank": 25,
+      "notes": "Paved road near top; short walk"
+    },
+    {
+      "slug": "mount-mansfield-vt",
+      "name": "Mount Mansfield",
+      "aliases": [
+        "Mansfield",
+        "Mt Mansfield"
+      ],
+      "elevationFt": 4395,
+      "state": "VT",
+      "range": "Green Mountains",
+      "lat": 44.5439,
+      "lon": -72.8144,
+      "rank": 26,
+      "notes": "Wikipedia lists 4,395.3 ft (Highpointers often cite 4,393)"
+    },
+    {
+      "slug": "black-mountain-ky",
+      "name": "Black Mountain",
+      "aliases": [
+        "Black Mtn"
+      ],
+      "elevationFt": 4139,
+      "state": "KY",
+      "range": "Cumberland Mountains",
+      "lat": 36.9142,
+      "lon": -82.8939,
+      "rank": 27,
+      "notes": "Drive-up to near summit"
+    },
+    {
+      "slug": "mount-sunflower-ks",
+      "name": "Mount Sunflower",
+      "aliases": [
+        "Sunflower",
+        "Mt Sunflower"
+      ],
+      "elevationFt": 4041,
+      "state": "KS",
+      "lat": 39.0219,
+      "lon": -102.0372,
+      "rank": 28,
+      "notes": "Not a hike: private ranch, open to visitors"
+    },
+    {
+      "slug": "sassafras-mountain-sc",
+      "name": "Sassafras Mountain",
+      "aliases": [
+        "Sassafras",
+        "Sassafras Mtn"
+      ],
+      "elevationFt": 3554,
+      "state": "SC",
+      "range": "Blue Ridge Mountains",
+      "lat": 35.065,
+      "lon": -82.7772,
+      "rank": 29,
+      "notes": "Drive-up"
+    },
+    {
+      "slug": "white-butte-nd",
+      "name": "White Butte",
+      "aliases": [
+        "White"
+      ],
+      "elevationFt": 3506,
+      "state": "ND",
+      "lat": 46.3869,
+      "lon": -103.3028,
+      "rank": 30
+    },
+    {
+      "slug": "mount-greylock-ma",
+      "name": "Mount Greylock",
+      "aliases": [
+        "Greylock",
+        "Mt Greylock"
+      ],
+      "elevationFt": 3489,
+      "state": "MA",
+      "range": "Berkshires",
+      "lat": 42.6372,
+      "lon": -73.1658,
+      "rank": 31
+    },
+    {
+      "slug": "hoye-crest-md",
+      "name": "Hoye-Crest",
+      "aliases": [
+        "Hoye Crest",
+        "Backbone Mountain"
+      ],
+      "elevationFt": 3370,
+      "state": "MD",
+      "range": "Backbone Mountain",
+      "lat": 39.2375,
+      "lon": -79.4856,
+      "rank": 32
+    },
+    {
+      "slug": "mount-davis-pa",
+      "name": "Mount Davis",
+      "aliases": [
+        "Davis",
+        "Mt Davis"
+      ],
+      "elevationFt": 3213,
+      "state": "PA",
+      "range": "Allegheny Mountains",
+      "lat": 39.7861,
+      "lon": -79.1767,
+      "rank": 33,
+      "notes": "Drive-up / short walk"
+    },
+    {
+      "slug": "mount-magazine-ar",
+      "name": "Mount Magazine",
+      "aliases": [
+        "Magazine",
+        "Mt Magazine"
+      ],
+      "elevationFt": 2753,
+      "state": "AR",
+      "range": "Ouachita Mountains",
+      "lat": 35.1672,
+      "lon": -93.6447,
+      "rank": 34,
+      "notes": "Drive-up / short walk"
+    },
+    {
+      "slug": "cheaha-mountain-al",
+      "name": "Cheaha Mountain",
+      "aliases": [
+        "Cheaha",
+        "Mt Cheaha"
+      ],
+      "elevationFt": 2405,
+      "state": "AL",
+      "range": "Talladega Mountains",
+      "lat": 33.4853,
+      "lon": -85.8086,
+      "rank": 35
+    },
+    {
+      "slug": "mount-frissell-ct",
+      "name": "Mount Frissell (south slope)",
+      "aliases": [
+        "Frissell",
+        "Mt Frissell",
+        "Mount Frissell"
+      ],
+      "elevationFt": 2386,
+      "state": "CT",
+      "range": "Taconic Mountains",
+      "lat": 42.0497,
+      "lon": -73.4828,
+      "rank": 36,
+      "notes": "High point is on the southern slope; the summit of Mount Frissell is in Massachusetts."
+    },
+    {
+      "slug": "eagle-mountain-mn",
+      "name": "Eagle Mountain",
+      "aliases": [
+        "Eagle Mtn"
+      ],
+      "elevationFt": 2302,
+      "state": "MN",
+      "range": "Misquah Hills",
+      "lat": 47.8975,
+      "lon": -90.5606,
+      "rank": 37
+    },
+    {
+      "slug": "mount-arvon-mi",
+      "name": "Mount Arvon",
+      "aliases": [
+        "Arvon",
+        "Mt Arvon"
+      ],
+      "elevationFt": 1979,
+      "state": "MI",
+      "range": "Huron Mountains",
+      "lat": 46.7558,
+      "lon": -88.1553,
+      "rank": 38,
+      "notes": "Drive-up on rough forest road"
+    },
+    {
+      "slug": "timms-hill-wi",
+      "name": "Timms Hill",
+      "aliases": [
+        "Timm's Hill",
+        "Timms"
+      ],
+      "elevationFt": 1951,
+      "state": "WI",
+      "lat": 45.4508,
+      "lon": -90.1953,
+      "rank": 39,
+      "notes": "Short walk"
+    },
+    {
+      "slug": "high-point-nj",
+      "name": "High Point",
+      "aliases": [
+        "High Point Monument"
+      ],
+      "elevationFt": 1802,
+      "state": "NJ",
+      "range": "Kittatinny Mountains",
+      "lat": 41.3208,
+      "lon": -74.6617,
+      "rank": 40,
+      "notes": "Drive-up"
+    },
+    {
+      "slug": "taum-sauk-mountain-mo",
+      "name": "Taum Sauk Mountain",
+      "aliases": [
+        "Taum Sauk"
+      ],
+      "elevationFt": 1772,
+      "state": "MO",
+      "range": "St. Francois Mountains",
+      "lat": 37.5714,
+      "lon": -90.7292,
+      "rank": 41
+    },
+    {
+      "slug": "hawkeye-point-ia",
+      "name": "Hawkeye Point",
+      "aliases": [
+        "Hawkeye"
+      ],
+      "elevationFt": 1671,
+      "state": "IA",
+      "lat": 43.4603,
+      "lon": -95.7089,
+      "rank": 42,
+      "notes": "Not a hike: farm site"
+    },
+    {
+      "slug": "campbell-hill-oh",
+      "name": "Campbell Hill",
+      "aliases": [
+        "Campbell"
+      ],
+      "elevationFt": 1548,
+      "state": "OH",
+      "lat": 40.3703,
+      "lon": -83.72,
+      "rank": 43,
+      "notes": "Not a hike"
+    },
+    {
+      "slug": "hoosier-hill-in",
+      "name": "Hoosier Hill",
+      "aliases": [
+        "Hoosier"
+      ],
+      "elevationFt": 1257,
+      "state": "IN",
+      "lat": 40.0011,
+      "lon": -84.8486,
+      "rank": 44,
+      "notes": "Not a hike"
+    },
+    {
+      "slug": "charles-mound-il",
+      "name": "Charles Mound",
+      "aliases": [
+        "Charles"
+      ],
+      "elevationFt": 1235,
+      "state": "IL",
+      "lat": 42.5042,
+      "lon": -90.2397,
+      "rank": 45,
+      "notes": "On private land; public access limited days"
+    },
+    {
+      "slug": "jerimoth-hill-ri",
+      "name": "Jerimoth Hill",
+      "aliases": [
+        "Jerimoth"
+      ],
+      "elevationFt": 811,
+      "state": "RI",
+      "lat": 41.8492,
+      "lon": -71.7789,
+      "rank": 46,
+      "notes": "Short walk; access via private-land arrangement"
+    },
+    {
+      "slug": "woodall-mountain-ms",
+      "name": "Woodall Mountain",
+      "aliases": [
+        "Woodall"
+      ],
+      "elevationFt": 807,
+      "state": "MS",
+      "lat": 34.7878,
+      "lon": -88.2417,
+      "rank": 47,
+      "notes": "Not a hike"
+    },
+    {
+      "slug": "driskill-mountain-la",
+      "name": "Driskill Mountain",
+      "aliases": [
+        "Driskill"
+      ],
+      "elevationFt": 535,
+      "state": "LA",
+      "lat": 32.425,
+      "lon": -92.8967,
+      "rank": 48,
+      "notes": "Short walk"
+    },
+    {
+      "slug": "ebright-azimuth-de",
+      "name": "Ebright Azimuth",
+      "aliases": [
+        "Ebright",
+        "Near the Ebright Azimuth"
+      ],
+      "elevationFt": 449,
+      "state": "DE",
+      "lat": 39.8361,
+      "lon": -75.5222,
+      "rank": 49,
+      "notes": "Not a hike: roadside marker on a road median"
+    },
+    {
+      "slug": "britton-hill-fl",
+      "name": "Britton Hill",
+      "aliases": [
+        "Britton"
+      ],
+      "elevationFt": 345,
+      "state": "FL",
+      "lat": 30.9847,
+      "lon": -86.2825,
+      "rank": 50,
+      "notes": "Not a hike: roadside park, lowest state high point"
+    }
+  ]
+}

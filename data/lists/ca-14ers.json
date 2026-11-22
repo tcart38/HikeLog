@@ -1,0 +1,258 @@
+{
+  "slug": "ca-14ers",
+  "name": "California Fourteeners",
+  "shortName": "CA 14ers",
+  "region": "California",
+  "country": "US",
+  "description": "California's 12 ranked peaks above 14,000 ft, plus the three commonly climbed unranked subsidiary summits in the Palisades (15 total).",
+  "criteria": "Ranked: 14,000 ft+ with at least 300 ft of topographic prominence (12 peaks). The popular 15-peak list adds Starlight Peak, Polemonium Peak and Thunderbolt Peak, which fall short of 300 ft prominence relative to North Palisade.",
+  "organization": "None (informal; Sierra Club Peaks Section and peak-bagging sites)",
+  "officialUrl": "https://en.wikipedia.org/wiki/List_of_California_14,000-foot_summits",
+  "notes": "Ranked-peak elevations and coordinates from Wikipedia (NAVD88). Unranked peaks lack sourced coordinates; their elevations vary by source. Mount Keith is about 13,976 ft and is not a fourteener. Note: Mount Muir and Middle Palisade both 14,018 ft. Rank field is elevation order across all 15.",
+  "sources": [
+    {
+      "title": "List of California 14,000-foot summits (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/List_of_California_14,000-foot_summits",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Thunderbolt Peak (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Thunderbolt_Peak",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Starlight Peak (Peakbagger)",
+      "url": "https://www.peakbagger.com/Peak.aspx?pid=16763",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "California Fourteeners (Alan Arnette)",
+      "url": "https://www.alanarnette.com/ca14ers/cafourteeners.php",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "peaks": [
+    {
+      "slug": "mount-whitney-ca",
+      "name": "Mount Whitney",
+      "aliases": [
+        "Mt Whitney",
+        "Mt. Whitney",
+        "Whitney"
+      ],
+      "elevationFt": 14505,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 36.5786,
+      "lon": -118.292,
+      "rank": 1,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "mount-williamson-ca",
+      "name": "Mount Williamson",
+      "aliases": [
+        "Mt Williamson",
+        "Mt. Williamson",
+        "Williamson"
+      ],
+      "elevationFt": 14379,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 36.6559,
+      "lon": -118.3111,
+      "rank": 2,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "white-mountain-peak-ca",
+      "name": "White Mountain Peak",
+      "aliases": [
+        "White Mountain",
+        "White Mtn"
+      ],
+      "elevationFt": 14252,
+      "state": "CA",
+      "range": "White Mountains",
+      "lat": 37.6341,
+      "lon": -118.2557,
+      "rank": 3,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "north-palisade-ca",
+      "name": "North Palisade",
+      "aliases": [
+        "N Palisade"
+      ],
+      "elevationFt": 14248,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 37.0943,
+      "lon": -118.5145,
+      "rank": 4,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "starlight-peak-ca",
+      "name": "Starlight Peak",
+      "aliases": [
+        "Starlight"
+      ],
+      "elevationFt": 14200,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "rank": 5,
+      "notes": "unranked subsidiary of North Palisade (prominence under 300 ft); Wikipedia 14,200 ft (Peakbagger lidar 14,198)"
+    },
+    {
+      "slug": "mount-shasta-ca",
+      "name": "Mount Shasta",
+      "aliases": [
+        "Mt Shasta",
+        "Mt. Shasta",
+        "Shasta"
+      ],
+      "elevationFt": 14179,
+      "state": "CA",
+      "range": "Cascade Range",
+      "lat": 41.4092,
+      "lon": -122.1949,
+      "rank": 6,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "mount-sill-ca",
+      "name": "Mount Sill",
+      "aliases": [
+        "Mt Sill",
+        "Mt. Sill",
+        "Sill"
+      ],
+      "elevationFt": 14159,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 37.096,
+      "lon": -118.5032,
+      "rank": 7,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "mount-russell-ca",
+      "name": "Mount Russell",
+      "aliases": [
+        "Mt Russell",
+        "Mt. Russell",
+        "Russell"
+      ],
+      "elevationFt": 14094,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 36.5901,
+      "lon": -118.2908,
+      "rank": 8,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "polemonium-peak-ca",
+      "name": "Polemonium Peak",
+      "aliases": [
+        "Polemonium"
+      ],
+      "elevationFt": 14080,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "rank": 9,
+      "notes": "unranked subsidiary of North Palisade; elevation uncertain, sources give ~14,080 to 14,100"
+    },
+    {
+      "slug": "split-mountain-ca",
+      "name": "Split Mountain",
+      "aliases": [
+        "Split",
+        "Split Mtn"
+      ],
+      "elevationFt": 14064,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 37.0209,
+      "lon": -118.4224,
+      "rank": 10,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "mount-langley-ca",
+      "name": "Mount Langley",
+      "aliases": [
+        "Langley",
+        "Mt Langley",
+        "Mt. Langley"
+      ],
+      "elevationFt": 14032,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 36.5234,
+      "lon": -118.2395,
+      "rank": 11,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "mount-tyndall-ca",
+      "name": "Mount Tyndall",
+      "aliases": [
+        "Mt Tyndall",
+        "Mt. Tyndall",
+        "Tyndall"
+      ],
+      "elevationFt": 14025,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 36.6556,
+      "lon": -118.337,
+      "rank": 12,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "mount-muir-ca",
+      "name": "Mount Muir",
+      "aliases": [
+        "Mt Muir",
+        "Mt. Muir",
+        "Muir"
+      ],
+      "elevationFt": 14018,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 36.5647,
+      "lon": -118.2913,
+      "rank": 13,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "middle-palisade-ca",
+      "name": "Middle Palisade",
+      "aliases": [
+        "Middle Pal"
+      ],
+      "elevationFt": 14018,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "lat": 37.0702,
+      "lon": -118.4691,
+      "rank": 14,
+      "notes": "ranked (300 ft prominence)"
+    },
+    {
+      "slug": "thunderbolt-peak-ca",
+      "name": "Thunderbolt Peak",
+      "aliases": [
+        "Thunderbolt"
+      ],
+      "elevationFt": 14009,
+      "state": "CA",
+      "range": "Sierra Nevada",
+      "rank": 15,
+      "notes": "unranked subsidiary of North Palisade (prominence under 300 ft); Wikipedia 14,009 ft"
+    }
+  ]
+}

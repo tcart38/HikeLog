@@ -1,0 +1,1016 @@
+{
+  "name": "New England 4000-Footers",
+  "shortName": "NE 67",
+  "region": "New England",
+  "country": "US",
+  "description": "All 67 New England peaks at or above 4,000 feet: 48 in New Hampshire, 14 in Maine and 5 in Vermont.",
+  "criteria": "Summits at least 4,000 ft with at least 200 ft of rise on all sides, per the AMC. Composite of the NH 48, ME 14 and VT 5 lists.",
+  "organization": "AMC Four Thousand Footer Committee",
+  "officialUrl": "https://amc4000footer.org/",
+  "notes": "Ranked by elevation across all three states; ties keep the NH, ME, VT source order. AMC winter rules apply: the whole hike must start after the winter solstice and end before the spring equinox.",
+  "sources": [
+    {
+      "title": "4000footers.com - 67 New England 4,000 Footers",
+      "url": "https://4000footers.com/ne.shtml",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "4000footers.com - 48 New Hampshire 4,000 Footers",
+      "url": "https://4000footers.com/nh.shtml",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "4000footers.com - 14 Maine 4,000 Footers",
+      "url": "https://4000footers.com/me.shtml",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "4000footers.com - 5 Vermont 4,000 Footers",
+      "url": "https://4000footers.com/vt.shtml",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Wikipedia - Four-thousand footers (ranges, names)",
+      "url": "https://en.wikipedia.org/wiki/Four-thousand_footers",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "AMC Four Thousand Footer Committee - home (winter rules)",
+      "url": "https://amc4000footer.org/",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "slug": "ne-67",
+  "peaks": [
+    {
+      "slug": "mount-washington-nh",
+      "name": "Mount Washington",
+      "aliases": [
+        "Washington",
+        "Mt Washington",
+        "Mt. Washington"
+      ],
+      "elevationFt": 6288,
+      "state": "NH",
+      "range": "Presidential Range",
+      "rank": 1
+    },
+    {
+      "slug": "mount-adams-nh",
+      "name": "Mount Adams",
+      "aliases": [
+        "Adams",
+        "Mt Adams",
+        "Mt. Adams"
+      ],
+      "elevationFt": 5774,
+      "state": "NH",
+      "range": "Presidential Range",
+      "rank": 2,
+      "notes": "Mount Adams, NH (not Mount Adams, WA)"
+    },
+    {
+      "slug": "mount-jefferson-nh",
+      "name": "Mount Jefferson",
+      "aliases": [
+        "Jefferson",
+        "Mt Jefferson",
+        "Mt. Jefferson"
+      ],
+      "elevationFt": 5712,
+      "state": "NH",
+      "range": "Presidential Range",
+      "rank": 3
+    },
+    {
+      "slug": "mount-monroe-nh",
+      "name": "Mount Monroe",
+      "aliases": [
+        "Monroe",
+        "Mt Monroe",
+        "Mt. Monroe"
+      ],
+      "elevationFt": 5384,
+      "state": "NH",
+      "range": "Presidential Range",
+      "rank": 4
+    },
+    {
+      "slug": "mount-madison-nh",
+      "name": "Mount Madison",
+      "aliases": [
+        "Madison",
+        "Mt Madison",
+        "Mt. Madison"
+      ],
+      "elevationFt": 5367,
+      "state": "NH",
+      "range": "Presidential Range",
+      "rank": 5
+    },
+    {
+      "slug": "katahdin-me",
+      "name": "Katahdin (Baxter Peak)",
+      "aliases": [
+        "Baxter Peak",
+        "Katahdin",
+        "Mount Katahdin",
+        "Mt Katahdin",
+        "Mt. Katahdin",
+        "Katahdin Baxter Peak",
+        "Katahdin, Baxter Peak"
+      ],
+      "elevationFt": 5268,
+      "state": "ME",
+      "range": "Baxter State Park",
+      "rank": 6,
+      "notes": "Highest point in Maine; northern terminus of the Appalachian Trail."
+    },
+    {
+      "slug": "mount-lafayette-nh",
+      "name": "Mount Lafayette",
+      "aliases": [
+        "Lafayette",
+        "Mt Lafayette",
+        "Mt. Lafayette",
+        "Mount Lafayette (Franconia Ridge)"
+      ],
+      "elevationFt": 5260,
+      "state": "NH",
+      "range": "Franconia Range",
+      "rank": 7,
+      "notes": "4000footers.com gives 5,260 ft; Wikipedia NEHH table shows 5,249 ft."
+    },
+    {
+      "slug": "mount-lincoln-nh",
+      "name": "Mount Lincoln",
+      "aliases": [
+        "Lincoln",
+        "Mt Lincoln",
+        "Mt. Lincoln"
+      ],
+      "elevationFt": 5089,
+      "state": "NH",
+      "range": "Franconia Range",
+      "rank": 8
+    },
+    {
+      "slug": "south-twin-mountain-nh",
+      "name": "South Twin Mountain",
+      "aliases": [
+        "South Twin",
+        "S Twin",
+        "South Twin Mtn"
+      ],
+      "elevationFt": 4902,
+      "state": "NH",
+      "range": "Twin Range",
+      "rank": 9
+    },
+    {
+      "slug": "carter-dome-nh",
+      "name": "Carter Dome",
+      "aliases": [
+        "Carter Dome Mountain"
+      ],
+      "elevationFt": 4832,
+      "state": "NH",
+      "range": "Carter-Moriah Range",
+      "rank": 10
+    },
+    {
+      "slug": "mount-moosilauke-nh",
+      "name": "Mount Moosilauke",
+      "aliases": [
+        "Moosilauke",
+        "Mt Moosilauke",
+        "Mt. Moosilauke"
+      ],
+      "elevationFt": 4802,
+      "state": "NH",
+      "range": "Western White Mountains",
+      "rank": 11
+    },
+    {
+      "slug": "mount-eisenhower-nh",
+      "name": "Mount Eisenhower",
+      "aliases": [
+        "Eisenhower",
+        "Mt Eisenhower",
+        "Mt. Eisenhower",
+        "Mount Pleasant",
+        "Pleasant"
+      ],
+      "elevationFt": 4780,
+      "state": "NH",
+      "range": "Presidential Range",
+      "rank": 12,
+      "notes": "Formerly named Mount Pleasant."
+    },
+    {
+      "slug": "north-twin-mountain-nh",
+      "name": "North Twin Mountain",
+      "aliases": [
+        "North Twin",
+        "N Twin",
+        "North Twin Mtn"
+      ],
+      "elevationFt": 4761,
+      "state": "NH",
+      "range": "Twin Range",
+      "rank": 13
+    },
+    {
+      "slug": "hamlin-peak-me",
+      "name": "Hamlin Peak",
+      "aliases": [
+        "Hamlin",
+        "Katahdin Hamlin Peak",
+        "Katahdin, Hamlin Peak",
+        "Hamlin Peak (Katahdin)",
+        "Mt Hamlin"
+      ],
+      "elevationFt": 4756,
+      "state": "ME",
+      "range": "Baxter State Park",
+      "rank": 14,
+      "notes": "Second summit of the Katahdin massif."
+    },
+    {
+      "slug": "mount-carrigain-nh",
+      "name": "Mount Carrigain",
+      "aliases": [
+        "Carrigain",
+        "Mt Carrigain",
+        "Mt. Carrigain"
+      ],
+      "elevationFt": 4700,
+      "state": "NH",
+      "range": "Pemigewasset Wilderness",
+      "rank": 15
+    },
+    {
+      "slug": "mount-bond-nh",
+      "name": "Mount Bond",
+      "aliases": [
+        "Bond",
+        "Mt Bond",
+        "Mt. Bond"
+      ],
+      "elevationFt": 4698,
+      "state": "NH",
+      "range": "Twin Range",
+      "rank": 16
+    },
+    {
+      "slug": "middle-carter-mountain-nh",
+      "name": "Middle Carter Mountain",
+      "aliases": [
+        "Middle Carter",
+        "Mid Carter",
+        "Middle Carter Mtn"
+      ],
+      "elevationFt": 4610,
+      "state": "NH",
+      "range": "Carter-Moriah Range",
+      "rank": 17
+    },
+    {
+      "slug": "west-bond-nh",
+      "name": "West Bond",
+      "aliases": [
+        "West Bond Mountain",
+        "W Bond"
+      ],
+      "elevationFt": 4540,
+      "state": "NH",
+      "range": "Twin Range",
+      "rank": 18
+    },
+    {
+      "slug": "mount-garfield-nh",
+      "name": "Mount Garfield",
+      "aliases": [
+        "Garfield",
+        "Mt Garfield",
+        "Mt. Garfield"
+      ],
+      "elevationFt": 4500,
+      "state": "NH",
+      "range": "Franconia Range",
+      "rank": 19
+    },
+    {
+      "slug": "mount-liberty-nh",
+      "name": "Mount Liberty",
+      "aliases": [
+        "Liberty",
+        "Mt Liberty",
+        "Mt. Liberty"
+      ],
+      "elevationFt": 4459,
+      "state": "NH",
+      "range": "Franconia Range",
+      "rank": 20
+    },
+    {
+      "slug": "south-carter-mountain-nh",
+      "name": "South Carter Mountain",
+      "aliases": [
+        "South Carter",
+        "S Carter",
+        "South Carter Mtn"
+      ],
+      "elevationFt": 4430,
+      "state": "NH",
+      "range": "Carter-Moriah Range",
+      "rank": 21
+    },
+    {
+      "slug": "wildcat-mountain-a-nh",
+      "name": "Wildcat Mountain 'A'",
+      "aliases": [
+        "Wildcat A",
+        "Wildcat Mountain",
+        "Wildcat",
+        "Wildcat Mtn",
+        "Wildcat Mtn A",
+        "Wildcat Mountain A Peak",
+        "Wildcat Mountain, A Peak",
+        "Wildcat, A Peak",
+        "Wildcat Peak A"
+      ],
+      "elevationFt": 4422,
+      "state": "NH",
+      "range": "Carter-Moriah Range",
+      "rank": 22
+    },
+    {
+      "slug": "mount-hancock-nh",
+      "name": "Mount Hancock",
+      "aliases": [
+        "Hancock",
+        "Mt Hancock",
+        "Mt. Hancock",
+        "North Hancock",
+        "Hancock North Peak",
+        "Mount Hancock North Peak"
+      ],
+      "elevationFt": 4420,
+      "state": "NH",
+      "range": "Pemigewasset Wilderness",
+      "rank": 23
+    },
+    {
+      "slug": "mount-mansfield-vt",
+      "name": "Mount Mansfield",
+      "aliases": [
+        "Mansfield",
+        "Mt Mansfield",
+        "Mt. Mansfield"
+      ],
+      "elevationFt": 4393,
+      "state": "VT",
+      "range": "Green Mountains",
+      "rank": 24,
+      "notes": "Highest point in Vermont."
+    },
+    {
+      "slug": "south-kinsman-nh",
+      "name": "South Kinsman",
+      "aliases": [
+        "Kinsman South",
+        "South Kinsman Mountain",
+        "Kinsman Mountain, South Peak",
+        "Kinsman Mountain South Peak",
+        "S Kinsman",
+        "South Peak Kinsman"
+      ],
+      "elevationFt": 4358,
+      "state": "NH",
+      "range": "Western White Mountains",
+      "rank": 25
+    },
+    {
+      "slug": "mount-field-nh",
+      "name": "Mount Field",
+      "aliases": [
+        "Field",
+        "Mt Field",
+        "Mt. Field"
+      ],
+      "elevationFt": 4340,
+      "state": "NH",
+      "range": "Crawford Notch area",
+      "rank": 26
+    },
+    {
+      "slug": "mount-osceola-nh",
+      "name": "Mount Osceola",
+      "aliases": [
+        "Osceola",
+        "Mt Osceola",
+        "Mt. Osceola",
+        "Osceola Main Peak"
+      ],
+      "elevationFt": 4340,
+      "state": "NH",
+      "range": "Sandwich Range",
+      "rank": 27
+    },
+    {
+      "slug": "mount-flume-nh",
+      "name": "Mount Flume",
+      "aliases": [
+        "Flume",
+        "Mt Flume",
+        "Mt. Flume"
+      ],
+      "elevationFt": 4328,
+      "state": "NH",
+      "range": "Franconia Range",
+      "rank": 28
+    },
+    {
+      "slug": "south-hancock-nh",
+      "name": "South Hancock",
+      "aliases": [
+        "Hancock South",
+        "Mount Hancock South Peak",
+        "Mount Hancock, South Peak",
+        "South Hancock Mountain",
+        "S Hancock"
+      ],
+      "elevationFt": 4319,
+      "state": "NH",
+      "range": "Pemigewasset Wilderness",
+      "rank": 29
+    },
+    {
+      "slug": "mount-pierce-nh",
+      "name": "Mount Pierce",
+      "aliases": [
+        "Pierce",
+        "Mt Pierce",
+        "Mt. Pierce",
+        "Mount Clinton",
+        "Mt Clinton",
+        "Mt. Clinton",
+        "Clinton"
+      ],
+      "elevationFt": 4310,
+      "state": "NH",
+      "range": "Presidential Range",
+      "rank": 30,
+      "notes": "Also known as Mount Clinton."
+    },
+    {
+      "slug": "north-kinsman-nh",
+      "name": "North Kinsman",
+      "aliases": [
+        "Kinsman North",
+        "North Kinsman Mountain",
+        "Kinsman Mountain, North Peak",
+        "Kinsman Mountain North Peak",
+        "N Kinsman",
+        "North Peak Kinsman"
+      ],
+      "elevationFt": 4293,
+      "state": "NH",
+      "range": "Western White Mountains",
+      "rank": 31
+    },
+    {
+      "slug": "mount-willey-nh",
+      "name": "Mount Willey",
+      "aliases": [
+        "Willey",
+        "Mt Willey",
+        "Mt. Willey"
+      ],
+      "elevationFt": 4285,
+      "state": "NH",
+      "range": "Crawford Notch area",
+      "rank": 32
+    },
+    {
+      "slug": "bondcliff-nh",
+      "name": "Bondcliff",
+      "aliases": [
+        "Bond Cliff",
+        "The Cliffs",
+        "Mount Bondcliff",
+        "Mt Bondcliff"
+      ],
+      "elevationFt": 4265,
+      "state": "NH",
+      "range": "Twin Range",
+      "rank": 33
+    },
+    {
+      "slug": "mount-zealand-nh",
+      "name": "Mount Zealand",
+      "aliases": [
+        "Zealand",
+        "Mt Zealand",
+        "Mt. Zealand"
+      ],
+      "elevationFt": 4260,
+      "state": "NH",
+      "range": "Twin Range",
+      "rank": 34
+    },
+    {
+      "slug": "sugarloaf-mountain-me",
+      "name": "Sugarloaf Mountain",
+      "aliases": [
+        "Sugarloaf",
+        "Sugarloaf Mtn",
+        "Sugarloaf (Maine)",
+        "Sugarloaf (ME)"
+      ],
+      "elevationFt": 4250,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 35
+    },
+    {
+      "slug": "killington-peak-vt",
+      "name": "Killington Peak",
+      "aliases": [
+        "Killington",
+        "Mount Killington",
+        "Mt Killington",
+        "Killington Mountain",
+        "Killington Peak (Vermont)"
+      ],
+      "elevationFt": 4235,
+      "state": "VT",
+      "range": "Green Mountains",
+      "rank": 36
+    },
+    {
+      "slug": "crocker-mountain-me",
+      "name": "Crocker Mountain",
+      "aliases": [
+        "Crocker",
+        "Mt Crocker",
+        "Mt. Crocker",
+        "Mount Crocker",
+        "North Crocker",
+        "North Crocker Mountain",
+        "Crocker Mtn"
+      ],
+      "elevationFt": 4228,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 37
+    },
+    {
+      "slug": "north-tripyramid-nh",
+      "name": "North Tripyramid",
+      "aliases": [
+        "Tripyramid North",
+        "North Tripyramid Mountain",
+        "Mount Tripyramid, North Peak",
+        "Mount Tripyramid North Peak",
+        "Mt Tripyramid North",
+        "N Tripyramid",
+        "North Peak Tripyramid"
+      ],
+      "elevationFt": 4180,
+      "state": "NH",
+      "range": "Sandwich Range",
+      "rank": 38
+    },
+    {
+      "slug": "mount-cabot-nh",
+      "name": "Mount Cabot",
+      "aliases": [
+        "Cabot",
+        "Mt Cabot",
+        "Mt. Cabot"
+      ],
+      "elevationFt": 4170,
+      "state": "NH",
+      "range": "Pilot Range",
+      "rank": 39
+    },
+    {
+      "slug": "old-speck-mountain-me",
+      "name": "Old Speck Mountain",
+      "aliases": [
+        "Old Speck",
+        "Old Speck Mtn"
+      ],
+      "elevationFt": 4170,
+      "state": "ME",
+      "range": "Eastern White Mountains",
+      "rank": 40
+    },
+    {
+      "slug": "east-osceola-nh",
+      "name": "East Osceola",
+      "aliases": [
+        "Osceola East",
+        "East Peak Osceola",
+        "East Osceola Mountain",
+        "Mount East Osceola"
+      ],
+      "elevationFt": 4156,
+      "state": "NH",
+      "range": "Sandwich Range",
+      "rank": 41
+    },
+    {
+      "slug": "north-brother-me",
+      "name": "North Brother",
+      "aliases": [
+        "North Brother Mountain",
+        "N Brother",
+        "Mount North Brother",
+        "Brother North"
+      ],
+      "elevationFt": 4151,
+      "state": "ME",
+      "range": "Baxter State Park",
+      "rank": 42
+    },
+    {
+      "slug": "bigelow-west-peak-me",
+      "name": "Bigelow Mountain, West Peak",
+      "aliases": [
+        "Bigelow West Peak",
+        "Bigelow West",
+        "West Peak",
+        "West Peak Bigelow",
+        "Mount Bigelow, West Peak",
+        "Mount Bigelow West Peak",
+        "Mt Bigelow West Peak"
+      ],
+      "elevationFt": 4145,
+      "state": "ME",
+      "range": "Bigelow Range",
+      "rank": 43,
+      "notes": "Bigelow Mountain's west summit."
+    },
+    {
+      "slug": "middle-tripyramid-nh",
+      "name": "Middle Tripyramid",
+      "aliases": [
+        "Tripyramid Middle",
+        "Middle Tripyramid Mountain",
+        "Mount Tripyramid, Middle Peak",
+        "Mount Tripyramid Middle Peak",
+        "Mt Tripyramid Middle",
+        "Middle Peak Tripyramid"
+      ],
+      "elevationFt": 4140,
+      "state": "NH",
+      "range": "Sandwich Range",
+      "rank": 44
+    },
+    {
+      "slug": "saddleback-mountain-me",
+      "name": "Saddleback Mountain",
+      "aliases": [
+        "Saddleback",
+        "Saddleback Mtn",
+        "Saddleback (Maine)"
+      ],
+      "elevationFt": 4120,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 45
+    },
+    {
+      "slug": "cannon-mountain-nh",
+      "name": "Cannon Mountain",
+      "aliases": [
+        "Cannon",
+        "Cannon Mtn"
+      ],
+      "elevationFt": 4100,
+      "state": "NH",
+      "range": "Western White Mountains",
+      "rank": 46
+    },
+    {
+      "slug": "bigelow-avery-peak-me",
+      "name": "Bigelow Mountain, Avery Peak",
+      "aliases": [
+        "Bigelow",
+        "Avery Peak",
+        "Bigelow Avery Peak",
+        "Bigelow Mountain",
+        "Mount Bigelow",
+        "Mount Bigelow, Avery Peak",
+        "Mount Bigelow Avery Peak",
+        "Mt Bigelow Avery Peak",
+        "Avery Peak Bigelow",
+        "Bigelow Avery"
+      ],
+      "elevationFt": 4090,
+      "state": "ME",
+      "range": "Bigelow Range",
+      "rank": 47,
+      "notes": "Bigelow Mountain's main (east) summit."
+    },
+    {
+      "slug": "camels-hump-vt",
+      "name": "Camel's Hump",
+      "aliases": [
+        "Camels Hump",
+        "Camel's Hump Mountain",
+        "Camels Hump Mountain",
+        "Camel Hump",
+        "Camel's Hump (Vermont)"
+      ],
+      "elevationFt": 4083,
+      "state": "VT",
+      "range": "Green Mountains",
+      "rank": 48
+    },
+    {
+      "slug": "mount-ellen-vt",
+      "name": "Mount Ellen",
+      "aliases": [
+        "Ellen",
+        "Mt Ellen",
+        "Mt. Ellen",
+        "Mount Ellen (Vermont)"
+      ],
+      "elevationFt": 4083,
+      "state": "VT",
+      "range": "Green Mountains",
+      "rank": 49
+    },
+    {
+      "slug": "mount-hale-nh",
+      "name": "Mount Hale",
+      "aliases": [
+        "Hale",
+        "Mt Hale",
+        "Mt. Hale"
+      ],
+      "elevationFt": 4054,
+      "state": "NH",
+      "range": "Twin Range",
+      "rank": 50
+    },
+    {
+      "slug": "mount-jackson-nh",
+      "name": "Mount Jackson",
+      "aliases": [
+        "Jackson",
+        "Mt Jackson",
+        "Mt. Jackson"
+      ],
+      "elevationFt": 4052,
+      "state": "NH",
+      "range": "Presidential Range",
+      "rank": 51
+    },
+    {
+      "slug": "mount-tom-nh",
+      "name": "Mount Tom",
+      "aliases": [
+        "Tom",
+        "Mt Tom",
+        "Mt. Tom"
+      ],
+      "elevationFt": 4051,
+      "state": "NH",
+      "range": "Crawford Notch area",
+      "rank": 52
+    },
+    {
+      "slug": "wildcat-mountain-d-nh",
+      "name": "Wildcat Mountain 'D'",
+      "aliases": [
+        "Wildcat D",
+        "Wildcat Mountain D Peak",
+        "Wildcat Mountain, D Peak",
+        "Wildcat, D Peak",
+        "Wildcat Peak D",
+        "Wildcat Ridge",
+        "Wildcat Mtn D"
+      ],
+      "elevationFt": 4050,
+      "state": "NH",
+      "range": "Carter-Moriah Range",
+      "rank": 53,
+      "notes": "4000footers.com and Wikipedia NEHH give 4,050 ft; the Wikipedia 4000-footer article shows 4,070 ft."
+    },
+    {
+      "slug": "mount-abraham-me",
+      "name": "Mount Abraham",
+      "aliases": [
+        "Abraham",
+        "Mt Abraham",
+        "Mt. Abraham",
+        "Abraham (ME)",
+        "Abraham (Maine)",
+        "Mount Abraham (Maine)",
+        "Mount Abraham ME",
+        "Mt Abraham ME",
+        "Mt. Abraham ME",
+        "Abraham ME"
+      ],
+      "elevationFt": 4050,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 54,
+      "notes": "Not to be confused with Mount Abraham, Vermont (mount-abraham-vt)."
+    },
+    {
+      "slug": "south-crocker-mountain-me",
+      "name": "South Crocker Mountain",
+      "aliases": [
+        "South Crocker",
+        "S Crocker",
+        "Crocker South",
+        "South Crocker Mtn"
+      ],
+      "elevationFt": 4050,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 55
+    },
+    {
+      "slug": "mount-moriah-nh",
+      "name": "Mount Moriah",
+      "aliases": [
+        "Moriah",
+        "Mt Moriah",
+        "Mt. Moriah"
+      ],
+      "elevationFt": 4049,
+      "state": "NH",
+      "range": "Carter-Moriah Range",
+      "rank": 56
+    },
+    {
+      "slug": "mount-passaconaway-nh",
+      "name": "Mount Passaconaway",
+      "aliases": [
+        "Passaconaway",
+        "Mt Passaconaway",
+        "Mt. Passaconaway"
+      ],
+      "elevationFt": 4043,
+      "state": "NH",
+      "range": "Sandwich Range",
+      "rank": 57
+    },
+    {
+      "slug": "owls-head-nh",
+      "name": "Owl's Head",
+      "aliases": [
+        "Owls Head",
+        "Mount Owl's Head",
+        "Owl's Head (Pemigewasset)",
+        "Owls Head (Pemigewasset)",
+        "Owl's Head (Franconia)"
+      ],
+      "elevationFt": 4025,
+      "state": "NH",
+      "range": "Pemigewasset Wilderness",
+      "rank": 58,
+      "notes": "Trailless; in the Pemigewasset Wilderness. Distinct from Owl's Head in Carroll (52 With a View)."
+    },
+    {
+      "slug": "galehead-mountain-nh",
+      "name": "Galehead Mountain",
+      "aliases": [
+        "Galehead",
+        "Mount Galehead"
+      ],
+      "elevationFt": 4024,
+      "state": "NH",
+      "range": "Twin Range",
+      "rank": 59
+    },
+    {
+      "slug": "saddleback-horn-me",
+      "name": "Saddleback Horn",
+      "aliases": [
+        "The Horn",
+        "Horn",
+        "Saddleback Horn Mountain",
+        "Saddleback Horn (Maine)",
+        "The Horn (Saddleback)",
+        "Mt Saddleback Horn"
+      ],
+      "elevationFt": 4023,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 60,
+      "notes": "4000footers.com and Wikipedia list 4,023 ft. Do not confuse with The Horn, NH (the-horn-nh, NEHH #75)."
+    },
+    {
+      "slug": "mount-whiteface-nh",
+      "name": "Mount Whiteface",
+      "aliases": [
+        "Whiteface",
+        "Mt Whiteface",
+        "Mt. Whiteface",
+        "Mt Whiteface (Sandwich)"
+      ],
+      "elevationFt": 4020,
+      "state": "NH",
+      "range": "Sandwich Range",
+      "rank": 61
+    },
+    {
+      "slug": "mount-redington-me",
+      "name": "Mount Redington",
+      "aliases": [
+        "Redington",
+        "Mt Redington",
+        "Mt. Redington",
+        "Redington Mountain"
+      ],
+      "elevationFt": 4010,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 62
+    },
+    {
+      "slug": "spaulding-mountain-me",
+      "name": "Spaulding Mountain",
+      "aliases": [
+        "Spaulding",
+        "Mount Spaulding",
+        "Spaulding Mtn"
+      ],
+      "elevationFt": 4010,
+      "state": "ME",
+      "range": "High Peaks (Maine)",
+      "rank": 63
+    },
+    {
+      "slug": "mount-waumbek-nh",
+      "name": "Mount Waumbek",
+      "aliases": [
+        "Waumbek",
+        "Mt Waumbek",
+        "Mt. Waumbek"
+      ],
+      "elevationFt": 4006,
+      "state": "NH",
+      "range": "Pliny Range",
+      "rank": 64
+    },
+    {
+      "slug": "mount-abraham-vt",
+      "name": "Mount Abraham",
+      "aliases": [
+        "Abraham",
+        "Mt Abraham",
+        "Mt. Abraham",
+        "Abraham (VT)",
+        "Abraham (Vermont)",
+        "Mount Abraham (Vermont)",
+        "Mount Abraham VT",
+        "Mt Abraham VT",
+        "Mt. Abraham VT",
+        "Abraham VT",
+        "Mount Abe",
+        "Abe"
+      ],
+      "elevationFt": 4006,
+      "state": "VT",
+      "range": "Green Mountains",
+      "rank": 65,
+      "notes": "Not to be confused with Mount Abraham, Maine (mount-abraham-me). Locally called Mount Abe."
+    },
+    {
+      "slug": "mount-isolation-nh",
+      "name": "Mount Isolation",
+      "aliases": [
+        "Isolation",
+        "Mt Isolation",
+        "Mt. Isolation"
+      ],
+      "elevationFt": 4004,
+      "state": "NH",
+      "range": "Presidential Range",
+      "rank": 66
+    },
+    {
+      "slug": "mount-tecumseh-nh",
+      "name": "Mount Tecumseh",
+      "aliases": [
+        "Tecumseh",
+        "Mt Tecumseh",
+        "Mt. Tecumseh"
+      ],
+      "elevationFt": 4003,
+      "state": "NH",
+      "range": "Sandwich Range",
+      "rank": 67,
+      "notes": "AMC/4000footers.com list 4,003 ft; a 2019 resurvey measured about 3,997 ft (Wikipedia NEHH shows 3,997)."
+    }
+  ]
+}

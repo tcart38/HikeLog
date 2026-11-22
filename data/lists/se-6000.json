@@ -1,0 +1,470 @@
+{
+  "slug": "se-6000",
+  "name": "Southern Sixers (South Beyond 6000)",
+  "shortName": "SE 6000",
+  "region": "Southern Appalachians",
+  "country": "US",
+  "description": "The 40 peaks in the Southern Appalachians (North Carolina and Tennessee) that reach 6,000 feet, as recognized by the Carolina Mountain Club's South Beyond 6000 program.",
+  "criteria": "Summits of 6,000 ft or more in the Southern Appalachians, 40 peaks per the Southern Sixers list. Several have no maintained trail and require bushwhacking.",
+  "organization": "Carolina Mountain Club (South Beyond 6000)",
+  "officialUrl": "https://www.carolinamountainclub.org/",
+  "notes": "Slug clingmans-dome-tn matches the Tennessee high point in us-state-highpoints.json (formerly Clingmans Dome). Roan High Knob, Mount Guyot etc. sit on the NC/TN line; state is the listed first/main state. Elevations and ranges are from Wikipedia's Southern Sixers table; no coordinates sourced, so omitted. Verify peak states and ranges against CMC's official list before relying on them.",
+  "sources": [
+    {
+      "title": "Wikipedia: Southern Sixers",
+      "url": "https://en.wikipedia.org/wiki/Southern_Sixers",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Carolina Mountain Club",
+      "url": "https://www.carolinamountainclub.org/",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "peaks": [
+    {
+      "slug": "mount-mitchell-nc",
+      "name": "Mount Mitchell",
+      "aliases": [
+        "Mitchell",
+        "Mt Mitchell",
+        "Mt. Mitchell"
+      ],
+      "elevationFt": 6684,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 1
+    },
+    {
+      "slug": "mount-craig-nc",
+      "name": "Mount Craig",
+      "aliases": [
+        "Craig",
+        "Mt Craig",
+        "Mt. Craig"
+      ],
+      "elevationFt": 6647,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 2
+    },
+    {
+      "slug": "clingmans-dome-tn",
+      "name": "Kuwohi (Clingmans Dome)",
+      "aliases": [
+        "Clingmans Dome",
+        "Clingman's Dome"
+      ],
+      "elevationFt": 6643,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "rank": 3,
+      "notes": "On the NC/TN state line"
+    },
+    {
+      "slug": "mount-guyot-tn",
+      "name": "Mount Guyot",
+      "aliases": [
+        "Guyot",
+        "Mt Guyot",
+        "Mt. Guyot"
+      ],
+      "elevationFt": 6621,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "rank": 4,
+      "notes": "On the NC/TN state line"
+    },
+    {
+      "slug": "balsam-cone-nc",
+      "name": "Balsam Cone",
+      "aliases": [],
+      "elevationFt": 6611,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 5
+    },
+    {
+      "slug": "cattail-peak-nc",
+      "name": "Cattail Peak",
+      "aliases": [],
+      "elevationFt": 6600,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 6
+    },
+    {
+      "slug": "mount-leconte-tn",
+      "name": "Mount LeConte",
+      "aliases": [
+        "LeConte",
+        "Mt LeConte",
+        "Mt. LeConte",
+        "Le Conte",
+        "Mount Le Conte"
+      ],
+      "elevationFt": 6593,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "rank": 7
+    },
+    {
+      "slug": "mount-buckley-tn",
+      "name": "Mount Buckley",
+      "aliases": [
+        "Buckley",
+        "Mt Buckley",
+        "Mt. Buckley"
+      ],
+      "elevationFt": 6580,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "rank": 8,
+      "notes": "On the NC/TN state line"
+    },
+    {
+      "slug": "mount-gibbes-nc",
+      "name": "Mount Gibbes",
+      "aliases": [
+        "Gibbes",
+        "Mt Gibbes",
+        "Mt. Gibbes"
+      ],
+      "elevationFt": 6571,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 9
+    },
+    {
+      "slug": "big-tom-nc",
+      "name": "Big Tom",
+      "aliases": [],
+      "elevationFt": 6560,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 10
+    },
+    {
+      "slug": "clingmans-peak-nc",
+      "name": "Clingmans Peak",
+      "aliases": [
+        "Clingman's Peak"
+      ],
+      "elevationFt": 6557,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 11
+    },
+    {
+      "slug": "potato-hill-nc",
+      "name": "Potato Hill",
+      "aliases": [],
+      "elevationFt": 6475,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 12
+    },
+    {
+      "slug": "mount-love-tn",
+      "name": "Mount Love",
+      "aliases": [
+        "Love",
+        "Mt Love",
+        "Mt. Love"
+      ],
+      "elevationFt": 6446,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "rank": 13,
+      "notes": "On the NC/TN state line"
+    },
+    {
+      "slug": "mount-chapman-tn",
+      "name": "Mount Chapman",
+      "aliases": [
+        "Chapman",
+        "Mt Chapman",
+        "Mt. Chapman"
+      ],
+      "elevationFt": 6417,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "rank": 14,
+      "notes": "On the NC/TN state line"
+    },
+    {
+      "slug": "richland-balsam-nc",
+      "name": "Richland Balsam",
+      "aliases": [],
+      "elevationFt": 6410,
+      "state": "NC",
+      "range": "Great Balsam Mountains",
+      "rank": 15
+    },
+    {
+      "slug": "potato-knob-nc",
+      "name": "Potato Knob",
+      "aliases": [],
+      "elevationFt": 6400,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 16
+    },
+    {
+      "slug": "old-black-tn",
+      "name": "Old Black",
+      "aliases": [],
+      "elevationFt": 6370,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "rank": 17,
+      "notes": "On the NC/TN state line"
+    },
+    {
+      "slug": "blackstock-knob-nc",
+      "name": "Blackstock Knob",
+      "aliases": [],
+      "elevationFt": 6359,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 18
+    },
+    {
+      "slug": "celo-knob-nc",
+      "name": "Celo Knob",
+      "aliases": [],
+      "elevationFt": 6327,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 19
+    },
+    {
+      "slug": "mount-hallback-nc",
+      "name": "Mount Hallback",
+      "aliases": [
+        "Hallback",
+        "Mt Hallback",
+        "Mt. Hallback"
+      ],
+      "elevationFt": 6320,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 20
+    },
+    {
+      "slug": "waterrock-knob-nc",
+      "name": "Waterrock Knob",
+      "aliases": [],
+      "elevationFt": 6292,
+      "state": "NC",
+      "range": "Plott Balsams",
+      "rank": 21
+    },
+    {
+      "slug": "roan-high-knob-tn",
+      "name": "Roan High Knob",
+      "aliases": [],
+      "elevationFt": 6285,
+      "state": "TN",
+      "range": "Unaka Mountains",
+      "rank": 22,
+      "notes": "On the NC/TN state line"
+    },
+    {
+      "slug": "roan-high-bluff-nc",
+      "name": "Roan High Bluff",
+      "aliases": [],
+      "elevationFt": 6267,
+      "state": "NC",
+      "range": "Unaka Mountains",
+      "rank": 23
+    },
+    {
+      "slug": "browning-knob-nc",
+      "name": "Browning Knob",
+      "aliases": [],
+      "elevationFt": 6240,
+      "state": "NC",
+      "range": "Plott Balsams",
+      "rank": 24
+    },
+    {
+      "slug": "luftee-knob-nc",
+      "name": "Luftee Knob",
+      "aliases": [],
+      "elevationFt": 6234,
+      "state": "NC",
+      "range": "Great Smoky Mountains",
+      "rank": 25
+    },
+    {
+      "slug": "gibbs-mountain-nc",
+      "name": "Gibbs Mountain",
+      "aliases": [],
+      "elevationFt": 6224,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 26
+    },
+    {
+      "slug": "mount-lyn-lowry-nc",
+      "name": "Mount Lyn Lowry",
+      "aliases": [
+        "Lyn Lowry",
+        "Mt Lyn Lowry",
+        "Mt. Lyn Lowry"
+      ],
+      "elevationFt": 6220,
+      "state": "NC",
+      "range": "Plott Balsams",
+      "rank": 27
+    },
+    {
+      "slug": "mount-kephart-tn",
+      "name": "Mount Kephart",
+      "aliases": [
+        "Kephart",
+        "Mt Kephart",
+        "Mt. Kephart"
+      ],
+      "elevationFt": 6217,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "rank": 28,
+      "notes": "On the NC/TN state line"
+    },
+    {
+      "slug": "black-balsam-knob-nc",
+      "name": "Black Balsam Knob",
+      "aliases": [],
+      "elevationFt": 6214,
+      "state": "NC",
+      "range": "Great Balsam Mountains",
+      "rank": 29
+    },
+    {
+      "slug": "winter-star-mountain-nc",
+      "name": "Winter Star Mountain",
+      "aliases": [],
+      "elevationFt": 6212,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 30
+    },
+    {
+      "slug": "percys-peak-nc",
+      "name": "Percys Peak",
+      "aliases": [
+        "Percy's Peak",
+        "Percy Peak"
+      ],
+      "elevationFt": 6200,
+      "state": "NC",
+      "range": "Black Mountains",
+      "rank": 31
+    },
+    {
+      "slug": "grassy-ridge-bald-nc",
+      "name": "Grassy Ridge Bald",
+      "aliases": [],
+      "elevationFt": 6189,
+      "state": "NC",
+      "range": "Unaka Mountains",
+      "rank": 32
+    },
+    {
+      "slug": "mount-collins-tn",
+      "name": "Mount Collins",
+      "aliases": [
+        "Collins",
+        "Mt Collins",
+        "Mt. Collins"
+      ],
+      "elevationFt": 6188,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "rank": 33,
+      "notes": "On the NC/TN state line"
+    },
+    {
+      "slug": "marks-knob-nc",
+      "name": "Marks Knob",
+      "aliases": [],
+      "elevationFt": 6169,
+      "state": "NC",
+      "range": "Great Smoky Mountains",
+      "rank": 34
+    },
+    {
+      "slug": "big-cataloochee-mountain-nc",
+      "name": "Big Cataloochee Mountain",
+      "aliases": [],
+      "elevationFt": 6155,
+      "state": "NC",
+      "range": "Great Smoky Mountains",
+      "rank": 35
+    },
+    {
+      "slug": "mount-hardison-nc",
+      "name": "Mount Hardison",
+      "aliases": [
+        "Hardison",
+        "Mt Hardison",
+        "Mt. Hardison"
+      ],
+      "elevationFt": 6134,
+      "state": "NC",
+      "range": "Great Smoky Mountains",
+      "rank": 36
+    },
+    {
+      "slug": "tricorner-knob-nc",
+      "name": "Tricorner Knob",
+      "aliases": [],
+      "elevationFt": 6120,
+      "state": "NC",
+      "range": "Great Smoky Mountains",
+      "rank": 37
+    },
+    {
+      "slug": "mount-yonaguska-nc",
+      "name": "Mount Yonaguska",
+      "aliases": [
+        "Yonaguska",
+        "Mt Yonaguska",
+        "Mt. Yonaguska"
+      ],
+      "elevationFt": 6120,
+      "state": "NC",
+      "range": "Great Smoky Mountains",
+      "rank": 38
+    },
+    {
+      "slug": "mount-ambler-tn",
+      "name": "Mount Ambler",
+      "aliases": [
+        "Ambler",
+        "Mt Ambler",
+        "Mt. Ambler"
+      ],
+      "elevationFt": 6120,
+      "state": "TN",
+      "range": "Great Smoky Mountains",
+      "rank": 39,
+      "notes": "On the NC/TN state line"
+    },
+    {
+      "slug": "mount-hardy-nc",
+      "name": "Mount Hardy",
+      "aliases": [
+        "Hardy",
+        "Mt Hardy",
+        "Mt. Hardy"
+      ],
+      "elevationFt": 6110,
+      "state": "NC",
+      "range": "Great Balsam Mountains",
+      "rank": 40
+    }
+  ]
+}

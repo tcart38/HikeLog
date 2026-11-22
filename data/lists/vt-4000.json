@@ -1,0 +1,112 @@
+{
+  "name": "Vermont 4000-Footers",
+  "shortName": "VT 5",
+  "region": "Vermont",
+  "country": "US",
+  "description": "The five Green Mountain peaks in Vermont that reach 4,000 feet.",
+  "criteria": "Summits at least 4,000 ft with at least 200 ft of rise on all sides, per the AMC New England 4000-footer list.",
+  "organization": "AMC Four Thousand Footer Committee",
+  "officialUrl": "https://amc4000footer.org/",
+  "notes": "Camel's Hump and Mount Ellen are both 4,083 ft (tied). Mount Abraham (VT) is distinct from Abraham (ME). Elevations follow 4000footers.com.",
+  "sources": [
+    {
+      "title": "4000footers.com - 5 Vermont 4,000 Footers",
+      "url": "https://4000footers.com/vt.shtml",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Wikipedia - Four-thousand footers (ranges, names)",
+      "url": "https://en.wikipedia.org/wiki/Four-thousand_footers",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "AMC Four Thousand Footer Committee - home (winter rules)",
+      "url": "https://amc4000footer.org/",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "slug": "vt-4000",
+  "peaks": [
+    {
+      "slug": "mount-mansfield-vt",
+      "name": "Mount Mansfield",
+      "aliases": [
+        "Mansfield",
+        "Mt Mansfield",
+        "Mt. Mansfield"
+      ],
+      "elevationFt": 4393,
+      "state": "VT",
+      "range": "Green Mountains",
+      "rank": 1,
+      "notes": "Highest point in Vermont."
+    },
+    {
+      "slug": "killington-peak-vt",
+      "name": "Killington Peak",
+      "aliases": [
+        "Killington",
+        "Mount Killington",
+        "Mt Killington",
+        "Killington Mountain",
+        "Killington Peak (Vermont)"
+      ],
+      "elevationFt": 4235,
+      "state": "VT",
+      "range": "Green Mountains",
+      "rank": 2
+    },
+    {
+      "slug": "camels-hump-vt",
+      "name": "Camel's Hump",
+      "aliases": [
+        "Camels Hump",
+        "Camel's Hump Mountain",
+        "Camels Hump Mountain",
+        "Camel Hump",
+        "Camel's Hump (Vermont)"
+      ],
+      "elevationFt": 4083,
+      "state": "VT",
+      "range": "Green Mountains",
+      "rank": 3
+    },
+    {
+      "slug": "mount-ellen-vt",
+      "name": "Mount Ellen",
+      "aliases": [
+        "Ellen",
+        "Mt Ellen",
+        "Mt. Ellen",
+        "Mount Ellen (Vermont)"
+      ],
+      "elevationFt": 4083,
+      "state": "VT",
+      "range": "Green Mountains",
+      "rank": 4
+    },
+    {
+      "slug": "mount-abraham-vt",
+      "name": "Mount Abraham",
+      "aliases": [
+        "Abraham",
+        "Mt Abraham",
+        "Mt. Abraham",
+        "Abraham (VT)",
+        "Abraham (Vermont)",
+        "Mount Abraham (Vermont)",
+        "Mount Abraham VT",
+        "Mt Abraham VT",
+        "Mt. Abraham VT",
+        "Abraham VT",
+        "Mount Abe",
+        "Abe"
+      ],
+      "elevationFt": 4006,
+      "state": "VT",
+      "range": "Green Mountains",
+      "rank": 5,
+      "notes": "Not to be confused with Mount Abraham, Maine (mount-abraham-me). Locally called Mount Abe."
+    }
+  ]
+}

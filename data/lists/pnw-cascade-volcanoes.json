@@ -1,0 +1,225 @@
+{
+  "slug": "pnw-cascade-volcanoes",
+  "name": "Cascade Volcanoes (WA/OR/CA)",
+  "shortName": "Cascade Volcanoes",
+  "region": "Pacific Northwest",
+  "country": "US",
+  "description": "Thirteen major volcanic peaks of the Cascade Range in the United States, from Mount Baker in Washington to Lassen Peak in California.",
+  "criteria": "The twelve highest Cascade volcanoes in the US per Wikipedia's Cascade Volcanoes table, plus Mount St. Helens (most recently active). Silverthrone Caldera (British Columbia) is omitted as outside the US.",
+  "organization": "Informal",
+  "officialUrl": "https://en.wikipedia.org/wiki/Cascade_Volcanoes",
+  "notes": "No single official or widely standardized peak-bagging list exists; this is a compiler-defined list based on the Wikipedia table. Rainier, Adams, Baker, Glacier Peak and St. Helens reuse WA Bulger-file elevations; the others use Wikipedia elevations (NGS/USGS values vary by a few feet). Mount Hood, Mount Jefferson, Newberry, Crater Lake (Mazama) and others are not all included. Lat/lon from Wikipedia.",
+  "sources": [
+    {
+      "title": "Washington's Top 100 / Bulger list table (rhinoclimbs.com)",
+      "url": "https://rhinoclimbs.com/the-bulgers/",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Cascade Volcanoes (Wikipedia), coordinates for the volcanoes",
+      "url": "https://en.wikipedia.org/wiki/Cascade_Volcanoes",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "peaks": [
+    {
+      "slug": "mount-rainier-wa",
+      "name": "Mount Rainier",
+      "aliases": [
+        "Mt Rainier",
+        "Mt. Rainier",
+        "Rainier",
+        "Tahoma"
+      ],
+      "elevationFt": 14410,
+      "state": "WA",
+      "range": "Southern Washington Cascades",
+      "lat": 46.8528857,
+      "lon": -121.7603744,
+      "rank": 1
+    },
+    {
+      "slug": "mount-shasta-ca",
+      "name": "Mount Shasta",
+      "aliases": [
+        "Shasta",
+        "Mt Shasta",
+        "Mt. Shasta"
+      ],
+      "elevationFt": 14162,
+      "state": "CA",
+      "range": "Southern Cascades",
+      "lat": 41.409196033,
+      "lon": -122.194888358,
+      "rank": 2
+    },
+    {
+      "slug": "mount-adams-wa",
+      "name": "Mount Adams",
+      "aliases": [
+        "Adams",
+        "Mt Adams",
+        "Mt. Adams",
+        "Pahto"
+      ],
+      "elevationFt": 12276,
+      "state": "WA",
+      "range": "Southern Washington Cascades",
+      "lat": 46.202411792,
+      "lon": -121.490894694,
+      "rank": 3
+    },
+    {
+      "slug": "mount-hood-or",
+      "name": "Mount Hood",
+      "aliases": [
+        "Hood",
+        "Mt Hood",
+        "Mt. Hood"
+      ],
+      "elevationFt": 11239,
+      "state": "OR",
+      "range": "Oregon Cascades",
+      "lat": 45.373514489,
+      "lon": -121.695918558,
+      "rank": 4
+    },
+    {
+      "slug": "mount-baker-wa",
+      "name": "Mount Baker",
+      "aliases": [
+        "Baker",
+        "Koma Kulshan",
+        "Mt Baker",
+        "Mt. Baker"
+      ],
+      "elevationFt": 10775,
+      "state": "WA",
+      "range": "North Cascades",
+      "lat": 48.7773426,
+      "lon": -121.8132008,
+      "rank": 5
+    },
+    {
+      "slug": "glacier-peak-wa",
+      "name": "Glacier Peak",
+      "aliases": [
+        "Glacier"
+      ],
+      "elevationFt": 10541,
+      "state": "WA",
+      "range": "North Cascades",
+      "lat": 48.11251395,
+      "lon": -121.113804642,
+      "rank": 6
+    },
+    {
+      "slug": "mount-jefferson-or",
+      "name": "Mount Jefferson",
+      "aliases": [
+        "Jefferson",
+        "Mt Jefferson",
+        "Mt. Jefferson"
+      ],
+      "elevationFt": 10497,
+      "state": "OR",
+      "range": "Oregon Cascades",
+      "lat": 44.6743006,
+      "lon": -121.799573611,
+      "rank": 7
+    },
+    {
+      "slug": "lassen-peak-ca",
+      "name": "Lassen Peak",
+      "aliases": [
+        "Lassen",
+        "Mount Lassen",
+        "Mt Lassen"
+      ],
+      "elevationFt": 10457,
+      "state": "CA",
+      "range": "Southern Cascades",
+      "lat": 40.4881731,
+      "lon": -121.5050078,
+      "rank": 8
+    },
+    {
+      "slug": "south-sister-or",
+      "name": "South Sister",
+      "aliases": [
+        "South Sister",
+        "Three Sisters South"
+      ],
+      "elevationFt": 10358,
+      "state": "OR",
+      "range": "Three Sisters",
+      "lat": 44.103449,
+      "lon": -121.7692058,
+      "rank": 9
+    },
+    {
+      "slug": "north-sister-or",
+      "name": "North Sister",
+      "aliases": [
+        "North Sister",
+        "Three Sisters North"
+      ],
+      "elevationFt": 10085,
+      "state": "OR",
+      "range": "Three Sisters",
+      "lat": 44.1662273,
+      "lon": -121.7725431,
+      "rank": 10
+    },
+    {
+      "slug": "middle-sister-or",
+      "name": "Middle Sister",
+      "aliases": [
+        "Middle Sister",
+        "Three Sisters Middle"
+      ],
+      "elevationFt": 10047,
+      "state": "OR",
+      "range": "Three Sisters",
+      "lat": 44.1481718,
+      "lon": -121.7839312,
+      "rank": 11
+    },
+    {
+      "slug": "mount-mcloughlin-or",
+      "name": "Mount McLoughlin",
+      "aliases": [
+        "McLoughlin",
+        "Mt McLoughlin",
+        "Mt. McLoughlin"
+      ],
+      "elevationFt": 9495,
+      "state": "OR",
+      "range": "Southern Oregon Cascades",
+      "lat": 42.44444,
+      "lon": -122.31556,
+      "rank": 12
+    },
+    {
+      "slug": "mount-st-helens-wa",
+      "name": "Mount St. Helens",
+      "aliases": [
+        "Helens",
+        "Mount Saint Helens",
+        "Mount St Helens",
+        "Mt St Helens",
+        "Mt St. Helens",
+        "Mt. St. Helens",
+        "St Helens",
+        "St. Helens"
+      ],
+      "elevationFt": 8365,
+      "state": "WA",
+      "range": "Southern Washington Cascades",
+      "lat": 46.1912,
+      "lon": -122.1944,
+      "rank": 13,
+      "notes": "Post-1980 eruption elevation; pre-eruption height was 9677 ft."
+    }
+  ]
+}

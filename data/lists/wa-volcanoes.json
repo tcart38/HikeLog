@@ -1,0 +1,108 @@
+{
+  "slug": "wa-volcanoes",
+  "name": "Washington Cascade Volcanoes",
+  "shortName": "WA Volcanoes",
+  "region": "Washington",
+  "country": "US",
+  "description": "The five major Cascade volcanoes in Washington State.",
+  "criteria": "Mount Rainier, Mount Adams, Mount Baker, Glacier Peak and Mount St. Helens; ranked by elevation.",
+  "organization": "Informal",
+  "officialUrl": "https://en.wikipedia.org/wiki/Cascade_Volcanoes",
+  "notes": "Elevations match the wa-bulgers file (USGS quad values), which differ by a few feet from Wikipedia/NGS values. Compiler-defined list of the five major Washington volcanoes.",
+  "sources": [
+    {
+      "title": "Washington's Top 100 / Bulger list table (rhinoclimbs.com)",
+      "url": "https://rhinoclimbs.com/the-bulgers/",
+      "accessed": "2026-11-21"
+    },
+    {
+      "title": "Cascade Volcanoes (Wikipedia), coordinates for the volcanoes",
+      "url": "https://en.wikipedia.org/wiki/Cascade_Volcanoes",
+      "accessed": "2026-11-21"
+    }
+  ],
+  "peaks": [
+    {
+      "slug": "mount-rainier-wa",
+      "name": "Mount Rainier",
+      "aliases": [
+        "Mt Rainier",
+        "Mt. Rainier",
+        "Rainier",
+        "Tahoma"
+      ],
+      "elevationFt": 14410,
+      "state": "WA",
+      "range": "Southern Washington Cascades",
+      "lat": 46.8528857,
+      "lon": -121.7603744,
+      "rank": 1
+    },
+    {
+      "slug": "mount-adams-wa",
+      "name": "Mount Adams",
+      "aliases": [
+        "Adams",
+        "Mt Adams",
+        "Mt. Adams",
+        "Pahto"
+      ],
+      "elevationFt": 12276,
+      "state": "WA",
+      "range": "Southern Washington Cascades",
+      "lat": 46.202411792,
+      "lon": -121.490894694,
+      "rank": 2
+    },
+    {
+      "slug": "mount-baker-wa",
+      "name": "Mount Baker",
+      "aliases": [
+        "Baker",
+        "Koma Kulshan",
+        "Mt Baker",
+        "Mt. Baker"
+      ],
+      "elevationFt": 10775,
+      "state": "WA",
+      "range": "North Cascades",
+      "lat": 48.7773426,
+      "lon": -121.8132008,
+      "rank": 3
+    },
+    {
+      "slug": "glacier-peak-wa",
+      "name": "Glacier Peak",
+      "aliases": [
+        "Glacier"
+      ],
+      "elevationFt": 10541,
+      "state": "WA",
+      "range": "North Cascades",
+      "lat": 48.11251395,
+      "lon": -121.113804642,
+      "rank": 4
+    },
+    {
+      "slug": "mount-st-helens-wa",
+      "name": "Mount St. Helens",
+      "aliases": [
+        "Helens",
+        "Mount Saint Helens",
+        "Mount St Helens",
+        "Mt St Helens",
+        "Mt St. Helens",
+        "Mt. St. Helens",
+        "St Helens",
+        "St. Helens"
+      ],
+      "elevationFt": 8365,
+      "state": "WA",
+      "range": "Southern Washington Cascades",
+      "lat": 46.1912,
+      "lon": -122.1944,
+      "rank": 5,
+      "notes": "Post-1980 eruption elevation; pre-eruption height was 9677 ft."
+    }
+  ]
+}
