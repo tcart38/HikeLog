@@ -49,7 +49,7 @@ export default async function Dashboard({ searchParams }: PageProps<"/">) {
         title={greeting}
         description="Where your lists stand and what you did last."
         actions={
-          <Button size="lg" className="hidden h-9 md:inline-flex" render={<Link href="/hikes/new" />}>
+          <Button size="lg" className="hidden h-9 md:inline-flex" nativeButton={false} render={<Link href="/hikes/new" />}>
             <PlusIcon /> Log a hike
           </Button>
         }

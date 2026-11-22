@@ -100,7 +100,7 @@ export default async function ListPage({ params, searchParams }: PageProps<"/lis
         title={list.name}
         description={[list.region, list.organization].filter(Boolean).join(" · ")}
         actions={
-          <Button variant="outline" render={<Link href={`/compare?list=${list.slug}&mode=${view === "conditions" ? "all" : view}`} />}>
+          <Button variant="outline" nativeButton={false} render={<Link href={`/compare?list=${list.slug}&mode=${view === "conditions" ? "all" : view}`} />}>
             <GitCompareArrowsIcon /> Compare people
           </Button>
         }

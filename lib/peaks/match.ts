@@ -32,6 +32,7 @@ function aliasRows(): AliasRow[] {
 }
 export function invalidatePeakCache() {
   aliasCache = null
+  statesCache = null
 }
 
 function uniq(rows: PeakRow[]): PeakRow[] {
@@ -122,7 +123,25 @@ function disambiguate(cands: PeakRow[], ctx: MatchContext): PeakRow | null {
     const p = pick((c) => !!c.state && s.has(c.state.toUpperCase()))
     if (p) return p
   }
+  // Last resort: the state this instance hikes in most (e.g. "Adams" -> NH, not WA,
+  // for a New Hampshire household). Only when exactly one candidate is in that state.
+  for (const st of hikedStates()) {
+    const p = pick((c) => c.state?.toUpperCase() === st)
+    if (p) return p
+    if (cands.some((c) => c.state?.toUpperCase() === st)) break
+  }
   return null
+}
+
+let statesCache: { at: number; states: string[] } | null = null
+function hikedStates(): string[] {
+  if (statesCache && Date.now() - statesCache.at < 60_000) return statesCache.states
+  const states = all<{ state: string }>(
+    `SELECT UPPER(p.state) state, COUNT(*) n FROM hike_peaks hp JOIN peaks p ON p.id = hp.peak_id
+     WHERE p.state IS NOT NULL GROUP BY UPPER(p.state) ORDER BY n DESC LIMIT 3`
+  ).map((r) => r.state)
+  statesCache = { at: Date.now(), states }
+  return states
 }
 
 /**

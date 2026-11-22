@@ -17,10 +17,10 @@ export function EmptyHikes() {
         </EmptyDescription>
       </EmptyHeader>
       <EmptyContent className="flex-row flex-wrap justify-center">
-        <Button size="lg" className="h-10" render={<Link href="/hikes/new" />}>
+        <Button size="lg" className="h-10" nativeButton={false} render={<Link href="/hikes/new" />}>
           <PlusIcon /> Log a hike
         </Button>
-        <Button size="lg" variant="outline" className="h-10" render={<Link href="/settings#import" />}>
+        <Button size="lg" variant="outline" className="h-10" nativeButton={false} render={<Link href="/settings#import" />}>
           <FileSpreadsheetIcon /> Import your spreadsheet
         </Button>
       </EmptyContent>

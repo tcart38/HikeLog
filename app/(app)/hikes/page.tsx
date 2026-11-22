@@ -52,7 +52,7 @@ export default async function HikesPage({ searchParams }: PageProps<"/hikes">) {
         title="Hikes"
         description={none ? undefined : `${total.toLocaleString("en-US")} ${total === 1 ? "hike" : "hikes"}${q || person || list ? " match" : " logged"}`}
         actions={
-          <Button size="lg" className="hidden h-9 md:inline-flex" render={<Link href="/hikes/new" />}>
+          <Button size="lg" className="hidden h-9 md:inline-flex" nativeButton={false} render={<Link href="/hikes/new" />}>
             <PlusIcon /> Log a hike
           </Button>
         }
@@ -62,6 +62,7 @@ export default async function HikesPage({ searchParams }: PageProps<"/hikes">) {
       ) : (
         <>
           <HikeFilters
+            key={`${q}|${person}|${list}`}
             q={q}
             person={person}
             list={list}
@@ -126,13 +127,13 @@ export default async function HikesPage({ searchParams }: PageProps<"/hikes">) {
               </ul>
               {pages > 1 && (
                 <nav aria-label="Pagination" className="flex items-center justify-between gap-3">
-                  <Button variant="outline" className="h-10 md:h-8" disabled={page <= 1} render={page > 1 ? <Link href={href(page - 1)} /> : undefined}>
+                  <Button variant="outline" className="h-10 md:h-8" disabled={page <= 1} nativeButton={page <= 1} render={page > 1 ? <Link href={href(page - 1)} /> : undefined}>
                     <ChevronLeftIcon /> Newer
                   </Button>
                   <span className="text-sm text-muted-foreground tnum">
                     Page {page} of {pages}
                   </span>
-                  <Button variant="outline" className="h-10 md:h-8" disabled={page >= pages} render={page < pages ? <Link href={href(page + 1)} /> : undefined}>
+                  <Button variant="outline" className="h-10 md:h-8" disabled={page >= pages} nativeButton={page >= pages} render={page < pages ? <Link href={href(page + 1)} /> : undefined}>
                     Older <ChevronRightIcon />
                   </Button>
                 </nav>

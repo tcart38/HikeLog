@@ -22,7 +22,6 @@ export function HikeFilters({
 }) {
   const { set } = useParamSetter()
   const [text, setText] = React.useState(q)
-  React.useEffect(() => setText(q), [q])
   React.useEffect(() => {
     if (text === q) return
     const t = setTimeout(() => set({ q: text.trim() || null, page: null }), 300)

@@ -24,10 +24,10 @@ export default async function PeoplePage() {
         description="Everyone who hikes with you, with or without a login."
         actions={
           <>
-            <Button variant="outline" className="h-10 md:h-8" render={<Link href="/compare" />}>
+            <Button variant="outline" className="h-10 md:h-8" nativeButton={false} render={<Link href="/compare" />}>
               <GitCompareArrowsIcon /> Compare
             </Button>
-            <Button variant="outline" className="h-10 md:h-8" render={<Link href="/settings#people" />}>
+            <Button variant="outline" className="h-10 md:h-8" nativeButton={false} render={<Link href="/settings#people" />}>
               <SettingsIcon /> Manage
             </Button>
           </>
@@ -66,10 +66,10 @@ export default async function PeoplePage() {
                 </dl>
               )}
               <div className="flex gap-2">
-                <Button variant="outline" size="sm" className="h-9 md:h-7" render={<Link href={`/lists?person=${p.id}`} />}>
+                <Button variant="outline" size="sm" className="h-9 md:h-7" nativeButton={false} render={<Link href={`/lists?person=${p.id}`} />}>
                   Lists
                 </Button>
-                <Button variant="outline" size="sm" className="h-9 md:h-7" render={<Link href={`/hikes?person=${p.id}`} />}>
+                <Button variant="outline" size="sm" className="h-9 md:h-7" nativeButton={false} render={<Link href={`/hikes?person=${p.id}`} />}>
                   Hikes
                 </Button>
               </div>

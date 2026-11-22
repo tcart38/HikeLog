@@ -56,7 +56,7 @@ export default async function HikePage({ params }: PageProps<"/hikes/[id]">) {
         }
         actions={
           <>
-            <Button variant="outline" className="h-10 md:h-8" render={<Link href={`/hikes/${hike.id}/edit`} />}>
+            <Button variant="outline" className="h-10 md:h-8" nativeButton={false} render={<Link href={`/hikes/${hike.id}/edit`} />}>
               <PencilIcon /> Edit
             </Button>
             <DeleteHikeButton id={hike.id} label={title} />

@@ -123,4 +123,40 @@ export const migrations: string[] = [
   );
   CREATE INDEX hike_participants_person ON hike_participants(person_id);
   `,
+  /* 2: Garmin Personal API import */ `
+  CREATE TABLE garmin_connections (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER NOT NULL UNIQUE REFERENCES users(id) ON DELETE CASCADE,
+    api_key_enc TEXT NOT NULL,           -- AES-256-GCM, see lib/garmin/crypto.ts
+    key_expires_at TEXT,                 -- ISO date, if known
+    access_token_enc TEXT,
+    access_token_expires_at TEXT,
+    last_sync_at TEXT,
+    last_error TEXT,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+
+  CREATE TABLE garmin_activities (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    activity_id TEXT NOT NULL,
+    start_date TEXT NOT NULL,            -- YYYY-MM-DD (local start)
+    name TEXT,
+    type TEXT,
+    distance_mi REAL,
+    elevation_gain_ft INTEGER,
+    duration_min INTEGER,
+    start_lat REAL,
+    start_lon REAL,
+    end_lat REAL,
+    end_lon REAL,
+    raw_json TEXT,
+    status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','imported','ignored')),
+    hike_id INTEGER REFERENCES hikes(id) ON DELETE SET NULL,
+    suggested_peaks_json TEXT NOT NULL DEFAULT '[]',
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    UNIQUE (user_id, activity_id)
+  );
+  CREATE INDEX garmin_activities_user_status ON garmin_activities(user_id, status, start_date);
+  `,
 ]

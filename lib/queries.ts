@@ -27,6 +27,7 @@ export type PersonRow = {
 }
 
 export function listPeople(): PersonRow[] {
+  // node:sqlite rows have a null prototype; spread so they can cross into client components.
   return all<PersonRow>(
     `SELECT p.id, p.name, p.color,
       (SELECT u.username FROM users u WHERE u.person_id = p.id) username,
@@ -34,7 +35,7 @@ export function listPeople(): PersonRow[] {
       (SELECT COUNT(*) FROM hike_participants hp WHERE hp.person_id = p.id) hikes,
       (SELECT MAX(h.date) FROM hike_participants hp JOIN hikes h ON h.id = hp.hike_id WHERE hp.person_id = p.id) last_hike
      FROM people p ORDER BY (user_id IS NULL), p.name COLLATE NOCASE`
-  )
+  ).map((r) => ({ ...r }))
 }
 
 export function hikeCount(): number {

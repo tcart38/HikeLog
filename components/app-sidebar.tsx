@@ -31,7 +31,7 @@ export function AppSidebar({ name, username }: { name: string; username: string 
         <Link href="/" aria-label="HikeLog home" className="flex h-8 items-center px-1">
           <Logo />
         </Link>
-        <Button render={<Link href="/hikes/new" />} className="w-full justify-start group-data-[collapsible=icon]:size-8 group-data-[collapsible=icon]:p-0 group-data-[collapsible=icon]:justify-center">
+        <Button nativeButton={false} render={<Link href="/hikes/new" />} className="w-full justify-start group-data-[collapsible=icon]:size-8 group-data-[collapsible=icon]:p-0 group-data-[collapsible=icon]:justify-center">
           <PlusIcon />
           <span className="group-data-[collapsible=icon]:hidden">Log a hike</span>
         </Button>

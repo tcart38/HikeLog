@@ -65,3 +65,10 @@ export const pct = (n: number, total: number) => (total ? Math.round((n / total)
 export function one(v: string | string[] | undefined) {
   return Array.isArray(v) ? v[0] : v
 }
+
+export const COMPARE_MODES = [
+  { value: "all", label: "All" },
+  { value: "winter", label: "Winter" },
+  { value: "season", label: "Four-season" },
+  { value: "grid", label: "Grid" },
+]
