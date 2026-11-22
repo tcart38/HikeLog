@@ -7,6 +7,7 @@ Nothing is written to disk: session tokens go back to HikeLog, which stores them
 Requests ("cmd"):
   login  {email, password}              -> {status: "ok", tokens} | {status: "needs_mfa", state}
   mfa    {state, code}                  -> {status: "ok", tokens}
+  verify {tokens}                       -> {status: "ok", tokens}   (use an existing saved session instead of signing in)
   sync   {tokens, since, types, skip, max_new}   -> {status: "ok", tokens, activities: [{raw, gpx}]}
 Errors: {status: "error", kind: "auth" | "rate_limit" | "connection" | "other", message}
 """
@@ -58,6 +59,10 @@ def main():
         if cmd == "mfa":
             g = Garmin(return_on_mfa=True)
             g.resume_login(req["state"], str(req["code"]).strip())
+            return out({"status": "ok", "tokens": g.client.dumps()})
+        if cmd == "verify":
+            g = Garmin()
+            g.login(req["tokens"])
             return out({"status": "ok", "tokens": g.client.dumps()})
         if cmd == "sync":
             g = Garmin()

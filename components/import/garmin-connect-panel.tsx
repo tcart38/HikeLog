@@ -8,6 +8,7 @@ import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { api } from "@/lib/client/api"
 import { StatusCard } from "./status-card"
 
@@ -18,6 +19,8 @@ export function GarminConnectPanel({ status }: { status: Status }) {
   const [email, setEmail] = React.useState("")
   const [password, setPassword] = React.useState("")
   const [code, setCode] = React.useState("")
+  const [tokens, setTokens] = React.useState("")
+  const [useTokens, setUseTokens] = React.useState(false)
   const [busy, setBusy] = React.useState(false)
   const [error, setError] = React.useState<string | null>(null)
   const needsCode = status.state === "pending"
@@ -29,10 +32,11 @@ export function GarminConnectPanel({ status }: { status: Status }) {
     try {
       const r = await api<{ result: string }>("/api/v1/import/garmin-connect/connection", {
         method: "PUT",
-        body: needsCode ? { mfaCode: code } : { email: email.trim(), password },
+        body: needsCode ? { mfaCode: code } : useTokens ? { tokens: tokens.trim() } : { email: email.trim(), password },
       })
       setPassword("")
       setCode("")
+      setTokens("")
       if (r.result === "connected") toast.success("Garmin Connect signed in")
       router.refresh()
     } catch (err) {
@@ -62,6 +66,14 @@ export function GarminConnectPanel({ status }: { status: Status }) {
             <Input id="gc-code" inputMode="numeric" autoComplete="one-time-code" value={code} onChange={(e) => setCode(e.target.value)} className="h-11 md:h-8" placeholder="6-digit code" />
             <FieldDescription>Garmin emailed or texted a code to {status.meta?.email ?? "you"}. It expires quickly.</FieldDescription>
           </Field>
+        ) : useTokens ? (
+          <Field>
+            <FieldLabel htmlFor="gc-tokens">Saved session (garmin_tokens.json)</FieldLabel>
+            <Textarea id="gc-tokens" value={tokens} onChange={(e) => setTokens(e.target.value)} rows={4} className="font-mono text-xs" placeholder='{"di_token": "...", "di_refresh_token": "...", "di_client_id": "..."}' />
+            <FieldDescription>
+              Skips the password sign-in, which Garmin often blocks with HTTP 429. Paste the contents of garmin_tokens.json from another app that already uses python-garminconnect. Stored encrypted.
+            </FieldDescription>
+          </Field>
         ) : (
           <>
             <Field>
@@ -80,9 +92,14 @@ export function GarminConnectPanel({ status }: { status: Status }) {
             {error}
           </p>
         )}
-        <Button type="submit" className="h-11 w-fit md:h-8" disabled={busy || (needsCode ? !code.trim() : !email.trim() || !password)}>
-          {busy && <Loader2Icon className="animate-spin" />} {needsCode ? "Verify" : status.state === "connected" ? "Sign in again" : "Sign in"}
+        <Button type="submit" className="h-11 w-fit md:h-8" disabled={busy || (needsCode ? !code.trim() : useTokens ? tokens.trim().length < 20 : !email.trim() || !password)}>
+          {busy && <Loader2Icon className="animate-spin" />} {needsCode ? "Verify" : useTokens ? "Connect session" : status.state === "connected" ? "Sign in again" : "Sign in"}
         </Button>
+        {!needsCode && (
+          <Button type="button" variant="link" className="h-auto w-fit p-0" onClick={() => { setUseTokens((v) => !v); setError(null) }}>
+            {useTokens ? "Use email and password instead" : "Sign-in blocked (429)? Use a saved session instead"}
+          </Button>
+        )}
         {needsCode && (
           <Button
             type="button"

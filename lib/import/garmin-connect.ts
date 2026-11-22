@@ -81,6 +81,25 @@ export async function garminConnectMfa(userId: number, code: string): Promise<Lo
   return { status: "connected" }
 }
 
+/** Connect with an existing python-garminconnect session (the contents of garmin_tokens.json) instead of signing in with a password. */
+export async function garminConnectTokens(userId: number, tokens: string): Promise<LoginResult> {
+  let parsed: Record<string, unknown>
+  try {
+    parsed = JSON.parse(tokens) as Record<string, unknown>
+  } catch {
+    throw new ImportError("That is not valid JSON. Paste the full contents of garmin_tokens.json.", 422)
+  }
+  if (typeof parsed.di_token !== "string" || typeof parsed.di_refresh_token !== "string")
+    throw new ImportError("That does not look like a garminconnect session (expected di_token and di_refresh_token).", 422)
+  const r = await bridge({ cmd: "verify", tokens: JSON.stringify(parsed) })
+  if (r.status !== "ok" || !r.tokens) {
+    if (r.kind === "auth" || r.kind === "connection") throw new ImportError("Garmin did not accept those session tokens. They may have expired; sign in again to get new ones.", 422)
+    raise(r)
+  }
+  saveConn(userId, PROVIDER, "connected", { email: "", tokens: r.tokens }, { email: "saved session" })
+  return { status: "connected" }
+}
+
 export const garminConnectDisconnect = (userId: number) => deleteConn(userId, PROVIDER)
 
 const syncing = new Set<number>()

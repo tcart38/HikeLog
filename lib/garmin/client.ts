@@ -50,8 +50,13 @@ function jwtExp(token: string): number | null {
 
 /** Exchange a personal API key for an OAuth2 access token. */
 export async function exchangeKey(apiKey: string): Promise<{ accessToken: string; expiresAt: Date }> {
-  const res = await http(TOKEN_URL, { method: "POST", headers: { Authorization: `ApiKey ${apiKey}`, Accept: "application/json" } })
+  const res = await http(TOKEN_URL, { method: "POST", headers: { Authorization: `ApiKey ${apiKey}`, Accept: "application/json", "User-Agent": "HikeLog/1.0" } })
   if (res.status === 401 || res.status === 403) throw new GarminError("Garmin rejected this API key. It may be wrong, deleted, or expired.", 400)
+  if (res.status === 429) {
+    const ra = Number(res.headers.get("retry-after"))
+    const wait = ra > 0 ? `about ${ra >= 120 ? Math.ceil(ra / 60) + " minutes" : ra + " seconds"}` : "at least 15-30 minutes"
+    throw new GarminError(`Garmin is rate limiting this key (HTTP 429). Wait ${wait}, then try once more. Repeated attempts extend the block.`, 429)
+  }
   if (!res.ok) throw new GarminError(`Garmin token exchange failed (HTTP ${res.status})`)
   const text = await res.text()
   let data: Record<string, unknown> = {}

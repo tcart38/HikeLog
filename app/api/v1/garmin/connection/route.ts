@@ -16,7 +16,7 @@ export const PUT = withAuth(async (req, { user }) => {
   try {
     await connect(user.id, apiKey, keyExpiresAt)
   } catch (e) {
-    if (e instanceof GarminError) throw new ApiError(e.message, e.status === 400 ? 422 : 502)
+    if (e instanceof GarminError) throw new ApiError(e.message, e.status === 400 ? 422 : e.status === 429 ? 429 : 502)
     throw e
   }
   return json(connectionStatus(user.id))
