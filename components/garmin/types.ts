@@ -26,4 +26,16 @@ export type GarminActivityView = {
   durationMin: number | null
   status: "pending" | "imported" | "ignored"
   suggestedPeaks: Suggestion[]
+  matches?: HikeMatchView[]
+}
+
+export type HikeMatchView = {
+  hikeId: number
+  date: string
+  endDate: string | null
+  title: string | null
+  peaks: { id: number; name: string }[]
+  newPeaks: { id: number; name: string }[]
+  hasTrack: boolean
+  reasons: string[]
 }

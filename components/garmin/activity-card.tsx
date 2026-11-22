@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
-import { CheckIcon, Loader2Icon, MountainIcon, RouteIcon, TimerIcon, TrendingUpIcon } from "lucide-react"
+import { CheckIcon, GitMergeIcon, Loader2Icon, MountainIcon, RouteIcon, TimerIcon, TrendingUpIcon } from "lucide-react"
 import { toast } from "sonner"
 
 import { ParticipantsPicker, type Participant, type PersonOption } from "@/components/participants-picker"
@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { api } from "@/lib/client/api"
 import { fmtDate, fmtDuration } from "@/lib/format"
 import { cn } from "@/lib/utils"
-import type { GarminActivityView } from "./types"
+import type { GarminActivityView, HikeMatchView } from "./types"
 
 export function ActivityCard({
   activity,
@@ -35,7 +35,9 @@ export function ActivityCard({
     const me = people.find((p) => p.id === myPersonId)
     return me ? [{ key: `p${me.id}`, id: me.id, name: me.name, counts: true }] : []
   })
-  const [busy, setBusy] = React.useState<"import" | "ignore" | null>(null)
+  const [busy, setBusy] = React.useState<string | null>(null)
+  const [addPeaks, setAddPeaks] = React.useState<Record<number, number[]>>({})
+  const matches = activity.matches ?? []
 
   const peakIds = [...new Set([...on, ...extra.map((p) => p.id)])]
 
@@ -61,6 +63,18 @@ export function ActivityCard({
     }
   }
 
+  async function merge(m: HikeMatchView) {
+    setBusy(`merge${m.hikeId}`)
+    try {
+      await api(`/api/v1/garmin/activities/${activity.id}/merge`, { body: { hikeId: m.hikeId, addPeaks: addPeaks[m.hikeId] ?? [] } })
+      toast.success("Merged into your existing hike")
+      router.refresh()
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Something went wrong.")
+      setBusy(null)
+    }
+  }
+
   const duration = fmtDuration(activity.durationMin)
   return (
     <Card>
@@ -78,6 +92,53 @@ export function ActivityCard({
         </div>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
+        {matches.map((m) => {
+          const label = m.title || m.peaks.map((p) => p.name).join(", ") || "Untitled hike"
+          const chosen = addPeaks[m.hikeId] ?? []
+          return (
+            <div key={m.hikeId} className="flex flex-col gap-2 rounded-lg border border-primary/40 bg-primary/5 p-3">
+              <div className="flex items-start gap-2">
+                <GitMergeIcon className="mt-0.5 size-4 shrink-0 text-primary" />
+                <div className="flex min-w-0 flex-col gap-0.5">
+                  <p className="text-sm font-medium text-balance">Possible match: {label}</p>
+                  <p className="text-xs text-muted-foreground tnum">
+                    {fmtDate(m.date, { weekday: true })} · {m.reasons.join(" · ")}
+                    {m.hasTrack ? " · already has a GPS track" : ""}
+                  </p>
+                </div>
+              </div>
+              {m.newPeaks.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                  <span>Also add:</span>
+                  {m.newPeaks.map((p) => {
+                    const pressed = chosen.includes(p.id)
+                    return (
+                      <button
+                        key={p.id}
+                        type="button"
+                        aria-pressed={pressed}
+                        onClick={() => setAddPeaks((prev) => ({ ...prev, [m.hikeId]: pressed ? chosen.filter((x) => x !== p.id) : [...chosen, p.id] }))}
+                        className={cn(
+                          "inline-flex h-8 items-center gap-1 rounded-full border px-3 text-xs font-medium outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
+                          pressed ? "border-primary bg-primary text-primary-foreground" : "border-input bg-background hover:bg-muted"
+                        )}
+                      >
+                        {pressed && <CheckIcon className="size-3.5" />}
+                        {p.name}
+                      </button>
+                    )
+                  })}
+                </div>
+              )}
+              <p className="text-xs text-muted-foreground">Merging adds the GPS track and fills in blank stats. Nothing already logged is changed.</p>
+              <div>
+                <Button className="h-11 w-full md:h-8 md:w-auto" onClick={() => merge(m)} disabled={busy !== null}>
+                  {busy === `merge${m.hikeId}` ? <Loader2Icon className="animate-spin" /> : <GitMergeIcon />} Merge into this hike
+                </Button>
+              </div>
+            </div>
+          )
+        })}
         <div className="flex flex-col gap-2">
           <h3 className="text-sm font-medium">Peaks</h3>
           {suggested.length > 0 ? (
@@ -128,11 +189,11 @@ export function ActivityCard({
           <ParticipantsPicker people={people} value={parts} onChange={setParts} />
         </div>
         <div className="flex flex-wrap gap-2 pt-1">
-          <Button className="h-11 flex-1 md:h-8 md:flex-none" onClick={() => act("import")} disabled={busy !== null}>
-            {busy === "import" && <Loader2Icon className="animate-spin" />} Import hike
+          <Button variant={matches.length ? "outline" : "default"} className="h-11 flex-1 md:h-8 md:flex-none" onClick={() => act("import")} disabled={busy !== null}>
+            {busy === "import" && <Loader2Icon className="animate-spin" />} {matches.length ? "Keep as new hike" : "Import hike"}
           </Button>
           <Button variant="outline" className="h-11 flex-1 md:h-8 md:flex-none" onClick={() => act("ignore")} disabled={busy !== null}>
-            Ignore
+            {matches.length ? "Skip" : "Ignore"}
           </Button>
         </div>
       </CardContent>

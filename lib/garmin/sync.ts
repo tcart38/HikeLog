@@ -1,7 +1,7 @@
 import "server-only"
-import { all, get, run } from "../db"
+import { all, get, run, tx } from "../db"
 import { ApiError } from "../api"
-import { saveHike, type HikeInput } from "../hikes"
+import { getHike, saveHike, type HikeInput } from "../hikes"
 import { accessToken, exchangeKey, fetchTrack, getConnection, listActivities } from "./client"
 import { INITIAL_SYNC_DAYS } from "./config"
 import { encrypt } from "./crypto"
@@ -185,4 +185,32 @@ export function ignoreActivity(userId: number, activityRowId: number) {
   if (!act) throw new ApiError("Activity not found", 404)
   run("UPDATE garmin_activities SET status = 'ignored' WHERE id = ? AND user_id = ?", act.id, userId)
   return getGarminActivity(userId, act.id)!
+}
+
+/**
+ * Merge an inbox activity into a hike that is already logged. Only fills what is empty (title, distance, climb, time, GPS
+ * track) and adds the peaks the user explicitly ticks; nothing existing is overwritten and participants are untouched.
+ */
+export function mergeActivity(user: { id: number }, activityRowId: number, hikeId: number, addPeaks: number[] = []) {
+  const act = getGarminActivity(user.id, activityRowId)
+  if (!act) throw new ApiError("Activity not found", 404)
+  if (act.status !== "pending") throw new ApiError("That activity was already handled", 409)
+  if (!getHike(hikeId)) throw new ApiError("Hike not found", 404)
+  const ext = act.activity_id.includes(":") ? act.activity_id : `garmin:${act.activity_id}`
+  tx((d) => {
+    d.prepare(
+      `UPDATE hikes SET title = COALESCE(NULLIF(title, ''), ?), distance_mi = COALESCE(distance_mi, ?), elevation_gain_ft = COALESCE(elevation_gain_ft, ?),
+         duration_min = COALESCE(duration_min, ?), external_id = COALESCE(external_id, ?), updated_at = datetime('now') WHERE id = ?`
+    ).run(act.name, act.distance_mi, act.elevation_gain_ft, act.duration_min, ext, hikeId)
+    const ord = (d.prepare("SELECT COALESCE(MAX(ordinal), -1) m FROM hike_peaks WHERE hike_id = ?").get(hikeId) as { m: number }).m
+    const add = d.prepare("INSERT OR IGNORE INTO hike_peaks (hike_id, peak_id, ordinal) SELECT ?, id, ? FROM peaks WHERE id = ?")
+    addPeaks.forEach((pid, i) => add.run(hikeId, ord + 1 + i, pid))
+    d.prepare("UPDATE garmin_activities SET status = 'imported', hike_id = ? WHERE id = ? AND user_id = ?").run(hikeId, act.id, user.id)
+  })
+  try {
+    attachActivityTrack(user.id, act.id, hikeId, act.source.startsWith("garmin") ? "garmin" : "gpx", true)
+  } catch (e) {
+    console.error("[garmin] could not attach the GPS track:", e instanceof Error ? e.message : e)
+  }
+  return { hike: getHike(hikeId)!, activity: getGarminActivity(user.id, act.id)! }
 }

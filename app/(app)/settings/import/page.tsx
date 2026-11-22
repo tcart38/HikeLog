@@ -10,6 +10,7 @@ import { StravaPanel } from "@/components/import/strava-panel"
 import { PageHeader } from "@/components/page-header"
 import { baseUrl } from "@/lib/api"
 import { connectionStatus, listGarminActivities } from "@/lib/garmin/sync"
+import { findMatches } from "@/lib/import/match"
 import { garminConnectStatus } from "@/lib/import/garmin-connect"
 import { SOURCES, sourceLabel, type SourceId } from "@/lib/import/meta"
 import { stravaAuthorizeUrl, stravaStatus, STRAVA_SETTINGS_URL } from "@/lib/import/strava"
@@ -107,6 +108,7 @@ export default async function ImportPage({ searchParams }: { searchParams: Promi
                     durationMin: a.duration_min,
                     status: a.status,
                     suggestedPeaks: a.suggested_peaks,
+                    matches: findMatches(user, a),
                   }}
                   peaks={peaks}
                   lists={lists}

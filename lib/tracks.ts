@@ -160,11 +160,11 @@ export function stashActivityTrack(userId: number, activityId: string, points: {
 }
 
 /** On import: attach the stashed Garmin track to the hike (never overrides a track the user uploaded). */
-export function attachActivityTrack(userId: number, activityRowId: number, hikeId: number, source: TrackSource = "garmin") {
+export function attachActivityTrack(userId: number, activityRowId: number, hikeId: number, source: TrackSource = "garmin", onlyIfMissing = false) {
   const r = get<{ track_geojson: string | null }>("SELECT track_geojson FROM garmin_activities WHERE id = ? AND user_id = ?", activityRowId, userId)
   if (!r?.track_geojson) return
   const existing = trackSource(hikeId)
-  if (existing && existing !== "garmin") return
+  if (existing && (onlyIfMissing || existing !== "garmin")) return
   const lines = parseGeoJsonLines(JSON.parse(r.track_geojson))
   if (lines.length) saveTrack(hikeId, lines, source)
 }

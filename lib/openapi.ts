@@ -109,6 +109,7 @@ export function buildOpenApi(serverUrl: string): Json {
       startLat: nullable({ type: "number" }), startLon: nullable({ type: "number" }), endLat: nullable({ type: "number" }), endLon: nullable({ type: "number" }),
       status: { enum: ["pending", "imported", "ignored"] }, hikeId: nullable(int()),
       suggestedPeaks: arr(obj({ id: int(), slug: str(), name: str(), elevationFt: nullable(int()), state: nullable(str()), reason: { enum: ["track", "title"] }, detail: str() })),
+      possibleMatches: { ...arr(obj({ hikeId: int(), date: str(), title: nullable(str()), peaks: arr(obj({ id: int(), name: str() })), newPeaks: arr(obj({ id: int(), name: str() })), hasTrack: { type: "boolean" }, score: int(), reasons: arr(str()) })), description: "Pending activities only: hikes you already logged that this probably is (same day plus shared peaks, start inside the hike's GPS area, or similar stats). Merge with /merge instead of importing a duplicate." },
     }, ["id", "activityId", "startDate", "status"]),
     ParticipantInput: {
       description: "A person id, a person name (unknown names are created), or an object.",
@@ -456,6 +457,15 @@ export function buildOpenApi(serverUrl: string): Json {
         description: "Creates a hike with externalId `garmin:<activityId>` (re-importing updates it). `peaks` defaults to the suggested peaks; participants default to your own person.",
         requestBody: { required: false, content: { "application/json": { schema: obj({ peaks: arr({ oneOf: [int(), str()] }), participants: arr({ oneOf: [int(), str(), ref("ParticipantInput")] }), conditions: ref("Conditions"), notes: str(), weather: str() }) } } },
         responses: { ...ok("Imported", obj({ hike: { type: "object" }, peakMatches: arr({ type: "object" }), activity: ref("GarminActivity") }), "201"), ...errs("401", "404", "422") },
+      },
+    },
+    "/api/v1/garmin/activities/{id}/merge": {
+      parameters: [idParam("id", "Inbox activity id")],
+      post: {
+        tags: ["Garmin"], summary: "Merge an activity into a hike you already logged", operationId: "mergeGarminActivity",
+        description: "Attaches the GPS track (only when the hike has none) and fills empty title, distance, climb and duration. Nothing already on the hike is overwritten and participants are untouched. `addPeaks` lists extra peak ids to add (e.g. from `possibleMatches[].newPeaks`); none are added by default.",
+        requestBody: body(obj({ hikeId: int(), addPeaks: arr(int()) }, ["hikeId"])),
+        responses: { ...ok("Merged", obj({ hike: { type: "object" }, activity: ref("GarminActivity") })), ...errs("401", "404", "409", "422") },
       },
     },
     "/api/v1/garmin/activities/{id}/ignore": {
