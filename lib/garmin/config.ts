@@ -27,6 +27,8 @@ export const API_BASE = (process.env.GARMIN_API_BASE || "https://personal.connec
 
 export const PATHS = {
   activities: process.env.GARMIN_ACTIVITIES_PATH || "/activitylist-service/activities/search/activities",
+  /** Official: the original activity file, a ZIP holding a .FIT. */
+  file: process.env.GARMIN_FILE_PATH || "/download-service/files/activity/{id}",
   gpx: process.env.GARMIN_GPX_PATH || "/download-service/export/gpx/activity/{id}",
 }
 

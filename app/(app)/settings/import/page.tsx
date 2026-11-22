@@ -109,6 +109,7 @@ export default async function ImportPage({ searchParams }: { searchParams: Promi
                     status: a.status,
                     suggestedPeaks: a.suggested_peaks,
                     matches: findMatches(user, a),
+                    hasTrack: !!a.has_track,
                   }}
                   peaks={peaks}
                   lists={lists}

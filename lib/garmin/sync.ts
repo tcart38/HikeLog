@@ -26,11 +26,11 @@ export type ActivityRow = {
   status: "pending" | "imported" | "ignored"
   hike_id: number | null
   suggested_peaks: PeakSuggestion[]
+  has_track: number
 }
 
 const COLS =
-  "id, user_id, activity_id, source, start_date, name, type, distance_mi, elevation_gain_ft, duration_min, start_lat, start_lon, end_lat, end_lon, status, hike_id, suggested_peaks_json"
-
+  "id, user_id, activity_id, source, start_date, name, type, distance_mi, elevation_gain_ft, duration_min, start_lat, start_lon, end_lat, end_lon, status, hike_id, suggested_peaks_json, track_geojson IS NOT NULL AS has_track"
 function toRow(r: Record<string, unknown>): ActivityRow {
   const { suggested_peaks_json, ...rest } = r
   let suggested: PeakSuggestion[] = []
@@ -122,6 +122,7 @@ export async function syncUser(userId: number): Promise<SyncResult> {
         stashActivityTrack(userId, a.activityId, track)
         added++
       }
+      await backfillTracks(userId)
       run("UPDATE garmin_connections SET last_sync_at = ?, last_error = NULL WHERE user_id = ?", new Date().toISOString(), userId)
       return { fetched: acts.length, added, skipped: acts.length - added, since }
     } catch (e) {
@@ -130,6 +131,30 @@ export async function syncUser(userId: number): Promise<SyncResult> {
     }
   } finally {
     syncing.delete(userId)
+  }
+}
+
+/** Earlier syncs stored no GPS (wrong download route). Fetch tracks for pending activities, and for imported hikes with no track, a few per sync. */
+async function backfillTracks(userId: number, limit = 12) {
+  const rows = all<{ id: number; activity_id: string; name: string | null; status: string; hike_id: number | null }>(
+    `SELECT a.id, a.activity_id, a.name, a.status, a.hike_id FROM garmin_activities a
+     WHERE a.user_id = ? AND a.source = 'garmin' AND a.track_geojson IS NULL AND a.status != 'ignored'
+       AND (a.status = 'pending' OR (a.hike_id IS NOT NULL AND NOT EXISTS (SELECT 1 FROM hike_tracks t WHERE t.hike_id = a.hike_id)))
+     ORDER BY a.status = 'pending' DESC, a.start_date DESC LIMIT ?`,
+    userId, limit
+  )
+  for (const r of rows) {
+    const track = await fetchTrack(userId, r.activity_id)
+    if (track.length < 2) continue
+    stashActivityTrack(userId, r.activity_id, track)
+    if (r.status === "pending") run("UPDATE garmin_activities SET suggested_peaks_json = ? WHERE id = ?", JSON.stringify(suggestPeaks(r.name, track)), r.id)
+    else if (r.hike_id) {
+      try {
+        attachActivityTrack(userId, r.id, r.hike_id, "garmin", true)
+      } catch (e) {
+        console.error("[garmin] backfill attach failed:", e instanceof Error ? e.message : e)
+      }
+    }
   }
 }
 

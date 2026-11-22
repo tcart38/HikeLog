@@ -33,7 +33,7 @@ function parseGpxPoints(xml: string): Pt[] {
   return pts
 }
 
-async function parseFitPoints(buf: Buffer): Promise<{ pts: Pt[]; sport: string | null; startMs: number | null }> {
+export async function parseFitPoints(buf: Buffer): Promise<{ pts: Pt[]; sport: string | null; startMs: number | null }> {
   let fit
   try {
     fit = await new FitParser({ force: true, lengthUnit: "m" }).parseAsync(buf as Buffer<ArrayBuffer>)

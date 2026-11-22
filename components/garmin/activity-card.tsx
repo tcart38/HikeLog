@@ -139,6 +139,11 @@ export function ActivityCard({
             </div>
           )
         })}
+        {activity.hasTrack === false && (
+          <p className="text-xs text-muted-foreground">
+            No GPS track came with this activity, so peaks come from the title only. Upload its GPX/FIT file or use Garmin (login) to get the track.
+          </p>
+        )}
         <div className="flex flex-col gap-2">
           <h3 className="text-sm font-medium">Peaks</h3>
           {suggested.length > 0 ? (

@@ -1,3 +1,4 @@
+import { inflateRawSync } from "node:zlib"
 import "server-only"
 import { get, run } from "../db"
 import { ApiError } from "../api"
@@ -188,13 +189,57 @@ export function parseGpx(xml: string): TrackPoint[] {
   return pts
 }
 
-/** GPS track via the GPX endpoint. Returns [] when unavailable (suggestions then fall back to the title). */
-export async function fetchTrack(userId: number, activityId: string): Promise<TrackPoint[]> {
-  try {
-    const res = await authedGet(userId, `${API_BASE}${PATHS.gpx.replace("{id}", encodeURIComponent(activityId))}`, "application/gpx+xml, application/xml, */*")
-    if (!res.ok) return []
-    return parseGpx(await res.text())
-  } catch {
-    return []
+/** Read the first .fit entry of a ZIP (central directory + raw deflate), or pass a bare FIT file through. */
+export function fitFromBytes(buf: Buffer): Buffer | null {
+  if (buf.length > 12 && buf.subarray(8, 12).toString("latin1") === ".FIT") return buf
+  let eocd = -1
+  for (let i = buf.length - 22; i >= Math.max(0, buf.length - 65_557); i--)
+    if (buf.readUInt32LE(i) === 0x06054b50) {
+      eocd = i
+      break
+    }
+  if (eocd < 0) return null
+  let off = buf.readUInt32LE(eocd + 16)
+  for (let n = buf.readUInt16LE(eocd + 10); n > 0 && buf.readUInt32LE(off) === 0x02014b50; n--) {
+    const method = buf.readUInt16LE(off + 10)
+    const csize = buf.readUInt32LE(off + 20)
+    const nameLen = buf.readUInt16LE(off + 28)
+    const next = off + 46 + nameLen + buf.readUInt16LE(off + 30) + buf.readUInt16LE(off + 32)
+    const name = buf.subarray(off + 46, off + 46 + nameLen).toString("utf8")
+    if (/\.fit$/i.test(name)) {
+      const lh = buf.readUInt32LE(off + 42)
+      const start = lh + 30 + buf.readUInt16LE(lh + 26) + buf.readUInt16LE(lh + 28)
+      const raw = buf.subarray(start, start + csize)
+      return method === 0 ? raw : method === 8 ? inflateRawSync(raw) : null
+    }
+    off = next
   }
+  return null
+}
+
+/**
+ * GPS track for an activity. The Personal API's documented download is the original FIT (in a ZIP); the unofficial GPX export
+ * path is kept as a fallback. Returns [] when neither works (suggestions then fall back to the title).
+ */
+export async function fetchTrack(userId: number, activityId: string): Promise<TrackPoint[]> {
+  const id = encodeURIComponent(activityId)
+  try {
+    const res = await authedGet(userId, `${API_BASE}${PATHS.file.replace("{id}", id)}`, "*/*")
+    if (res.ok) {
+      const fit = fitFromBytes(Buffer.from(await res.arrayBuffer()))
+      if (fit) {
+        const { parseFitPoints } = await import("../import/files")
+        const { pts } = await parseFitPoints(fit)
+        if (pts.length >= 2) return pts.map((p) => ({ lat: p.lat, lon: p.lon, eleM: p.eleM }))
+      }
+      console.warn(`[garmin] activity ${activityId}: file download had no GPS records`)
+    } else console.warn(`[garmin] activity ${activityId}: file download HTTP ${res.status}`)
+  } catch (e) {
+    console.warn(`[garmin] activity ${activityId}: file download failed:`, e instanceof Error ? e.message : e)
+  }
+  try {
+    const res = await authedGet(userId, `${API_BASE}${PATHS.gpx.replace("{id}", id)}`, "application/gpx+xml, application/xml, */*")
+    if (res.ok) return parseGpx(await res.text())
+  } catch {}
+  return []
 }

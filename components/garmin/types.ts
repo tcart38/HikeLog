@@ -27,6 +27,7 @@ export type GarminActivityView = {
   status: "pending" | "imported" | "ignored"
   suggestedPeaks: Suggestion[]
   matches?: HikeMatchView[]
+  hasTrack?: boolean
 }
 
 export type HikeMatchView = {
