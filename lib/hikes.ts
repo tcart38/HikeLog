@@ -5,7 +5,13 @@ import { matchPeaks, type MatchResult } from "./peaks/match"
 import { appTimeZone, isWinterHike, seasonOf, type Season } from "./seasons"
 
 export const conditionsSchema = z.enum(["snow", "no_snow", "mix"])
-const dateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "YYYY-MM-DD")
+const dateSchema = z
+  .string()
+  .regex(/^\d{4}-\d{2}-\d{2}$/, "YYYY-MM-DD")
+  .refine((s) => {
+    const d = new Date(`${s}T00:00:00Z`)
+    return !isNaN(d.getTime()) && d.toISOString().slice(0, 10) === s
+  }, "Not a real calendar date")
 
 /** Participant: person id, name, or {person, counts, note}. */
 const participantSchema = z.union([

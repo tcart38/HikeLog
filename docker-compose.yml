@@ -1,0 +1,21 @@
+services:
+  hikelog:
+    build: .
+    image: hikelog:latest
+    container_name: hikelog
+    restart: unless-stopped
+    ports:
+      - "${HIKELOG_PORT:-3000}:3000"
+    environment:
+      # Public URL you reach the app at (used for cookies, OpenAPI servers, PWA).
+      APP_URL: ${APP_URL:-http://localhost:3000}
+      # Extra hosts allowed to POST with a session cookie, comma separated (optional).
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-}
+      APP_TIMEZONE: ${APP_TIMEZONE:-America/New_York}
+      # Let anyone create an account (first account is always allowed and becomes admin).
+      ALLOW_SIGNUP: ${ALLOW_SIGNUP:-false}
+    volumes:
+      - hikelog-data:/data
+
+volumes:
+  hikelog-data:

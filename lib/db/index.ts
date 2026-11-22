@@ -46,16 +46,18 @@ export function db(): DatabaseSync {
   return globalForDb.__hikelogDb
 }
 
-/** Run fn inside a transaction (synchronous). */
+/** Run fn inside a transaction (synchronous). Nested calls use a savepoint. */
 export function tx<T>(fn: (d: DatabaseSync) => T): T {
   const d = db()
-  d.exec("BEGIN IMMEDIATE")
+  const nested = d.isTransaction
+  const sp = `sp_${Math.random().toString(36).slice(2)}`
+  d.exec(nested ? `SAVEPOINT ${sp}` : "BEGIN IMMEDIATE")
   try {
     const out = fn(d)
-    d.exec("COMMIT")
+    d.exec(nested ? `RELEASE ${sp}` : "COMMIT")
     return out
   } catch (e) {
-    d.exec("ROLLBACK")
+    d.exec(nested ? `ROLLBACK TO ${sp}; RELEASE ${sp}` : "ROLLBACK")
     throw e
   }
 }

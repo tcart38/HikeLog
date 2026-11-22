@@ -45,6 +45,14 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+    --color-season-winter: var(--season-winter);
+    --color-season-spring: var(--season-spring);
+    --color-season-summer: var(--season-summer);
+    --color-season-fall: var(--season-fall);
+    --color-done: var(--done);
+    --color-done-foreground: var(--done-foreground);
+    --color-remaining: var(--remaining);
+    --color-remaining-foreground: var(--remaining-foreground);
 }
 
 :root {
@@ -80,6 +88,15 @@
     --sidebar-accent-foreground: oklch(0.228 0.013 107.4);
     --sidebar-border: oklch(0.93 0.007 106.5);
     --sidebar-ring: oklch(0.737 0.021 106.9);
+    /* Semantic colours for HikeLog, derived to sit inside the olive/green preset. */
+    --season-winter: oklch(0.5 0.1 245);
+    --season-spring: oklch(0.55 0.13 135);
+    --season-summer: oklch(0.58 0.12 80);
+    --season-fall: oklch(0.55 0.14 45);
+    --done: oklch(0.527 0.154 150.069);
+    --done-foreground: oklch(0.982 0.018 155.826);
+    --remaining: oklch(0.955 0.012 85);
+    --remaining-foreground: oklch(0.42 0.07 70);
 }
 
 .dark {
@@ -114,6 +131,14 @@
     --sidebar-accent-foreground: oklch(0.988 0.003 106.5);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.58 0.031 107.3);
+    --season-winter: oklch(0.72 0.09 240);
+    --season-spring: oklch(0.74 0.14 135);
+    --season-summer: oklch(0.78 0.13 85);
+    --season-fall: oklch(0.72 0.14 50);
+    --done: oklch(0.56 0.14 150);
+    --done-foreground: oklch(0.985 0.01 155);
+    --remaining: oklch(0.3 0.04 75);
+    --remaining-foreground: oklch(0.84 0.09 85);
 }
 
 @layer base {
@@ -127,3 +152,15 @@
     @apply font-sans;
     }
 }
+
+@layer base {
+  /* Numbers in tables and counts line up. */
+  table, .tnum { font-variant-numeric: tabular-nums; }
+  ::selection { background: color-mix(in oklch, var(--primary) 30%, transparent); }
+  html { scroll-padding-top: 4rem; -webkit-tap-highlight-color: transparent; }
+  /* Horizontal scrollers (matrices, tab strips) keep a quiet scrollbar. */
+  .scroll-quiet { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+}
+
+@utility pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+@utility pt-safe { padding-top: env(safe-area-inset-top); }
