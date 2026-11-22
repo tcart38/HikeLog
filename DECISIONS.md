@@ -58,3 +58,7 @@ Researched by subagents with sources cited inside each `data/lists/*.json`. Know
 - No host allow-list anywhere. CSRF protection compares the browser `Origin` to the forwarded host,
   `Host`, `APP_URL` and `ALLOWED_ORIGINS`, so it works at `https://hike.example.com` behind Caddy/Traefik/
   Cloudflare Tunnel/NPM without extra config.
+- Catskill 3500 Club by-laws define winter as Dec 21 – Mar 21 inclusive (fixed dates). The app uses
+  astronomical winter for every list; the difference is at most a day at each end.
+- Coordinates for 370 more peaks were matched from OpenStreetMap `natural=peak` nodes (name + elevation
+  within 60 ft, inside the state). 40 ambiguous/unmatched peaks were left without coordinates.
