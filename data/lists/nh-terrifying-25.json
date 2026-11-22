@@ -1,0 +1,422 @@
+{
+  "slug": "terrifying-25",
+  "name": "Terrifying 25",
+  "shortName": "Terrifying 25",
+  "region": "New Hampshire",
+  "country": "US",
+  "description": "25 of the White Mountains' most challenging trails: rock scrambles, slides, scree, boulder caves and ladders. This is a trail list, so each entry is a trail you hike the full length of, not a summit.",
+  "criteria": "Hike the full length of all 20 required trails plus at least 5 of the 14 elective trails. Log a hike and pick the trails from the list in the peak picker. A patch is available from the list's website after finishing.",
+  "organization": "The Terrifying 25 (Alex, Sage and Patricia Herr)",
+  "officialUrl": "https://www.newenglandwaterfalls.com/terrifying25.php",
+  "notes": "Class ratings are the list author's. Trails are kept as list items rather than peaks, so they don't count toward peak stats. Huntington Ravine, King Ravine and the Slides are dangerous when wet or icy; do not descend them.",
+  "electivesNeeded": 5,
+  "sources": [
+    {
+      "title": "New England Waterfalls: Hiking the Terrifying 25 List (required and elective tables)",
+      "url": "https://newenglandwaterfalls.com/terrifying25.php",
+      "accessed": "2026-11-22"
+    },
+    {
+      "title": "Trailspotting: Terrifying 25 Trails Challenge",
+      "url": "https://trailspotting.com/p/nht25.html",
+      "accessed": "2026-11-22"
+    }
+  ],
+  "peaks": [
+    {
+      "slug": "t25-baldface-circle-trail-nh",
+      "name": "Baldface Circle Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 1,
+      "elective": false,
+      "notes": "South Baldface · Class II"
+    },
+    {
+      "slug": "t25-caps-ridge-trail-nh",
+      "name": "Caps Ridge Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 2,
+      "elective": false,
+      "notes": "Mt. Jefferson · Class II / II+"
+    },
+    {
+      "slug": "t25-carter-ledge-trail-nh",
+      "name": "Carter Ledge Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 3,
+      "elective": false,
+      "notes": "Middle Sister / Mt. Chocorua · Class II"
+    },
+    {
+      "slug": "t25-castle-trail-nh",
+      "name": "Castle Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 4,
+      "elective": false,
+      "notes": "Mt. Jefferson · Class II+"
+    },
+    {
+      "slug": "t25-chemin-des-dames-nh",
+      "name": "Chemin des Dames",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 5,
+      "elective": false,
+      "notes": "Mt. Adams · Class II+"
+    },
+    {
+      "slug": "t25-flume-slide-trail-nh",
+      "name": "Flume Slide Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 6,
+      "elective": false,
+      "notes": "Mt. Flume · Class II+"
+    },
+    {
+      "slug": "t25-great-gulf-trail-nh",
+      "name": "Great Gulf Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 7,
+      "elective": false,
+      "notes": "Mt. Washington · Class II / II+"
+    },
+    {
+      "slug": "t25-great-gully-trail-nh",
+      "name": "Great Gully Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 8,
+      "elective": false,
+      "notes": "Mt. Adams · Class II"
+    },
+    {
+      "slug": "t25-huntington-ravine-trail-nh",
+      "name": "Huntington Ravine Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 9,
+      "elective": false,
+      "notes": "Mt. Washington · Class III"
+    },
+    {
+      "slug": "t25-ice-gulch-path-nh",
+      "name": "Ice Gulch Path",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 10,
+      "elective": false,
+      "notes": "Class II"
+    },
+    {
+      "slug": "t25-king-ravine-trail-nh",
+      "name": "King Ravine Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 11,
+      "elective": false,
+      "notes": "Mt. Adams · Class II+ / III"
+    },
+    {
+      "slug": "t25-madison-gulf-trail-nh",
+      "name": "Madison Gulf Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 12,
+      "elective": false,
+      "notes": "Mt. Madison · Class II+"
+    },
+    {
+      "slug": "t25-mount-morgan-trail-nh",
+      "name": "Mount Morgan Trail (Ladder Route)",
+      "kind": "trail",
+      "aliases": [
+        "Ladder Route",
+        "Mount Morgan Trail",
+        "Mt Morgan Trail"
+      ],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 13,
+      "elective": false,
+      "notes": "Mt. Morgan · Class II"
+    },
+    {
+      "slug": "t25-mount-percival-trail-nh",
+      "name": "Mount Percival Trail (Boulder Cave Route)",
+      "kind": "trail",
+      "aliases": [
+        "Boulder Cave Route",
+        "Mount Percival Trail",
+        "Mt Percival Trail"
+      ],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 14,
+      "elective": false,
+      "notes": "Mt. Percival · Class II"
+    },
+    {
+      "slug": "t25-north-slide-nh",
+      "name": "North Slide (Tripyramid)",
+      "kind": "trail",
+      "aliases": [
+        "North Slide",
+        "Tripyramid"
+      ],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 15,
+      "elective": false,
+      "notes": "North Tripyramid · Class II+ / III"
+    },
+    {
+      "slug": "t25-six-husbands-trail-nh",
+      "name": "Six Husbands Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 16,
+      "elective": false,
+      "notes": "Mt. Jefferson · Class II"
+    },
+    {
+      "slug": "t25-south-slide-nh",
+      "name": "South Slide (Tripyramid)",
+      "kind": "trail",
+      "aliases": [
+        "South Slide",
+        "Tripyramid"
+      ],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 17,
+      "elective": false,
+      "notes": "South Tripyramid · Class II"
+    },
+    {
+      "slug": "t25-sphinx-trail-nh",
+      "name": "Sphinx Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 18,
+      "elective": false,
+      "notes": "Mt. Clay / Mt. Jefferson"
+    },
+    {
+      "slug": "t25-subway-nh",
+      "name": "Subway (King Ravine)",
+      "kind": "trail",
+      "aliases": [
+        "King Ravine",
+        "Subway"
+      ],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 19,
+      "elective": false,
+      "notes": "Mt. Adams · Class II / II+"
+    },
+    {
+      "slug": "t25-table-rock-climbing-trail-nh",
+      "name": "Table Rock Climbing Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 20,
+      "elective": false,
+      "notes": "Table Rock, Dixville Notch · Class II / II+"
+    },
+    {
+      "slug": "t25-air-line-trail-nh",
+      "name": "Air Line Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 21,
+      "elective": true,
+      "notes": "Mt. Adams · Class II"
+    },
+    {
+      "slug": "t25-algonquin-trail-nh",
+      "name": "Algonquin Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 22,
+      "elective": true,
+      "notes": "Sandwich Dome"
+    },
+    {
+      "slug": "t25-beaver-brook-trail-nh",
+      "name": "Beaver Brook Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 23,
+      "elective": true,
+      "notes": "Mt. Moosilauke · Class II"
+    },
+    {
+      "slug": "t25-blueberry-ledge-trail-nh",
+      "name": "Blueberry Ledge Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 24,
+      "elective": true,
+      "notes": "Mt. Whiteface · Class II"
+    },
+    {
+      "slug": "t25-brook-trail-nh",
+      "name": "Brook Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 25,
+      "elective": true,
+      "notes": "Mt. Chocorua · Class II"
+    },
+    {
+      "slug": "t25-castle-ravine-trail-nh",
+      "name": "Castle Ravine Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 26,
+      "elective": true,
+      "notes": "Mt. Jefferson · Class II"
+    },
+    {
+      "slug": "t25-desolation-trail-nh",
+      "name": "Desolation Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 27,
+      "elective": true,
+      "notes": "Mt. Carrigain · Class I+ / II"
+    },
+    {
+      "slug": "t25-devils-hopyard-nh",
+      "name": "Devil's Hopyard",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 28,
+      "elective": true,
+      "notes": "Class I+ / II"
+    },
+    {
+      "slug": "t25-goodrich-rock-trail-nh",
+      "name": "Goodrich Rock Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 29,
+      "elective": true,
+      "notes": "Class I+"
+    },
+    {
+      "slug": "t25-hi-cannon-trail-nh",
+      "name": "Hi-Cannon Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 30,
+      "elective": true,
+      "notes": "Cannon Mountain · Class I+"
+    },
+    {
+      "slug": "t25-osseo-trail-nh",
+      "name": "Osseo Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 31,
+      "elective": true,
+      "notes": "Mt. Flume · Class I+"
+    },
+    {
+      "slug": "t25-percy-peaks-trail-nh",
+      "name": "Percy Peaks Trail",
+      "kind": "trail",
+      "aliases": [],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 32,
+      "elective": true,
+      "notes": "North Percy Peak · Class II"
+    },
+    {
+      "slug": "t25-wildcat-ridge-trail-nh",
+      "name": "Wildcat Ridge Trail (western section)",
+      "kind": "trail",
+      "aliases": [
+        "Wildcat Ridge Trail"
+      ],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 33,
+      "elective": true,
+      "notes": "Wildcat, Peak E · Class II"
+    },
+    {
+      "slug": "t25-willey-range-trail-nh",
+      "name": "Willey Range Trail (southern section)",
+      "kind": "trail",
+      "aliases": [
+        "Willey Range Trail"
+      ],
+      "state": "NH",
+      "range": "White Mountains",
+      "rank": 34,
+      "elective": true,
+      "notes": "Mt. Willey · Class I+"
+    }
+  ]
+}

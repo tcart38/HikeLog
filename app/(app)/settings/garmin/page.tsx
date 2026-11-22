@@ -1,11 +1,8 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { ArrowLeftIcon } from "lucide-react"
 
 import { ActivityCard } from "@/components/garmin/activity-card"
 import { ConnectionPanel } from "@/components/garmin/connection-panel"
 import { PageHeader } from "@/components/page-header"
-import { Button } from "@/components/ui/button"
 import { listGarminActivities, connectionStatus } from "@/lib/garmin/sync"
 import { listLists } from "@/lib/progress"
 import { listPeople, peakOptions, requireUser } from "@/lib/queries"
@@ -26,11 +23,6 @@ export default async function GarminPage() {
       <PageHeader
         title="Garmin import"
         description="Pull hikes from your Garmin account, check the peaks, and add them to your log."
-        actions={
-          <Button variant="outline" className="h-10 md:h-8" nativeButton={false} render={<Link href="/settings" />}>
-            <ArrowLeftIcon /> Settings
-          </Button>
-        }
       />
       <div className="flex max-w-3xl flex-col gap-8">
         <ConnectionPanel status={{ ...status }} />

@@ -5,6 +5,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { UserMenu } from "@/components/user-menu"
 import { get } from "@/lib/db"
+import { UserPrefs, listVisibility } from "@/lib/prefs"
+import { listLists } from "@/lib/progress"
 import { requireUser } from "@/lib/queries"
 import { cookies } from "next/headers"
 
@@ -14,11 +16,13 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   const user = await requireUser()
   const person = user.person_id ? get<{ name: string }>("SELECT name FROM people WHERE id = ?", user.person_id) : undefined
   const name = person?.name ?? user.username
+  const vis = listVisibility(new UserPrefs(user.id), user.person_id)
+  const navLists = listLists().filter((l) => vis.visible(l.slug)).map((l) => ({ slug: l.slug, label: l.short_name || l.name }))
   const open = (await cookies()).get("sidebar_state")?.value !== "false"
 
   return (
     <SidebarProvider defaultOpen={open}>
-      <AppSidebar name={name} username={user.username} />
+      <AppSidebar name={name} username={user.username} lists={navLists} />
       <SidebarInset className="min-w-0">
         {/* Desktop: sidebar trigger. Phone: logo + theme + account (navigation lives in the bottom bar). */}
         <header className="sticky top-0 z-30 flex h-[calc(3rem+env(safe-area-inset-top))] shrink-0 items-center gap-2 border-b bg-background/95 px-3 pt-safe backdrop-blur supports-backdrop-filter:bg-background/80 md:px-4">

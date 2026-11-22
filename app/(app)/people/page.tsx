@@ -6,8 +6,7 @@ import { PageHeader } from "@/components/page-header"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { initials } from "@/components/user-menu"
-import { fmtDate, pct } from "@/lib/format"
+import { fmtDate, initials, pct } from "@/lib/format"
 import { allListsProgress } from "@/lib/progress"
 import { listPeople, requireUser } from "@/lib/queries"
 
@@ -27,7 +26,7 @@ export default async function PeoplePage() {
             <Button variant="outline" className="h-10 md:h-8" nativeButton={false} render={<Link href="/compare" />}>
               <GitCompareArrowsIcon /> Compare
             </Button>
-            <Button variant="outline" className="h-10 md:h-8" nativeButton={false} render={<Link href="/settings#people" />}>
+            <Button variant="outline" className="h-10 md:h-8" nativeButton={false} render={<Link href="/settings/people" />}>
               <SettingsIcon /> Manage
             </Button>
           </>

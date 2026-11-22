@@ -54,10 +54,17 @@ const hikeInputExample = {
 export function buildOpenApi(serverUrl: string): Json {
   const schemas: Record<string, Json> = {
     Error: obj({ error: str(), details: { description: "Extra context, e.g. zod `issues` for 400 or `peakMatches` for 422" } }, ["error"]),
+    Media: obj({ id: int(), hikeId: int(), kind: { type: "string", enum: ["image", "video"] }, name: nullable(str()), mime: str(), size: int("bytes"), caption: nullable(str()), createdAt: str(), url: str("Path to fetch the file (needs auth)") }),
+    HikeWeather: obj({
+      source: str(),
+      fetchedAt: str(),
+      location: obj({ lat: { type: "number" }, lon: { type: "number" }, elevationFt: nullable(int()), label: str() }),
+      days: arr(obj({ date: str(), code: nullable(int("WMO weather code")), summary: str(), tMaxF: nullable({ type: "number" }), tMinF: nullable({ type: "number" }), windMaxMph: nullable({ type: "number" }), gustMaxMph: nullable({ type: "number" }), precipIn: nullable({ type: "number" }), snowIn: nullable({ type: "number" }) })),
+    }),
     Conditions: { type: "string", enum: ["snow", "no_snow", "mix"] },
     Season: { type: "string", enum: ["winter", "spring", "summer", "fall"] },
     Peak: obj(
-      { id: int(), slug: str(), name: str(), elevationFt: nullable(int()), state: nullable(str()), range: nullable(str()), lat: nullable({ type: "number" }), lon: nullable({ type: "number" }) },
+      { id: int(), slug: str(), name: str(), elevationFt: nullable(int()), state: nullable(str()), range: nullable(str()), lat: nullable({ type: "number" }), lon: nullable({ type: "number" }), kind: { type: "string", enum: ["peak", "trail"], description: "Trails are items on trail lists such as the Terrifying 25" } },
       ["id", "slug", "name"]
     ),
     PeakMatch: {
@@ -150,11 +157,11 @@ export function buildOpenApi(serverUrl: string): Json {
       {
         id: int(), slug: str(), name: str(), shortName: nullable(str()), region: nullable(str()), description: nullable(str()),
         criteria: nullable(str()), organization: nullable(str()), officialUrl: nullable(str()), notes: nullable(str()),
-        isCustom: { type: "boolean" }, peakCount: int(), sources: { type: "array", items: { type: "object" }, description: "Parsed source citations" },
+        isCustom: { type: "boolean" }, electivesNeeded: nullable(int("Electives that complete the list (e.g. 5 of 14 for the Terrifying 25)")), peakCount: int(), sources: { type: "array", items: { type: "object" }, description: "Parsed source citations" },
       },
       ["id", "slug", "name"]
     ),
-    ListPeak: { allOf: [ref("Peak"), obj({ rank: nullable(int()), notes: nullable(str()) })] },
+    ListPeak: { allOf: [ref("Peak"), obj({ rank: nullable(int()), notes: nullable(str()), kind: { type: "string", enum: ["peak", "trail"] }, elective: int("1 = elective item") })] },
     PeakStatus: obj({
       count: int(), first: nullable(str()), last: nullable(str()), firstWinter: nullable(str()),
       seasons: arr(ref("Season")), months: arr(int("1-12")), conditions: arr(ref("Conditions")), hikeIds: arr(int()),
@@ -500,6 +507,55 @@ export function buildOpenApi(serverUrl: string): Json {
         responses: { ...ok("OK", obj({ ok: { type: "boolean" }, segments: int() })), ...errs("400", "401", "404") },
       },
     },
+    "/api/v1/hikes/{id}/media": {
+      parameters: [idParam("id", "Hike id")],
+      get: { tags: ["Media"], summary: "Photos and videos on a hike", operationId: "listHikeMedia", responses: { ...ok("OK", obj({ media: arr(ref("Media")) })), ...errs("401", "404") } },
+      post: {
+        tags: ["Media"], summary: "Add photos or videos to a hike", operationId: "addHikeMedia",
+        description: "Either multipart/form-data with one or more `file` parts, or a raw body whose Content-Type is the file's type and `X-Filename` is its (URL-encoded) name. The raw form streams straight to disk, so use it for large videos. Photos up to 60 MB (JPEG, PNG, WebP, HEIC, GIF, AVIF), videos up to 1 GB (MP4, MOV, WebM). Files live in the data volume under `media/`.",
+        requestBody: { required: true, content: { "multipart/form-data": { schema: obj({ file: { type: "string", format: "binary" } }, ["file"]) }, "application/octet-stream": { schema: { type: "string", format: "binary" } } } },
+        responses: { ...ok("Saved", obj({ media: arr(ref("Media")) }), "201"), ...errs("400", "401", "404", "413", "415") },
+      },
+    },
+    "/api/v1/media/{id}": {
+      parameters: [idParam("id", "Media id")],
+      get: { tags: ["Media"], summary: "Download or stream a photo or video (supports Range requests)", operationId: "getMedia", responses: { "200": { description: "The file" }, "206": { description: "Partial content" }, ...errs("401", "404") } },
+      delete: { tags: ["Media"], summary: "Delete a photo or video", operationId: "deleteMedia", responses: { ...ok("Deleted", obj({ ok: { type: "boolean" } })), ...errs("401", "404") } },
+    },
+    "/api/v1/hikes/{id}/weather": {
+      parameters: [idParam("id", "Hike id")],
+      get: { tags: ["Weather"], summary: "Imported weather for a hike", operationId: "getHikeWeather", responses: { ...ok("OK", obj({ weather: ref("HikeWeather") })), ...errs("401", "404") } },
+      post: {
+        tags: ["Weather"], summary: "Import (or refresh) weather for a hike from Open-Meteo", operationId: "importHikeWeather",
+        description: "Looks up daily weather (up to 7 days from the hike's start) at the highest peak on the hike that has coordinates, or the start of its GPS track. Temperature is adjusted to the peak's elevation; wind is modelled at 10 m. Mountain Forecast has no public API, so Open-Meteo (CC BY 4.0, no key) is used.",
+        responses: { ...ok("Imported", obj({ weather: ref("HikeWeather") })), ...errs("401", "404", "422", "502") },
+      },
+      delete: { tags: ["Weather"], summary: "Remove a hike's imported weather", operationId: "deleteHikeWeather", responses: { ...ok("Removed", obj({ ok: { type: "boolean" } })), ...errs("401", "404") } },
+    },
+    "/api/v1/weather/backfill": {
+      post: {
+        tags: ["Weather"], summary: "Import weather for hikes that don't have it", operationId: "backfillWeather",
+        parameters: [q("limit", "Hikes to process in this call (default 20, max 50)", { type: "integer" })],
+        description: "Call repeatedly while `remaining` is above 0.",
+        responses: { ...ok("OK", obj({ imported: int(), remaining: int(), failed: arr(obj({ id: int(), error: str() })) })), ...errs("401") },
+      },
+    },
+    "/api/v1/export": {
+      get: {
+        tags: ["Export"], summary: "Download your data", operationId: "exportData",
+        parameters: [q("format", "`json` (everything), `hikes.csv`, `ascents.csv`, or `database` (admins: the raw SQLite file)", { type: "string", enum: ["json", "hikes.csv", "ascents.csv", "database"], default: "json" })],
+        responses: { "200": { description: "A file download" }, ...errs("400", "401", "403") },
+      },
+    },
+    "/api/v1/me/lists": {
+      get: { tags: ["Lists"], summary: "Lists as you see them: visibility and enabled views", operationId: "getMyLists", responses: { ...ok("OK", obj({ defaultViews: arr(str()), lists: arr(obj({ slug: str(), name: str(), started: { type: "boolean" }, state: { type: "string", enum: ["auto", "show", "hide"] }, visible: { type: "boolean" }, views: arr(str()), customViews: { type: "boolean" } })) })), ...errs("401") } },
+      patch: {
+        tags: ["Lists"], summary: "Show or hide a list, or choose which views it offers", operationId: "updateMyLists",
+        description: "With `list`: set `state` (`show` pins a list you haven't started, `hide` hides one you have, `auto` shows it once you've started it) and/or `views` (any of all, winter, season, grid, conditions; `null` removes the list's override). Without `list`: `views` sets your default views for every list.",
+        requestBody: body(obj({ list: str("List slug"), state: { type: "string", enum: ["auto", "show", "hide"] }, views: { type: ["array", "null"], items: { type: "string", enum: ["all", "winter", "season", "grid", "conditions"] } } })),
+        responses: { ...ok("Saved", obj({ ok: { type: "boolean" } })), ...errs("400", "401", "404") },
+      },
+    },
     "/api/openapi.json": { get: { tags: ["System"], summary: "This document", security: [], operationId: "openapi", responses: ok("OpenAPI 3.1 JSON") } },
   }
 
@@ -509,7 +565,7 @@ export function buildOpenApi(serverUrl: string): Json {
     info: { title: "HikeLog API", version: "1.0.0", description: DESCRIPTION },
     servers: [{ url: serverUrl }],
     security: [{ bearerAuth: [] }, { cookieAuth: [] }],
-    tags: ["System", "Auth", "Hikes", "Peaks", "Lists", "Progress", "People", "Tokens", "Users", "Import", "Garmin", "Map"].map((name) => ({ name })),
+    tags: ["System", "Auth", "Hikes", "Peaks", "Lists", "Progress", "People", "Tokens", "Users", "Import", "Garmin", "Map", "Media", "Weather", "Export"].map((name) => ({ name })),
     paths,
     components: {
       securitySchemes: {
@@ -524,8 +580,10 @@ export function buildOpenApi(serverUrl: string): Json {
         E404: errorResponse("Not found"),
         E409: errorResponse("Conflict"),
         E413: errorResponse("Payload too large"),
+        E415: errorResponse("Unsupported media type"),
         E422: errorResponse("Unprocessable (e.g. strictPeaks with unmatched names)"),
         E429: errorResponse("Too many attempts"),
+        E502: errorResponse("Upstream service (weather) failed"),
       },
     },
   }

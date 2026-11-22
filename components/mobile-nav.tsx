@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { BookOpenIcon, EllipsisIcon, PlusIcon } from "lucide-react"
+import { EllipsisIcon, PlusIcon } from "lucide-react"
 
 import { NAV_MAIN, NAV_MANAGE, isActive } from "@/components/nav-items"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet"
@@ -82,16 +82,6 @@ export function MobileNav() {
                 </li>
               )
             })}
-            <li>
-              {/* /docs is a route handler, not an App Router page: use a plain anchor. */}
-              <a
-                href="/docs"
-                className="flex min-h-20 flex-col items-center justify-center gap-1.5 rounded-xl border text-xs font-medium text-foreground transition-colors active:bg-muted"
-              >
-                <BookOpenIcon className="size-5" />
-                API docs
-              </a>
-            </li>
           </ul>
         </SheetContent>
       </Sheet>

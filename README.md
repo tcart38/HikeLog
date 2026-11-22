@@ -12,7 +12,12 @@ Self-hosted hike log for a household. Log a hike once and every peak list, seaso
 - **Map and redlining.** GPS tracks per hike, peak map, and trail-network completion (AT, White Mountains, Adirondack High Peaks, Catskills) from OpenStreetMap.
 - **Garmin import.** Pull hiking activities into a per-user inbox, get peak suggestions from the GPS track, import with one tap.
 - **Spreadsheet import.** Upload your existing log (`.xlsx`) with a dry-run preview.
-- **REST API and OpenAPI.** Everything the UI does is available to scripts and agents (`/docs`).
+- **Lists you choose.** Only lists you've started show in the nav and dashboard; browse and turn on the rest in Settings > Lists. Per list (or for all lists) switch off views you don't want, e.g. hide Grid if you only want to finish lists.
+- **Photos and videos.** Add them to any hike (stored on the data volume under `media/`, streamed to disk, videos seek).
+- **Weather.** Import daily temperature, wind and snowfall for a hike from Open-Meteo, one hike or all at once.
+- **Export.** Everything as JSON, hikes or ascents as CSV, and an admin database backup (Settings > Import & export).
+- **Terrifying 25.** A trail list (20 required plus 5 of 14 electives), with trails as list items.
+- **REST API and OpenAPI.** Everything the UI does is available to scripts and agents (`/docs`, also under Settings > API & tokens).
 - **PWA.** Installable on iOS and Android, offline fallback page, phone tab bar with a "Log" button.
 
 | Compare | Lists on a phone |
@@ -27,7 +32,7 @@ cp .env.example .env        # set APP_URL to the URL you will use
 docker compose up -d --build
 ```
 
-Open http://localhost:3000. On first run you are sent to `/setup` to create the admin account. Data lives in the `hikelog-data` Docker volume (`/data` in the container): the SQLite database `hikelog.db` and a generated `secret.key`.
+Open http://localhost:3000. On first run you are sent to `/setup` to create the admin account. Data lives in the `hikelog-data` Docker volume (`/data` in the container): the SQLite database `hikelog.db` and a generated `secret.key`, and `media/` (uploaded photos and videos). Back up the whole volume.
 
 ## Environment variables
 

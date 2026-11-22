@@ -2,6 +2,7 @@ import "server-only"
 import { z } from "zod"
 import { all, get, tx } from "./db"
 import { recomputeHikeCoverage } from "./coverage"
+import { purgeHikeMedia } from "./media"
 import { matchPeaks, type MatchResult } from "./peaks/match"
 import { appTimeZone, isWinterHike, seasonOf, type Season } from "./seasons"
 
@@ -319,5 +320,6 @@ function resolvePerson(d: import("node:sqlite").DatabaseSync, ref: number | stri
 }
 
 export function deleteHike(id: number): boolean {
+  purgeHikeMedia(id)
   return tx((d) => d.prepare("DELETE FROM hikes WHERE id = ?").run(id).changes > 0)
 }

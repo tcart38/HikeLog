@@ -27,6 +27,7 @@ export type ListRow = {
   notes: string | null
   sources_json: string
   is_custom: number
+  electives_needed: number | null
   peak_count: number
 }
 
@@ -54,10 +55,12 @@ export type ListPeak = {
   lon: number | null
   rank: number | null
   notes: string | null
+  kind: string
+  elective: number
 }
 export function listPeaks(listId: number): ListPeak[] {
   return all<ListPeak>(
-    `SELECT p.id, p.slug, p.name, p.elevation_ft, p.state, p.range, p.lat, p.lon, lp.rank, lp.notes
+    `SELECT p.id, p.slug, p.name, p.elevation_ft, p.state, p.range, p.lat, p.lon, lp.rank, lp.notes, p.kind, lp.elective
      FROM list_peaks lp JOIN peaks p ON p.id = lp.peak_id WHERE lp.list_id = ? ORDER BY lp.rank, p.elevation_ft DESC`,
     listId
   )
@@ -148,6 +151,24 @@ export function creditFor(s: PeakStatus | undefined, mode: Mode): number {
   }
 }
 
+/**
+ * Completion for a list, honouring electives ("pick N of these", e.g. the Terrifying 25): every required item
+ * counts, plus at most `electives_needed` electives (the best-credited ones).
+ */
+export function tally(list: Pick<ListRow, "electives_needed">, items: { credit: number; elective: number }[], units: number) {
+  const req = items.filter((i) => !i.elective)
+  const el = items.filter((i) => i.elective).sort((a, b) => b.credit - a.credit)
+  const take = list.electives_needed == null ? el.length : Math.min(list.electives_needed, el.length)
+  const counted = [...req, ...el.slice(0, take)]
+  const total = list.electives_needed == null ? items.length : req.length + list.electives_needed
+  return {
+    completed: counted.filter((i) => i.credit >= units).length,
+    total,
+    credits: counted.reduce((a, i) => a + i.credit, 0),
+    creditsTotal: total * units,
+  }
+}
+
 export type ListProgress = {
   list: ListRow
   mode: Mode
@@ -170,34 +191,20 @@ export function listProgress(slug: string, personId: number, mode: Mode = "all")
     const credit = creditFor(status, mode)
     return { ...p, status, credit, done: credit >= units }
   })
-  return {
-    list,
-    mode,
-    personId,
-    peaks: rows,
-    completed: rows.filter((r) => r.done).length,
-    total: rows.length,
-    credits: rows.reduce((a, r) => a + r.credit, 0),
-    creditsTotal: rows.length * units,
-  }
+  return { list, mode, personId, peaks: rows, ...tally(list, rows, units) }
 }
 
 /** Progress summary across every list for a person, for dashboards. */
 export function allListsProgress(personId: number, mode: Mode = "all") {
   const lists = listLists()
-  const memberships = all<{ list_id: number; peak_id: number }>("SELECT list_id, peak_id FROM list_peaks")
+  const memberships = all<{ list_id: number; peak_id: number; elective: number }>("SELECT list_id, peak_id, elective FROM list_peaks")
   const sum = summarize(ascents([personId]))
   const units = unitsFor(mode)
   return lists.map((l) => {
-    const ids = memberships.filter((m) => m.list_id === l.id).map((m) => m.peak_id)
-    let completed = 0
-    let credits = 0
-    for (const id of ids) {
-      const c = creditFor(sum.get(`${personId}:${id}`), mode)
-      credits += c
-      if (c >= units) completed++
-    }
-    return { list: l, completed, total: ids.length, credits, creditsTotal: ids.length * units }
+    const items = memberships
+      .filter((m) => m.list_id === l.id)
+      .map((m) => ({ credit: creditFor(sum.get(`${personId}:${m.peak_id}`), mode), elective: m.elective }))
+    return { list: l, ...tally(l, items, units) }
   })
 }
 

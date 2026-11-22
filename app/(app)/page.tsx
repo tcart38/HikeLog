@@ -15,13 +15,14 @@ import { ParamToggle } from "@/components/url-controls"
 import { Button } from "@/components/ui/button"
 import { one } from "@/lib/format"
 import { listHikes } from "@/lib/hikes"
-import { allListsProgress, MODES, type Mode } from "@/lib/progress"
+import { UserPrefs, listVisibility } from "@/lib/prefs"
+import { allListsProgress, listLists, MODES, type Mode } from "@/lib/progress"
 import { hikeCount, listPeople, requireUser } from "@/lib/queries"
 import { dashboardHighlights } from "@/lib/stats"
 
 export const metadata: Metadata = { title: "Dashboard" }
 
-const DASH_MODES = [
+const DASH_MODES_ALL = [
   { value: "all", label: "All" },
   { value: "winter", label: "Winter" },
   { value: "season", label: "Four-season" },
@@ -31,26 +32,30 @@ const DASH_MODES = [
 export default async function Dashboard({ searchParams }: PageProps<"/">) {
   const user = await requireUser()
   const sp = await searchParams
+  const prefs = new UserPrefs(user.id)
+  // Offer only the modes some list still has turned on (Settings > Lists).
+  const allLists = listLists()
+  const DASH_MODES = DASH_MODES_ALL.filter((m) => allLists.some((l) => prefs.views(l.slug).includes(m.value as never)))
+  if (!DASH_MODES.length) DASH_MODES.push(DASH_MODES_ALL[0])
   const q = one(sp.mode) as Mode
-  const mode: Mode =
-    DASH_MODES.some((m) => m.value === q) && MODES.includes(q) ? q : "all"
+  const mode: Mode = (DASH_MODES.some((m) => m.value === q) && MODES.includes(q) ? q : DASH_MODES[0].value) as Mode
   const people = listPeople()
   const me = people.find((p) => p.id === user.person_id)
   const others = people.filter((p) => p.id !== me?.id)
   const total = hikeCount()
 
-  const progress = me ? allListsProgress(me.id, mode) : []
+  const vis = listVisibility(prefs, me?.id ?? null)
+  const progress = me
+    ? allListsProgress(me.id, mode).filter((r) => vis.visible(r.list.slug) && prefs.views(r.list.slug).includes(mode as never))
+    : []
   const units = mode === "season" ? 4 : mode === "grid" ? 12 : 1
   const pctOf = (r: (typeof progress)[number]) =>
     r.creditsTotal ? r.credits / r.creditsTotal : 0
   const active = progress
     .filter((r) => r.credits > 0)
     .sort((a, b) => pctOf(b) - pctOf(a))
-  // Nothing tracked in this mode yet: show the headline lists so there is still somewhere to go.
-  const featured = progress.filter((r) =>
-    ["nh-48", "ne-67", "adk-46", "nehh-100"].includes(r.list.slug)
-  )
-  const shown = (active.length ? active : featured).slice(0, 8)
+  // Nothing tracked in this mode yet: show whichever lists are turned on so there is still somewhere to go.
+  const shown = (active.length ? active : progress).slice(0, 8)
   const recent = me
     ? listHikes({ personId: me.id, limit: 5 }).hikes
     : listHikes({ limit: 5 }).hikes
@@ -186,7 +191,7 @@ export default async function Dashboard({ searchParams }: PageProps<"/">) {
                   href="/lists"
                   className="inline-flex min-h-9 items-center gap-1 text-sm font-medium text-primary hover:underline"
                 >
-                  All lists <ArrowRightIcon className="size-3.5" />
+                  Your lists <ArrowRightIcon className="size-3.5" />
                 </Link>
                 {others.length > 0 && (
                   <Link

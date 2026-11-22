@@ -76,13 +76,13 @@ export function PersonSwitcher({ value, people, param = "person" }: { value: num
   )
 }
 
-export function ViewTabs({ value }: { value: View }) {
+export function ViewTabs({ value, views }: { value: View; views?: View[] }) {
   const { set } = useParamSetter()
   return (
     <div className="-mx-4 overflow-x-auto px-4 scroll-quiet md:mx-0 md:px-0">
       <Tabs value={value} onValueChange={(v) => set({ view: v === "all" ? null : String(v) })}>
         <TabsList className="group-data-horizontal/tabs:h-10 w-max md:group-data-horizontal/tabs:h-9">
-          {VIEWS.map((v) => (
+          {VIEWS.filter((v) => !views || views.includes(v.value)).map((v) => (
             <TabsTrigger key={v.value} value={v.value} className="px-3.5 md:px-3">
               {v.label}
             </TabsTrigger>

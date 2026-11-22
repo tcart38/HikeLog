@@ -11,7 +11,8 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CONDITION_LABEL, monthSeason, one, parseView, type View } from "@/lib/format"
-import { getList, listProgress, type Mode } from "@/lib/progress"
+import { UserPrefs } from "@/lib/prefs"
+import { getList, listProgress, tally, type Mode } from "@/lib/progress"
 import { listPeople, peakCells, requireUser, type PeakCells } from "@/lib/queries"
 import { MONTH_LABEL, SEASON_LABEL, SEASONS } from "@/lib/seasons"
 
@@ -57,7 +58,9 @@ export default async function ListPage({ params, searchParams }: PageProps<"/lis
   const user = await requireUser()
   const { slug } = await params
   const sp = await searchParams
-  const view = parseView(one(sp.view))
+  const enabled = new UserPrefs(user.id).views(slug)
+  const requestedView = parseView(one(sp.view))
+  const view = enabled.includes(requestedView) ? requestedView : enabled[0]
   const leftOnly = one(sp.left) === "1"
 
   const people = listPeople()
@@ -84,10 +87,14 @@ export default async function ListPage({ params, searchParams }: PageProps<"/lis
       cells: cs,
       credit: cs.filter((c) => c.done).length,
       units,
+      elective: !!p.elective,
+      note: p.kind === "trail" ? p.notes : null,
     }
   })
-  const done = allRows.filter((r) => r.credit >= r.units).length
-  const credits = allRows.reduce((a, r) => a + r.credit, 0)
+  // Lists with electives ("pick 5 of these") count every required item plus only as many electives as the list asks for.
+  const counted = tally(list, allRows.map((r, i) => ({ credit: r.credit, elective: prog.peaks[i].elective })), units)
+  const done = counted.completed
+  const credits = counted.credits
   const rows = leftOnly ? allRows.filter((r) => r.credit < r.units) : allRows
   const sources = (JSON.parse(list.sources_json || "[]") as { title: string; url: string }[]).filter((s) => s.url)
 
@@ -111,20 +118,20 @@ export default async function ListPage({ params, searchParams }: PageProps<"/lis
           <div className="flex flex-wrap items-baseline gap-x-2">
             <span className="text-3xl font-semibold tracking-tight tnum">{view === "conditions" ? condCounts[0].n : done}</span>
             <span className="text-sm text-muted-foreground tnum">
-              {view === "conditions" ? `of ${prog.total} in snow` : `of ${prog.total} ${viewNoun} by ${person.name}`}
+              {view === "conditions" ? `of ${counted.total} in snow` : `of ${counted.total} ${viewNoun} by ${person.name}`}
             </span>
             {(view === "season" || view === "grid") && (
               <span className="text-sm text-muted-foreground tnum">
-                · {credits} of {prog.total * units} {view === "grid" ? "month" : "season"} slots
+                · {credits} of {counted.creditsTotal} {view === "grid" ? "month" : "season"} slots
               </span>
             )}
           </div>
           {view === "conditions" ? (
             <p className="text-sm text-muted-foreground tnum">
-              {condCounts.map((c) => `${CONDITION_LABEL[c.k]} ${c.n}`).join(" · ")} of {prog.total}
+              {condCounts.map((c) => `${CONDITION_LABEL[c.k]} ${c.n}`).join(" · ")} of {counted.total}
             </p>
           ) : (
-            <ProgressBar done={view === "season" || view === "grid" ? credits : done} total={view === "season" || view === "grid" ? prog.total * units : prog.total} label={`${person.name} progress`} />
+            <ProgressBar done={view === "season" || view === "grid" ? credits : done} total={view === "season" || view === "grid" ? counted.creditsTotal : counted.total} label={`${person.name} progress`} />
           )}
         </div>
         <div className="flex flex-wrap items-center gap-3">
@@ -133,7 +140,7 @@ export default async function ListPage({ params, searchParams }: PageProps<"/lis
         </div>
       </div>
 
-      <ViewTabs value={view} />
+      {enabled.length > 1 && <ViewTabs value={view} views={enabled} />}
 
       <PeakMatrix
         columns={columns}

@@ -45,7 +45,7 @@ function ascentsFor(personId: number): AscentRec[] {
     `SELECT h.id hike_id, h.date, h.end_date, p.id peak_id, p.name, p.slug, p.elevation_ft, p.state
      FROM hike_peaks hp JOIN hikes h ON h.id = hp.hike_id
      JOIN hike_participants pa ON pa.hike_id = h.id AND pa.counts = 1 AND pa.person_id = ?
-     JOIN peaks p ON p.id = hp.peak_id ORDER BY h.date, h.id`,
+     JOIN peaks p ON p.id = hp.peak_id AND p.kind = 'peak' ORDER BY h.date, h.id`,
     personId
   ).map((r) => ({ ...r }))
 }

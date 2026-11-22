@@ -20,7 +20,7 @@ export function EmptyHikes() {
         <Button size="lg" className="h-10" nativeButton={false} render={<Link href="/hikes/new" />}>
           <PlusIcon /> Log a hike
         </Button>
-        <Button size="lg" variant="outline" className="h-10" nativeButton={false} render={<Link href="/settings#import" />}>
+        <Button size="lg" variant="outline" className="h-10" nativeButton={false} render={<Link href="/settings/data" />}>
           <FileSpreadsheetIcon /> Import your spreadsheet
         </Button>
       </EmptyContent>

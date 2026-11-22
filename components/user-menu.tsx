@@ -16,15 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { api } from "@/lib/client/api"
-
-export function initials(name: string) {
-  return name
-    .split(/\s+/)
-    .map((p) => p[0])
-    .slice(0, 2)
-    .join("")
-    .toUpperCase()
-}
+import { initials } from "@/lib/format"
 
 export function UserMenu({ name, username }: { name: string; username: string }) {
   const router = useRouter()

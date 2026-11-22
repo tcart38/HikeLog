@@ -18,6 +18,8 @@ export type MatrixRow = {
   cells: MatrixCellData[]
   credit: number
   units: number
+  elective?: boolean
+  note?: string | null
 }
 
 const toneText: Record<Season, string> = {
@@ -75,7 +77,7 @@ export function PeakMatrix({ columns, rows, emptyLabel }: { columns: MatrixColum
           <TableHeader className="bg-muted/50">
             <TableRow className="hover:bg-transparent">
               <TableHead className="w-10 text-right">#</TableHead>
-              <TableHead>Peak</TableHead>
+              <TableHead>{columns.length && rows.some((r) => r.note) ? "Trail" : "Peak"}</TableHead>
               <TableHead className="text-right">Elevation</TableHead>
               {columns.map((c) => (
                 <TableHead key={c.key} className={cn(single ? "w-48" : "w-9 px-1 text-center", c.tone && toneText[c.tone])}>
@@ -93,7 +95,8 @@ export function PeakMatrix({ columns, rows, emptyLabel }: { columns: MatrixColum
                   <Link href={`/peaks/${r.slug}`} className="font-medium hover:underline">
                     {r.name}
                   </Link>
-                  {r.state && <span className="ml-2 text-xs text-muted-foreground">{r.state}</span>}
+                  {r.elective && <span className="ml-2 rounded-sm bg-muted px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">Elective</span>}
+                  {r.note ? <span className="ml-2 text-xs text-muted-foreground">{r.note}</span> : r.state && <span className="ml-2 text-xs text-muted-foreground">{r.state}</span>}
                 </TableCell>
                 <TableCell className="text-right text-muted-foreground">{fmtFt(r.elevationFt)}</TableCell>
                 {r.cells.map((cell, i) =>
@@ -140,6 +143,7 @@ export function PeakMatrix({ columns, rows, emptyLabel }: { columns: MatrixColum
               <div className="flex items-baseline justify-between gap-3">
                 <Link href={`/peaks/${r.slug}`} className="min-w-0 truncate text-base font-medium">
                   {r.name}
+                  {r.elective && <span className="ml-2 rounded-sm bg-muted px-1.5 py-0.5 align-middle text-[10px] font-medium uppercase tracking-wide text-muted-foreground">Elective</span>}
                 </Link>
                 <span className="shrink-0 text-sm text-muted-foreground">{fmtFt(r.elevationFt)}</span>
               </div>

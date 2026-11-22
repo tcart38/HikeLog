@@ -15,6 +15,8 @@ export type SeedPeak = {
   lon?: number
   rank?: number
   notes?: string
+  kind?: "peak" | "trail"
+  elective?: boolean
 }
 
 export type SeedList = {
@@ -27,6 +29,7 @@ export type SeedList = {
   organization?: string
   officialUrl?: string
   notes?: string
+  electivesNeeded?: number
   sources?: { title: string; url: string; accessed?: string }[]
   peaks: SeedPeak[]
 }
@@ -59,29 +62,31 @@ export function seedLists(db: DatabaseSync, force = false) {
   if (!force && row?.value === hash) return
 
   const upsertPeak = db.prepare(`
-    INSERT INTO peaks (slug, name, elevation_ft, state, range, lat, lon, notes)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO peaks (slug, name, elevation_ft, state, range, lat, lon, notes, kind)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     ON CONFLICT(slug) DO UPDATE SET
       name = excluded.name,
       elevation_ft = COALESCE(excluded.elevation_ft, peaks.elevation_ft),
       state = COALESCE(excluded.state, peaks.state),
       range = COALESCE(excluded.range, peaks.range),
       lat = COALESCE(excluded.lat, peaks.lat),
-      lon = COALESCE(excluded.lon, peaks.lon)
+      lon = COALESCE(excluded.lon, peaks.lon),
+      kind = excluded.kind
     RETURNING id`)
   const addAlias = db.prepare("INSERT OR IGNORE INTO peak_aliases (peak_id, alias) VALUES (?, ?)")
   const upsertList = db.prepare(`
-    INSERT INTO lists (slug, name, short_name, region, description, criteria, organization, official_url, notes, sources_json)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO lists (slug, name, short_name, region, description, criteria, organization, official_url, notes, sources_json, electives_needed)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ON CONFLICT(slug) DO UPDATE SET
       name = excluded.name, short_name = excluded.short_name, region = excluded.region,
       description = excluded.description, criteria = excluded.criteria,
       organization = excluded.organization, official_url = excluded.official_url,
-      notes = excluded.notes, sources_json = excluded.sources_json
+      notes = excluded.notes, sources_json = excluded.sources_json,
+      electives_needed = excluded.electives_needed
     RETURNING id`)
   const clearMembers = db.prepare("DELETE FROM list_peaks WHERE list_id = ?")
   const addMember = db.prepare(
-    "INSERT OR REPLACE INTO list_peaks (list_id, peak_id, rank, notes) VALUES (?, ?, ?, ?)"
+    "INSERT OR REPLACE INTO list_peaks (list_id, peak_id, rank, notes, elective) VALUES (?, ?, ?, ?, ?)"
   )
 
   db.exec("BEGIN")
@@ -97,7 +102,8 @@ export function seedLists(db: DatabaseSync, force = false) {
         list.organization ?? null,
         list.officialUrl ?? null,
         list.notes ?? null,
-        JSON.stringify(list.sources ?? [])
+        JSON.stringify(list.sources ?? []),
+        list.electivesNeeded ?? null
       ) as { id: number }
       clearMembers.run(listId)
       list.peaks.forEach((p, i) => {
@@ -109,13 +115,14 @@ export function seedLists(db: DatabaseSync, force = false) {
           p.range ?? null,
           p.lat ?? null,
           p.lon ?? null,
-          null
+          null,
+          p.kind ?? "peak"
         ) as { id: number }
         for (const a of [p.name, ...(p.aliases ?? [])]) {
           const n = normalizePeakName(a)
           if (n) addAlias.run(peakId, n)
         }
-        addMember.run(listId, peakId, p.rank ?? i + 1, p.notes ?? null)
+        addMember.run(listId, peakId, p.rank ?? i + 1, p.notes ?? null, p.elective ? 1 : 0)
       })
     }
     db.prepare(

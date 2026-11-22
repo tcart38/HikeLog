@@ -231,4 +231,33 @@ export const migrations: string[] = [
   CREATE INDEX segment_coverage_person ON segment_coverage(person_id, segment_id);
   CREATE INDEX segment_coverage_hike ON segment_coverage(hike_id);
   `,
+  /* 4: trail items + electives (Terrifying 25), per-user prefs, hike media, imported weather */ `
+  ALTER TABLE peaks ADD COLUMN kind TEXT NOT NULL DEFAULT 'peak';            -- peak | trail
+  ALTER TABLE list_peaks ADD COLUMN elective INTEGER NOT NULL DEFAULT 0;     -- 1 = optional item (pick N of these)
+  ALTER TABLE lists ADD COLUMN electives_needed INTEGER;                      -- how many electives complete the list
+
+  -- Per-user settings: list visibility ("list:<slug>" = show|hide) and enabled views ("views:default" / "views:<slug>").
+  CREATE TABLE user_prefs (
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    key TEXT NOT NULL,
+    value TEXT NOT NULL,
+    PRIMARY KEY (user_id, key)
+  );
+
+  CREATE TABLE hike_media (
+    id INTEGER PRIMARY KEY,
+    hike_id INTEGER NOT NULL REFERENCES hikes(id) ON DELETE CASCADE,
+    kind TEXT NOT NULL CHECK (kind IN ('image','video')),
+    file TEXT NOT NULL,                  -- path relative to $DATA_DIR/media
+    original_name TEXT,
+    mime TEXT NOT NULL,
+    size INTEGER NOT NULL DEFAULT 0,
+    caption TEXT,
+    created_by INTEGER REFERENCES users(id) ON DELETE SET NULL,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+  CREATE INDEX hike_media_hike ON hike_media(hike_id);
+
+  ALTER TABLE hikes ADD COLUMN weather_json TEXT;                             -- imported daily weather, see lib/weather.ts
+  `,
 ]

@@ -4,7 +4,9 @@ import { notFound } from "next/navigation"
 import { ArrowLeftIcon, MapIcon, PencilIcon, TriangleAlertIcon } from "lucide-react"
 
 import { DeleteHikeButton } from "@/components/delete-hike-button"
+import { HikeMedia } from "@/components/hike-media"
 import { HikeTrackActions } from "@/components/hike-track-actions"
+import { HikeWeatherActions } from "@/components/hike-weather-actions"
 import { HikeMapLoader } from "@/components/map/hike-map-loader"
 import { hikeTitle } from "@/components/hike-parts"
 import { PageHeader } from "@/components/page-header"
@@ -12,10 +14,12 @@ import { SeasonBadge, WinterCountsBadge } from "@/components/season-badge"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { CONDITION_LABEL, fmtDuration, fmtFt, fmtRange } from "@/lib/format"
+import { CONDITION_LABEL, fmtDate, fmtDuration, fmtFt, fmtRange } from "@/lib/format"
 import { hikeCoverageSummary } from "@/lib/coverage"
 import { getHike } from "@/lib/hikes"
 import { getTrack } from "@/lib/tracks"
+import { listMedia } from "@/lib/media"
+import { getWeather } from "@/lib/weather"
 import { hikeLists, requireUser } from "@/lib/queries"
 
 export async function generateMetadata({ params }: PageProps<"/hikes/[id]">): Promise<Metadata> {
@@ -41,6 +45,8 @@ export default async function HikePage({ params }: PageProps<"/hikes/[id]">) {
   if (!hike) notFound()
   const lists = hikeLists(hike.id)
   const track = getTrack(hike.id)
+  const media = listMedia(hike.id)
+  const weather = getWeather(hike.id)
   const trackNetworks = track ? hikeCoverageSummary(hike.id) : []
   const title = hikeTitle(hike)
   const crossesEquinox = !hike.isWinter && hike.endDate && hike.endDate !== hike.date && hike.season === "winter"
@@ -153,6 +159,64 @@ export default async function HikePage({ params }: PageProps<"/hikes/[id]">) {
               </p>
             )}
             <HikeTrackActions hikeId={hike.id} hasTrack={!!track} />
+          </section>
+
+          <section className="flex flex-col gap-3" aria-labelledby="media-h">
+            <h2 id="media-h" className="text-base font-medium">
+              Photos and videos
+            </h2>
+            <HikeMedia hikeId={hike.id} items={media.map((m) => ({ id: m.id, kind: m.kind, name: m.original_name, size: m.size, url: `/api/v1/media/${m.id}` }))} />
+          </section>
+
+          <section className="flex flex-col gap-3" aria-labelledby="weather-h">
+            <h2 id="weather-h" className="text-base font-medium">
+              Weather
+            </h2>
+            {weather ? (
+              <>
+                <div className="overflow-x-auto rounded-xl ring-1 ring-foreground/10">
+                  <table className="w-full text-sm tnum">
+                    <thead className="bg-muted/50 text-left text-xs text-muted-foreground">
+                      <tr>
+                        <th className="px-3 py-2 font-medium">Day</th>
+                        <th className="px-3 py-2 font-medium">Conditions</th>
+                        <th className="px-3 py-2 font-medium">High / low</th>
+                        <th className="px-3 py-2 font-medium">Wind / gust</th>
+                        <th className="px-3 py-2 font-medium">Precip / snow</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y">
+                      {weather.days.map((d) => (
+                        <tr key={d.date}>
+                          <td className="px-3 py-2 whitespace-nowrap">{fmtDate(d.date)}</td>
+                          <td className="px-3 py-2">{d.summary || "\u2014"}</td>
+                          <td className="px-3 py-2 whitespace-nowrap">
+                            {d.tMaxF != null ? `${Math.round(d.tMaxF)}\u00b0` : "\u2014"} / {d.tMinF != null ? `${Math.round(d.tMinF)}\u00b0` : "\u2014"}
+                          </td>
+                          <td className="px-3 py-2 whitespace-nowrap">
+                            {d.windMaxMph != null ? Math.round(d.windMaxMph) : "\u2014"} / {d.gustMaxMph != null ? Math.round(d.gustMaxMph) : "\u2014"} mph
+                          </td>
+                          <td className="px-3 py-2 whitespace-nowrap">
+                            {d.precipIn ?? "\u2014"} / {d.snowIn ?? "\u2014"} in
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Modeled for {weather.location.label}
+                  {weather.location.elevationFt ? ` at ${weather.location.elevationFt.toLocaleString("en-US")} ft` : ""}, so summit wind is usually stronger than shown. Data by{" "}
+                  <a href="https://open-meteo.com/" target="_blank" rel="noreferrer" className="underline underline-offset-2">
+                    Open-Meteo
+                  </a>
+                  .
+                </p>
+              </>
+            ) : (
+              <p className="max-w-xl text-sm text-muted-foreground">Pull the day&apos;s temperature, wind and snowfall for this hike from Open-Meteo, using the highest peak on it.</p>
+            )}
+            <HikeWeatherActions hikeId={hike.id} hasWeather={!!weather} />
           </section>
 
           {(hike.weather || hike.trailConditions || hike.notes) && (

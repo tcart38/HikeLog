@@ -23,7 +23,7 @@ export const GET = withAuth(async (req) => {
     return json({ peaks: found.slice(offset, offset + limit), total: found.length })
   }
   if (ranked) return json({ peaks: ranked.slice(offset, offset + limit), total: ranked.length })
-  const rows = all("SELECT id, slug, name, elevation_ft, state, range, lat, lon FROM peaks ORDER BY elevation_ft DESC, name LIMIT ? OFFSET ?", limit, offset)
+  const rows = all("SELECT id, slug, name, elevation_ft, state, range, lat, lon, kind FROM peaks ORDER BY elevation_ft DESC, name LIMIT ? OFFSET ?", limit, offset)
   const total = (all<{ n: number }>("SELECT COUNT(*) n FROM peaks")[0]).n
   return json({ peaks: rows, total })
 })

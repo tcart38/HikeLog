@@ -87,3 +87,15 @@ Researched by subagents with sources cited inside each `data/lists/*.json`. Know
   astronomical winter for every list; the difference is at most a day at each end.
 - Coordinates for 370 more peaks were matched from OpenStreetMap `natural=peak` nodes (name + elevation
   within 60 ft, inside the state). 40 ambiguous/unmatched peaks were left without coordinates.
+
+
+## Follow-up round (2026-11-22)
+
+- **Settings is a section** (Account, Lists, People, Import & export, Garmin, API & tokens). The pages drop down under Settings in the sidebar; on phones they are a chip row at the top of every settings page. API docs are the `/docs` page embedded in an iframe next to the token manager.
+- **Lists are opt-out by default only until you start them.** A list shows in the nav, `/lists` and the dashboard once the signed-in person has any ascent on it. Settings > Lists can pin an unstarted list ("show") or hide a started one ("hide"). Stored per login in `user_prefs`.
+- **View toggles** (All, Winter, Four-season, Grid, Conditions) are per login: a default set for every list plus an optional override per list. At least one view must stay on. The dashboard only offers modes some list still has on.
+- **Terrifying 25 is a trail list, not a peak list.** Each trail is a row in `peaks` with `kind = 'trail'` (no elevation, excluded from peak stats), so you log it by picking it in the peak picker like any other item. 20 trails are required and 5 of the 14 electives complete it, so `lists.electives_needed = 5` and progress counts all required items plus at most 5 electives. Source: newenglandwaterfalls.com table (required/elective split and class ratings); Trailspotting cross-checked. Compare shows every trail as plain items and does not apply the "any 5 electives" rule.
+- **Photos and videos** are files in `$DATA_DIR/media/<hikeId>/`, rows in `hike_media`. Uploads stream to disk (raw body or multipart). Limits: 60 MB photos, 1 GB videos. No thumbnails are generated (originals are served; the grid uses CSS cropping). HEIC is stored but only Safari displays it.
+- **Weather uses Open-Meteo, not Mountain Forecast.** Mountain Forecast (Snow-Forecast.com Ltd.) publishes no API and its terms are for personal use of the site and app, so scraping it is out. Open-Meteo is free for non-commercial use, needs no key, has hourly ERA5 history back to 1940 and a forecast service for recent days, and corrects temperature to a given elevation. Caveat: wind is modelled at 10 m on a ~10 km grid, so summit wind and gusts are underestimated. Attribution (CC BY 4.0) is shown on each hike. Imported weather is stored in `hikes.weather_json` and never overwrites your own weather note.
+- **Export:** JSON (everything except media files), `hikes.csv`, `ascents.csv`, and an admin-only SQLite snapshot (`VACUUM INTO`). Media is not inside the downloads; back up the data volume to get it.
+- **People page bug:** the page imported `initials` from a `"use client"` file and called it on the server. It now lives in `lib/format.ts`.
