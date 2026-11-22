@@ -4,6 +4,16 @@ All notable changes to HikeLog are documented here. The format follows [Keep a C
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-22
+
+### Added
+- Published container image `ghcr.io/tcart38/hikelog` (linux/amd64 and arm64) built by GitHub Actions: `:latest` and `:edge` from `main`, `:X.Y.Z`, `:vX.Y.Z`, `:X.Y` and `:latest` from version tags.
+- Unraid template (`hikelog.xml`) so the repository link can be added as a template repository, with update checks via the `:latest` digest. Template validated in CI (`scripts/check-unraid-template.py`).
+- Install on Unraid and release-process docs in the README.
+
+### Changed
+- The container now starts through an entrypoint that fixes ownership of `/data` and runs the app as `PUID:PGID` (default 99:100, Unraid's `nobody:users`) instead of uid 1000. Existing volumes are re-owned automatically on start.
+
 ## [0.1.1] - 2026-11-22
 
 ### Changed
@@ -25,6 +35,7 @@ First tagged version, summarizing the work so far.
 - Installable PWA with offline fallback and phone tab bar.
 - Docker image and compose setup; version shown in Settings, `/api/health` and `/docs`.
 
-[Unreleased]: https://github.com/tcart38/HikeLog/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/tcart38/HikeLog/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/tcart38/HikeLog/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/tcart38/HikeLog/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/tcart38/HikeLog/releases/tag/v0.1.0

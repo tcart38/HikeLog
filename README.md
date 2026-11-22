@@ -28,6 +28,16 @@ docker compose up -d --build
 
 Open http://localhost:3000. On first run you are sent to `/setup` to create the admin account. Data lives in the `hikelog-data` Docker volume (`/data` in the container): the SQLite database `hikelog.db` and a generated `secret.key`, and `media/` (uploaded photos and videos). Back up the whole volume.
 
+## Install on Unraid
+
+HikeLog publishes a multi-arch image (`ghcr.io/tcart38/hikelog`) and an Unraid template, so no build is needed.
+
+1. Docker tab > **Add Container**. Under **Template repositories** (bottom of the Docker settings, or Community Apps > Settings), add `https://github.com/tcart38/HikeLog` and save.
+2. **Add Container**, pick **HikeLog** from the template dropdown, and click **Apply**. Defaults work as-is: port 3000, data in `/mnt/user/appdata/hikelog`. Set **App URL** if you use a reverse proxy or HTTPS.
+3. Open the WebUI and create the admin account at `/setup`.
+
+Updates: Unraid compares the registry digest of `:latest`, so the Docker tab shows "update ready" after each release. Use `:X.Y.Z` as the tag to pin a version. The container starts as root only to fix ownership of the appdata folder, then runs as `PUID:PGID` (default `99:100`, `nobody:users`). A secret key is generated on first use and stored in the appdata folder; nothing secret is baked into the image.
+
 ## Environment variables
 
 | Variable | Default | Purpose |
@@ -37,6 +47,8 @@ Open http://localhost:3000. On first run you are sent to `/setup` to create the 
 | `ALLOWED_DEV_ORIGINS` | falls back to `ALLOWED_ORIGINS` | Extra hostnames for `pnpm dev` only (Next dev-server origin check). |
 | `APP_TIMEZONE` | `America/New_York` | Zone used to decide which season a date falls in. Client and server both use it. |
 | `ALLOW_SIGNUP` | `false` | `true` lets anyone create an account at `/setup`. The first account is always allowed and becomes admin. |
+| `PUID` / `PGID` | `99` / `100` | User and group the container runs as (Unraid `nobody:users`). Ownership of `/data` is fixed at start. Skip by starting with `--user`. |
+| `APP_SECRET` | generated | Optional own secret for encrypting stored Garmin tokens. By default a random one is stored in `/data/secret.key`. |
 | `DATA_DIR` | `/data` in Docker, `./data/db` in dev | Where `hikelog.db` and `secret.key` live. |
 | `APP_SECRET` | generated into `$DATA_DIR/secret.key` | Encrypts stored Garmin keys and tokens. Back it up with the DB. |
 | `MAP_STYLE_URL` | OpenFreeMap (light/dark) | MapLibre style JSON URL for the maps. |
@@ -168,7 +180,10 @@ To cut a release:
 2. Bump `version` in `package.json` (`0.x.0` for features or breaking changes, `0.x.y` for fixes).
 3. Commit: `git commit -am "Release vX.Y.Z"`.
 4. Tag and push: `git tag -a vX.Y.Z -m "vX.Y.Z" && git push origin main --tags`.
-5. Rebuild the deployment (`docker compose up -d --build`) and check `/api/health` reports the new version.
+5. The `v*` tag triggers the GitHub Actions workflow (`.github/workflows/docker.yml`), which checks the tag against `package.json` and `CHANGELOG.md`, then builds amd64 + arm64 images and pushes `ghcr.io/tcart38/hikelog:X.Y.Z`, `:vX.Y.Z`, `:X.Y` and `:latest`. Pushes to `main` also update `:latest` and `:edge`. Unraid then offers the update.
+6. Update the deployment (Unraid: Docker tab > check for updates; compose: `docker compose up -d --build`) and check `/api/health` reports the new version.
+
+One-time GitHub setup: after the first image is published, open the package (github.com/tcart38 > Packages > hikelog > Package settings) and set **Change visibility** to **Public**, so Unraid can pull without credentials.
 
 ## Keeping this repository public-safe
 

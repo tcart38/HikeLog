@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>HikeLog</Name>
+  <Repository>ghcr.io/tcart38/hikelog:latest</Repository>
+  <Registry>https://github.com/tcart38/HikeLog/pkgs/container/hikelog</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/tcart38/HikeLog/issues</Support>
+  <Project>https://github.com/tcart38/HikeLog</Project>
+  <Overview>Self-hosted hike log for a household. Log a hike once and every peak list (NH 48, NE 67, ADK 46, 14ers and more), season and person updates: who still needs what, GPS tracks, trail-network completion, stats, and imports from Garmin, Strava or GPX/FIT files. On first start open the WebUI and create the admin account. All data (database, generated secret key, photos) lives in the appdata folder; back that folder up.</Overview>
+  <Category>Tools: Other: Status:Stable</Category>
+  <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/tcart38/HikeLog/main/hikelog.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/tcart38/HikeLog/main/public/icons/icon-192.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="WebUI Port" Target="3000" Default="3000" Mode="tcp" Description="Port for the web interface." Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+  <Config Name="Appdata" Target="/data" Default="/mnt/user/appdata/hikelog" Mode="rw" Description="Database, generated secret key and uploaded photos/videos. Back this up." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/hikelog</Config>
+  <Config Name="App URL" Target="APP_URL" Default="" Mode="" Description="Address you open HikeLog at, e.g. http://tower:3000 or your reverse-proxy URL. Needed for secure cookies behind HTTPS. Leave empty for plain http://IP:port use." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Allowed Origins" Target="ALLOWED_ORIGINS" Default="" Mode="" Description="Optional. Extra hosts (comma separated) allowed to submit forms, e.g. if you reach HikeLog by both IP and name." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Timezone" Target="APP_TIMEZONE" Default="America/New_York" Mode="" Description="Decides which season a hike date falls in." Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
+  <Config Name="Allow Signup" Target="ALLOW_SIGNUP" Default="false" Mode="" Description="true lets anyone who can reach the app create an account. The first account is always allowed and becomes admin." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="App Secret" Target="APP_SECRET" Default="" Mode="" Description="Optional. Leave empty: a random secret is generated on first start and stored in the appdata folder. Only set this to use your own." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID the app runs as (Unraid: nobody = 99)." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID the app runs as (Unraid: users = 100)." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+</Container>
