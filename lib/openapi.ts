@@ -412,6 +412,36 @@ export function buildOpenApi(serverUrl: string): Json {
         responses: { ...ok("OK", obj({ fetched: int(), added: int(), skipped: int(), since: str(), connection: ref("GarminConnection") })), ...errs("401", "404", "409") },
       },
     },
+    "/api/v1/import/sources": {
+      get: { tags: ["Import sources"], summary: "Import sources and your connection to each", operationId: "listImportSources", description: "Sources: garmin (official personal API), garmin_connect (UNOFFICIAL, python-garminconnect), strava (official OAuth), file (GPX/FIT upload). All land in the same inbox (`/api/v1/garmin/activities`).", responses: { ...ok("OK", obj({ sources: arr(obj({}, [])) })), ...errs("401") } },
+    },
+    "/api/v1/import/garmin-connect/connection": {
+      get: { tags: ["Import sources"], summary: "Garmin Connect (unofficial) status", operationId: "getGarminConnectLogin", responses: { ...ok("OK", obj({})), ...errs("401") } },
+      put: {
+        tags: ["Import sources"], summary: "Sign in to Garmin Connect (unofficial) or submit an MFA code", operationId: "putGarminConnectLogin",
+        description: "UNOFFICIAL: uses python-garminconnect, outside Garmin's Terms of Service and may break. Send {email, password}, or {mfaCode} when the result is `needs_mfa`. The password is never stored, only encrypted session tokens.",
+        requestBody: body(obj({ email: str(), password: str(), mfaCode: str() })),
+        responses: { ...ok("OK", obj({ result: { enum: ["connected", "needs_mfa"] } })), ...errs("401", "422", "429", "502") },
+      },
+      delete: { tags: ["Import sources"], summary: "Forget the Garmin Connect session", operationId: "deleteGarminConnectLogin", responses: { ...ok("OK", obj({ ok: { type: "boolean" } })), ...errs("401") } },
+    },
+    "/api/v1/import/garmin-connect/sync": {
+      post: { tags: ["Import sources"], summary: "Pull new hiking activities via Garmin Connect (unofficial)", operationId: "syncGarminConnectLogin", description: "At most 25 new activities per call; `more: true` means call again.", responses: { ...ok("OK", obj({ fetched: int(), added: int(), since: str(), more: { type: "boolean" } })), ...errs("401", "404", "409", "422", "429", "502") } },
+    },
+    "/api/v1/import/strava/connection": {
+      get: { tags: ["Import sources"], summary: "Strava status and authorise links", operationId: "getStrava", responses: { ...ok("OK", obj({})), ...errs("401") } },
+      put: { tags: ["Import sources"], summary: "Save your own Strava API app credentials", operationId: "putStrava", description: "Create a free app at strava.com/settings/api. Stored encrypted; you then authorise via `authorizeUrl`.", requestBody: body(obj({ clientId: str(), clientSecret: str() }, ["clientId", "clientSecret"])), responses: { ...ok("OK", obj({})), ...errs("400", "401") } },
+      delete: { tags: ["Import sources"], summary: "Remove the Strava connection", operationId: "deleteStrava", responses: { ...ok("OK", obj({ ok: { type: "boolean" } })), ...errs("401") } },
+    },
+    "/api/v1/import/strava/authorize": {
+      post: { tags: ["Import sources"], summary: "Finish Strava authorisation from a pasted code or redirect address", operationId: "authorizeStrava", requestBody: body(obj({ code: str("The code, or the whole address Strava redirected to") }, ["code"])), responses: { ...ok("OK", obj({})), ...errs("400", "401", "422", "429") } },
+    },
+    "/api/v1/import/strava/sync": {
+      post: { tags: ["Import sources"], summary: "Pull new hikes, walks and snowshoes from Strava", operationId: "syncStrava", description: "At most 30 new activities per call (Strava allows 100 requests per 15 min); `more: true` means call again later.", responses: { ...ok("OK", obj({ fetched: int(), added: int(), since: str(), more: { type: "boolean" } })), ...errs("401", "404", "409", "429", "502") } },
+    },
+    "/api/v1/import/files": {
+      post: { tags: ["Import sources"], summary: "Upload GPX or FIT files into the review inbox", operationId: "importFiles", description: "multipart/form-data, one or more `file` parts. Max 50 files, 25 MB each.", responses: { ...ok("Created", obj({ added: int(), results: arr(obj({ name: str(), status: { enum: ["added", "duplicate", "error"] }, message: str() })) }), "201"), ...errs("400", "401") } },
+    },
     "/api/v1/garmin/activities": {
       get: {
         tags: ["Garmin"], summary: "Your Garmin activity inbox", operationId: "listGarminActivities",

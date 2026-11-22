@@ -24,7 +24,7 @@ export const SETTINGS_NAV = [
   { href: "/settings/lists", label: "Lists", icon: ListChecksIcon },
   { href: "/settings/people", label: "People", icon: UsersIcon },
   { href: "/settings/data", label: "Import & export", icon: DatabaseIcon },
-  { href: "/settings/garmin", label: "Garmin", icon: WatchIcon },
+  { href: "/settings/import", label: "Activity import", icon: WatchIcon },
   { href: "/settings/api", label: "API & tokens", icon: BookOpenIcon },
 ] as const
 

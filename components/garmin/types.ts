@@ -17,6 +17,7 @@ export type Suggestion = {
 
 export type GarminActivityView = {
   id: number
+  source?: string
   startDate: string
   name: string | null
   type: string | null

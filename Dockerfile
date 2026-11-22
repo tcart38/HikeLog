@@ -20,7 +20,15 @@ ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 \
     PORT=3000 HOSTNAME=0.0.0.0 \
     DATA_DIR=/data SEED_DIR=/app/data/lists \
     NODE_OPTIONS=--disable-warning=ExperimentalWarning
+# Python + the open-source (unofficial) garminconnect library, used only by the optional "Garmin Connect login" import source.
+# (garminconnect needs Python >= 3.12; Debian's is older, so uv fetches a standalone build.)
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+RUN UV_PYTHON_INSTALL_DIR=/opt/python uv venv /opt/garmin --python 3.13 \
+ && VIRTUAL_ENV=/opt/garmin uv pip install --no-cache "garminconnect>=0.3.20" \
+ && chmod -R a+rX /opt/python /opt/garmin
+ENV GARMIN_BRIDGE_PYTHON=/opt/garmin/bin/python3
 COPY --from=build --chown=node:node /app/.next/standalone ./
+COPY --chown=node:node scripts/garmin_bridge.py ./scripts/garmin_bridge.py
 COPY --from=build --chown=node:node /app/.next/static ./.next/static
 COPY --from=build --chown=node:node /app/public ./public
 COPY --from=build --chown=node:node /app/data/lists ./data/lists

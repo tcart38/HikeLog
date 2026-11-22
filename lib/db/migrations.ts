@@ -260,4 +260,20 @@ export const migrations: string[] = [
 
   ALTER TABLE hikes ADD COLUMN weather_json TEXT;                             -- imported daily weather, see lib/weather.ts
   `,
+  /* 5: pluggable import sources (Garmin Connect unofficial, Strava, file uploads) share the activity inbox */ `
+  ALTER TABLE garmin_activities ADD COLUMN source TEXT NOT NULL DEFAULT 'garmin';  -- garmin | garmin_connect | strava | file
+
+  -- One row per (user, provider) for the providers that need stored secrets. 'secret_enc' is AES-256-GCM JSON.
+  CREATE TABLE import_connections (
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    provider TEXT NOT NULL,              -- garmin_connect | strava
+    status TEXT NOT NULL DEFAULT 'connected',  -- connected | pending (Strava app saved, not yet authorised)
+    secret_enc TEXT NOT NULL,
+    meta_json TEXT NOT NULL DEFAULT '{}',      -- non-secret display info (athlete name, ...)
+    last_sync_at TEXT,
+    last_error TEXT,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    PRIMARY KEY (user_id, provider)
+  );
+  `,
 ]

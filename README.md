@@ -10,7 +10,7 @@ Self-hosted hike log for a household. Log a hike once and every peak list, seaso
 - **Compare.** Pick two or more people: "both still need", "only X needs", "done by all", plus a per-peak matrix.
 - **Stats.** Peaks per year, season and month charts, partners.
 - **Map and redlining.** GPS tracks per hike, peak map, and trail-network completion (AT, White Mountains, Adirondack High Peaks, Catskills) from OpenStreetMap.
-- **Garmin import.** Pull hiking activities into a per-user inbox, get peak suggestions from the GPS track, import with one tap.
+- **Activity import, your choice of source.** Garmin Personal API, Garmin Connect login (unofficial), Strava (official OAuth) or GPX/FIT file upload. Everything lands in one per-user inbox with peak suggestions from the GPS track; import with one tap. See [docs/import-sources.md](docs/import-sources.md).
 - **Spreadsheet import.** Upload your existing log (`.xlsx`) with a dry-run preview.
 - **Lists you choose.** Only lists you've started show in the nav and dashboard; browse and turn on the rest in Settings > Lists. Per list (or for all lists) switch off views you don't want, e.g. hide Grid if you only want to finish lists.
 - **Photos and videos.** Add them to any hike (stored on the data volume under `media/`, streamed to disk, videos seek).

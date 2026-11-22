@@ -22,13 +22,14 @@ export type ActivityRow = {
   start_lon: number | null
   end_lat: number | null
   end_lon: number | null
+  source: string
   status: "pending" | "imported" | "ignored"
   hike_id: number | null
   suggested_peaks: PeakSuggestion[]
 }
 
 const COLS =
-  "id, user_id, activity_id, start_date, name, type, distance_mi, elevation_gain_ft, duration_min, start_lat, start_lon, end_lat, end_lon, status, hike_id, suggested_peaks_json"
+  "id, user_id, activity_id, source, start_date, name, type, distance_mi, elevation_gain_ft, duration_min, start_lat, start_lon, end_lat, end_lon, status, hike_id, suggested_peaks_json"
 
 function toRow(r: Record<string, unknown>): ActivityRow {
   const { suggested_peaks_json, ...rest } = r
@@ -166,11 +167,12 @@ export function importActivity(user: { id: number; person_id: number | null }, a
     distanceMi: act.distance_mi,
     elevationGainFt: act.elevation_gain_ft,
     durationMin: act.duration_min,
-    externalId: `garmin:${act.activity_id}`,
+    // Garmin ids are bare numbers (shared by the official API and the Garmin Connect login); other sources are prefixed ("strava:", "file:")
+    externalId: act.activity_id.includes(":") ? act.activity_id : `garmin:${act.activity_id}`,
   }
   const res = saveHike(input, { userId: user.id, userPersonId: user.person_id, source: "api" })
   try {
-    attachActivityTrack(user.id, act.id, res.hike.id)
+    attachActivityTrack(user.id, act.id, res.hike.id, act.source.startsWith("garmin") ? "garmin" : "gpx")
   } catch (e) {
     console.error("[garmin] could not attach the GPS track:", e instanceof Error ? e.message : e)
   }

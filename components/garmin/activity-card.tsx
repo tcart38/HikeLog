@@ -66,7 +66,7 @@ export function ActivityCard({
     <Card>
       <CardHeader>
         <CardTitle className="text-balance">{activity.name || "Untitled activity"}</CardTitle>
-        <p className="text-sm text-muted-foreground tnum">{fmtDate(activity.startDate, { weekday: true })}</p>
+        <p className="text-sm text-muted-foreground tnum">{fmtDate(activity.startDate, { weekday: true })}{activity.source ? ` · ${activity.source}` : ""}</p>
         <div className="flex flex-wrap gap-x-4 gap-y-1 pt-1 text-sm text-muted-foreground tnum">
           {activity.distanceMi != null && (
             <span className="inline-flex items-center gap-1"><RouteIcon className="size-3.5" />{activity.distanceMi.toFixed(1)} mi</span>
