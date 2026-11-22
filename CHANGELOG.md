@@ -4,6 +4,11 @@ All notable changes to HikeLog are documented here. The format follows [Keep a C
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-22
+
+### Changed
+- Redlining page is easier to follow: a plain-language explanation of redlining, a progress summary for the selected region up front, "region or guide" instead of "network", a legend for done vs remaining trails, a note on how trails get marked (GPS track or by hand), and empty states.
+
 ## [0.1.0] - 2026-11-22
 
 First tagged version, summarizing the work so far.
@@ -20,5 +25,6 @@ First tagged version, summarizing the work so far.
 - Installable PWA with offline fallback and phone tab bar.
 - Docker image and compose setup; version shown in Settings, `/api/health` and `/docs`.
 
-[Unreleased]: https://github.com/tcart38/HikeLog/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/tcart38/HikeLog/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/tcart38/HikeLog/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/tcart38/HikeLog/releases/tag/v0.1.0

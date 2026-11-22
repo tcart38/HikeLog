@@ -18,11 +18,11 @@ export function RedliningControls({
   return (
     <div className="flex flex-col gap-3 rounded-xl p-3 ring-1 ring-foreground/10 md:flex-row md:flex-wrap md:items-center md:p-4">
       <div className="flex flex-col gap-1 md:contents">
-        <span className="text-xs font-medium text-muted-foreground md:hidden">Network</span>
-        <ParamSelect param="network" label="Network" value={network} options={networks} className="w-full md:w-72" />
+        <span className="text-xs font-medium text-muted-foreground md:hidden">Region or guide</span>
+        <ParamSelect param="network" label="Region or guide" value={network} options={networks} className="w-full md:w-72" />
       </div>
       <div className="flex flex-col gap-1 md:contents">
-        <span className="text-xs font-medium text-muted-foreground md:hidden">People</span>
+        <span className="text-xs font-medium text-muted-foreground">Whose progress?</span>
         <ToggleGroup
           aria-label="People"
           multiple

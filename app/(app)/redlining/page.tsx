@@ -8,6 +8,7 @@ import { DownloadNetworkButton } from "@/components/redlining/download-button"
 import { RedliningControls } from "@/components/redlining/redlining-controls"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
+import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty"
 import { networkCoverage, TRAIL_DONE_SHARE, trailProgress, type PersonCoverage, type TrailProgress } from "@/lib/coverage"
 import { one } from "@/lib/format"
 import { groupNotes, listNetworks } from "@/lib/networks"
@@ -128,21 +129,57 @@ export default async function RedliningPage({ searchParams }: PageProps<"/redlin
     <>
       <PageHeader
         title="Redlining"
-        description="Hike every trail in a network. A GPS track or a mark by hand both count."
+        description="Redlining means hiking every trail in a region or guide, and tracking what is left. Pick a region below to see your progress."
         actions={
           <Button variant="outline" className="h-10 md:h-8" nativeButton={false} render={<Link href={`/map${net ? `?network=${net.slug}` : ""}`} />}>
-            <MapIcon /> Open the map
+            <MapIcon /> Open map
           </Button>
         }
       />
+
+      {networks.every((x) => !x.fetched_at) && (
+        <Empty className="border">
+          <EmptyHeader>
+            <EmptyMedia variant="icon">
+              <MapIcon />
+            </EmptyMedia>
+            <EmptyTitle>No trail data yet</EmptyTitle>
+            <EmptyDescription>
+              {isAdmin ? "Download a region below to start. It takes a minute and only needs doing once." : "Ask an admin to download a region first."}
+            </EmptyDescription>
+          </EmptyHeader>
+        </Empty>
+      )}
+
+      {net?.fetched_at && (
+        <section aria-labelledby="summary-h" className="flex flex-col gap-4 rounded-xl p-4 ring-1 ring-foreground/10 md:p-5">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 id="summary-h" className="text-base font-medium md:text-lg">
+              {net.name}
+            </h2>
+            <span className="text-sm text-muted-foreground tnum">
+              {mi(net.total_length_mi)} mi · {net.trail_count.toLocaleString("en-US")} trails
+            </span>
+          </div>
+          <PersonBars people={selected} cov={cov.get(net.slug) ?? []} total={net.total_length_mi} />
+          <p className="text-xs text-muted-foreground">
+            Trails count as hiked automatically when a GPS track covers {Math.round(TRAIL_DONE_SHARE * 100)}% or more of them. You can also mark a trail by hand on the{" "}
+            <Link href={`/map?network=${net.slug}&person=${lead}`} className="font-medium text-primary hover:underline">
+              map
+            </Link>
+            .
+          </p>
+        </section>
+      )}
 
       <RedliningControls people={people.map((p) => ({ id: p.id, name: p.name }))} selected={ids} networks={netOptions} network={net?.slug ?? ""} />
 
       {/* Networks */}
       <section className="flex flex-col gap-6" aria-labelledby="networks-h">
         <h2 id="networks-h" className="sr-only">
-          Trail networks
+          Regions and guides
         </h2>
+        <h2 className="text-base font-medium">Regions and guides</h2>
         {[...groups.entries()]
           .sort((a, b) => Number(b[1].some((x) => x === net)) - Number(a[1].some((x) => x === net)) || Number(b[1].some((x) => x.fetched_at)) - Number(a[1].some((x) => x.fetched_at)))
           .map(([slug, items]) => {
@@ -279,10 +316,21 @@ export default async function RedliningPage({ searchParams }: PageProps<"/redlin
           <section aria-labelledby="trails-h" className="flex flex-col gap-3">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h2 id="trails-h" className="text-base font-medium">
-                {net.name} trails <span className="text-sm font-normal text-muted-foreground tnum">{trails.length.toLocaleString("en-US")}</span>
+                Trails in {net.name} <span className="text-sm font-normal text-muted-foreground tnum">{trails.length.toLocaleString("en-US")}</span>
               </h2>
-              <p className="text-xs text-muted-foreground">Done means {Math.round(TRAIL_DONE_SHARE * 100)}% or more hiked.</p>
+              <p className="flex items-center gap-3 text-xs text-muted-foreground">
+                <span className="flex items-center gap-1"><span className="inline-block size-2 rounded-full bg-done" /> Done ({Math.round(TRAIL_DONE_SHARE * 100)}%+ hiked)</span>
+                <span className="flex items-center gap-1"><span className="inline-block size-2 rounded-full bg-muted-foreground/40" /> Remaining</span>
+              </p>
             </div>
+            {trails.length === 0 && (
+              <Empty className="border">
+                <EmptyHeader>
+                  <EmptyTitle>No trails in this region</EmptyTitle>
+                  <EmptyDescription>Try re-downloading it, or pick another region.</EmptyDescription>
+                </EmptyHeader>
+              </Empty>
+            )}
             <div className="overflow-hidden rounded-xl ring-1 ring-foreground/10">
               <div
                 className="hidden items-center gap-4 border-b bg-muted/50 px-4 py-2.5 text-xs font-medium text-muted-foreground md:grid"
