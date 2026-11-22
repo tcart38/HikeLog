@@ -20,12 +20,12 @@ ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 \
     PORT=3000 HOSTNAME=0.0.0.0 \
     DATA_DIR=/data SEED_DIR=/app/data/lists \
     NODE_OPTIONS=--disable-warning=ExperimentalWarning
-COPY --from=build /app/.next/standalone ./
-COPY --from=build /app/.next/static ./.next/static
-COPY --from=build /app/public ./public
-COPY --from=build /app/data/lists ./data/lists
-COPY --from=build /app/data/networks ./data/networks
-RUN mkdir -p /data && chown -R node:node /data /app
+COPY --from=build --chown=node:node /app/.next/standalone ./
+COPY --from=build --chown=node:node /app/.next/static ./.next/static
+COPY --from=build --chown=node:node /app/public ./public
+COPY --from=build --chown=node:node /app/data/lists ./data/lists
+COPY --from=build --chown=node:node /app/data/networks ./data/networks
+RUN mkdir -p /data && chown node:node /data
 USER node
 VOLUME ["/data"]
 EXPOSE 3000

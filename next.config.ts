@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
   // Seed lists are read from disk at runtime; ship them with the server bundle.
   outputFileTracingIncludes: { "/**": ["./data/lists/**/*", "./data/networks/**/*"] },
   poweredByHeader: false,
+  async headers() {
+    return [
+      // The service worker must always be revalidated so updates roll out; scope stays "/".
+      { source: "/sw.js", headers: [{ key: "Cache-Control", value: "no-cache, no-store, must-revalidate" }, { key: "Service-Worker-Allowed", value: "/" }, { key: "Content-Type", value: "application/javascript; charset=utf-8" }] },
+    ]
+  },
 }
 
 export default nextConfig

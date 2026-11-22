@@ -55,6 +55,7 @@ const num = (s: string) => (s.trim() === "" || Number.isNaN(Number(s)) ? null : 
 
 export function HikeForm({
   today,
+  timeZone,
   peaks,
   lists,
   people,
@@ -62,6 +63,8 @@ export function HikeForm({
   initial,
 }: {
   today: string
+  /** Server's APP_TIMEZONE so the client's season/winter badges agree with the server. */
+  timeZone: string
   peaks: PickerPeak[]
   lists: PickerList[]
   people: PersonOption[]
@@ -99,10 +102,10 @@ export function HikeForm({
 
   const end = multiDay && endDate ? endDate : null
   const valid = /^\d{4}-\d{2}-\d{2}$/.test(date)
-  const season = valid ? seasonOf(date) : null
-  const winter = valid ? isWinterHike(date, end) : false
+  const season = valid ? seasonOf(date, timeZone) : null
+  const winter = valid ? isWinterHike(date, end, timeZone) : false
   const endBeforeStart = !!end && end < date
-  const crossesOut = valid && !!end && !endBeforeStart && seasonOf(date) === "winter" && !winter
+  const crossesOut = valid && !!end && !endBeforeStart && seasonOf(date, timeZone) === "winter" && !winter
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()

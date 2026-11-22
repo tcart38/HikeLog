@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { Geist_Mono, Inter } from "next/font/google"
 
 import "./globals.css"
+import { ServiceWorkerRegister } from "@/components/service-worker-register"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
@@ -15,6 +16,14 @@ export const metadata: Metadata = {
   description: "Log hikes once. Track every peak list, season and person.",
   applicationName: "HikeLog",
   appleWebApp: { capable: true, title: "HikeLog", statusBarStyle: "default" },
+  formatDetection: { telephone: false },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 }
 
 export const viewport: Viewport = {
@@ -34,6 +43,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ThemeProvider>
           <TooltipProvider>{children}</TooltipProvider>
           <Toaster position="top-center" />
+          <ServiceWorkerRegister />
         </ThemeProvider>
       </body>
     </html>

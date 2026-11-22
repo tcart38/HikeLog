@@ -1,5 +1,30 @@
 # Decisions
 
+## Overnight build summary
+
+**Built:** household hike log with people vs users and a shared instance; 16 seeded peak lists (NH 48, NE 67,
+NEHH, NE 115, ADK 46, Catskill 3500, ME/VT 4000s, 52 With a View, Southern Sixers, CO/CA 14ers, state high
+points, WA/Cascade lists) with modes All / Winter / Four-season / 12-month Grid / Snow-No snow-Mix; hike
+form with live season and "counts for winter" badge; compare page; stats page and dashboard highlights;
+map, GPS tracks, trail networks and redlining (AT, White Mountains, ADK High Peaks, Catskills) from OSM;
+Garmin Personal API import with per-user keys and an activity inbox; spreadsheet import; REST API with
+bearer tokens, OpenAPI 3.1 and `/docs`; installable PWA (PNG + maskable + Apple icons, service worker with
+offline fallback, theme colors); phone tab bar (Home, Lists, Log, Map, More sheet); Docker image
+(~434 MB, non-root, health check, volume at `/data`); README.
+
+**Check first:**
+1. **Garmin endpoints are unverified against a real account** (data API host, token response shape, GPX
+   route). Connect, Sync now, read "last error" on `/settings/garmin`; fixes are isolated in `lib/garmin/`.
+2. **Overpass downloads take minutes** (shared public servers, tiled requests, retries). Start one network
+   at a time from `/redlining`; set `OVERPASS_CONTACT`.
+3. **40 peaks lack coordinates** (ambiguous in OSM), so GPS-track suggestions skip them; title matching works.
+4. Set `APP_URL` to your real domain before installing the PWA on phones (https required for the service worker).
+5. Import your spreadsheet, then skim the dry-run warnings for unmatched peak names and ambiguous dates.
+6. Catskill 3500 uses the historical 35 peaks; winter is astronomical everywhere (see below).
+7. Service worker caches only static assets and visited pages (cleared on sign-out); API responses are never
+   cached. Bump `CACHE_VERSION` in `public/sw.js` to force a refresh.
+8. Docker verified on colima with `docker-compose` (the standalone binary); the `docker compose` plugin was not linked.
+
 Choices made while building autonomously overnight (2026-11-21). Each one is easy to revisit.
 
 ## Platform

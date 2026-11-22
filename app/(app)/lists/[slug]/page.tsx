@@ -92,7 +92,7 @@ export default async function ListPage({ params, searchParams }: PageProps<"/lis
   const sources = (JSON.parse(list.sources_json || "[]") as { title: string; url: string }[]).filter((s) => s.url)
 
   const viewNoun = { all: "climbed", winter: "done in winter", season: "four-season", grid: "grid complete", conditions: "all three conditions" }[view]
-  const condCounts = CONDS.map((k) => ({ k, n: allRows.filter((r) => r.cells[CONDS.indexOf(k)].done).length }))
+  const condCounts = CONDS.map((k, i) => ({ k, n: view === "conditions" ? allRows.filter((r) => r.cells[i]?.done).length : 0 }))
 
   return (
     <>

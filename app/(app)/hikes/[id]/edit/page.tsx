@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import { HikeForm } from "@/components/hike-form"
 import { PageHeader } from "@/components/page-header"
 import { getHike } from "@/lib/hikes"
+import { appTimeZone } from "@/lib/seasons"
 import { listLists } from "@/lib/progress"
 import { listPeople, peakOptions, requireUser, todayLocal } from "@/lib/queries"
 
@@ -19,6 +20,7 @@ export default async function EditHikePage({ params }: PageProps<"/hikes/[id]/ed
       <PageHeader title="Edit hike" />
       <HikeForm
         today={todayLocal()}
+        timeZone={appTimeZone()}
         peaks={peakOptions()}
         lists={listLists().map((l) => ({ slug: l.slug, label: l.short_name || l.name }))}
         people={listPeople().map((p) => ({ id: p.id, name: p.name }))}
