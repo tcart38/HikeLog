@@ -50,7 +50,7 @@ function jwtExp(token: string): number | null {
 
 /** Exchange a personal API key for an OAuth2 access token. */
 export async function exchangeKey(apiKey: string): Promise<{ accessToken: string; expiresAt: Date }> {
-  const res = await http(TOKEN_URL, { method: "POST", headers: { Authorization: `ApiKey ${apiKey}`, Accept: "application/json", "User-Agent": "HikeLog/1.0" } })
+  const res = await http(TOKEN_URL, { method: "POST", headers: { Accept: "*/*", Authorization: `ApiKey ${apiKey}` } })
   if (!res.ok) {
     // Diagnostics for failed exchanges: status, a few headers and the body. Never the key.
     const body = (await res.clone().text().catch(() => "")).slice(0, 300)
