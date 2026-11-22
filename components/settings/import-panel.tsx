@@ -10,7 +10,6 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { api } from "@/lib/client/api"
 import { fmtDate } from "@/lib/format"
@@ -38,6 +37,10 @@ type Preview = {
   updated?: number
 }
 
+function fmtSize(n: number) {
+  return n < 1024 * 1024 ? `${Math.max(1, Math.round(n / 1024))} KB` : `${(n / 1024 / 1024).toFixed(1)} MB`
+}
+
 export function ImportPanel({ people, defaultPersonId }: { people: { id: number; name: string }[]; defaultPersonId: number | null }) {
   const router = useRouter()
   const [file, setFile] = React.useState<File | null>(null)
@@ -46,6 +49,20 @@ export function ImportPanel({ people, defaultPersonId }: { people: { id: number;
   const [done, setDone] = React.useState<Preview | null>(null)
   const [busy, setBusy] = React.useState<"preview" | "commit" | null>(null)
   const [error, setError] = React.useState<string | null>(null)
+  const [dragging, setDragging] = React.useState(false)
+  const inputRef = React.useRef<HTMLInputElement>(null)
+
+  function pick(f: File | null) {
+    if (!f) return
+    if (!/\.(xlsx|xls|csv)$/i.test(f.name)) {
+      setError("That doesn't look like a spreadsheet. Use .xlsx, .xls or .csv.")
+      return
+    }
+    setFile(f)
+    setPreview(null)
+    setDone(null)
+    setError(null)
+  }
 
   function form() {
     const f = new FormData()
@@ -85,19 +102,66 @@ export function ImportPanel({ people, defaultPersonId }: { people: { id: number;
     <div className="flex flex-col gap-4">
       <div className="grid max-w-xl gap-4">
         <Field>
-          <FieldLabel htmlFor="xlsx">Spreadsheet (.xlsx)</FieldLabel>
-          <Input
+          <FieldLabel htmlFor="xlsx">Spreadsheet (.xlsx, .xls, .csv)</FieldLabel>
+          <input
+            ref={inputRef}
             id="xlsx"
             type="file"
             accept=".xlsx,.xls,.csv"
-            className="h-11 py-2 md:h-9"
+            className="sr-only"
             onChange={(e) => {
-              setFile(e.target.files?.[0] ?? null)
-              setPreview(null)
-              setDone(null)
-              setError(null)
+              pick(e.target.files?.[0] ?? null)
+              e.target.value = ""
             }}
           />
+          <div
+            role="button"
+            tabIndex={0}
+            aria-label={file ? `Selected file ${file.name}. Choose a different spreadsheet` : "Choose a spreadsheet or drop one here"}
+            onClick={() => inputRef.current?.click()}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault()
+                inputRef.current?.click()
+              }
+            }}
+            onDragEnter={(e) => {
+              e.preventDefault()
+              setDragging(true)
+            }}
+            onDragOver={(e) => {
+              e.preventDefault()
+              e.dataTransfer.dropEffect = "copy"
+              setDragging(true)
+            }}
+            onDragLeave={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setDragging(false)
+            }}
+            onDrop={(e) => {
+              e.preventDefault()
+              setDragging(false)
+              pick(e.dataTransfer.files?.[0] ?? null)
+            }}
+            className={cn(
+              "flex min-h-36 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-input bg-card px-4 py-6 text-center text-sm transition-colors outline-none",
+              "hover:border-primary/50 hover:bg-muted/50 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
+              dragging && "border-primary bg-primary/5"
+            )}
+          >
+            {file ? (
+              <>
+                <FileSpreadsheetIcon className="size-6 text-primary" />
+                <span className="font-medium break-all">{file.name}</span>
+                <span className="text-xs text-muted-foreground">{fmtSize(file.size)} · click or drop to replace</span>
+              </>
+            ) : (
+              <>
+                <UploadIcon className={cn("size-6 text-muted-foreground", dragging && "text-primary")} />
+                <span className="font-medium">{dragging ? "Drop to select" : "Drag a spreadsheet here"}</span>
+                <span className="text-xs text-muted-foreground">or click to browse</span>
+              </>
+            )}
+          </div>
         </Field>
         <Field>
           <FieldLabel htmlFor="import-self">Whose log is this?</FieldLabel>
