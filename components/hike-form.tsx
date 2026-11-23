@@ -7,7 +7,7 @@ import { toast } from "sonner"
 
 import { ParticipantsPicker, type Participant, type PersonOption } from "@/components/participants-picker"
 import { PeakPicker, type PickerList, type PickerPeak } from "@/components/peak-picker"
-import { SeasonBadge, WinterCountsBadge } from "@/components/season-badge"
+import { SeasonBadge } from "@/components/season-badge"
 import { Button } from "@/components/ui/button"
 import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
@@ -157,7 +157,6 @@ export function HikeForm({
               {season && (
                 <span className="flex flex-wrap items-center gap-1.5" aria-live="polite">
                   <SeasonBadge season={season} />
-                  {winter && <WinterCountsBadge />}
                 </span>
               )}
             </div>

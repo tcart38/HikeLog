@@ -6,7 +6,7 @@ import { EmptyHikes } from "@/components/empty-hikes"
 import { HikeCard, hikeTitle } from "@/components/hike-parts"
 import { HikeFilters } from "@/components/hike-filters"
 import { PageHeader } from "@/components/page-header"
-import { SeasonBadge, WinterCountsBadge } from "@/components/season-badge"
+import { SeasonBadge } from "@/components/season-badge"
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { CONDITION_LABEL, fmtRange, one } from "@/lib/format"
@@ -105,10 +105,7 @@ export default async function HikesPage({ searchParams }: PageProps<"/hikes">) {
                         </TableCell>
                         <TableCell className="text-muted-foreground">{h.participants.map((p) => p.name).join(", ")}</TableCell>
                         <TableCell>
-                          <span className="inline-flex items-center gap-1.5">
-                            <SeasonBadge season={h.season} />
-                            {h.isWinter && <WinterCountsBadge className="hidden xl:inline-flex" />}
-                          </span>
+                          <SeasonBadge season={h.season} />
                         </TableCell>
                         <TableCell className="text-muted-foreground">{h.conditions ? CONDITION_LABEL[h.conditions] : ""}</TableCell>
                         <TableCell className="text-right">{h.distanceMi ?? ""}</TableCell>
