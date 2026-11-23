@@ -6,6 +6,7 @@ Self-hosted hike log for a household. Log a hike once and every peak list, seaso
 
 - **Lists and modes.** NH 48, NE 67, NEHH, NE 115, ADK 46, Catskill 3500, Maine/Vermont 4000s, NH 52 With a View, Southern Sixers, 14ers, state high points and more. Each list shows progress as All, Winter, Four-season, 12-month Grid, or Snow / No snow / Mix.
 - **Compare.** Pick two or more people: "both still need", "only X needs", "done by all", plus a per-peak matrix.
+- **Planned hikes.** On any list, group the peaks you still need into planned hikes (name, optional date, notes) to see how many outings are left, not just peaks. "Log it" turns a plan into a logged hike.
 - **Stats.** Peaks per year, season and month charts, partners.
 - **Map and redlining.** GPS tracks per hike, peak map, and trail-network completion (AT, White Mountains, Adirondack High Peaks, Catskills) from OpenStreetMap.
 - **Activity import, your choice of source.** Garmin Personal API, Garmin Connect login (unofficial), Strava (official OAuth) or GPX/FIT file upload. Everything lands in one per-user inbox with peak suggestions from the GPS track; import with one tap. See [docs/import-sources.md](docs/import-sources.md).

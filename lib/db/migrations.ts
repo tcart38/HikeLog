@@ -276,4 +276,27 @@ export const migrations: string[] = [
     PRIMARY KEY (user_id, provider)
   );
   `,
+  /* 6: planned hikes (group remaining peaks into future outings) */ `
+  CREATE TABLE planned_hikes (
+    id INTEGER PRIMARY KEY,
+    person_id INTEGER NOT NULL REFERENCES people(id) ON DELETE CASCADE,
+    name TEXT NOT NULL,
+    target_date TEXT,                    -- YYYY-MM-DD, optional
+    notes TEXT,
+    hike_id INTEGER REFERENCES hikes(id) ON DELETE SET NULL,  -- the logged hike once the plan is done
+    done_at TEXT,                        -- set when marked done (hike_id may be NULL if the hike was later deleted)
+    created_by INTEGER REFERENCES users(id) ON DELETE SET NULL,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+  CREATE INDEX planned_hikes_person ON planned_hikes(person_id, done_at);
+
+  CREATE TABLE planned_hike_peaks (
+    planned_hike_id INTEGER NOT NULL REFERENCES planned_hikes(id) ON DELETE CASCADE,
+    peak_id INTEGER NOT NULL REFERENCES peaks(id) ON DELETE CASCADE,
+    ordinal INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (planned_hike_id, peak_id)
+  );
+  CREATE INDEX planned_hike_peaks_peak ON planned_hike_peaks(peak_id);
+  `,
 ]

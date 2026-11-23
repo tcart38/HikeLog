@@ -61,6 +61,7 @@ export function HikeForm({
   people,
   defaultPersonId,
   initial,
+  plan,
 }: {
   today: string
   /** Server's APP_TIMEZONE so the client's season/winter badges agree with the server. */
@@ -70,14 +71,16 @@ export function HikeForm({
   people: PersonOption[]
   defaultPersonId: number | null
   initial?: HikeFormInitial
+  /** Logging a planned hike: prefill from the plan, and mark it done once the hike is saved. */
+  plan?: { id: number; name: string; targetDate: string | null; peakIds: number[]; notes: string | null }
 }) {
   const router = useRouter()
   const byId = React.useMemo(() => new Map(peaks.map((p) => [p.id, p])), [peaks])
 
-  const [date, setDate] = React.useState(initial?.date ?? today)
+  const [date, setDate] = React.useState(initial?.date ?? (plan?.targetDate && plan.targetDate < today ? plan.targetDate : today))
   const [multiDay, setMultiDay] = React.useState(!!initial?.endDate && initial.endDate !== initial.date)
   const [endDate, setEndDate] = React.useState(initial?.endDate ?? "")
-  const [selPeaks, setSelPeaks] = React.useState<PickerPeak[]>(() => (initial?.peakIds ?? []).map((id) => byId.get(id)).filter(Boolean) as PickerPeak[])
+  const [selPeaks, setSelPeaks] = React.useState<PickerPeak[]>(() => (initial?.peakIds ?? plan?.peakIds ?? []).map((id) => byId.get(id)).filter(Boolean) as PickerPeak[])
   const [unmatched, setUnmatched] = React.useState<string[]>(initial?.unmatched ?? [])
   const [parts, setParts] = React.useState<Participant[]>(() =>
     initial
@@ -85,8 +88,8 @@ export function HikeForm({
       : people.filter((p) => p.id === defaultPersonId).map((p) => ({ key: `p${p.id}`, id: p.id, name: p.name, counts: true }))
   )
   const [conditions, setConditions] = React.useState<string>(initial?.conditions ?? "")
-  const [notes, setNotes] = React.useState(initial?.notes ?? "")
-  const [title, setTitle] = React.useState(initial?.title ?? "")
+  const [notes, setNotes] = React.useState(initial?.notes ?? plan?.notes ?? "")
+  const [title, setTitle] = React.useState(initial?.title ?? plan?.name ?? "")
   const [weather, setWeather] = React.useState(initial?.weather ?? "")
   const [trail, setTrail] = React.useState(initial?.trailConditions ?? "")
   const [miles, setMiles] = React.useState(initial?.distanceMi?.toString() ?? "")
@@ -136,6 +139,12 @@ export function HikeForm({
       const res = initial
         ? await api<{ hike: { id: number } }>(`/api/v1/hikes/${initial.id}`, { method: "PATCH", body })
         : await api<{ hike: { id: number } }>("/api/v1/hikes", { body })
+      if (plan && !initial) {
+        // The hike is saved either way; a failure here only means the plan stays open.
+        await api(`/api/v1/planned-hikes/${plan.id}`, { method: "PATCH", body: { done: true, hikeId: res.hike.id } }).catch(() =>
+          toast.error("Hike logged, but the plan couldn't be marked done. Reopen it from Planned hikes.")
+        )
+      }
       toast.success(initial ? "Hike updated" : "Hike logged")
       router.push(`/hikes/${res.hike.id}`)
       router.refresh()
