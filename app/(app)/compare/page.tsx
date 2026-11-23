@@ -39,7 +39,7 @@ function PeakLine({ r, ids, names, units, mode }: { r: CompareRow; ids: number[]
 export default async function ComparePage({ searchParams }: PageProps<"/compare">) {
   await requireUser()
   const sp = await searchParams
-  const people = listPeople()
+  const people = listPeople().filter((p) => p.can_compare)
   const lists = listLists()
   const names = new Map(people.map((p) => [p.id, p.name]))
 
@@ -68,10 +68,10 @@ export default async function ComparePage({ searchParams }: PageProps<"/compare"
               <CheckIcon />
             </EmptyMedia>
             <EmptyTitle>Add a second person to compare</EmptyTitle>
-            <EmptyDescription>Comparison needs at least two people. Add your partner or a hiking friend, then log hikes with both of you on them.</EmptyDescription>
+            <EmptyDescription>Comparison needs at least two people marked &quot;Compare with this person&quot;. Hiking partners you only log hikes with don&apos;t show up here.</EmptyDescription>
           </EmptyHeader>
           <Link href="/settings/people" className="text-sm font-medium text-primary hover:underline">
-            Add a person
+            Manage people
           </Link>
         </Empty>
       </>

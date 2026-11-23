@@ -8,8 +8,10 @@ export const GET = withAuth(async (req) => {
   if (!slug) throw new ApiError("list (slug) is required", 400)
   const ids = q.get("people")
     ? [...new Set(q.get("people")!.split(",").map((s) => s.trim()).filter(Boolean).map((s) => requirePerson(s).id))]
-    : listPeople().filter((p) => p.hike_count > 0).map((p) => p.id)
+    : listPeople().filter((p) => p.can_compare && p.hike_count > 0).map((p) => p.id)
   if (ids.length < 1) throw new ApiError("people must name at least one person", 400)
+  const notComparable = listPeople().filter((p) => ids.includes(p.id) && !p.can_compare)
+  if (notComparable.length) throw new ApiError(`Not set up for comparison: ${notComparable.map((p) => p.name).join(", ")}. Turn on "Compare with this person" first.`, 400)
   const c = compare(slug, ids, parseMode(q.get("mode")))
   if (!c) throw new ApiError("List not found", 404)
   const people = listPeople().filter((p) => ids.includes(p.id)).map((p) => ({ id: p.id, name: p.name, color: p.color }))

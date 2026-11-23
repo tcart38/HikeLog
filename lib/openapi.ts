@@ -96,6 +96,7 @@ export function buildOpenApi(serverUrl: string): Json {
     Person: obj(
       {
         id: int(), name: str(), color: nullable(str()), createdAt: str(),
+        canCompare: { type: "boolean", description: "True for people you can compare progress with; false for plain hiking partners" },
         userId: nullable(int()), username: nullable(str("Login linked to this person, if any")),
         hikeCount: int("Hikes where this person gets credit"), peakCount: int("Distinct peaks credited"),
       },
@@ -328,18 +329,18 @@ export function buildOpenApi(serverUrl: string): Json {
       get: {
         tags: ["Progress"], summary: "Compare people on a list", operationId: "compare",
         description: "Shows who still needs what. `summary.allNeed` = peaks nobody has done, `allDone` = done by everyone.",
-        parameters: [{ ...q("list", "List slug"), required: true }, q("people", "Comma-separated person ids or names (default: everyone with hikes)"), modeParam],
+        parameters: [{ ...q("list", "List slug"), required: true }, q("people", "Comma-separated person ids or names, all of whom must have canCompare on (default: every comparable person with hikes)"), modeParam],
         responses: { ...ok("OK", ref("Compare")), ...errs("400", "401", "404") },
       },
     },
     "/api/v1/people": {
       get: { tags: ["People"], summary: "List people", operationId: "listPeople", responses: { ...ok("OK", obj({ people: arr(ref("Person")) })), ...errs("401") } },
-      post: { tags: ["People"], summary: "Create a person", operationId: "createPerson", requestBody: body(obj({ name: str(), color: str("CSS hex color") }, ["name"])), responses: { ...ok("Created", obj({ person: ref("Person") }), "201"), ...errs("400", "401", "409") } },
+      post: { tags: ["People"], summary: "Create a person", operationId: "createPerson", requestBody: body(obj({ name: str(), color: str("CSS hex color"), canCompare: { type: "boolean", description: "Default false (plain hiking partner)" } }, ["name"])), responses: { ...ok("Created", obj({ person: ref("Person") }), "201"), ...errs("400", "401", "409") } },
     },
     "/api/v1/people/{id}": {
       parameters: [idParam("id", "Person id")],
       get: { tags: ["People"], summary: "Get a person", operationId: "getPerson", responses: { ...ok("OK", obj({ person: ref("Person") })), ...errs("401", "404") } },
-      patch: { tags: ["People"], summary: "Rename / recolor", operationId: "updatePerson", requestBody: body(obj({ name: str(), color: nullable(str()) })), responses: { ...ok("OK", obj({ person: ref("Person") })), ...errs("400", "401", "404", "409") } },
+      patch: { tags: ["People"], summary: "Rename / recolor / set whether they can be compared", operationId: "updatePerson", requestBody: body(obj({ name: str(), color: nullable(str()), canCompare: { type: "boolean" } })), responses: { ...ok("OK", obj({ person: ref("Person") })), ...errs("400", "401", "404", "409") } },
       delete: {
         tags: ["People"], summary: "Delete a person", operationId: "deletePerson",
         description: "Refused (409) if linked to a user account, or if the person is on hikes unless `force=1` (which removes their participation).",

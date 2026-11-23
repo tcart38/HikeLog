@@ -12,7 +12,7 @@ export function StatsControls({
   personId: number
   withId: number | null
   year: number
-  people: { id: number; name: string }[]
+  people: { id: number; name: string; canCompare: boolean }[]
   years: number[]
 }) {
   return (
@@ -25,7 +25,7 @@ export function StatsControls({
           label="Compare with"
           className="w-full min-w-0 sm:w-auto"
           value={withId ? String(withId) : "any"}
-          options={[{ value: "any", label: "No one" }, ...people.filter((p) => p.id !== personId).map((p) => ({ value: String(p.id), label: p.name }))]}
+          options={[{ value: "any", label: "No one" }, ...people.filter((p) => p.canCompare && p.id !== personId).map((p) => ({ value: String(p.id), label: p.name }))]}
         />
       </div>
       {years.length > 0 && (

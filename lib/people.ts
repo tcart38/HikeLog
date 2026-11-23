@@ -7,6 +7,7 @@ export type Person = {
   name: string
   color: string | null
   created_at: string
+  can_compare: boolean
   user_id: number | null
   username: string | null
   hike_count: number
@@ -14,18 +15,21 @@ export type Person = {
 }
 
 const SELECT = `
-  SELECT p.id, p.name, p.color, p.created_at, u.id user_id, u.username,
+  SELECT p.id, p.name, p.color, p.created_at, p.can_compare, u.id user_id, u.username,
     (SELECT COUNT(*) FROM hike_participants hp WHERE hp.person_id = p.id AND hp.counts = 1) hike_count,
     (SELECT COUNT(DISTINCT hk.peak_id) FROM hike_participants hp JOIN hike_peaks hk ON hk.hike_id = hp.hike_id
        WHERE hp.person_id = p.id AND hp.counts = 1) peak_count
   FROM people p LEFT JOIN users u ON u.person_id = p.id`
 
+const hydrate = (r: Person): Person => ({ ...r, can_compare: !!r.can_compare })
+
 export function listPeople(): Person[] {
-  return all<Person>(`${SELECT} ORDER BY p.name COLLATE NOCASE`)
+  return all<Person>(`${SELECT} ORDER BY p.name COLLATE NOCASE`).map(hydrate)
 }
 
 export function getPerson(id: number): Person | null {
-  return get<Person>(`${SELECT} WHERE p.id = ?`, id) ?? null
+  const r = get<Person>(`${SELECT} WHERE p.id = ?`, id)
+  return r ? hydrate(r) : null
 }
 
 /** Find by numeric id or case-insensitive name. */
@@ -42,27 +46,33 @@ function cleanName(name: unknown): string {
   if (typeof name !== "string" || !name.trim()) throw new HikeError("name is required", undefined, 400)
   return name.trim().slice(0, 80)
 }
+function cleanCompare(v: unknown, fallback: boolean): boolean {
+  if (v === undefined) return fallback
+  if (typeof v !== "boolean") throw new HikeError("canCompare must be true or false", undefined, 400)
+  return v
+}
 function cleanColor(color: unknown): string | null {
   if (color === null || color === undefined || color === "") return null
   if (typeof color !== "string" || !/^#[0-9a-fA-F]{3,8}$|^[a-z]{3,20}$/.test(color)) throw new HikeError("color must be a hex color like #3a7d44", undefined, 400)
   return color
 }
 
-export function createPerson(input: { name: unknown; color?: unknown }, userId: number | null): Person {
+export function createPerson(input: { name: unknown; color?: unknown; canCompare?: unknown }, userId: number | null): Person {
   const name = cleanName(input.name)
   if (findPerson(name)) throw new HikeError(`A person named "${name}" already exists`, undefined, 409)
-  const id = Number(run("INSERT INTO people (name, color, created_by) VALUES (?, ?, ?)", name, cleanColor(input.color), userId).lastInsertRowid)
+  const id = Number(run("INSERT INTO people (name, color, can_compare, created_by) VALUES (?, ?, ?, ?)", name, cleanColor(input.color), cleanCompare(input.canCompare, false) ? 1 : 0, userId).lastInsertRowid)
   return getPerson(id)!
 }
 
-export function updatePerson(id: number, input: { name?: unknown; color?: unknown }): Person {
+export function updatePerson(id: number, input: { name?: unknown; color?: unknown; canCompare?: unknown }): Person {
   const cur = getPerson(id)
   if (!cur) throw new HikeError("Person not found", undefined, 404)
   const name = input.name === undefined ? cur.name : cleanName(input.name)
   const color = input.color === undefined ? cur.color : cleanColor(input.color)
   const clash = findPerson(name)
   if (clash && clash.id !== id) throw new HikeError(`A person named "${name}" already exists. Use merge instead.`, undefined, 409)
-  run("UPDATE people SET name = ?, color = ? WHERE id = ?", name, color, id)
+  const canCompare = cleanCompare(input.canCompare, cur.can_compare)
+  run("UPDATE people SET name = ?, color = ?, can_compare = ? WHERE id = ?", name, color, canCompare ? 1 : 0, id)
   return getPerson(id)!
 }
 
@@ -99,6 +109,7 @@ export function mergePeople(sourceId: number, targetId: number): Person {
         d.prepare("INSERT INTO hike_participants (hike_id, person_id, counts, note) VALUES (?, ?, ?, ?)").run(p.hike_id, targetId, p.counts, p.note)
       }
     }
+    if (src.can_compare) d.prepare("UPDATE people SET can_compare = 1 WHERE id = ?").run(targetId)
     d.prepare("DELETE FROM people WHERE id = ?").run(sourceId) // cascades remaining source participations
   })
   return getPerson(targetId)!

@@ -4,6 +4,12 @@ All notable changes to HikeLog are documented here. The format follows [Keep a C
 
 ## [Unreleased]
 
+### Added
+- Two kinds of people in Settings → People: plain hiking partners (only recorded on hikes) and people you can compare with. Each person has a "Compare" switch (also on the Add person dialog, and `canCompare` in the API). Compare and the Stats "vs" picker list only comparable people; partners still appear on hikes, hike forms and partner stats.
+
+### Changed
+- Migration 6 adds `people.can_compare`. Existing people who have a login stay comparable; everyone else becomes a plain hiking partner (flip the switch to change). `GET /api/v1/compare` rejects people who aren't comparable.
+
 ## [0.2.0] - 2026-11-22
 
 ### Added

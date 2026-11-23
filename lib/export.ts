@@ -66,7 +66,7 @@ export function fullExport() {
     format: 1,
     exportedAt: new Date().toISOString(),
     note: "Photos and videos are not inlined. Their files live in the data volume under media/, and each hike lists them with their URLs.",
-    people: all<Record<string, unknown>>("SELECT id, name, color, created_at FROM people ORDER BY id").map((r) => ({ ...r })),
+    people: all<Record<string, unknown>>("SELECT id, name, color, can_compare, created_at FROM people ORDER BY id").map((r) => ({ ...r })),
     hikes,
     tracks: all("SELECT hike_id, geojson, source, length_mi FROM hike_tracks ORDER BY hike_id").map((r) => ({
       hikeId: (r as { hike_id: number }).hike_id,
