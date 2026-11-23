@@ -13,7 +13,7 @@ const byHref = (href: string) => NAV_MAIN.find((i) => i.href === href)!
 const TABS = [byHref("/"), byHref("/lists")] as const
 const MAP = byHref("/map")
 // Everything that does not fit in the tab bar.
-const MORE = [byHref("/hikes"), byHref("/stats"), byHref("/compare"), ...NAV_MANAGE] as const
+const MORE = [byHref("/hikes"), byHref("/planned"), byHref("/stats"), byHref("/compare"), ...NAV_MANAGE] as const
 
 const tabClass = (active: boolean) =>
   cn("flex min-h-14 flex-1 flex-col items-center justify-center gap-0.5 text-[11px] font-medium transition-colors", active ? "text-primary" : "text-muted-foreground")

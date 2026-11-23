@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ExternalLinkIcon, GitCompareArrowsIcon } from "lucide-react"
 
+import { PlannedHikesPanel } from "@/components/planned-hikes"
 import { PageHeader } from "@/components/page-header"
 import { PeakMatrix, type MatrixColumn, type MatrixRow } from "@/components/peak-matrix"
 import { ProgressBar } from "@/components/progress-bar"
@@ -12,6 +13,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CONDITION_LABEL, monthSeason, one, parseView, type View } from "@/lib/format"
 import { UserPrefs } from "@/lib/prefs"
+import { listPlans } from "@/lib/planned"
 import { getList, listProgress, tally, type Mode } from "@/lib/progress"
 import { listPeople, peakCells, requireUser, type PeakCells } from "@/lib/queries"
 import { MONTH_LABEL, SEASON_LABEL, SEASONS } from "@/lib/seasons"
@@ -96,6 +98,21 @@ export default async function ListPage({ params, searchParams }: PageProps<"/lis
   const done = counted.completed
   const credits = counted.credits
   const rows = leftOnly ? allRows.filter((r) => r.credit < r.units) : allRows
+  // Planned hikes: what's left in this view, grouped into the person's open plans.
+  // Electives ("pick N") only count as left until the list has the N it asks for.
+  const electivesDone = prog.peaks.filter((p, i) => p.elective && allRows[i].credit >= units).length
+  const electivesOpen = list.electives_needed == null || electivesDone < list.electives_needed
+  const leftPeaks = prog.peaks.filter((p, i) => allRows[i].credit < units && (!p.elective || electivesOpen))
+  // Winter plans only count in the Winter view; any-season plans count everywhere.
+  const plans = listPlans(personId).filter((p) => view === "winter" || !p.season)
+  const leftIds = new Set(leftPeaks.map((p) => p.id))
+  const plannedElsewhere = new Set(plans.flatMap((p) => p.peaks.map((k) => k.id)))
+  const activePlans = plans.filter((p) => p.peaks.some((k) => leftIds.has(k.id)))
+  const inActive = new Set(activePlans.flatMap((p) => p.peaks.map((k) => k.id)))
+  const asCandidate = (p: (typeof leftPeaks)[number]) => ({ id: p.id, name: p.name, elevationFt: p.elevation_ft })
+  const unplanned = leftPeaks.filter((p) => !inActive.has(p.id)).map(asCandidate)
+  const candidates = leftPeaks.filter((p) => !plannedElsewhere.has(p.id)).map(asCandidate)
+  const doneIds = prog.peaks.filter((_, i) => allRows[i].credit >= units).map((p) => p.id)
   const sources = (JSON.parse(list.sources_json || "[]") as { title: string; url: string }[]).filter((s) => s.url)
 
   const viewNoun = { all: "climbed", winter: "done in winter", season: "four-season", grid: "grid complete", conditions: "all three conditions" }[view]
@@ -141,6 +158,18 @@ export default async function ListPage({ params, searchParams }: PageProps<"/lis
       </div>
 
       {enabled.length > 1 && <ViewTabs value={view} views={enabled} />}
+
+      <PlannedHikesPanel
+        personId={personId}
+        personName={person.name}
+        plans={activePlans}
+        doneIds={doneIds}
+        unplanned={unplanned}
+        candidates={candidates}
+        leftCount={leftPeaks.length}
+        defaultSeason={view === "winter" ? "winter" : null}
+        noun={viewNoun}
+      />
 
       <PeakMatrix
         columns={columns}

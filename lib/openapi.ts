@@ -93,6 +93,12 @@ export function buildOpenApi(serverUrl: string): Json {
       hikeId: int(), geojson: { type: "object", description: "LineString or MultiLineString" }, pointCount: int(), originalPointCount: nullable(int()),
       lengthMi: { type: "number" }, bbox: nullable(arr({ type: "number" })), source: { enum: ["gpx", "garmin", "manual"] }, createdAt: str(),
     }),
+    PlannedHike: obj({
+      id: int(), personId: int(), name: str(), targetDate: nullable(str("YYYY-MM-DD")), notes: nullable(str()),
+      season: { oneOf: [{ type: "string", enum: ["winter"] }, { type: "null" }], description: "null = any season; winter = counts only toward Winter-view progress" },
+      hikeId: nullable(int("Logged hike, once marked done")), doneAt: nullable(str()),
+      peaks: arr(obj({ id: int(), slug: str(), name: str(), elevationFt: nullable(int()) })),
+    }, ["id", "personId", "name", "peaks"]),
     Person: obj(
       {
         id: int(), name: str(), color: nullable(str()), createdAt: str(),
@@ -331,6 +337,31 @@ export function buildOpenApi(serverUrl: string): Json {
         parameters: [{ ...q("list", "List slug"), required: true }, q("people", "Comma-separated person ids or names (default: everyone with hikes)"), modeParam],
         responses: { ...ok("OK", ref("Compare")), ...errs("400", "401", "404") },
       },
+    },
+    "/api/v1/planned-hikes": {
+      get: {
+        tags: ["Planned hikes"], summary: "List a person's planned hikes", operationId: "listPlannedHikes",
+        description: "Open plans by default (soonest target date first); `status=done` lists finished ones. Defaults to the caller's own person.",
+        parameters: [q("person", "Person id or name"), q("status", "open (default) or done", { type: "string", enum: ["open", "done"] })],
+        responses: { ...ok("OK", obj({ plannedHikes: arr(ref("PlannedHike")) })), ...errs("400", "401", "404") },
+      },
+      post: {
+        tags: ["Planned hikes"], summary: "Plan a hike", operationId: "createPlannedHike",
+        description: "Group peaks into a future outing. `season` is null (any season, default) or `winter`. A peak can be in only one open plan per person and season (409 otherwise).",
+        requestBody: body(obj({ personId: int(), name: str(), targetDate: nullable(str("YYYY-MM-DD")), notes: nullable(str()), season: { oneOf: [{ type: "string", enum: ["winter"] }, { type: "null" }] }, peakIds: arr(int()) }, ["name", "peakIds"])),
+        responses: { ...ok("Created", obj({ plannedHike: ref("PlannedHike") }), "201"), ...errs("400", "401", "404", "409") },
+      },
+    },
+    "/api/v1/planned-hikes/{id}": {
+      parameters: [idParam("id", "Planned hike id")],
+      get: { tags: ["Planned hikes"], summary: "Get a planned hike", operationId: "getPlannedHike", responses: { ...ok("OK", obj({ plannedHike: ref("PlannedHike") })), ...errs("401", "404") } },
+      patch: {
+        tags: ["Planned hikes"], summary: "Edit, mark done, or reopen", operationId: "updatePlannedHike",
+        description: "Send fields to edit (partial). Or send `{done: true, hikeId}` to mark it done and link the logged hike, or `{done: false}` to reopen it.",
+        requestBody: body(obj({ name: str(), targetDate: nullable(str()), notes: nullable(str()), season: nullable(str()), peakIds: arr(int()), done: { type: "boolean" }, hikeId: nullable(int()) })),
+        responses: { ...ok("OK", obj({ plannedHike: ref("PlannedHike") })), ...errs("400", "401", "404", "409") },
+      },
+      delete: { tags: ["Planned hikes"], summary: "Delete a planned hike", operationId: "deletePlannedHike", responses: { ...ok("Deleted", obj({ ok: { type: "boolean" } })), ...errs("401", "404") } },
     },
     "/api/v1/people": {
       get: { tags: ["People"], summary: "List people", operationId: "listPeople", responses: { ...ok("OK", obj({ people: arr(ref("Person")) })), ...errs("401") } },

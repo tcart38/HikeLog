@@ -4,6 +4,14 @@ All notable changes to HikeLog are documented here. The format follows [Keep a C
 
 ## [Unreleased]
 
+### Added
+- Planned hikes: group the peaks you still need into future outings. Each peak list page has a "Planned hikes" section showing "X peaks left: Y in Z planned hikes, W not planned yet", your plans (name, optional target date and notes, peaks), and the peaks not in any plan. A new Planned page lists every plan for a person, open and done.
+- "Log it" on a plan opens the hike form prefilled with its name and peaks; saving the hike marks the plan done and links it. Plans can be reopened or deleted.
+- REST API `/api/v1/planned-hikes` (list, create, get, edit, mark done / reopen, delete), documented in the OpenAPI spec. A peak can be in only one open plan per person.
+- A plan can be tied to a season: "Any season" (default) counts in every view, "Winter" counts only toward the Winter view. The same peak may be in one any-season plan and one winter plan.
+- The Planned hikes card on list pages can be collapsed; the choice is remembered per browser.
+- Database migrations 6 and 7 (new `planned_hikes` and `planned_hike_peaks` tables, then a `season` column; existing data untouched).
+
 ## [0.2.0] - 2026-11-22
 
 ### Added
