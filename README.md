@@ -46,7 +46,7 @@ Updates: Unraid compares the registry digest of `:latest`, so the Docker tab sho
 | `ALLOWED_ORIGINS` | empty | Extra hosts (comma separated) allowed to POST with a session cookie. Rarely needed. |
 | `ALLOWED_DEV_ORIGINS` | falls back to `ALLOWED_ORIGINS` | Extra hostnames for `pnpm dev` only (Next dev-server origin check). |
 | `APP_TIMEZONE` | `America/New_York` | Zone used to decide which season a date falls in. Client and server both use it. |
-| `ALLOW_SIGNUP` | `false` | `true` lets anyone create an account at `/setup`. The first account is always allowed and becomes admin. |
+| `ALLOW_SIGNUP` | `false` | Default for public sign-up (`/signup`, linked from the sign-in page) until an admin changes it in **Settings > Account > Sign-up**; the saved setting then wins. The first account is always allowed at `/setup` and becomes admin. |
 | `PUID` / `PGID` | `99` / `100` | User and group the container runs as (Unraid `nobody:users`). Ownership of `/data` is fixed at start. Skip by starting with `--user`. |
 | `APP_SECRET` | generated | Optional own secret for encrypting stored Garmin tokens. By default a random one is stored in `/data/secret.key`. |
 | `DATA_DIR` | `/data` in Docker, `./data/db` in dev | Where `hikelog.db` and `secret.key` live. |
@@ -97,7 +97,7 @@ Service workers and "Add to Home Screen" need https (localhost is exempt).
 
 - A **person** is anyone who hikes (Sam, Jordan, a friend). A **user** is a login linked to one person.
 - The first signup becomes admin and creates your person. Add family members as people in **People** straight away, even if they never log in, then log hikes with them as participants.
-- Give someone a login from **Settings > Users** (admin), or set `ALLOW_SIGNUP=true` temporarily. Signing up with the display name of an existing person links to that person.
+- Give someone a login from **Settings > Users** (admin), or turn on **Allow public sign-up** in Settings > Account. Self-registered users are regular users with their own new person; adding an account as an admin with an existing person's name still links to that person.
 - Participants can be "along but not counted". Everyone signed in sees and edits everything (single shared household).
 
 ## Importing your spreadsheet

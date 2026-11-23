@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic"
 
 export default async function SetupPage() {
   if (await getUser()) redirect("/")
-  if (userCount() > 0 && !signupOpen()) redirect("/login")
+  if (userCount() > 0) redirect(signupOpen() ? "/signup" : "/login")
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-1 text-center">

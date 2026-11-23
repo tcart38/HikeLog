@@ -9,11 +9,11 @@ import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from "@/c
 import { Input } from "@/components/ui/input"
 import { api } from "@/lib/client/api"
 
-export function AuthForm({ mode }: { mode: "login" | "setup" }) {
+export function AuthForm({ mode }: { mode: "login" | "setup" | "signup" }) {
   const router = useRouter()
   const [pending, setPending] = React.useState(false)
   const [error, setError] = React.useState<string | null>(null)
-  const setup = mode === "setup"
+  const setup = mode !== "login" // setup and signup share the create-account fields
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -84,7 +84,7 @@ export function AuthForm({ mode }: { mode: "login" | "setup" }) {
         {error && <FieldError role="alert">{error}</FieldError>}
         <Button type="submit" size="lg" className="h-11 w-full md:h-9" disabled={pending}>
           {pending && <Loader2Icon className="animate-spin" />}
-          {setup ? "Create admin account" : "Sign in"}
+          {mode === "setup" ? "Create admin account" : mode === "signup" ? "Create account" : "Sign in"}
         </Button>
       </FieldGroup>
     </form>

@@ -35,23 +35,49 @@ export function userCount(): number {
   return get<{ n: number }>("SELECT COUNT(*) n FROM users")!.n
 }
 
-/** Self-registration is open only when there are no users yet or ALLOW_SIGNUP=true. */
+const SELF_SIGNUP_KEY = "self_signup"
+
+/**
+ * Whether anyone may create their own account. An admin setting (stored in `meta`) wins;
+ * until one is saved, ALLOW_SIGNUP=true keeps working as the default. Off otherwise.
+ */
+export function selfSignupEnabled(): boolean {
+  const row = get<{ value: string }>("SELECT value FROM meta WHERE key = ?", SELF_SIGNUP_KEY)
+  return row ? row.value === "1" : process.env.ALLOW_SIGNUP === "true"
+}
+
+export function setSelfSignupEnabled(on: boolean) {
+  run(
+    "INSERT INTO meta (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value",
+    SELF_SIGNUP_KEY,
+    on ? "1" : "0"
+  )
+}
+
+/** Sign-up is open for the first-run admin account, or while the admin setting is on. */
 export function signupOpen(): boolean {
-  return userCount() === 0 || process.env.ALLOW_SIGNUP === "true"
+  return userCount() === 0 || selfSignupEnabled()
 }
 
 /**
  * Create a user. Also creates (or links) a person with the given display name,
  * since every account hikes as a person. First user is admin.
  */
-export function createUser(username: string, password: string, displayName?: string, isAdmin?: boolean): User {
+export function createUser(
+  username: string,
+  password: string,
+  displayName?: string,
+  isAdmin?: boolean,
+  opts: { linkExistingPerson?: boolean } = {}
+): User {
+  const link = opts.linkExistingPerson ?? true
   return tx((d) => {
     const first = (d.prepare("SELECT COUNT(*) n FROM users").get() as { n: number }).n === 0
     const name = (displayName || username).trim()
-    let person = d.prepare("SELECT id FROM people WHERE name = ? COLLATE NOCASE").get(name) as
+    let person = (link ? d.prepare("SELECT id FROM people WHERE name = ? COLLATE NOCASE").get(name) : undefined) as
       | { id: number }
       | undefined
-    if (person) {
+    if (person && link) {
       const taken = d.prepare("SELECT 1 FROM users WHERE person_id = ?").get(person.id)
       if (taken) person = undefined
     }
