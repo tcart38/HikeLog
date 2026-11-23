@@ -4,6 +4,9 @@ All notable changes to HikeLog are documented here. The format follows [Keep a C
 
 ## [Unreleased]
 
+### Removed
+- The "Counts for winter" badge on the hikes list, hike detail, hike cards and the hike form. The season badge stays, and winter counting itself is unchanged.
+
 ## [0.2.0] - 2026-11-22
 
 ### Added

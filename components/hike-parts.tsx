@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { CloudSnowIcon, RouteIcon, TrendingUpIcon, UsersIcon } from "lucide-react"
 
-import { SeasonBadge, WinterCountsBadge } from "@/components/season-badge"
+import { SeasonBadge } from "@/components/season-badge"
 import { CONDITION_LABEL, fmtRange } from "@/lib/format"
 import type { Hike } from "@/lib/hikes"
 import { cn } from "@/lib/utils"
@@ -53,7 +53,6 @@ export function HikeCard({ h, showPeople = true }: { h: Hike; showPeople?: boole
       </div>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
         <HikeStats h={h} />
-        {h.isWinter && <WinterCountsBadge />}
       </div>
     </Link>
   )

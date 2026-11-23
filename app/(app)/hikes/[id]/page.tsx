@@ -10,7 +10,7 @@ import { HikeWeatherActions } from "@/components/hike-weather-actions"
 import { HikeMapLoader } from "@/components/map/hike-map-loader"
 import { hikeTitle } from "@/components/hike-parts"
 import { PageHeader } from "@/components/page-header"
-import { SeasonBadge, WinterCountsBadge } from "@/components/season-badge"
+import { SeasonBadge } from "@/components/season-badge"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -62,7 +62,6 @@ export default async function HikePage({ params }: PageProps<"/hikes/[id]">) {
           <span className="flex flex-wrap items-center gap-2">
             <span className="tnum">{fmtRange(hike.date, hike.endDate)}</span>
             <SeasonBadge season={hike.season} />
-            {hike.isWinter && <WinterCountsBadge />}
             {hike.conditions && <Badge variant="secondary">{CONDITION_LABEL[hike.conditions]}</Badge>}
           </span>
         }
