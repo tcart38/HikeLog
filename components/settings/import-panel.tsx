@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { CheckCircle2Icon, FileSpreadsheetIcon, Loader2Icon, TriangleAlertIcon, UploadIcon } from "lucide-react"
+import { CheckCircle2Icon, DownloadIcon, FileSpreadsheetIcon, Loader2Icon, TriangleAlertIcon, UploadIcon } from "lucide-react"
 import { toast } from "sonner"
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -35,6 +35,24 @@ type Preview = {
   reconcile?: { sheet: string; sheetOnly: string[]; logOnly: string[] }[]
   created?: number
   updated?: number
+}
+
+const TEMPLATE_HEADER = ["Date", "Mountain(s)", "Partners", "Snow/No Snow", "Weather", "Trail conditions", "Other lists", "Notes"]
+const TEMPLATE_ROWS = [
+  ["2024-07-04", "Mount Washington", "Alex", "No Snow", "Sunny, light wind", "Dry", "", "First hike of the summer"],
+  ["7/12/24", "Mount Lafayette, Mount Lincoln", "Alex, Sam", "No Snow", "Clear", "", "", ""],
+  ["1/6-7/25", "Mount Adams", "", "Snow", "Cold, windy", "Packed snow, microspikes", "", "Overnight trip"],
+]
+
+function downloadTemplate() {
+  const q = (v: string) => (/[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v)
+  const csv = [TEMPLATE_HEADER, ...TEMPLATE_ROWS].map((r) => r.map(q).join(",")).join("\r\n") + "\r\n"
+  const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }))
+  const a = document.createElement("a")
+  a.href = url
+  a.download = "hikelog-import-template.csv"
+  a.click()
+  URL.revokeObjectURL(url)
 }
 
 function fmtSize(n: number) {
@@ -100,6 +118,34 @@ export function ImportPanel({ people, defaultPersonId }: { people: { id: number;
 
   return (
     <div className="flex flex-col gap-4">
+      <div className="grid max-w-xl gap-3 rounded-xl p-4 text-sm ring-1 ring-foreground/10">
+        <h3 className="font-medium">What your file should look like</h3>
+        <p className="text-muted-foreground">
+          One row per hike, with column names in the first row. Upload an .xlsx, .xls or .csv file. Capitalization and punctuation in the column names don&apos;t matter.
+        </p>
+        <dl className="grid gap-2">
+          <div>
+            <dt className="font-medium">Required</dt>
+            <dd className="text-muted-foreground">
+              <span className="text-foreground">Date</span> and <span className="text-foreground">Mountain(s)</span>. Separate several peaks with commas.
+            </dd>
+          </div>
+          <div>
+            <dt className="font-medium">Optional</dt>
+            <dd className="text-muted-foreground">Partners, Snow/No Snow, Weather, Trail conditions, Other lists, Notes. Other columns (like Season) are ignored.</dd>
+          </div>
+          <div>
+            <dt className="font-medium">Dates</dt>
+            <dd className="text-muted-foreground">
+              Excel dates work, or type them like <span className="text-foreground tnum">2024-07-04</span> or <span className="text-foreground tnum">7/4/24</span>. For a multi-day hike use a range like <span className="text-foreground tnum">7/4-6/24</span>.
+            </dd>
+          </div>
+        </dl>
+        <p className="text-muted-foreground">Rows that can&apos;t be read are skipped, with the reason shown in the preview. Nothing is saved until you confirm.</p>
+        <Button type="button" variant="outline" size="sm" className="h-11 w-fit md:h-8" onClick={downloadTemplate}>
+          <DownloadIcon /> Download template (.csv)
+        </Button>
+      </div>
       <div className="grid max-w-xl gap-4">
         <Field>
           <FieldLabel htmlFor="xlsx">Spreadsheet (.xlsx, .xls, .csv)</FieldLabel>

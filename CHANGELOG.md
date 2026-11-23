@@ -4,6 +4,9 @@ All notable changes to HikeLog are documented here. The format follows [Keep a C
 
 ## [Unreleased]
 
+### Added
+- Import panel explains the spreadsheet format (required and optional columns, accepted date styles) and offers a downloadable sample .csv template.
+
 ## [0.2.0] - 2026-11-22
 
 ### Added
