@@ -16,6 +16,8 @@ export const plannedInputSchema = z.object({
   name: z.string().trim().min(1, "Give the plan a name").max(200),
   targetDate: dateSchema.nullish(),
   notes: z.string().max(4000).nullish(),
+  /** null / omitted = any season. "winter" plans count only toward Winter-view progress. */
+  season: z.enum(["winter"]).nullish(),
   /** Peak ids in the order planned. */
   peakIds: z.array(z.number().int()).min(1, "Pick at least one peak").max(60),
 })
@@ -28,12 +30,13 @@ export type PlannedHike = {
   name: string
   targetDate: string | null
   notes: string | null
+  season: "winter" | null
   hikeId: number | null
   doneAt: string | null
   peaks: PlannedPeak[]
 }
 
-type Row = { id: number; person_id: number; name: string; target_date: string | null; notes: string | null; hike_id: number | null; done_at: string | null }
+type Row = { id: number; person_id: number; name: string; target_date: string | null; notes: string | null; season: string | null; hike_id: number | null; done_at: string | null }
 
 function hydrate(rows: Row[]): PlannedHike[] {
   if (!rows.length) return []
@@ -50,6 +53,7 @@ function hydrate(rows: Row[]): PlannedHike[] {
     name: r.name,
     targetDate: r.target_date,
     notes: r.notes,
+    season: r.season === "winter" ? "winter" : null,
     hikeId: r.hike_id,
     doneAt: r.done_at,
     peaks: peaks.filter((p) => p.planned_hike_id === r.id).map((p) => ({ id: p.id, slug: p.slug, name: p.name, elevationFt: p.elevation_ft })),
@@ -71,18 +75,19 @@ export function getPlan(id: number): PlannedHike | null {
   return hydrate(all<Row>("SELECT * FROM planned_hikes WHERE id = ?", id))[0] ?? null
 }
 
-function checkPeaks(personId: number, peakIds: number[], exceptPlanId?: number) {
+function checkPeaks(personId: number, peakIds: number[], season: string | null, exceptPlanId?: number) {
   const unique = [...new Set(peakIds)]
   const found = all<{ id: number }>(`SELECT id FROM peaks WHERE id IN (${unique.map(() => "?").join(",")})`, ...unique)
   if (found.length !== unique.length) throw new HikeError("One or more peaks don't exist", undefined, 404)
-  // A peak belongs to at most one open plan per person, so "unplanned" is unambiguous.
+  // A peak belongs to at most one open plan per person and season (a winter plan and an any-season plan may both hold it).
   const clash = get<{ name: string; peak: string }>(
     `SELECT ph.name, p.name peak FROM planned_hike_peaks pp
-       JOIN planned_hikes ph ON ph.id = pp.planned_hike_id AND ph.person_id = ? AND ph.done_at IS NULL AND ph.id IS NOT ?
+       JOIN planned_hikes ph ON ph.id = pp.planned_hike_id AND ph.person_id = ? AND ph.done_at IS NULL AND ph.id IS NOT ? AND ph.season IS ?
        JOIN peaks p ON p.id = pp.peak_id
      WHERE pp.peak_id IN (${unique.map(() => "?").join(",")}) LIMIT 1`,
     personId,
     exceptPlanId ?? null,
+    season,
     ...unique
   )
   if (clash) throw new HikeError(`${clash.peak} is already in the planned hike "${clash.name}"`, undefined, 409)
@@ -99,19 +104,20 @@ export function savePlan(input: unknown, opts: { id?: number; userId: number }):
       if (!cur) throw new HikeError("Planned hike not found", undefined, 404)
       if (cur.done_at) throw new HikeError("This planned hike is already done. Reopen it to edit.", undefined, 409)
     }
-    const peakIds = checkPeaks(v.personId, v.peakIds, planId)
+    const peakIds = checkPeaks(v.personId, v.peakIds, v.season ?? null, planId)
     if (planId == null) {
       planId = Number(
         d
-          .prepare("INSERT INTO planned_hikes (person_id, name, target_date, notes, created_by) VALUES (?,?,?,?,?)")
-          .run(v.personId, v.name, v.targetDate ?? null, v.notes?.trim() || null, opts.userId).lastInsertRowid
+          .prepare("INSERT INTO planned_hikes (person_id, name, target_date, notes, season, created_by) VALUES (?,?,?,?,?,?)")
+          .run(v.personId, v.name, v.targetDate ?? null, v.notes?.trim() || null, v.season ?? null, opts.userId).lastInsertRowid
       )
     } else {
-      d.prepare("UPDATE planned_hikes SET person_id = ?, name = ?, target_date = ?, notes = ?, updated_at = datetime('now') WHERE id = ?").run(
+      d.prepare("UPDATE planned_hikes SET person_id = ?, name = ?, target_date = ?, notes = ?, season = ?, updated_at = datetime('now') WHERE id = ?").run(
         v.personId,
         v.name,
         v.targetDate ?? null,
         v.notes?.trim() || null,
+        v.season ?? null,
         planId
       )
       d.prepare("DELETE FROM planned_hike_peaks WHERE planned_hike_id = ?").run(planId)
@@ -133,7 +139,7 @@ export function setPlanDone(id: number, done: boolean, hikeId?: number | null): 
       d.prepare("UPDATE planned_hikes SET done_at = datetime('now'), hike_id = ?, updated_at = datetime('now') WHERE id = ?").run(hikeId ?? null, id)
     } else {
       // Reopening must not collide with a newer plan that took one of these peaks.
-      checkPeaks(cur.personId, cur.peaks.map((p) => p.id), id)
+      checkPeaks(cur.personId, cur.peaks.map((p) => p.id), cur.season, id)
       d.prepare("UPDATE planned_hikes SET done_at = NULL, hike_id = NULL, updated_at = datetime('now') WHERE id = ?").run(id)
     }
   })

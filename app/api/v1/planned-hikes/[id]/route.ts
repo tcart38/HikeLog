@@ -25,6 +25,7 @@ export const PATCH = withAuth<P>(async (req, { user, params }) => {
     name: cur.name,
     targetDate: cur.targetDate,
     notes: cur.notes,
+    season: cur.season,
     peakIds: cur.peaks.map((p) => p.id),
     ...body,
   }

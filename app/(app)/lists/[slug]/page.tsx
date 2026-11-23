@@ -103,7 +103,8 @@ export default async function ListPage({ params, searchParams }: PageProps<"/lis
   const electivesDone = prog.peaks.filter((p, i) => p.elective && allRows[i].credit >= units).length
   const electivesOpen = list.electives_needed == null || electivesDone < list.electives_needed
   const leftPeaks = prog.peaks.filter((p, i) => allRows[i].credit < units && (!p.elective || electivesOpen))
-  const plans = listPlans(personId)
+  // Winter plans only count in the Winter view; any-season plans count everywhere.
+  const plans = listPlans(personId).filter((p) => view === "winter" || !p.season)
   const leftIds = new Set(leftPeaks.map((p) => p.id))
   const plannedElsewhere = new Set(plans.flatMap((p) => p.peaks.map((k) => k.id)))
   const activePlans = plans.filter((p) => p.peaks.some((k) => leftIds.has(k.id)))
@@ -166,6 +167,7 @@ export default async function ListPage({ params, searchParams }: PageProps<"/lis
         unplanned={unplanned}
         candidates={candidates}
         leftCount={leftPeaks.length}
+        defaultSeason={view === "winter" ? "winter" : null}
         noun={viewNoun}
       />
 

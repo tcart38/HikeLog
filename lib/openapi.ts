@@ -95,6 +95,7 @@ export function buildOpenApi(serverUrl: string): Json {
     }),
     PlannedHike: obj({
       id: int(), personId: int(), name: str(), targetDate: nullable(str("YYYY-MM-DD")), notes: nullable(str()),
+      season: { oneOf: [{ type: "string", enum: ["winter"] }, { type: "null" }], description: "null = any season; winter = counts only toward Winter-view progress" },
       hikeId: nullable(int("Logged hike, once marked done")), doneAt: nullable(str()),
       peaks: arr(obj({ id: int(), slug: str(), name: str(), elevationFt: nullable(int()) })),
     }, ["id", "personId", "name", "peaks"]),
@@ -346,8 +347,8 @@ export function buildOpenApi(serverUrl: string): Json {
       },
       post: {
         tags: ["Planned hikes"], summary: "Plan a hike", operationId: "createPlannedHike",
-        description: "Group peaks into a future outing. A peak can be in only one open plan per person (409 otherwise).",
-        requestBody: body(obj({ personId: int(), name: str(), targetDate: nullable(str("YYYY-MM-DD")), notes: nullable(str()), peakIds: arr(int()) }, ["name", "peakIds"])),
+        description: "Group peaks into a future outing. `season` is null (any season, default) or `winter`. A peak can be in only one open plan per person and season (409 otherwise).",
+        requestBody: body(obj({ personId: int(), name: str(), targetDate: nullable(str("YYYY-MM-DD")), notes: nullable(str()), season: { oneOf: [{ type: "string", enum: ["winter"] }, { type: "null" }] }, peakIds: arr(int()) }, ["name", "peakIds"])),
         responses: { ...ok("Created", obj({ plannedHike: ref("PlannedHike") }), "201"), ...errs("400", "401", "404", "409") },
       },
     },
@@ -357,7 +358,7 @@ export function buildOpenApi(serverUrl: string): Json {
       patch: {
         tags: ["Planned hikes"], summary: "Edit, mark done, or reopen", operationId: "updatePlannedHike",
         description: "Send fields to edit (partial). Or send `{done: true, hikeId}` to mark it done and link the logged hike, or `{done: false}` to reopen it.",
-        requestBody: body(obj({ name: str(), targetDate: nullable(str()), notes: nullable(str()), peakIds: arr(int()), done: { type: "boolean" }, hikeId: nullable(int()) })),
+        requestBody: body(obj({ name: str(), targetDate: nullable(str()), notes: nullable(str()), season: nullable(str()), peakIds: arr(int()), done: { type: "boolean" }, hikeId: nullable(int()) })),
         responses: { ...ok("OK", obj({ plannedHike: ref("PlannedHike") })), ...errs("400", "401", "404", "409") },
       },
       delete: { tags: ["Planned hikes"], summary: "Delete a planned hike", operationId: "deletePlannedHike", responses: { ...ok("Deleted", obj({ ok: { type: "boolean" } })), ...errs("401", "404") } },

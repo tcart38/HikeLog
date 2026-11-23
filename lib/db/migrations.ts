@@ -299,4 +299,7 @@ export const migrations: string[] = [
   );
   CREATE INDEX planned_hike_peaks_peak ON planned_hike_peaks(peak_id);
   `,
+  /* 7: planned hikes can be tied to a season */ `
+  ALTER TABLE planned_hikes ADD COLUMN season TEXT;  -- NULL = any season, 'winter' = counts only toward the Winter view
+  `,
 ]
