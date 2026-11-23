@@ -221,9 +221,17 @@ export function buildOpenApi(serverUrl: string): Json {
     "/api/auth/signup": {
       post: {
         tags: ["Auth"], summary: "Create an account and sign in (sets session cookie)", security: [], operationId: "signup",
-        description: "Only when no users exist yet or ALLOW_SIGNUP=true. The first user becomes admin. Also creates or links a person with the display name.",
+        description: "Only when no users exist yet or an admin has turned on public sign-up (Settings > Account, or ALLOW_SIGNUP=true as the default). The first user becomes admin; later self-registered users are regular users with a new person. Rate limited to 5 attempts per client per hour.",
         requestBody: body(obj({ username: str(undefined, { minLength: 3 }), password: str(undefined, { minLength: 8 }), displayName: str() }, ["username", "password"])),
-        responses: { ...ok("Created", obj({ user: ref("User") }), "201"), ...errs("400", "403", "409") },
+        responses: { ...ok("Created", obj({ user: ref("User") }), "201"), ...errs("400", "403", "409", "429") },
+      },
+    },
+    "/api/v1/settings/signup": {
+      get: { tags: ["Auth"], summary: "Is public sign-up on? (admin)", operationId: "getSignupSetting", responses: { ...ok("OK", obj({ enabled: { type: "boolean" } })), ...errs("401", "403") } },
+      put: {
+        tags: ["Auth"], summary: "Turn public sign-up on or off (admin)", operationId: "setSignupSetting",
+        requestBody: body(obj({ enabled: { type: "boolean" } }, ["enabled"])),
+        responses: { ...ok("Saved", obj({ enabled: { type: "boolean" } })), ...errs("400", "401", "403") },
       },
     },
     "/api/auth/login": {

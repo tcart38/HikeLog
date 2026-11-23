@@ -4,6 +4,14 @@ All notable changes to HikeLog are documented here. The format follows [Keep a C
 
 ## [Unreleased]
 
+### Added
+- Optional public sign-up: a "Create account" page at `/signup`, linked from the sign-in page. Admins turn it on or off in Settings > Account > Sign-up (`GET`/`PUT /api/v1/settings/signup`). Off by default; when off the link is hidden and `POST /api/auth/signup` is rejected server-side.
+- Sign-ups are rate limited (5 per client per hour) and checked for same-origin requests.
+
+### Changed
+- `ALLOW_SIGNUP=true` is now only the default for the new setting; once an admin saves it in Settings, the saved value wins.
+- Self-registered accounts are regular users and always get a new person, so signing up with someone else's name can't attach to their hikes.
+
 ## [0.2.0] - 2026-11-22
 
 ### Added
