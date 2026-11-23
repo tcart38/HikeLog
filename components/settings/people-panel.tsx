@@ -10,10 +10,11 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Field, FieldError, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { Switch } from "@/components/ui/switch"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { api } from "@/lib/client/api"
 
-type P = { id: number; name: string; username: string | null; hikes: number }
+type P = { id: number; name: string; username: string | null; hikes: number; canCompare: boolean }
 type Action = { kind: "add" } | { kind: "rename"; p: P } | { kind: "merge"; p: P } | { kind: "delete"; p: P }
 
 export function PeoplePanel({ people }: { people: P[] }) {
@@ -21,6 +22,7 @@ export function PeoplePanel({ people }: { people: P[] }) {
   const [action, setAction] = React.useState<Action | null>(null)
   const [text, setText] = React.useState("")
   const [target, setTarget] = React.useState("")
+  const [canCompare, setCanCompare] = React.useState(false)
   const [pending, setPending] = React.useState(false)
   const [error, setError] = React.useState<string | null>(null)
 
@@ -29,6 +31,17 @@ export function PeoplePanel({ people }: { people: P[] }) {
     setError(null)
     setText(a.kind === "rename" ? a.p.name : "")
     setTarget("")
+    setCanCompare(false)
+  }
+
+  async function toggleCompare(p: P, value: boolean) {
+    try {
+      await api(`/api/v1/people/${p.id}`, { method: "PATCH", body: { canCompare: value } })
+      toast.success(value ? `You can now compare with ${p.name}` : `${p.name} is now a hiking partner only`)
+      router.refresh()
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Something went wrong.")
+    }
   }
 
   async function run(e: React.FormEvent) {
@@ -37,7 +50,7 @@ export function PeoplePanel({ people }: { people: P[] }) {
     setPending(true)
     setError(null)
     try {
-      if (action.kind === "add") await api("/api/v1/people", { body: { name: text.trim() } })
+      if (action.kind === "add") await api("/api/v1/people", { body: { name: text.trim(), canCompare } })
       if (action.kind === "rename") await api(`/api/v1/people/${action.p.id}`, { method: "PATCH", body: { name: text.trim() } })
       if (action.kind === "merge") await api(`/api/v1/people/${action.p.id}/merge`, { body: { into: Number(target) } })
       if (action.kind === "delete") await api(`/api/v1/people/${action.p.id}${action.p.hikes ? "?force=1" : ""}`, { method: "DELETE" })
@@ -64,12 +77,17 @@ export function PeoplePanel({ people }: { people: P[] }) {
               <div className="flex items-center gap-2">
                 <span className="truncate text-sm font-medium">{p.name}</span>
                 {p.username && <Badge variant="secondary">Has login</Badge>}
+                {p.canCompare && <Badge variant="outline">Compare</Badge>}
               </div>
               <div className="text-xs text-muted-foreground tnum">
                 {p.hikes} {p.hikes === 1 ? "hike" : "hikes"}
               </div>
             </div>
             <div className="flex shrink-0 items-center">
+              <label className="flex min-h-10 items-center gap-2 pr-2 text-xs text-muted-foreground md:min-h-8">
+                <span className="hidden sm:inline">Compare</span>
+                <Switch size="sm" checked={p.canCompare} onCheckedChange={(v) => toggleCompare(p, v)} aria-label={`Compare with ${p.name}`} />
+              </label>
               <Button variant="ghost" size="icon" className="size-10 md:size-8" aria-label={`Rename ${p.name}`} onClick={() => openAction({ kind: "rename", p })}>
                 <PencilIcon />
               </Button>
@@ -103,6 +121,15 @@ export function PeoplePanel({ people }: { people: P[] }) {
               <Field>
                 <FieldLabel htmlFor="person-name">Name</FieldLabel>
                 <Input id="person-name" value={text} onChange={(e) => setText(e.target.value)} required autoFocus className="h-11 md:h-8" />
+              </Field>
+            )}
+            {action?.kind === "add" && (
+              <Field orientation="horizontal">
+                <Switch id="person-compare" checked={canCompare} onCheckedChange={setCanCompare} />
+                <FieldLabel htmlFor="person-compare" className="flex-col items-start gap-0.5">
+                  Compare with this person
+                  <span className="text-xs font-normal text-muted-foreground">Off: just a hiking partner. On: also appears in Compare and Stats.</span>
+                </FieldLabel>
               </Field>
             )}
             {action?.kind === "merge" && (

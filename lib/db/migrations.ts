@@ -276,4 +276,9 @@ export const migrations: string[] = [
     PRIMARY KEY (user_id, provider)
   );
   `,
+  /* 6: two kinds of people: plain hiking partners and people you can compare progress with */ `
+  ALTER TABLE people ADD COLUMN can_compare INTEGER NOT NULL DEFAULT 0;      -- 1 = shows up in compare pickers
+  -- Existing people keep working: anyone with a login (the account holders) stays comparable. Everyone else becomes a plain partner.
+  UPDATE people SET can_compare = 1 WHERE id IN (SELECT person_id FROM users WHERE person_id IS NOT NULL);
+  `,
 ]

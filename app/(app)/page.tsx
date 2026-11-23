@@ -42,6 +42,7 @@ export default async function Dashboard({ searchParams }: PageProps<"/">) {
   const people = listPeople()
   const me = people.find((p) => p.id === user.person_id)
   const others = people.filter((p) => p.id !== me?.id)
+  const comparable = others.filter((p) => p.can_compare)
   const total = hikeCount()
 
   const vis = listVisibility(prefs, me?.id ?? null)
@@ -193,14 +194,14 @@ export default async function Dashboard({ searchParams }: PageProps<"/">) {
                 >
                   Your lists <ArrowRightIcon className="size-3.5" />
                 </Link>
-                {others.length > 0 && (
+                {comparable.length > 0 && (
                   <Link
-                    href={`/compare?list=nh-48&mode=winter&people=${[me?.id, others[0].id].filter(Boolean).join(",")}`}
+                    href={`/compare?list=nh-48&mode=winter&people=${[me?.id, comparable[0].id].filter(Boolean).join(",")}`}
                     className="inline-flex min-h-9 items-center gap-1.5 text-sm font-medium text-primary hover:underline"
                   >
                     <GitCompareArrowsIcon className="size-4" /> What do{" "}
                     {me?.name.split(" ")[0] ?? "we"} and{" "}
-                    {others[0].name.split(" ")[0]} both still need?
+                    {comparable[0].name.split(" ")[0]} both still need?
                   </Link>
                 )}
               </div>

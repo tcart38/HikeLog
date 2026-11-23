@@ -27,7 +27,7 @@ export default async function StatsPage({ searchParams }: PageProps<"/stats">) {
   const withHikes = people.filter((p) => p.hikes > 0)
   const asNum = (v: string | undefined) => (v && /^\d+$/.test(v) ? Number(v) : null)
   const personId = people.find((p) => p.id === asNum(one(sp.person)))?.id ?? user.person_id ?? withHikes[0]?.id ?? people[0]?.id
-  const withId = people.find((p) => p.id === asNum(one(sp.with)))?.id ?? null
+  const withId = people.find((p) => p.can_compare && p.id !== personId && p.id === asNum(one(sp.with)))?.id ?? null
   const year = asNum(one(sp.year))
   const stats = personId ? getStats({ personId, withId, year }) : null
 
@@ -48,7 +48,7 @@ export default async function StatsPage({ searchParams }: PageProps<"/stats">) {
       <PageHeader
         title={`${first}'s stats`}
         description={compare ? `${core.person.name} against ${compare.person.name}, where a comparison makes sense.` : "How the hiking is going, and how close each list is to done."}
-        actions={<StatsControls personId={core.person.id} withId={compare?.person.id ?? null} year={core.year} people={people.map((p) => ({ id: p.id, name: p.name }))} years={core.years} />}
+        actions={<StatsControls personId={core.person.id} withId={compare?.person.id ?? null} year={core.year} people={people.map((p) => ({ id: p.id, name: p.name, canCompare: p.can_compare }))} years={core.years} />}
       />
 
       {core.kpis.hikes === 0 ? (

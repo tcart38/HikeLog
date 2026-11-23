@@ -11,9 +11,9 @@ export default async function SettingsPeoplePage() {
   const people = listPeople()
   return (
     <>
-      <PageHeader title="People" description="Everyone who hikes with you. Merge duplicates, or add friends before they have a login." />
+      <PageHeader title="People" description="Everyone who hikes with you. Hiking partners are just recorded on hikes. Turn on Compare for the people you also want to compare progress with." />
       <div className="max-w-3xl">
-        <PeoplePanel people={people.map((p) => ({ id: p.id, name: p.name, username: p.username, hikes: p.hikes }))} />
+        <PeoplePanel people={people.map((p) => ({ id: p.id, name: p.name, username: p.username, hikes: p.hikes, canCompare: p.can_compare }))} />
       </div>
     </>
   )
